@@ -435,7 +435,7 @@ export default function WealthHealthPage() {
                     tick={{ fill: "#111827", fontWeight: 500, fontSize: 13 }}
                   />
                   <Tooltip
-                    formatter={(value: number) => [`${value}%`, "Score"]}
+                    formatter={(value) => [`${value as number}%`, "Score"]}
                     cursor={{ fill: "rgba(176,125,61,0.08)" }}
                   />
                   <Bar dataKey="score" radius={[8, 8, 8, 8]}>

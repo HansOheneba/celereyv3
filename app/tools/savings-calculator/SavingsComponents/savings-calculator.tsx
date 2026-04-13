@@ -346,8 +346,8 @@ export default function SavingsCalculator() {
                       borderRadius: "8px",
                       color: "#334155",
                     }}
-                    formatter={(value: number) =>
-                      `$${Math.round(value).toLocaleString("en-US")}`
+                    formatter={(value) =>
+                      `$${Math.round(value as number).toLocaleString("en-US")}`
                     }
                   />
                   <Legend />

@@ -13,7 +13,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  PieLabelRenderProps,
+  type PieLabelRenderProps,
 } from "recharts";
 
 interface BudgetItem {
@@ -60,7 +60,7 @@ export default function BudgetSummary({
   );
   const hasData = hasIncome || hasExpenses;
 
-  const pieChartData = expenseCategories
+  const pieChartData: PieChartData[] = expenseCategories
     .map((cat) => {
       const total = cat.items.reduce((sum, item) => {
         const converted = convertToFrequency(
@@ -158,9 +158,7 @@ export default function BudgetSummary({
     if (balance > 0) {
       return {
         title: "Surplus",
-        description: `You have $${balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} left ${prettyFrequency(
-          frequency,
-        )}.`,
+        description: `You have $${balance.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} left ${prettyFrequency(frequency)}.`,
         color: "text-emerald-600",
         bgColor: "bg-green-50",
         borderColor: "border-emerald-300",
@@ -176,9 +174,7 @@ export default function BudgetSummary({
     } else {
       return {
         title: "Balanced",
-        description: `Your income and expenses are evenly matched ${prettyFrequency(
-          frequency,
-        )}.`,
+        description: `Your income and expenses are evenly matched ${prettyFrequency(frequency)}.`,
         color: "text-blue-600",
         bgColor: "bg-blue-50",
         borderColor: "border-blue-300",
@@ -235,7 +231,10 @@ export default function BudgetSummary({
                       border: "1px solid #E5E7EB",
                     }}
                     formatter={(value) => [
-                      `$${Number(value).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`,
+                      `$${Number(value).toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })}`,
                       "Amount",
                     ]}
                   />
@@ -267,12 +266,9 @@ export default function BudgetSummary({
                       cx="50%"
                       cy="50%"
                       labelLine={false}
-                      label={(props: PieLabelRenderProps) => {
-                        const dataPoint = props.payload as PieChartData;
-                        return `${
-                          dataPoint.name
-                        }: ${dataPoint.percentage.toFixed(1)}%`;
-                      }}
+                      label={({ name, percent }: PieLabelRenderProps) =>
+                        `${name ?? ""}: ${((percent ?? 0) * 100).toFixed(1)}%`
+                      }
                       outerRadius={85}
                       dataKey="value"
                     >
@@ -285,11 +281,11 @@ export default function BudgetSummary({
                         backgroundColor: "#FFFFFF",
                         border: "1px solid #E5E7EB",
                       }}
-                      formatter={(value: number, name: string) => [
-                        `$${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} (${(
-                          (value / totalIncome) *
-                          100
-                        ).toFixed(1)}%)`,
+                      formatter={(value, name) => [
+                        `$${(value as number).toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })} (${(((value as number) / totalIncome) * 100).toFixed(1)}%)`,
                         name,
                       ]}
                     />
@@ -298,7 +294,7 @@ export default function BudgetSummary({
                 </ResponsiveContainer>
               ) : (
                 <div className="h-48 flex items-center justify-center text-gray-400">
-                  Add your expenses to see how they’re distributed.
+                  Add your expenses to see how they&apos;re distributed.
                 </div>
               )}
             </Card>
@@ -404,8 +400,7 @@ export default function BudgetSummary({
             Great start! Now add your expenses
           </h3>
           <p className="text-gray-500">
-            You’ve entered your income. Add your expenses to see how they
-            compare and get personalized budgeting insights.
+            You&apos;ve entered your income. Add your expenses to see how they&apos;re distributed and get personalized budgeting insights.
           </p>
         </Card>
       )}
@@ -447,6 +442,7 @@ function convertToFrequency(
       return annualAmount;
   }
 }
+
 function getChartColor(tailwindColor: string): string {
   const colorMap: Record<string, string> = {
     "bg-slate-700": "#64748B",

@@ -569,7 +569,7 @@ export default function WealthScan() {
                 transition={{ duration: 0.25 }}
                 className="text-center px-2"
               >
-                <div className="min-h-[72px] flex items-center justify-center px-2">
+                <div className="min-h-18 flex items-center justify-center px-2">
                   <h3 className="md:text-lg text-base font-semibold text-blue-950 text-center">
                     {current.question}
                   </h3>
