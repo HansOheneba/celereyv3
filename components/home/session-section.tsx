@@ -2,10 +2,10 @@ import { Button } from '@/components/ui/button';
 
 export function SessionSection() {
   return (
-    <section className="py-20 md:px-24 px-6">
+    <section className="py-20 md:py-32 md:px-24 px-6">
       <div className=" mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-          <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wide">Starting point</p>
+          <p className="text-sm font-bold text-muted-foreground mb-4 tracking-wide">Starting point</p>
           <h2 className="text-4xl md:text-5xl font-light leading-tight mb-6">
             Private 45 minute session
           </h2>
@@ -13,7 +13,7 @@ export function SessionSection() {
             A focused session to help you make smarter financial decisions with clarity.
           </p>
 
-          <div className="space-y-8 mb-12">
+          <div className="space-y-8 mb-12 md:flex md:items-start md:gap-12">
             <div>
               <p className="text-2xl font-semibold mb-2">$100</p>
               <p className="text-muted-foreground">
@@ -30,7 +30,7 @@ export function SessionSection() {
             </div>
           </div>
 
-          <Button>Book now</Button>
+          <Button>Book your session</Button>
         </div>
 
         <div className="bg-muted rounded-2xl h-96 md:h-full min-h-96"></div>

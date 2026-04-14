@@ -7,6 +7,7 @@ import { DecisionsSection } from "@/components/home//decisions-section";
 import { InsightsSection } from "@/components/home//insights-section";
 import { TeamSection } from "@/components/home//team-section";
 import { CTASection } from "@/components/home//cta-section";
+import { AdvisorsSection } from "@/components/home/advisors-section";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <StepsSection />
       <SessionSection />
       <DecisionsSection />
+      <AdvisorsSection />
       <InsightsSection />
       <TeamSection />
       <CTASection />

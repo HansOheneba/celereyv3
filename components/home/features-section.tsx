@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { ChevronRight, ChevronsLeftRight } from "lucide-react";
 
 const leftFeatures = [
   {
@@ -13,8 +14,7 @@ const leftFeatures = [
   {
     icon: "/icons/coins.png",
     title: "Get my finances organised",
-    description:
-      "Sort through what matters and build a foundation that works.",
+    description: "Sort through what matters and build a foundation that works.",
     href: "/services",
   },
   {
@@ -36,6 +36,8 @@ const leftFeatures = [
 export function FeaturesSection() {
   return (
     <section className="py-24 px-6 bg-white">
+
+      
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -55,7 +57,7 @@ export function FeaturesSection() {
               {leftFeatures.map((feature) => (
                 <Card
                   key={feature.title}
-                  className="bg-gray-50 border-0 rounded-2xl p-6 flex flex-col justify-between min-h-[220px] hover:bg-gray-100 transition-colors"
+                  className="bg-gray-50 border-0 rounded-2xl p-6 flex flex-col justify-between min-h-55 transition-colors"
                 >
                   <CardContent className="p-0 flex flex-col gap-4 h-full">
                     {/* Icon */}
@@ -64,15 +66,16 @@ export function FeaturesSection() {
                         src={feature.icon}
                         alt={feature.title}
                         fill
+                        sizes="32px"
                         className="object-contain"
                       />
                     </div>
 
                     {/* Text */}
                     <div className="flex-1">
-                      <h3 className="text-base font-medium text-gray-900 mb-2 leading-snug">
+                      <CardTitle className="font-semibold mb-2 leading-snug text-gray-900">
                         {feature.title}
-                      </h3>
+                      </CardTitle>
                       <p className="text-gray-500 text-sm leading-relaxed">
                         {feature.description}
                       </p>
@@ -84,7 +87,7 @@ export function FeaturesSection() {
                       className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 hover:gap-2 transition-all"
                     >
                       Explore
-                      <span className="text-base leading-none">›</span>
+                      <ChevronRight className="h-4" />
                     </a>
                   </CardContent>
                 </Card>
@@ -93,9 +96,9 @@ export function FeaturesSection() {
           </div>
           <div className="flex flex-col gap-6">
             {/* Image */}
-            <div className="relative w-full aspect-[4/3] bg-gray-200 rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-4/3 bg-gray-200 rounded-2xl overflow-hidden">
               <div className="absolute inset-0 flex items-center justify-center">
-                {/* Replace with your actual image */}
+          
                 <svg
                   className="w-16 h-16 text-gray-400"
                   fill="none"
@@ -131,9 +134,7 @@ export function FeaturesSection() {
                 financial life.
               </p>
               <div className="flex items-center gap-5">
-                <Button variant={"outline"}>
-                  Book
-                </Button>
+                <Button variant={"outline"} className="px-10">Book</Button>
                 <a
                   href="/services"
                   className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 hover:gap-2 transition-all"

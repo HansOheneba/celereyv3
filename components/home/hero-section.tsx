@@ -12,8 +12,8 @@ export function HeroSection() {
             Whether you are planning for property, family, investing or retirement, Celerey helps you make clear financial decisions with expert guidance and clear next steps
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button>Get Started</Button>
-            <Button variant="outline">Learn</Button>
+            <Button>Book a session</Button>
+            <Button variant="outline" className='px-10'>Learn</Button>
           </div>
         </div>
         <div className="bg-muted rounded-2xl min-h-[70vh] md:h-full"></div>

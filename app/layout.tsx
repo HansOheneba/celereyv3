@@ -34,6 +34,11 @@ const ppCirka = localFont({
       weight: "600",
       style: "normal",
     },
+    {
+      path: "./fonts/ppcirka/cirka-bold.otf",
+      weight: "700",
+      style: "normal",
+    },
   ],
   variable: "--font-pp-cirka",
 });

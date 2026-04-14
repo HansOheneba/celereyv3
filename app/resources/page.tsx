@@ -39,14 +39,14 @@ const resourceCategories: ResourceCategory[] = [
 
 export default function ResourcesPage() {
   return (
-    <section className="bg-white min-h-screen">
-      <div className="max-w-6xl mx-auto px-6  md:py-24">
+    <section className="bg-white py-10">
+      <div className="md:px-24 mx-auto px-6  md:py-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 pb-10"
         >
           <h1 className="text-4xl md:text-5xl font-semibold text-gray-900">
             Resources
@@ -58,8 +58,8 @@ export default function ResourcesPage() {
         </motion.div>
 
         {/* Cards (styled like your screenshot) */}
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+        <div className="mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-16">
             {resourceCategories.map((category, index) => (
               <motion.div
                 key={category.title}
