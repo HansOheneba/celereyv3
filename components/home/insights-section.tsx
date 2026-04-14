@@ -104,27 +104,29 @@ const insightItems: InsightsItem[] = [
 const podcastItems: PodcastItem[] = [
   {
     kind: "podcast",
-    title: "Building Wealth That Lasts",
+    title:
+      "What Surviving a Plane Crash Teaches You About Risk | Francis Gyechie",
     description:
-      "A candid conversation about creating lasting financial security and making your money work harder for you.",
+      "Francis Gyechie — education leader, institution builder, founder, and father of four — survived a plane crash landing. And what that experience gave him was something no boardroom, business school, or financial model ever could: a completely different understanding of what risk really means.",
     embedId: "B5-jYW4fj6g",
     date: "2026-02-10",
     tags: ["Wealth", "Strategy"],
   },
   {
     kind: "podcast",
-    title: "Navigating Markets With Confidence",
+    title:
+      "From Breaking Things to Building Financial Systems | Tarek Mouganie, PhD (Affinity Africa)",
     description:
-      "How to stay grounded and make sound investment decisions even during periods of uncertainty.",
+      "In this episode of CelereyPod, we sit down with Tarek Mouganie, PhD, Founder of Affinity Africa, for a thoughtful and deeply reflective conversation on building, risk, and rethinking financial systems.",
     embedId: "tgRSVw5Dtq8",
     date: "2026-01-28",
     tags: ["Markets", "Investing"],
   },
   {
     kind: "podcast",
-    title: "The Mindset Behind Financial Freedom",
+    title: "Meet the Hosts of The Celerey Pod",
     description:
-      "Exploring the habits and beliefs that separate those who build wealth from those who don&apos;t.",
+      "In this episode, we’re introducing the hosts and sharing the vision behind the podcast. Celerey Pod is a space for thoughtful conversations around wealth planning, business strategy, entrepreneurship, risk, and the decisions that shape our professional and personal lives.",
     embedId: "ud7hy_mf3JE",
     date: "2026-01-15",
     tags: ["Mindset", "Freedom"],
@@ -143,7 +145,7 @@ function dateLine(d?: string): string | null {
 }
 
 export function InsightsSection() {
-  const [activeTab, setActiveTab] = useState<TabKey>("story");
+  const [activeTab, setActiveTab] = useState<TabKey>("podcasts");
 
   const content: ContentItem[] =
     activeTab === "story"
@@ -169,18 +171,19 @@ export function InsightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="mb-12 md:mb-16"
+          className="mb-12 md:mb-16 flex flex-col items-center text-center gap-4"
         >
-          <h2 className="text-5xl font-light mb-4 leading-tight text-gray-900">
+          <h2 className="text-5xl font-light mb-4 leading-tight text-gray-900 ">
             Thoughtful guidance for your future
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
             Ideas worth considering as you shape what comes next.
           </p>
 
+
           {/* Tabs */}
           <div className="mt-10 flex flex-wrap gap-8">
-            {(["story", "insights", "podcasts"] as TabKey[]).map((tab) => (
+            {(["podcasts", "story", "insights"] as TabKey[]).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -241,29 +244,12 @@ export function InsightsSection() {
 
                       {/* Text */}
                       <div className="mt-5">
-                        {dateLine(item.date) && (
-                          <span className="text-sm text-gray-500">
-                            {dateLine(item.date)}
-                          </span>
-                        )}
-                        <h3 className="mt-2 text-lg font-medium text-gray-900 line-clamp-2">
+                        <h3 className="text-lg font-medium text-gray-900 line-clamp-2">
                           {item.title}
                         </h3>
                         <p className="mt-1.5 text-gray-600 text-sm leading-relaxed line-clamp-3">
                           {item.description}
                         </p>
-                        {item.tags?.length ? (
-                          <div className="mt-3 flex flex-wrap gap-2">
-                            {item.tags.slice(0, 3).map((tag) => (
-                              <span
-                                key={tag}
-                                className="text-xs text-gray-600 bg-gray-100 rounded-full px-3 py-1"
-                              >
-                                {tag}
-                              </span>
-                            ))}
-                          </div>
-                        ) : null}
                       </div>
                     </motion.article>
                   );
