@@ -23,7 +23,7 @@ function AdvisorCardImage({ src, alt }: { src?: string; alt: string }) {
       src={imgSrc}
       alt={alt}
       fill
-      className="object-cover"
+      className="object-cover object-top"
       sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
       onError={() => setImgSrc(fallback)}
     />
@@ -33,7 +33,7 @@ function AdvisorCardImage({ src, alt }: { src?: string; alt: string }) {
 function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <section className="min-h-screen bg-[#fbfaf8]">
-      <div className="mx-auto w-full max-w-[90rem] px-6 py-20 sm:py-24">
+      <div className="mx-auto w-full md:px-24 px-6 py-20 sm:py-24">
         {children}
       </div>
     </section>
@@ -99,7 +99,7 @@ export default function AdvisorsPage() {
       </div>
 
       {/* Header */}
-      <div className="max-w-3xl">
+      <div className="max-w-3xl mx-auto text-center">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,23 +124,12 @@ export default function AdvisorsPage() {
           transition={{ delay: 0.15, duration: 0.6 }}
           className="mt-5 text-sm leading-7 text-neutral-600"
         >
-          Celerey is built to democratize access to high-quality financial
-          advisory. The kind of guidance that is typically reserved for private
-          banking and the most connected circles is being made available through
-          a simpler, more transparent experience.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.22, duration: 0.6 }}
-          className="mt-4 text-sm leading-7 text-neutral-600"
-        >
-          Our advisory council brings globally certified experience across
-          private banking, capital markets, institutional finance, corporate
-          law, executive leadership, and international property. Their role is
-          to help shape our standards, strengthen our frameworks, and keep our
-          advice grounded in real-world discipline.
+          Celerey makes high-quality financial advisory accessible, delivering
+          insights once reserved for private banking through a simpler, more
+          transparent experience.
+       
+          Guided by experts across finance, law, and global markets, our
+          standards stay practical, disciplined, and real-world focused.
         </motion.p>
 
         <motion.p
@@ -150,17 +139,15 @@ export default function AdvisorsPage() {
           className="mt-6 text-sm leading-7 text-neutral-900"
         >
           <span className="font-medium">
-            You are getting global-grade guidance without needing an elite
-            network.
-          </span>{" "}
-          That is the point.
+            Global-grade guidance, without the need for an elite network.
+          </span>
         </motion.p>
 
-        <div className="mt-8 h-px w-24 bg-neutral-900/10" />
+
       </div>
 
       {/* Advisors grid */}
-      <div className="mt-16 grid gap-y-16 gap-x-12 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-16 px-10 grid gap-y-16 gap-x-12 md:grid-cols-2">
         {orderedAdvisors.map((advisor, i) => {
           const tags = (advisor.expertise ?? []).slice(0, 3);
 
@@ -174,7 +161,7 @@ export default function AdvisorsPage() {
             >
               {/* Image */}
               <div className="relative overflow-hidden rounded-[22px]">
-                <div className="relative h-[240px] w-full sm:h-[260px]">
+                <div className="relative h-[240px] w-full sm:h-[400px]">
                   <AdvisorCardImage src={advisor.image} alt={advisor.name} />
                 </div>
               </div>
