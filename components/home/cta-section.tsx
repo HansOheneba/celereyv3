@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button';
 
 export function CTASection() {
   return (
-    <section className="py-20 px-6 bg-foreground text-background">
+    <section className="py-20 px-6 bg-primary text-background">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-5xl font-light leading-tight mb-6">
           You don&apos;t have to figure it all out alone
