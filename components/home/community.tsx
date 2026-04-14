@@ -106,7 +106,7 @@ export default function Community() {
               required
               disabled={isSubmitting}
               className={[
-                "h-12 flex-1 rounded-full bg-white px-5 text-sm text-neutral-900",
+                "h-10 flex-1 rounded-md bg-white px-5 text-sm text-neutral-900",
                 "ring-1 ring-black/10 outline-none",
                 "placeholder:text-neutral-500",
                 "focus:ring-2 focus:ring-blue-600/40",
