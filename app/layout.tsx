@@ -130,14 +130,15 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Celerey",
     description: "Personalized wealth planning platform",
-    url: "https://yourdomain.com",
+    url: "https://www.celerey.co",
     siteName: "Celerey",
     images: [
       {
         url: "/logos/logoDark.png",
         width: 1200,
-        height: 630,
+        height: "auto",
         alt: "Celerey",
+        
       },
     ],
     type: "website",

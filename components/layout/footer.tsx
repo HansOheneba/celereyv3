@@ -100,7 +100,7 @@ export default function Footer() {
                     width={140}
                     height={44}
                     priority
-                    style={{ height: "auto" }}
+                   className="w-24 h-auto"
                   />
                 </Link>
                 <p className="mt-4 text-sm leading-7 text-white/70 sm:text-base">

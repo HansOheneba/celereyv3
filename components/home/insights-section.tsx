@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FileText, ArrowDownToLine, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 type StoryItem = {
   kind: "story";
@@ -360,13 +361,15 @@ export function InsightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.45 }}
           viewport={{ once: true }}
-          className="mt-16"
+          className="mt-16 flex justify-center"
         >
           <Link
             href="/resources"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
           >
-            View more <span aria-hidden>&#8594;</span>
+          <Button variant={"outline"}>            View all resources
+
+          </Button>
           </Link>
         </motion.div>
       </div>
