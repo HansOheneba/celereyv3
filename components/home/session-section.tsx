@@ -1,23 +1,24 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
 export function SessionSection() {
   return (
     <section className="py-20 md:py-32 md:px-24 px-6 bg-[#354A49]">
-      <div className=" mx-auto grid grid-cols-1 min-h-[60vh] md:grid-cols-2 gap-12 items-center text-white">
-        <div>
+      <div className="mx-auto grid min-h-[60vh] max-w-7xl grid-cols-1 items-center gap-10 text-white md:grid-cols-2 md:gap-12">
+        <Reveal>
           <p className="text-sm font-bold text-[#CDE6AF] mb-4 tracking-wide">
             Starting point
           </p>
-          <h2 className="text-4xl  md:text-5xl font-light leading-tight mb-6">
+          <h2 className="text-3xl font-light leading-tight mb-6 sm:text-4xl md:text-5xl">
             Private 45 minute session
           </h2>
-          <p className="text-lg mb-8 leading-relaxed">
+          <p className="text-base mb-8 leading-relaxed sm:text-lg">
             A focused session to help you make smarter financial decisions with
             clarity.
           </p>
 
-          <div className="space-y-8 mb-12 md:flex md:items-start md:gap-12">
+          <div className="mb-12 grid gap-8 sm:grid-cols-2">
             <div>
               <p className="text-2xl font-semibold mb-2 text-[#CDE6AF]">$100</p>
               <p className="">
@@ -34,12 +35,12 @@ export function SessionSection() {
             </div>
           </div>
 
-          <Button className="bg-[#CDE6AF] text-gray-800 hover:bg-[#CDE6AF]/50">
+          <Button className="w-full bg-[#CDE6AF] text-gray-800 hover:bg-[#CDE6AF]/50 sm:w-auto">
             Book your session
           </Button>
-        </div>
+        </Reveal>
 
-        <div className="relative rounded-2xl overflow-hidden h-96 md:h-full min-h-96">
+        <InteractiveImage className="relative h-80 min-h-80 overflow-hidden rounded-2xl sm:h-96 sm:min-h-96 md:h-full">
           <Image
             src="/homepage/man-waving.png"
             alt="Financial planning workspace"
@@ -49,7 +50,7 @@ export function SessionSection() {
           />
 
           <div className="absolute inset-0 bg-black/10" />
-        </div>
+        </InteractiveImage>
       </div>
     </section>
   );

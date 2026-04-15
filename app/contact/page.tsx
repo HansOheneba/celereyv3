@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { InteractiveImage } from "@/components/motion/reveal";
 
 export default function ContactPage() {
   const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL;
@@ -97,14 +98,14 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-primary py-42 px-6">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+    <section className="min-h-screen bg-gradient-to-b from-white to-slate-50 px-6 py-24 text-primary sm:py-32">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:gap-16 items-center">
         {/* Left Side — Image / Visual */}
-        <motion.div
+        <InteractiveImage
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative h-[450px] w-full rounded-2xl overflow-hidden shadow-md"
+          className="relative h-[320px] w-full overflow-hidden rounded-2xl shadow-md sm:h-[450px]"
         >
           <Image
             src="/contact/wealth.jpg"
@@ -124,14 +125,14 @@ export default function ContactPage() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </InteractiveImage>
 
         {/* Right Side — Contact Form */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="bg-white p-8 rounded-2xl shadow-md border border-gray-100"
+          className="rounded-2xl border border-gray-100 bg-white p-6 shadow-md sm:p-8"
         >
           <h1 className="text-3xl font-semibold mb-4">
             Contact <span className="text-[#D4AF37]">Celerey</span>
@@ -250,7 +251,7 @@ export default function ContactPage() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto mt-28 text-center"
+        className="mx-auto mt-20 max-w-4xl text-center sm:mt-28"
       >
         <h2 className="text-3xl font-semibold mb-4">
           Let&apos;s Build Your Financial Future — Together

@@ -134,7 +134,7 @@ export default function Community() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-6 font-serif text-4xl text-neutral-900 sm:text-5xl md:text-6xl"
+          className="mt-6 font-serif text-3xl text-neutral-900 sm:text-5xl md:text-6xl"
         >
           <span className="block">Build wealth with</span>
           <span className="block italic">confidence and intention</span>
@@ -164,9 +164,9 @@ export default function Community() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="h-10 flex-1 rounded-md bg-white px-5 text-sm text-neutral-900 ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-blue-600/40"
+                className="h-11 flex-1 rounded-md bg-white px-5 text-sm text-neutral-900 ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-blue-600/40"
               />
-              <Button type="submit">Join</Button>
+              <Button type="submit" className="h-11 w-full sm:w-auto">Join</Button>
             </form>
           )}
 

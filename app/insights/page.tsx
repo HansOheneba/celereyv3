@@ -7,6 +7,7 @@ import Link from "next/link";
 import { insights, Insight } from "@/lib/insights";
 import { Button } from "@/components/ui/button";
 import { PlayCircle, X } from "lucide-react";
+import { InteractiveImage } from "@/components/motion/reveal";
 
 interface Podcast {
   id: number;
@@ -73,7 +74,7 @@ export default function InsightsPage() {
   }, [activeTab, apiBase]);
 
   return (
-    <section className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white py-42 px-6">
+    <section className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white px-6 py-24 sm:py-32">
       <div className="max-w-6xl mx-auto text-center">
         {/* Header */}
         <motion.h1
@@ -92,7 +93,7 @@ export default function InsightsPage() {
         </p>
 
         {/* Tabs */}
-        <div className="flex justify-center gap-6 mb-16">
+        <div className="mb-12 flex flex-wrap justify-center gap-4 sm:mb-16 sm:gap-6">
           {["insights", "podcasts"].map((tab) => (
             <button
               key={tab}
@@ -154,7 +155,7 @@ export default function InsightsPage() {
                       className="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
                     >
                       {/* Image Section */}
-                      <div className="relative w-full h-56 overflow-hidden flex-shrink-0">
+                      <InteractiveImage className="relative h-56 w-full overflow-hidden flex-shrink-0">
                         {imageSrc ? (
                           <Image
                             src={imageSrc}
@@ -183,7 +184,7 @@ export default function InsightsPage() {
                             <PlayCircle className="text-white w-14 h-14 drop-shadow-lg" />
                           </div>
                         )}
-                      </div>
+                      </InteractiveImage>
 
                       {/* Text Section */}
                       <div className="p-6 flex flex-col flex-1 text-left">
@@ -220,7 +221,7 @@ export default function InsightsPage() {
                               </Button>
                             </Link>
                           ) : (
-                            <div className="flex gap-2">
+                            <div className="flex flex-col gap-2 sm:flex-row">
                               <Button
                                 className="bg-primary hover:bg-primary/80 text-white rounded-full text-sm px-5 flex-1"
                                 onClick={() => setSelectedPodcast(item)}

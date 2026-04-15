@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ADVISORS, type Advisor } from "@/lib/advisor-data";
+import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
 const BIO_LIMIT = 120;
 
@@ -23,9 +24,9 @@ function AdvisorRow({ advisor }: { advisor: Advisor }) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="grid grid-cols-[1fr_auto] gap-4 items-start py-10 border-b border-gray-100 last:border-0">
+    <Reveal className="grid items-start gap-6 border-b border-gray-100 py-10 last:border-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-4">
       {/* Image */}
-      <div className="relative w-full aspect-4/3 max-w-[280px] bg-gray-200 rounded-2xl overflow-hidden shrink-0">
+      <InteractiveImage className="relative w-full max-w-full aspect-[4/3] overflow-hidden rounded-2xl bg-gray-200 shrink-0 sm:max-w-[280px]">
         {!imgError && advisor.image ? (
           <Image
             src={advisor.image}
@@ -52,10 +53,10 @@ function AdvisorRow({ advisor }: { advisor: Advisor }) {
             </svg>
           </div>
         )}
-      </div>
+      </InteractiveImage>
 
       {/* Text */}
-      <div className="flex flex-col gap-3 max-w-xs pt-1">
+      <div className="flex max-w-none flex-col gap-3 pt-1 sm:max-w-xs">
         <div>
           <h3 className="text-xl font-semibold text-gray-900">
             {advisor.name}
@@ -74,7 +75,7 @@ function AdvisorRow({ advisor }: { advisor: Advisor }) {
           Learn More
         </Link>
       </div>
-    </div>
+    </Reveal>
   );
 }
 
@@ -96,11 +97,11 @@ export function AdvisorsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-start">
           {/* LEFT: sticky heading block */}
-          <div className="lg:sticky lg:top-28 pt-10">
+          <Reveal className="pt-2 lg:sticky lg:top-28 lg:pt-10">
             <p className="text-xs font-bold tracking-widest text-gray-900 mb-4">
               Expert Guidance
             </p>
-            <h2 className="font-cirka text-4xl md:text-5xl font-light text-gray-900 leading-tight mb-6">
+            <h2 className="font-cirka text-3xl font-light text-gray-900 leading-tight mb-6 sm:text-4xl md:text-5xl">
               Meet the people behind the guidance
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">
@@ -114,7 +115,7 @@ export function AdvisorsSection() {
             >
               <Link href="/advisors">Meet all Advisors</Link>
             </Button>
-          </div>
+          </Reveal>
 
           {/* RIGHT: scrolling advisor list */}
           <div className="divide-y divide-gray-100">

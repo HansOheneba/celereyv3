@@ -112,13 +112,13 @@ export default function Footer() {
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link
                     href="/contact"
-                    className="inline-flex h-11 items-center justify-center rounded-full border border-white/18 bg-transparent px-6 text-sm font-medium text-white/90 transition hover:border-white/28 hover:bg-white/5"
+                    className="inline-flex h-11 w-full items-center justify-center rounded-full border border-white/18 bg-transparent px-6 text-sm font-medium text-white/90 transition hover:border-white/28 hover:bg-white/5 sm:w-auto"
                   >
                     Chat with us
                   </Link>
                   <Link
                     href="/#wealth-scan"
-                    className="inline-flex h-11 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-[#050816] transition hover:bg-white/90"
+                    className="inline-flex h-11 w-full items-center justify-center rounded-full bg-white px-6 text-center text-sm font-medium text-[#050816] transition hover:bg-white/90 sm:w-auto"
                   >
                     Take Free Financial Scan
                   </Link>
@@ -173,7 +173,7 @@ export default function Footer() {
                     </p>
                   </div>
 
-                  <div className="mt-5 flex items-center gap-3">
+                  <div className="mt-5 flex flex-wrap items-center gap-3">
                     <Link
                       href="https://www.linkedin.com/company/celerey"
                       target="_blank"
@@ -254,15 +254,15 @@ export default function Footer() {
             <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/60 sm:flex-row sm:items-center">
               <p>© {currentYear} Celerey. All rights reserved.</p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link href="/terms" className="transition hover:text-white">
                   Terms
                 </Link>
-                <span className="text-white/30">•</span>
+                <span className="hidden text-white/30 sm:inline">•</span>
                 <Link href="/privacy" className="transition hover:text-white">
                   Privacy
                 </Link>
-                <span className="text-white/30">•</span>
+                <span className="hidden text-white/30 sm:inline">•</span>
                 <Link href="/faqs" className="transition hover:text-white">
                   FAQs
                 </Link>

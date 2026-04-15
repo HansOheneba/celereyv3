@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FileText, ArrowDownToLine, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
+import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
 type StoryItem = {
   kind: "story";
@@ -165,25 +166,19 @@ export function InsightsSection() {
 
   return (
     <section className="bg-white">
-      <div className="md:px-24 mx-auto px-6 py-20 md:py-24">
+      <div className="mx-auto px-6 py-20 md:px-24 md:py-24">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-12 md:mb-16 flex flex-col items-center text-center gap-4"
-        >
-          <h2 className="text-5xl font-light mb-4 leading-tight text-gray-900 ">
+        <Reveal className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16">
+          <h2 className="mb-4 text-3xl font-light leading-tight text-gray-900 sm:text-4xl md:text-5xl">
             Thoughtful guidance for your future
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed">
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
             Ideas worth considering as you shape what comes next.
           </p>
 
 
           {/* Tabs */}
-          <div className="mt-10 flex flex-wrap gap-8">
+          <div className="mt-8 flex flex-wrap justify-center gap-4 sm:gap-8">
             {(["podcasts", "story", "insights"] as TabKey[]).map((tab) => (
               <button
                 key={tab}
@@ -205,10 +200,10 @@ export function InsightsSection() {
               </button>
             ))}
           </div>
-        </motion.div>
+        </Reveal>
 
         {/* Grid */}
-        <div className="mx-auto md:px-24">
+        <div className="mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -275,7 +270,7 @@ export function InsightsSection() {
                       rel={isExternal ? "noreferrer" : undefined}
                     >
                       {/* Image */}
-                      <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-gray-100">
+                      <InteractiveImage className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
                         <Image
                           src={item.image}
                           alt={item.title}
@@ -287,12 +282,12 @@ export function InsightsSection() {
                         <div className="absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent opacity-70" />
 
                         {item.kind === "insights" && (
-                          <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full bg-white/85 backdrop-blur px-3 py-1 text-xs font-medium text-gray-800 border border-gray-200">
+                          <div className="absolute top-4 left-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/85 px-3 py-1 text-xs font-medium text-gray-800 backdrop-blur">
                             <FileText className="w-4 h-4" />
                             {item.meta ?? "PDF"}
                           </div>
                         )}
-                      </div>
+                      </InteractiveImage>
 
                       {/* Text */}
                       <div className="mt-6">

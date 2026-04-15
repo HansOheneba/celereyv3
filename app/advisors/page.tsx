@@ -9,6 +9,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ArrowRight } from "lucide-react";
 
 import { ADVISORS, type Advisor } from "@/lib/advisor-data";
+import { InteractiveImage } from "@/components/motion/reveal";
 
 function AdvisorCardImage({ src, alt }: { src?: string; alt: string }) {
   const fallback = "/placeholder-avatar.png";
@@ -33,7 +34,7 @@ function AdvisorCardImage({ src, alt }: { src?: string; alt: string }) {
 function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <section className="min-h-screen bg-[#fbfaf8]">
-      <div className="mx-auto w-full md:px-24 px-6 py-20 sm:py-24">
+      <div className="mx-auto w-full px-6 py-20 sm:py-24 md:px-24">
         {children}
       </div>
     </section>
@@ -55,7 +56,7 @@ function EmptyState({ title, message }: { title: string; message: string }) {
 
 function Pill({ children }: { children: string }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-black/[0.04] px-3 py-1 text-xs text-neutral-600">
+    <span className="inline-flex items-center rounded-full bg-black/4 px-3 py-1 text-xs text-neutral-600">
       {children}
     </span>
   );
@@ -147,7 +148,7 @@ export default function AdvisorsPage() {
       </div>
 
       {/* Advisors grid */}
-      <div className="mt-16 px-10 grid gap-y-16 gap-x-12 md:grid-cols-2">
+      <div className="mt-16 grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-x-12 md:gap-y-16 md:px-10">
         {orderedAdvisors.map((advisor, i) => {
           const tags = (advisor.expertise ?? []).slice(0, 3);
 
@@ -160,11 +161,11 @@ export default function AdvisorsPage() {
               className="group"
             >
               {/* Image */}
-              <div className="relative overflow-hidden rounded-[22px]">
-                <div className="relative h-[240px] w-full sm:h-[400px]">
+              <InteractiveImage className="relative overflow-hidden rounded-[22px]">
+                <div className="relative h-60 w-full sm:h-100">
                   <AdvisorCardImage src={advisor.image} alt={advisor.name} />
                 </div>
-              </div>
+              </InteractiveImage>
 
               {/* Text */}
               <div className="mt-6">

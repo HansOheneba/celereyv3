@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-import { ChevronRight, ChevronsLeftRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
 const leftFeatures = [
   {
@@ -38,63 +39,67 @@ export function FeaturesSection() {
     <section className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-cirka text-4xl md:text-5xl font-light tracking-tight mb-4 text-gray-900">
+        <Reveal className="mb-16 text-center">
+          <h2 className="font-cirka text-3xl md:text-5xl font-light tracking-tight mb-4 text-gray-900 sm:text-4xl">
             What are you trying to do next?
           </h2>
           <p className="text-gray-500 text-base">
             Tell us where you are and we&apos;ll point you in the right
             direction.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="flex flex-col gap-5 md:flex-row">
+        <div className="flex flex-col gap-8 md:flex-row">
           <div className="grid gap-6  items-start">
             {/* LEFT: 2×2 card grid */}
-            <div className="grid grid-cols-2 h-full gap-4">
-              {leftFeatures.map((feature) => (
-                <Card
+            <div className="grid h-full grid-cols-1 gap-4 sm:grid-cols-2">
+              {leftFeatures.map((feature, index) => (
+                <Reveal
                   key={feature.title}
-                  className="bg-gray-50 border-0 rounded-2xl p-6 flex flex-col justify-between min-h-55 transition-colors"
+                  delay={index * 0.05}
                 >
-                  <CardContent className="p-0 flex flex-col gap-4 h-full">
-                    {/* Icon */}
-                    <div className="w-8 h-8 relative">
-                      <Image
-                        src={feature.icon}
-                        alt={feature.title}
-                        fill
-                        sizes="32px"
-                        className="object-contain"
-                      />
-                    </div>
+                  <Card
+                    className="bg-gray-50 border-0 rounded-2xl p-6 flex min-h-55 flex-col justify-between transition-colors"
+                  >
+                    <CardContent className="p-0 flex flex-col gap-4 h-full">
+                      {/* Icon */}
+                      <div className="w-8 h-8 relative">
+                        <Image
+                          src={feature.icon}
+                          alt={feature.title}
+                          fill
+                          sizes="32px"
+                          className="object-contain"
+                        />
+                      </div>
 
-                    {/* Text */}
-                    <div className="flex-1">
-                      <CardTitle className="font-semibold mb-2 leading-snug text-gray-900">
-                        {feature.title}
-                      </CardTitle>
-                      <p className="text-gray-500 text-sm leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
+                      {/* Text */}
+                      <div className="flex-1">
+                        <CardTitle className="font-semibold mb-2 leading-snug text-gray-900">
+                          {feature.title}
+                        </CardTitle>
+                        <p className="text-gray-500 text-sm leading-relaxed">
+                          {feature.description}
+                        </p>
+                      </div>
 
-                    {/* Explore link */}
-                    <a
-                      href={feature.href}
-                      className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 hover:gap-2 transition-all"
-                    >
-                      Explore
-                      <ChevronRight className="h-4" />
-                    </a>
-                  </CardContent>
-                </Card>
+                      {/* Explore link */}
+                      <a
+                        href={feature.href}
+                        className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 hover:gap-2 transition-all"
+                      >
+                        Explore
+                        <ChevronRight className="h-4" />
+                      </a>
+                    </CardContent>
+                  </Card>
+                </Reveal>
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-6">
+          <Reveal className="flex flex-col gap-6" delay={0.08}>
             {/* Image */}
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
+            <InteractiveImage className="relative w-full aspect-4/3 overflow-hidden rounded-2xl">
               <Image
                 src="/homepage/family-walking.png"
                 alt="Financial planning and clarity"
@@ -103,7 +108,7 @@ export function FeaturesSection() {
                 className="object-cover"
                 priority
               />
-            </div>
+            </InteractiveImage>
 
             {/* Text + CTAs */}
             <div className="px-1">
@@ -115,8 +120,8 @@ export function FeaturesSection() {
                 Sometimes you need a sounding board for what comes next in your
                 financial life.
               </p>
-              <div className="flex items-center gap-5">
-                <Button variant={"outline"} className="px-10">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
+                <Button variant={"outline"} className="w-full px-10 sm:w-auto">
                   Book
                 </Button>
                 <a
@@ -128,7 +133,7 @@ export function FeaturesSection() {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

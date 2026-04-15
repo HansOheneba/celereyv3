@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Calculator, PiggyBank, Wallet } from "lucide-react";
 import Link from "next/link";
+import { Reveal } from "@/components/motion/reveal";
 
 const TOOLS = [
   {
@@ -37,14 +38,14 @@ const TOOLS = [
 
 export default function ToolsPage() {
   return (
-    <section className="relative min-h-screen py-32 px-6 bg-gradient-to-b from-white to-slate-50 text-primary">
+    <section className="relative min-h-screen bg-gradient-to-b from-white to-slate-50 px-6 py-24 text-primary sm:py-32">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="mb-16 text-center sm:mb-20"
         >
           <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold mb-3">
             Financial Tools
@@ -60,16 +61,13 @@ export default function ToolsPage() {
         </motion.div>
 
         {/* Tools Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {TOOLS.map((tool, index) => {
             const Icon = tool.icon;
             return (
-              <motion.div
+              <Reveal
                 key={tool.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15, duration: 0.6 }}
-                viewport={{ once: true }}
+                delay={index * 0.08}
                 className="relative rounded-3xl border border-gray-200 bg-white p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
               >
                 {tool.badge && (
@@ -97,7 +95,7 @@ export default function ToolsPage() {
                     Open Tool
                   </Button>
                 </Link>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>

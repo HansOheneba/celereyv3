@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
 export function StepsSection() {
   const steps = [
@@ -31,21 +31,21 @@ export function StepsSection() {
   ];
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="bg-white px-6 py-20 sm:py-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <Reveal className="mb-16 text-center">
           <p className=" text-sm tracking-wide mb-3">Our Process</p>
-          <h2 className="font-cirka text-4xl md:text-5xl font-light mb-4 text-gray-900">
+          <h2 className="font-cirka text-3xl font-light mb-4 text-gray-900 sm:text-4xl md:text-5xl">
             How Celerey Helps
           </h2>
           <p className=" text-base max-w-2xl mx-auto">
             We walk you through four clear steps. Each one builds on the last,
             moving you from confusion to confidence.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="relative w-full max-w-4xl mx-auto aspect-4/3 max-h-125 rounded-2xl overflow-hidden mb-16">
+        <InteractiveImage className="relative mb-16 mx-auto w-full max-w-4xl overflow-hidden rounded-2xl aspect-[4/5] sm:aspect-[4/3] sm:max-h-125">
           <Image
             src="/homepage/girl-sitting.png"
             alt="Financial clarity and planning"
@@ -54,12 +54,13 @@ export function StepsSection() {
             className="object-cover"
           />
           <div className="absolute inset-0 bg-black/10" />
-        </div>
+        </InteractiveImage>
         {/* Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
           {steps.map((step, idx) => (
-            <div
+            <Reveal
               key={idx}
+              delay={idx * 0.06}
               className="border-0 shadow-none bg-transparent p-0 max-w-md mx-auto"
             >
               <div className="p-0 flex flex-col justify-start">
@@ -73,22 +74,22 @@ export function StepsSection() {
                   {step.description}
                 </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         {/* Buttons */}
-        <div className="flex items-center justify-center gap-4">
+        <Reveal className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Button
             variant="default"
-            className="bg-primary text-white hover:bg-primary/90 px-6"
+            className="w-full bg-primary px-6 text-white hover:bg-primary/90 sm:w-auto"
           >
             Book a session
           </Button>
-          <Button variant="outline" className="bg-white px-6">
+          <Button variant="outline" className="w-full bg-white px-6 sm:w-auto">
             Learn More
           </Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

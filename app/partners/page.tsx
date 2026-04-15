@@ -4,19 +4,20 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { InteractiveImage } from "@/components/motion/reveal";
 
 export default function PartnersPage() {
   return (
-    <section className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-primary py-42 px-6">
+    <section className="min-h-screen bg-gradient-to-b from-white to-slate-50 px-6 py-24 text-primary sm:py-32">
       <div className="max-w-6xl mx-auto">
         {/* Intro */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="mb-16 text-center sm:mb-20"
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="mb-6 text-4xl font-bold md:text-5xl">
             Our Strategic <span className="text-[#D4AF37]">Partners</span>
           </h1>
           <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -37,7 +38,7 @@ export default function PartnersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 items-center"
+            className="grid items-center gap-8 md:grid-cols-2 md:gap-12"
           >
             <div>
               <h2 className="text-2xl font-semibold mb-3 text-primary">
@@ -62,14 +63,14 @@ export default function PartnersPage() {
                 money works with clarity and precision.
               </p>
             </div>
-            <div className="relative h-64 w-full rounded-2xl overflow-hidden shadow-md">
+            <InteractiveImage className="relative h-64 w-full overflow-hidden rounded-2xl shadow-md">
               <Image
                 src="/partners/wealth.jpg"
                 alt="Wealth Partners"
                 fill
                 className="object-cover"
               />
-            </div>
+            </InteractiveImage>
           </motion.div>
 
           {/* Property & Real Estate */}
@@ -78,16 +79,16 @@ export default function PartnersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 items-center"
+            className="grid items-center gap-8 md:grid-cols-2 md:gap-12"
           >
-            <div className="relative h-64 w-full rounded-2xl overflow-hidden shadow-md md:order-2">
+            <InteractiveImage className="relative h-64 w-full overflow-hidden rounded-2xl shadow-md md:order-2">
               <Image
                 src="/partners/property.jpg"
                 alt="Property Partners"
                 fill
                 className="object-cover"
               />
-            </div>
+            </InteractiveImage>
             <div className="md:order-1">
               <h2 className="text-2xl font-semibold mb-3 text-primary">
                 Property & Real Estate Partners
@@ -117,7 +118,7 @@ export default function PartnersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 items-center"
+            className="grid items-center gap-8 md:grid-cols-2 md:gap-12"
           >
             <div>
               <h2 className="text-2xl font-semibold mb-3 text-primary">
@@ -141,14 +142,14 @@ export default function PartnersPage() {
                 growth with legal security — all under one trusted ecosystem.
               </p>
             </div>
-            <div className="relative h-64 w-full rounded-2xl overflow-hidden shadow-md">
+            <InteractiveImage className="relative h-64 w-full overflow-hidden rounded-2xl shadow-md">
               <Image
                 src="/partners/legal.jpg"
                 alt="Legal Partners"
                 fill
                 className="object-cover"
               />
-            </div>
+            </InteractiveImage>
           </motion.div>
 
           {/* Global Mobility & Lifestyle */}
@@ -157,16 +158,16 @@ export default function PartnersPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 items-center"
+            className="grid items-center gap-8 md:grid-cols-2 md:gap-12"
           >
-            <div className="relative h-64 w-full rounded-2xl overflow-hidden shadow-md md:order-2">
+            <InteractiveImage className="relative h-64 w-full overflow-hidden rounded-2xl shadow-md md:order-2">
               <Image
                 src="/partners/global.jpg"
                 alt="Global Partners"
                 fill
                 className="object-cover"
               />
-            </div>
+            </InteractiveImage>
             <div className="md:order-1">
               <h2 className="text-2xl font-semibold mb-3 text-primary">
                 Global Mobility & Lifestyle Partners
@@ -196,7 +197,7 @@ export default function PartnersPage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="text-center mt-28 max-w-3xl mx-auto"
+          className="mx-auto mt-20 max-w-3xl text-center sm:mt-28"
         >
           <h2 className="text-3xl font-semibold mb-4">
             Partnering for Your Prosperity

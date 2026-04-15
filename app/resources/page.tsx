@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { InteractiveImage } from "@/components/motion/reveal";
 
 type ResourceCategory = {
   title: string;
@@ -40,7 +41,7 @@ const resourceCategories: ResourceCategory[] = [
 export default function ResourcesPage() {
   return (
     <section className="bg-white py-10">
-      <div className="md:px-24 mx-auto px-6  md:py-24">
+      <div className="mx-auto px-6 py-16 md:px-24 md:py-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -48,7 +49,7 @@ export default function ResourcesPage() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16 pb-10"
         >
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-900">
+          <h1 className="text-4xl font-semibold text-gray-900 md:text-5xl">
             Resources
           </h1>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
@@ -69,7 +70,7 @@ export default function ResourcesPage() {
               >
                 <Link href={category.href} className="group block">
                   {/* Image card */}
-                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100">
+                  <InteractiveImage className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
                     <Image
                       src={category.image}
                       alt={category.title}
@@ -78,7 +79,7 @@ export default function ResourcesPage() {
                       sizes="(max-width: 768px) 100vw, 520px"
                       priority={index === 0}
                     />
-                  </div>
+                  </InteractiveImage>
 
                   {/* Text */}
                   <div className="mt-6">

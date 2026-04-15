@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 import { ADVISORS } from "@/lib/advisor-data";
+import { InteractiveImage } from "@/components/motion/reveal";
 
 function SoftSpinner({ label }: { label: string }) {
   return (
@@ -47,28 +48,28 @@ function DetailSkeleton() {
   return (
     <section className="min-h-screen bg-[#fbfaf8]">
       {/* Wider container */}
-      <div className="mx-auto w-full max-w-[90rem] px-6 py-20 sm:py-24">
-        <div className="mx-auto w-full max-w-[84rem]">
+      <div className="mx-auto w-full max-w-360 px-6 py-20 sm:py-24">
+        <div className="mx-auto w-full max-w-336">
           <div className="space-y-10">
-            <div className="h-4 w-24 animate-pulse rounded bg-black/[0.06]" />
-            <div className="h-10 w-3/4 animate-pulse rounded bg-black/[0.06]" />
-            <div className="h-4 w-1/3 animate-pulse rounded bg-black/[0.06]" />
+            <div className="h-4 w-24 animate-pulse rounded bg-black/6" />
+            <div className="h-10 w-3/4 animate-pulse rounded bg-black/6" />
+            <div className="h-4 w-1/3 animate-pulse rounded bg-black/6" />
 
-            <div className="overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-[0_18px_55px_rgba(0,0,0,0.08)]">
+            <div className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-[0_18px_55px_rgba(0,0,0,0.08)]">
               <div className="relative h-96 w-full">
-                <div className="absolute inset-0 animate-pulse bg-black/[0.06]" />
+                <div className="absolute inset-0 animate-pulse bg-black/6" />
               </div>
               <div className="p-6">
-                <div className="h-4 w-48 animate-pulse rounded bg-black/[0.06]" />
+                <div className="h-4 w-48 animate-pulse rounded bg-black/6" />
               </div>
             </div>
 
-            <div className="rounded-[24px] border border-black/10 bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
-              <div className="h-4 w-28 animate-pulse rounded bg-black/[0.06]" />
+            <div className="rounded-3xl border border-black/10 bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
+              <div className="h-4 w-28 animate-pulse rounded bg-black/6" />
               <div className="mt-4 space-y-3">
-                <div className="h-4 w-full animate-pulse rounded bg-black/[0.06]" />
-                <div className="h-4 w-11/12 animate-pulse rounded bg-black/[0.06]" />
-                <div className="h-4 w-10/12 animate-pulse rounded bg-black/[0.06]" />
+                <div className="h-4 w-full animate-pulse rounded bg-black/6" />
+                <div className="h-4 w-11/12 animate-pulse rounded bg-black/6" />
+                <div className="h-4 w-10/12 animate-pulse rounded bg-black/6" />
               </div>
 
               <div className="mt-10">
@@ -110,7 +111,7 @@ export default function AdvisorDetailsPage() {
     return (
       <section className="min-h-screen bg-[#fbfaf8]">
         {/* Wider container */}
-        <div className="mx-auto w-full max-w-[90rem] px-6 py-20 sm:py-24 text-center">
+        <div className="mx-auto w-full max-w-360 px-6 py-20 text-center sm:py-24">
           <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
             ADVISOR PROFILE
           </p>
@@ -124,7 +125,7 @@ export default function AdvisorDetailsPage() {
           <div className="mx-auto mt-10 max-w-xs">
             <Button
               onClick={() => router.push("/advisors")}
-              className="h-11 w-full rounded-full bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/[0.04]"
+              className="h-11 w-full rounded-full bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/4"
             >
               Back to Advisors
             </Button>
@@ -137,9 +138,9 @@ export default function AdvisorDetailsPage() {
   return (
     <section className="min-h-screen bg-[#fbfaf8]">
       {/* Wider page container */}
-      <div className="mx-auto w-full max-w-[90rem] px-6 py-20 sm:py-24">
+      <div className="mx-auto w-full max-w-360 px-6 py-20 sm:py-24">
         {/* Wider inner container */}
-        <div className="mx-auto w-full max-w-[84rem]">
+        <div className="mx-auto w-full max-w-336">
           {/* Top */}
           <div className="mb-10">
             <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
@@ -159,16 +160,16 @@ export default function AdvisorDetailsPage() {
           <div className="grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-start">
             {/* Left column */}
             <div>
-              <motion.div
+              <InteractiveImage
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55 }}
-                className="overflow-hidden rounded-[24px] border border-black/10 bg-white shadow-[0_18px_55px_rgba(0,0,0,0.08)]"
+                className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-[0_18px_55px_rgba(0,0,0,0.08)]"
               >
                 {/* Taller visual for wide layout */}
-                <div className="relative h-[420px] w-full sm:h-[520px]">
+                <div className="relative h-105 w-full sm:h-130">
                   <AdvisorImage src={advisor.image} alt={advisor.name} />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-black/0 opacity-80" />
+                  <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/25 via-black/0 to-black/0 opacity-80" />
                 </div>
 
                 <div className="flex items-center justify-between gap-4 p-6">
@@ -182,7 +183,7 @@ export default function AdvisorDetailsPage() {
                     Back to advisors
                   </Link>
                 </div>
-              </motion.div>
+              </InteractiveImage>
             </div>
 
             {/* Right sidebar */}
@@ -192,7 +193,7 @@ export default function AdvisorDetailsPage() {
               transition={{ duration: 0.55, delay: 0.1 }}
               className="lg:sticky lg:top-24"
             >
-              <div className="rounded-[24px] border border-black/10 bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
+              <div className="rounded-3xl border border-black/10 bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
                 <p className="text-sm font-semibold text-[#b07d3d]">
                   Areas of expertise
                 </p>
@@ -201,7 +202,7 @@ export default function AdvisorDetailsPage() {
                   {advisor.expertise.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-black/10 bg-black/[0.02] px-3 py-1 text-xs text-neutral-700"
+                      className="rounded-full border border-black/10 bg-black/2 px-3 py-1 text-xs text-neutral-700"
                     >
                       {skill}
                     </span>
@@ -222,7 +223,7 @@ export default function AdvisorDetailsPage() {
 
                 <div className="mt-8">
                   <Link href="/advisors">
-                    <Button className="h-11 w-full rounded-full bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/[0.04]">
+                    <Button className="h-11 w-full rounded-full bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/4">
                       Back to All Advisors
                     </Button>
                   </Link>
@@ -236,7 +237,7 @@ export default function AdvisorDetailsPage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.05 }}
-            className="mt-14 rounded-[24px] border border-black/10 bg-white p-10 shadow-[0_18px_55px_rgba(0,0,0,0.06)]"
+            className="mt-14 rounded-3xl border border-black/10 bg-white p-10 shadow-[0_18px_55px_rgba(0,0,0,0.06)]"
           >
             <p className="text-sm font-semibold text-[#b07d3d]">Overview</p>
 
@@ -248,7 +249,7 @@ export default function AdvisorDetailsPage() {
           </motion.div>
 
           {/* Full-width Experience */}
-          <div className="mt-10 rounded-[24px] border border-black/10 bg-white p-10 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
+          <div className="mt-10 rounded-3xl border border-black/10 bg-white p-10 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
             <p className="text-sm font-semibold text-[#b07d3d]">Experience</p>
 
             <div className="mt-6 max-w-4xl">

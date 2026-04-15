@@ -200,7 +200,7 @@ export default function Header() {
           : "-translate-y-full pointer-events-none",
       )}
     >
-      <div className="mx-auto flex md:px-24 items-center justify-between px-6">
+      <div className="mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-24">
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
@@ -209,7 +209,7 @@ export default function Header() {
             width={90}
             height={20}
             priority
-            className="h-auto w-20 md:w-[90px]"
+            className="h-auto w-20 md:w-22.5"
             style={{ height: "auto" }}
           />
         </Link>
@@ -330,7 +330,7 @@ export default function Header() {
               <SheetTitle className="sr-only">Navigation</SheetTitle>
 
               {/* Mobile header */}
-              <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+              <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4 sm:px-6">
                 <Image
                   src="/logos/logoDark.png"
                   alt="Logo"
@@ -343,7 +343,7 @@ export default function Header() {
               </div>
 
               {/* Mobile nav links */}
-              <nav className="px-4 py-4 space-y-1">
+              <nav className="space-y-1 px-4 py-4 sm:px-5">
                 {flatLinks.map((link) => (
                   <SheetClose key={link.href} asChild>
                     <Link
@@ -366,7 +366,7 @@ export default function Header() {
               </nav>
 
               {/* Mobile CTAs */}
-              <div className="px-6 pb-8 pt-4 border-t border-gray-100 mt-2 space-y-3">
+              <div className="mt-2 space-y-3 border-t border-gray-100 px-5 pb-8 pt-4 sm:px-6">
                 <SheetClose asChild>
                   <Button
                     variant="outline"
