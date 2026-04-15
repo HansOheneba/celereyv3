@@ -23,6 +23,23 @@ function getSheets() {
   return google.sheets({ version: "v4", auth });
 }
 
+function formatDateTime(date: Date): { dateStr: string; timeStr: string } {
+  const dateStr = date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+  const timeStr = date.toLocaleTimeString("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    timeZone: "UTC",
+    hour12: false,
+  });
+  return { dateStr, timeStr };
+}
+
 async function getExistingEmails(): Promise<string[]> {
   const sheets = getSheets();
 
@@ -45,7 +62,7 @@ async function findRowByEmail(email: string): Promise<number | null> {
 
   const rows = response.data.values ?? [];
   const index = rows.findIndex(
-    (row) => String(row[0]).toLowerCase().trim() === email.toLowerCase().trim()
+    (row) => String(row[0]).toLowerCase().trim() === email.toLowerCase().trim(),
   );
 
   // Sheets are 1-indexed; row 1 is the header, data starts at row 2
@@ -56,7 +73,9 @@ async function findRowByEmail(email: string): Promise<number | null> {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const email = String(body.email ?? "").trim().toLowerCase();
+    const email = String(body.email ?? "")
+      .trim()
+      .toLowerCase();
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: "Invalid email." }, { status: 400 });
@@ -68,14 +87,15 @@ export async function POST(req: NextRequest) {
     }
 
     const sheets = getSheets();
-    const now = new Date().toISOString();
+    const now = new Date();
+    const { dateStr, timeStr } = formatDateTime(now);
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: `${SHEET_NAME}!A:C`,
+      range: `${SHEET_NAME}!A:D`,
       valueInputOption: "USER_ENTERED",
       requestBody: {
-        values: [[email, "", now]],
+        values: [[email, "", dateStr, timeStr]],
       },
     });
 
@@ -84,7 +104,7 @@ export async function POST(req: NextRequest) {
     console.error("[newsletter POST]", err);
     return NextResponse.json(
       { error: "Failed to save email." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
@@ -93,7 +113,9 @@ export async function POST(req: NextRequest) {
 export async function PATCH(req: NextRequest) {
   try {
     const body = await req.json();
-    const email = String(body.email ?? "").trim().toLowerCase();
+    const email = String(body.email ?? "")
+      .trim()
+      .toLowerCase();
     const name = String(body.name ?? "").trim();
 
     if (!email) {
@@ -117,10 +139,11 @@ export async function PATCH(req: NextRequest) {
     // Render email HTML with React Email
     const resend = new Resend(process.env.RESEND_API_KEY);
     const displayName = name || undefined;
-    const dateString = new Date().toLocaleString("en-GB", { timeZone: "UTC" }) + " UTC";
+    const dateString =
+      new Date().toLocaleString("en-GB", { timeZone: "UTC" }) + " UTC";
 
     const welcomeHtml = await render(
-      NewsletterWelcomeEmail({ name: displayName, email })
+      NewsletterWelcomeEmail({ name: displayName, email }),
     );
 
     const notificationHtml = await render(
@@ -129,7 +152,7 @@ export async function PATCH(req: NextRequest) {
         email,
         date: dateString,
         sheetUrl: SHEET_URL,
-      })
+      }),
     );
 
     const notificationEmails = (process.env.NOTIFICATION_EMAILS ?? "")
@@ -160,7 +183,7 @@ export async function PATCH(req: NextRequest) {
     console.error("[newsletter PATCH]", err);
     return NextResponse.json(
       { error: "Failed to update record." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
