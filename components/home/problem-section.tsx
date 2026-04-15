@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 
 export function ProblemSection() {
   return (
-    <section className="py-20 md:py-32 md:px-24 px-6 bg-gray-100">
+    <section className="py-20 md:py-32 md:px-24 px-6 bg-[#FFF4F4]">
       <div className=" mx-auto flex">
         {/* Main heading */}
         <div className=" mx-auto mb-16">
@@ -45,7 +45,9 @@ export function ProblemSection() {
                 href="/learn"
                 className="text-gray-900 font-medium hover:text-primary transition-colors"
               >
-                <Button variant={"outline"} className="px-10">Learn</Button>
+                <Button variant={"outline"} className="px-10">
+                  Learn
+                </Button>
               </a>
               <a
                 href="/explore"

@@ -36,8 +36,6 @@ const leftFeatures = [
 export function FeaturesSection() {
   return (
     <section className="py-24 px-6 bg-white">
-
-      
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -96,31 +94,15 @@ export function FeaturesSection() {
           </div>
           <div className="flex flex-col gap-6">
             {/* Image */}
-            <div className="relative w-full aspect-4/3 bg-gray-200 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-          
-                <svg
-                  className="w-16 h-16 text-gray-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1}
-                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              {/* Swap to a real image like so:
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/images/clarity.jpg"
-                alt="Get clarity on your next move"
+                src="/homepage/family-walking.png"
+                alt="Financial planning and clarity"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
+                priority
               />
-              */}
             </div>
 
             {/* Text + CTAs */}
@@ -134,7 +116,9 @@ export function FeaturesSection() {
                 financial life.
               </p>
               <div className="flex items-center gap-5">
-                <Button variant={"outline"} className="px-10">Book</Button>
+                <Button variant={"outline"} className="px-10">
+                  Book
+                </Button>
                 <a
                   href="/services"
                   className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 hover:gap-2 transition-all"
