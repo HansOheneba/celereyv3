@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
 export function SessionSection() {
@@ -30,8 +30,10 @@ export function SessionSection() {
               <p className="font-semibold mb-3 text-[#CDE6AF]">
                 What&apos;s included
               </p>
-             <p>Honest perspective, practical next steps, and a clear sense of
-              what matters most.</p>
+              <p>
+                Honest perspective, practical next steps, and a clear sense of
+                what matters most.
+              </p>
             </div>
           </div>
 

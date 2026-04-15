@@ -1,15 +1,27 @@
-import { Button } from '@/components/ui/button';
-import { ChevronRight } from 'lucide-react';
+import { Button } from "@/components/ui/button";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
-
 export function DecisionsSection() {
   const decisions = [
-    { title: 'Buying a home', description: 'Navigate timing, financing, and what you can actually afford.' },
-    { title: 'Preparing for early retirement', description: 'Plan your exit strategy with confidence.' },
-    { title: 'Funding education', description: 'Build a strategy for your children&apos;s future.' },
-    { title: 'Starting a business', description: 'Understand the financial side of entrepreneurship.' }
+    {
+      title: "Buying a home",
+      description:
+        "Navigate timing, financing, and what you can actually afford.",
+    },
+    {
+      title: "Preparing for early retirement",
+      description: "Plan your exit strategy with confidence.",
+    },
+    {
+      title: "Funding education",
+      description: "Build a strategy for your children&apos;s future.",
+    },
+    {
+      title: "Starting a business",
+      description: "Understand the financial side of entrepreneurship.",
+    },
   ];
 
   return (
@@ -28,7 +40,10 @@ export function DecisionsSection() {
         </Reveal>
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Left side - Life section */}
-          <Reveal className="space-y-8 flex flex-col bg-white rounded-2xl" delay={0.04}>
+          <Reveal
+            className="space-y-8 flex flex-col bg-white rounded-2xl"
+            delay={0.04}
+          >
             <InteractiveImage className="relative flex-1 overflow-hidden rounded-2xl min-h-70 sm:min-h-75">
               <Image
                 src="/homepage/moments1.png"
@@ -124,8 +139,11 @@ export function DecisionsSection() {
               </InteractiveImage>
 
               {/* Card 3 */}
-              <Reveal className="bg-white rounded-2xl p-6 flex flex-col justify-center gap-2" delay={0.14}>
-                <p className='font-semibold'>Life</p>
+              <Reveal
+                className="bg-white rounded-2xl p-6 flex flex-col justify-center gap-2"
+                delay={0.14}
+              >
+                <p className="font-semibold">Life</p>
                 <h3 className="font-cirka text-xl font-bold text-gray-900 mb-3">
                   Planning for property
                 </h3>

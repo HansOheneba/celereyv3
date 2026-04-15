@@ -209,11 +209,11 @@ export default function PartnersPage() {
             aspect — from investment to lifestyle — is supported by the right
             professionals at the right time.
           </p>
-        <Link href="/advisors">
-          <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-3 text-lg font-light">
-            Connect with an Advisor
-          </Button>
-        </Link>
+          <Link href="/advisors">
+            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-3 text-lg font-light">
+              Connect with an Advisor
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>

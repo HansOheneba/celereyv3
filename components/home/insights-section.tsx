@@ -176,7 +176,6 @@ export function InsightsSection() {
             Ideas worth considering as you shape what comes next.
           </p>
 
-
           {/* Tabs */}
           <div className="mt-8 flex flex-wrap justify-center gap-4 sm:gap-8">
             {(["podcasts", "story", "insights"] as TabKey[]).map((tab) => (
@@ -362,9 +361,7 @@ export function InsightsSection() {
             href="/resources"
             className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors text-sm font-medium"
           >
-          <Button variant={"outline"}>            View all resources
-
-          </Button>
+            <Button variant={"outline"}> View all resources</Button>
           </Link>
         </motion.div>
       </div>

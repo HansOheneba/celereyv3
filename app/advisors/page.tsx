@@ -127,10 +127,9 @@ export default function AdvisorsPage() {
         >
           Celerey makes high-quality financial advisory accessible, delivering
           insights once reserved for private banking through a simpler, more
-          transparent experience.
-       
-          Guided by experts across finance, law, and global markets, our
-          standards stay practical, disciplined, and real-world focused.
+          transparent experience. Guided by experts across finance, law, and
+          global markets, our standards stay practical, disciplined, and
+          real-world focused.
         </motion.p>
 
         <motion.p
@@ -143,8 +142,6 @@ export default function AdvisorsPage() {
             Global-grade guidance, without the need for an elite network.
           </span>
         </motion.p>
-
-
       </div>
 
       {/* Advisors grid */}

@@ -10,9 +10,7 @@ export function ProblemSection() {
     <section className="py-20 md:py-32 px-6 md:px-24 bg-[#FFF4F4]">
       <div className="mx-auto flex max-w-7xl flex-col gap-12 md:flex-row md:px-24">
         {/* Heading */}
-        <Reveal
-          className="text-center md:text-left"
-        >
+        <Reveal className="text-center md:text-left">
           <h2 className="font-cirka text-3xl md:text-5xl font-light leading-tight mb-6 sm:text-4xl">
             Most people don't need more financial noise. <br />
             They need clarity.

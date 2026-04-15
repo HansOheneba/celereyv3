@@ -25,7 +25,7 @@ interface Podcast {
 
 export default function InsightsPage() {
   const [activeTab, setActiveTab] = useState<"insights" | "podcasts">(
-    "insights"
+    "insights",
   );
   const [selectedPodcast, setSelectedPodcast] = useState<Podcast | null>(null);
   const [podcasts, setPodcasts] = useState<Podcast[]>([]);
@@ -142,8 +142,8 @@ export default function InsightsPage() {
                   const imageSrc = isInsight(item)
                     ? item.coverImage
                     : isPodcast(item)
-                    ? item.image
-                    : null;
+                      ? item.image
+                      : null;
 
                   return (
                     <motion.div

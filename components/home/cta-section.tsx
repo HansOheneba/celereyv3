@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/reveal";
 
 export function CTASection() {
@@ -9,12 +9,18 @@ export function CTASection() {
           You don&apos;t have to figure it all out alone
         </h2>
         <p className="mx-auto mb-12 max-w-2xl text-base leading-relaxed text-background/80 sm:text-lg">
-          Start building your financial future with clarity today. Let&apos;s turn confusion into confidence.
+          Start building your financial future with clarity today. Let&apos;s
+          turn confusion into confidence.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="secondary" className="w-full sm:w-auto">Get Started</Button>
-          <Button variant="ghost" className="w-full text-background hover:text-background hover:bg-background/10 sm:w-auto">
+          <Button variant="secondary" className="w-full sm:w-auto">
+            Get Started
+          </Button>
+          <Button
+            variant="ghost"
+            className="w-full text-background hover:text-background hover:bg-background/10 sm:w-auto"
+          >
             Learn More
           </Button>
         </div>

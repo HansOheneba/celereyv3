@@ -22,7 +22,7 @@ export default function ContactPage() {
   }>({ type: null, message: "" });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -87,7 +87,7 @@ export default function ContactPage() {
             errorData.error || "Failed to send message. Please try again.",
         });
       }
-    } catch  {
+    } catch {
       setSubmitStatus({
         type: "error",
         message: "Network error. Please check your connection and try again.",

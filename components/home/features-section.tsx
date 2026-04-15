@@ -54,13 +54,8 @@ export function FeaturesSection() {
             {/* LEFT: 2×2 card grid */}
             <div className="grid h-full grid-cols-1 gap-4 sm:grid-cols-2">
               {leftFeatures.map((feature, index) => (
-                <Reveal
-                  key={feature.title}
-                  delay={index * 0.05}
-                >
-                  <Card
-                    className="bg-gray-50 border-0 rounded-2xl p-6 flex min-h-55 flex-col justify-between transition-colors"
-                  >
+                <Reveal key={feature.title} delay={index * 0.05}>
+                  <Card className="bg-gray-50 border-0 rounded-2xl p-6 flex min-h-55 flex-col justify-between transition-colors">
                     <CardContent className="p-0 flex flex-col gap-4 h-full">
                       {/* Icon */}
                       <div className="w-8 h-8 relative">

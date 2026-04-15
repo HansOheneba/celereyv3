@@ -73,7 +73,8 @@ export default function Community() {
 
       if (saveResult && !saveResult.ok && !saveResult.data?.success) {
         toast.error(
-          saveResult.data?.error ?? "Failed to save your email. Please try again."
+          saveResult.data?.error ??
+            "Failed to save your email. Please try again.",
         );
         setDialogOpen(false);
         setStep("email");
@@ -99,7 +100,7 @@ export default function Community() {
       toast.success(
         name.trim()
           ? `Welcome to the community, ${name.trim()}! Check your inbox for a note from us.`
-          : "You're in. Welcome to the Celerey community!"
+          : "You're in. Welcome to the Celerey community!",
       );
     } catch {
       toast.error("Something went wrong. Please try again.");
@@ -146,7 +147,8 @@ export default function Community() {
           viewport={{ once: true }}
           className="mx-auto mt-6 max-w-2xl text-base text-neutral-700 sm:text-lg"
         >
-          You&apos;ve worked hard for what you have. Now ensure it works for you.
+          You&apos;ve worked hard for what you have. Now ensure it works for
+          you.
         </motion.p>
 
         <div className="mx-auto mt-10 max-w-2xl">
@@ -166,7 +168,9 @@ export default function Community() {
                 required
                 className="h-11 flex-1 rounded-md bg-white px-5 text-sm text-neutral-900 ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-blue-600/40"
               />
-              <Button type="submit" className="h-11 w-full sm:w-auto">Join</Button>
+              <Button type="submit" className="h-11 w-full sm:w-auto">
+                Join
+              </Button>
             </form>
           )}
 
@@ -196,8 +200,8 @@ export default function Community() {
           <DialogHeader>
             <DialogTitle>Your email has been saved!</DialogTitle>
             <DialogDescription>
-              What should we call you? We&apos;d love to make this a little
-              more personal.
+              What should we call you? We&apos;d love to make this a little more
+              personal.
             </DialogDescription>
           </DialogHeader>
 
