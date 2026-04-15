@@ -12,6 +12,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Input } from "../ui/input";
 
 type EmailSaveResult = {
   ok: boolean;
@@ -25,7 +26,6 @@ export default function Community() {
   const [dialogOpen, setDialogOpen] = useState<boolean>(false);
   const [nameStatus, setNameStatus] = useState<"idle" | "loading">("idle");
 
-  // Stores the background email-save promise so name submit can await it
   const emailSaveRef = useRef<Promise<EmailSaveResult> | null>(null);
 
   function handleEmailSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -39,10 +39,8 @@ export default function Community() {
       return;
     }
 
-    // Open dialog instantly — no waiting
     setDialogOpen(true);
 
-    // Fire API call concurrently in the background
     emailSaveRef.current = fetch("/api/newsletter", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -59,7 +57,6 @@ export default function Community() {
 
     setNameStatus("loading");
     try {
-      // Await the background email save before proceeding
       const saveResult = emailSaveRef.current
         ? await emailSaveRef.current
         : null;
@@ -81,7 +78,6 @@ export default function Community() {
         return;
       }
 
-      // Update name + trigger emails
       const res = await fetch("/api/newsletter", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
@@ -97,9 +93,10 @@ export default function Community() {
 
       setDialogOpen(false);
       setStep("done");
+
       toast.success(
         name.trim()
-          ? `Welcome to the community, ${name.trim()}! Check your inbox for a note from us.`
+          ? `Welcome to the community, ${name.trim()}!`
           : "You're in. Welcome to the Celerey community!",
       );
     } catch {
@@ -111,7 +108,6 @@ export default function Community() {
 
   function handleDialogOpenChange(open: boolean) {
     if (!open && nameStatus !== "loading") {
-      // Closed without entering name — email already saving in background
       setDialogOpen(false);
       setStep("done");
     }
@@ -135,7 +131,7 @@ export default function Community() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-6 font-serif text-3xl text-neutral-900 sm:text-5xl md:text-6xl"
+          className="mt-6 font-serif text-3xl sm:text-5xl md:text-6xl text-neutral-900"
         >
           <span className="block">Build wealth with</span>
           <span className="block italic">confidence and intention</span>
@@ -166,9 +162,22 @@ export default function Community() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="h-11 flex-1 rounded-md bg-white px-5 text-sm text-neutral-900 ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-blue-600/40"
+                className="
+   h-10
+  w-full
+  rounded-md
+  bg-white
+  px-4
+  text-base
+  leading-none
+  text-neutral-900
+  ring-1 ring-black/10
+  focus:outline-none focus:ring-2 focus:ring-blue-600/40
+  disabled:opacity-60
+                "
               />
-              <Button type="submit" className="h-11 w-full sm:w-auto">
+
+              <Button type="submit" className="h-12 w-full sm:w-auto">
                 Join
               </Button>
             </form>
@@ -194,20 +203,19 @@ export default function Community() {
         </div>
       </div>
 
-      {/* Name dialog */}
+      {/* Dialog */}
       <Dialog open={dialogOpen} onOpenChange={handleDialogOpenChange}>
-        <DialogContent className="sm:max-w-md">
+        <DialogContent className="sm:max-w-md w-[92vw] rounded-xl">
           <DialogHeader>
             <DialogTitle>Your email has been saved!</DialogTitle>
             <DialogDescription>
-              What should we call you? We&apos;d love to make this a little more
-              personal.
+              What should we call you? Optional, but personal.
             </DialogDescription>
           </DialogHeader>
 
           <form onSubmit={handleNameSubmit}>
             <div className="py-2">
-              <input
+              <Input
                 type="text"
                 name="name"
                 autoComplete="given-name"
@@ -215,20 +223,36 @@ export default function Community() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 disabled={nameStatus === "loading"}
-                className="h-10 w-full rounded-md bg-white px-4 text-sm text-neutral-900 ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-blue-600/40 disabled:opacity-60"
+                className="
+                  h-12
+                  w-full
+                  rounded-md
+                  bg-white
+                  px-4
+                  text-base
+                  ring-1 ring-black/10
+                  focus:outline-none focus:ring-2 focus:ring-blue-600/40
+                  disabled:opacity-60
+                "
               />
             </div>
 
-            <DialogFooter className="mt-2 gap-2 sm:gap-0">
+            <DialogFooter className="mt-2 flex flex-col sm:flex-row gap-2">
               <Button
                 type="button"
                 variant="ghost"
                 disabled={nameStatus === "loading"}
                 onClick={() => handleDialogOpenChange(false)}
+                className="w-full sm:w-auto"
               >
                 Skip
               </Button>
-              <Button type="submit" disabled={nameStatus === "loading"}>
+
+              <Button
+                type="submit"
+                disabled={nameStatus === "loading"}
+                className="w-full sm:w-auto"
+              >
                 {nameStatus === "loading" ? "Saving..." : "Done"}
               </Button>
             </DialogFooter>
