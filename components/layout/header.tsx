@@ -130,7 +130,6 @@ export default function Header() {
   const [open, setOpen] = React.useState(false);
   const [mounted, setMounted] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
-  const [visible, setVisible] = React.useState(true);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState<DropdownKey | null>(
     null,
@@ -140,25 +139,11 @@ export default function Header() {
   React.useEffect(() => setMounted(true), []);
 
   React.useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-
     const updateHeader = () => {
-      const currentScrollY = window.scrollY;
-      const nextVisible = currentScrollY < lastScrollY || currentScrollY < 100;
-      setVisible(nextVisible);
-      setIsScrolled(currentScrollY > 50);
-      if (!nextVisible) setDropdownOpen(null);
-      lastScrollY = currentScrollY;
-      ticking = false;
+      setIsScrolled(window.scrollY > 50);
     };
 
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateHeader);
-        ticking = true;
-      }
-    };
+    const handleScroll = () => requestAnimationFrame(updateHeader);
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     updateHeader();
@@ -195,9 +180,6 @@ export default function Header() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
         "bg-white text-black py-3",
         isScrolled ? "shadow-sm" : "border-b border-gray-100",
-        visible
-          ? "pointer-events-auto"
-          : "-translate-y-full pointer-events-none",
       )}
     >
       <div className="mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-24">
