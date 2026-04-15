@@ -209,7 +209,7 @@ export default function Community() {
           <DialogHeader>
             <DialogTitle>Your email has been saved!</DialogTitle>
             <DialogDescription>
-              What should we call you? Optional, but personal.
+              What should we call you?
             </DialogDescription>
           </DialogHeader>
 
