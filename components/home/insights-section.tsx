@@ -7,7 +7,11 @@ import Link from "next/link";
 import { FileText, ArrowDownToLine, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
-import { InteractiveImage, Reveal } from "@/components/motion/reveal";
+import {
+  InteractiveImage,
+  Reveal,
+  useSkipEntranceOnBackForward,
+} from "@/components/motion/reveal";
 
 type StoryItem = {
   kind: "story";
@@ -148,6 +152,7 @@ function dateLine(d?: string): string | null {
 
 export function InsightsSection() {
   const [activeTab, setActiveTab] = useState<TabKey>("podcasts");
+  const skipEntrance = useSkipEntranceOnBackForward();
 
   const content: ContentItem[] =
     activeTab === "story"
@@ -220,8 +225,10 @@ export function InsightsSection() {
                   return (
                     <motion.article
                       key={`podcast-${item.embedId}`}
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={skipEntrance ? false : { opacity: 0, y: 18 }}
+                      whileInView={
+                        skipEntrance ? undefined : { opacity: 1, y: 0 }
+                      }
                       transition={{ delay: index * 0.06, duration: 0.45 }}
                       viewport={{ once: true }}
                     >
@@ -256,8 +263,10 @@ export function InsightsSection() {
                 return (
                   <motion.article
                     key={`${item.kind}-${item.title}-${index}`}
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={skipEntrance ? false : { opacity: 0, y: 18 }}
+                    whileInView={
+                      skipEntrance ? undefined : { opacity: 1, y: 0 }
+                    }
                     transition={{ delay: index * 0.06, duration: 0.45 }}
                     viewport={{ once: true }}
                     className="group"
@@ -269,13 +278,13 @@ export function InsightsSection() {
                       rel={isExternal ? "noreferrer" : undefined}
                     >
                       {/* Image */}
-                      <InteractiveImage className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-gray-100">
+                      <InteractiveImage className="relative w-full aspect-4/3 overflow-hidden h-80 rounded-2xl bg-gray-100">
                         <Image
                           src={item.image}
                           alt={item.title}
                           fill
                           className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                          sizes="(max-width: 768px) 100vw, 520px"
+                          sizes="(max-width: 768px) 100vw"
                           priority={index < 2}
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-black/10 via-transparent to-transparent opacity-70" />
@@ -351,8 +360,8 @@ export function InsightsSection() {
 
         {/* View More */}
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={skipEntrance ? false : { opacity: 0, y: 12 }}
+          whileInView={skipEntrance ? undefined : { opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.45 }}
           viewport={{ once: true }}
           className="mt-16 flex justify-center"

@@ -31,7 +31,10 @@ export function StepsSection() {
   ];
 
   return (
-    <section className="bg-white px-6 py-20 sm:py-24">
+    <section
+      id="how-it-works"
+      className="bg-white px-6 py-20 sm:py-24 scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <Reveal className="mb-16 text-center">
@@ -45,7 +48,7 @@ export function StepsSection() {
           </p>
         </Reveal>
 
-        <InteractiveImage className="relative mb-16 mx-auto w-full max-w-4xl overflow-hidden rounded-2xl aspect-[4/5] sm:aspect-[4/3] sm:max-h-125">
+        <InteractiveImage className="relative mb-16 mx-auto w-full max-w-4xl overflow-hidden rounded-2xl aspect-4/5 sm:aspect-4/3 sm:max-h-125">
           <Image
             src="/homepage/girl-sitting.png"
             alt="Financial clarity and planning"

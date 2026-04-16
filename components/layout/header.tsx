@@ -289,7 +289,7 @@ export default function Header() {
             Login
           </button>
           <Button
-            onClick={() => router.push("/pricing")}
+            onClick={() => router.push("/free-consultation")}
             className="bg-primary hover:bg-primary/90 text-white text-sm px-5 whitespace-nowrap"
           >
             Book your session

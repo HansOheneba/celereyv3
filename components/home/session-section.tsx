@@ -5,7 +5,7 @@ import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 export function SessionSection() {
   return (
     <section className="py-20 md:py-32 md:px-24 px-6 bg-[#354A49]">
-      <div className="mx-auto grid min-h-[60vh] max-w-7xl grid-cols-1 items-center gap-10 text-white md:grid-cols-2 md:gap-12">
+      <div className="mx-auto grid min-h-[60vh] grid-cols-1 items-center gap-10 text-white md:grid-cols-2 md:gap-12">
         <Reveal>
           <p className="text-sm font-bold text-[#CDE6AF] mb-4 tracking-wide">
             Starting point

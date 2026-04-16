@@ -617,7 +617,7 @@ export default function WealthScan() {
                       onClick={() => handleSelect(opt)}
                       className={`w-full p-4 border rounded-xl text-sm transition-all duration-150 ${
                         answers[step] === opt
-                          ? "border-blue-900 bg-blue-950 text-white shadow-sm"
+                          ? "border-blue-900 bg-primary text-white shadow-sm"
                           : "border-gray-300 hover:border-blue-800 hover:bg-blue-50"
                       }`}
                     >
