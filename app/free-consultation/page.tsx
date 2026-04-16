@@ -28,15 +28,15 @@ const inputClass =
 const benefits = [
   {
     title: "Personalised Guidance",
-    body: "Tailored to your unique goals and ambitions for your financial future.",
+    body: "We meet you where you are and walk through your situation together.",
   },
   {
-    title: "Broad Resources",
-    body: "Discover how Celerey can help with financial planning, investing, tax strategy, and more.",
+    title: "No Preparation Needed",
+    body: "You do not need to prepare anything or have all the answers. Just come as you are.",
   },
   {
     title: "No Strings Attached",
-    body: "This consultation is 100% free &mdash; no commitment, no pressure.",
+    body: "The session is completely free. no obligations.",
   },
 ];
 
