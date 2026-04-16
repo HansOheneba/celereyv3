@@ -124,21 +124,9 @@ export default function FreeConsultationPage() {
               className="mt-5 text-base text-neutral-600 max-w-lg"
             >
               Get clarity on your finances and understand your next steps. We
-              will send you a private booking link after you fill the form below.
+              will send you a private booking link after you fill the form
+              below.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="mt-6 flex items-center gap-6 text-sm text-neutral-500"
-            >
-              <span>Free session</span>
-              <span>•</span>
-              <span>15 minutes</span>
-              <span>•</span>
-              <span>Limited slots weekly</span>
-            </motion.div>
           </div>
 
           {/* Right — Image */}
@@ -281,13 +269,23 @@ export default function FreeConsultationPage() {
                       />
                     </div>
 
-                    <Button
-                      type="submit"
-                      disabled={isLoading}
-                      className="w-full sm:w-auto"
-                    >
-                      {isLoading ? "Sending..." : "Get booking link"}
-                    </Button>
+                    <div className="flex flex-col gap-3 items-center justify-center">
+                      <Button
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full sm:w-auto"
+                      >
+                        {isLoading ? "Sending..." : "Get booking link"}
+                      </Button>
+                      <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.15 }}
+                        className=" flex items-center gap-6 text-sm text-neutral-500"
+                      >
+                        <span>*Limited slots weekly</span>
+                      </motion.div>
+                    </div>
                   </form>
                 </>
               )}
