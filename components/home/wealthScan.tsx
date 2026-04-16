@@ -547,6 +547,14 @@ export default function WealthScan() {
             className="mx-auto mt-12 w-full max-w-4xl "
           >
             <div className="rounded-md bg-white shadow-md min-h-[50vh] grid md:grid-cols-2 overflow-hidden">
+              <div className="hidden md:block relative">
+                <img
+                  src="/homepage/wealthscan.png"
+                  alt="Finance planning"
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 bg-linear-to-l from-black/20 to-transparent" />
+              </div>
               {/* LEFT */}
               <div className="px-8 py-10 sm:px-12 sm:py-12 flex flex-col justify-center max-w-md">
                 {/* Core message */}
@@ -578,14 +586,6 @@ export default function WealthScan() {
               </div>
 
               {/* RIGHT (IMAGE) */}
-              <div className="hidden md:block relative">
-                <img
-                  src="/homepage/wealthscan.png"
-                  alt="Finance planning"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-linear-to-l from-black/20 to-transparent" />
-              </div>
             </div>
           </motion.div>
         ) : (
