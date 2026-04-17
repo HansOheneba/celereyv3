@@ -20,8 +20,8 @@ export default function Home() {
       <SessionSection />
       <DecisionsSection />
       <AdvisorsSection />
-      <InsightsSection />
       <CTASection />
+      <InsightsSection />
     </main>
   );
 }
