@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const stats = [
   {
@@ -237,11 +239,11 @@ export default function FinancialWellbeingPage() {
         {/* Full bleed hero image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1596079890687-48800eb570c9?w=1800&q=85&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Person looking out over a city with confidence"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0D1F1A] via-[#0D1F1A]/60 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-primary via-[#0D1F1A]/60 to-transparent" />
         </div>
 
         {/* Floating eyebrow pill */}
@@ -268,25 +270,27 @@ export default function FinancialWellbeingPage() {
               clarity, and confidence that comes from knowing your future is
               planned.
             </p>
-            <a
-              href="/virtual-consultation"
-              className="group flex items-center gap-3 bg-[#C9E8D5] text-[#0D1F1A] px-8 py-4 text-sm tracking-widest uppercase font-medium hover:bg-white transition-colors duration-300 whitespace-nowrap self-start md:self-auto"
+            <Button
+              asChild
+              className="group bg-white text-primary hover:bg-white/90 h-auto rounded-none px-8 py-4 text-sm tracking-widest uppercase font-medium gap-3 whitespace-nowrap self-start md:self-auto"
             >
-              Start Your Journey
-              <svg
-                className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                viewBox="0 0 16 16"
-                fill="none"
-              >
-                <path
-                  d="M3 8h10M9 4l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
+              <Link href="/free-consultation">
+                Start Your Journey
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
+            </Button>
           </div>
         </div>
 
@@ -339,7 +343,7 @@ export default function FinancialWellbeingPage() {
       </section>
 
       {/* ── STATS BAND ── */}
-      <section className="bg-[#0D1F1A] py-20 px-6 md:px-16 lg:px-24">
+      <section className="bg-primary py-20 px-6 md:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
           {stats.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1}>
@@ -384,11 +388,11 @@ export default function FinancialWellbeingPage() {
                     {p.body}
                   </p>
                 </div>
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-4/3 overflow-hidden">
                   <img
                     src={p.image}
                     alt={p.alt}
-                    className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                    className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-700 hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-[#0D1F1A]/10" />
                 </div>
@@ -406,7 +410,7 @@ export default function FinancialWellbeingPage() {
             alt="Sunrise over financial district"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#0D1F1A]/80" />
+          <div className="absolute inset-0 bg-primary/80" />
         </div>
         <div className="relative z-10 px-6 md:px-16 lg:px-24 max-w-5xl mx-auto text-center">
           <FadeIn>
@@ -414,7 +418,8 @@ export default function FinancialWellbeingPage() {
               Celerey Belief
             </p>
             <blockquote className="text-white text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.2] italic">
-              "Financial security isn't a luxury —<br />
+              "Financial security isn't a luxury,
+              <br />
               <span className="not-italic">it's a choice anyone can make</span>
               <br />
               with the right guidance."
@@ -440,7 +445,7 @@ export default function FinancialWellbeingPage() {
             <div className="md:col-span-6 md:pt-16">
               <p className="text-lg text-[#4A4A4A] leading-relaxed">
                 Celerey brings together expert advisors, intelligent planning
-                tools, and a community of ambitious individuals — making
+                tools, and a community of ambitious individuals; making
                 world-class financial guidance genuinely accessible.
               </p>
             </div>
@@ -450,8 +455,8 @@ export default function FinancialWellbeingPage() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-[#E0E5DF]">
           {features.map((f, i) => (
             <FadeIn key={i} delay={i * 0.08}>
-              <div className="border-b border-r border-[#E0E5DF] p-8 lg:p-10 group hover:bg-[#0D1F1A] transition-colors duration-500 cursor-default">
-                <div className="text-[#5C7A6A] group-hover:text-[#C9E8D5] transition-colors mb-6">
+              <div className="border-b border-r border-[#E0E5DF] p-8 lg:p-10 group hover:bg-primary transition-colors duration-500 cursor-default">
+                <div className="text-primary group-hover:text-white transition-colors mb-6">
                   {f.icon}
                 </div>
                 <h3 className="text-lg font-medium text-[#1A1A1A] group-hover:text-white transition-colors mb-3">
@@ -478,7 +483,7 @@ export default function FinancialWellbeingPage() {
           ].map((src, i) => (
             <div
               key={i}
-              className="flex-shrink-0 overflow-hidden"
+              className="shrink-0 overflow-hidden"
               style={{ width: i === 2 ? "28%" : "18%", flexGrow: 1 }}
             >
               <img
@@ -500,7 +505,7 @@ export default function FinancialWellbeingPage() {
             </p>
           </FadeIn>
 
-          <div className="relative max-w-3xl mx-auto min-h-[280px]">
+          <div className="relative max-w-3xl mx-auto min-h-70">
             {testimonials.map((t, i) => (
               <div
                 key={i}
@@ -611,7 +616,7 @@ export default function FinancialWellbeingPage() {
       </section>
 
       {/* ── FULL-BLEED CTA ── */}
-      <section className="relative overflow-hidden bg-[#0D1F1A]">
+      <section className="relative overflow-hidden bg-primary">
         <div className="absolute inset-0 opacity-20">
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80&auto=format&fit=crop"
@@ -620,8 +625,8 @@ export default function FinancialWellbeingPage() {
           />
         </div>
         {/* Decorative circle */}
-        <div className="absolute -right-32 -top-32 w-[500px] h-[500px] rounded-full border border-[#C9E8D5]/10" />
-        <div className="absolute -right-16 -top-16 w-[360px] h-[360px] rounded-full border border-[#C9E8D5]/10" />
+        <div className="absolute -right-32 -top-32 w-125 h-125 rounded-full border border-[#C9E8D5]/10" />
+        <div className="absolute -right-16 -top-16 w-90 h-90 rounded-full border border-[#C9E8D5]/10" />
 
         <div className="relative z-10 px-6 md:px-16 lg:px-24 py-40 max-w-7xl mx-auto">
           <FadeIn>
@@ -641,31 +646,34 @@ export default function FinancialWellbeingPage() {
               headed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="/virtual-consultation"
-                className="group inline-flex items-center gap-3 bg-[#C9E8D5] text-[#0D1F1A] px-10 py-4 text-sm tracking-widest uppercase font-medium hover:bg-white transition-colors duration-300"
+              <Button
+                asChild
+                className="group bg-white text-primary hover:bg-white/90 h-auto px-10 py-4 text-sm tracking-widest uppercase font-medium gap-3"
               >
-                Book a Free Consultation
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-              <a
-                href="https://celerey.app/"
-                className="inline-flex items-center gap-3 border border-white/30 text-white px-10 py-4 text-sm tracking-widest uppercase hover:border-white/60 transition-colors duration-300"
+                <Link href="/free-consultation">
+                  Book a Free Consultation
+                  <svg
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                asChild
+                className="border-white/30 text-white hover:bg-white/10 hover:text-white h-auto px-10 py-4 text-sm tracking-widest uppercase"
               >
-                Get a Free Health Check
-              </a>
+                <a href="https://celerey.app/">Get a Free Health Check</a>
+              </Button>
             </div>
           </FadeIn>
         </div>

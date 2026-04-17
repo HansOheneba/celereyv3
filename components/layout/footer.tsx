@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "@/components/ui/accordion";
+import { Button } from "../ui/button";
 
 type FooterLink = { href: string; label: string };
 
@@ -43,12 +44,16 @@ export default function Footer() {
       links: [
         { href: "/about", label: "Who we are" },
         { href: "/advisors", label: "Our advisors" },
+        { href: "/services", label: "What we help with" },
+        { href: "/pricing", label: "Pricing" },
+        { href: "/financial-wellbeing", label: "Financial wellbeing" },
         { href: "/resources", label: "Resources" },
       ],
     },
     {
       title: "Support",
       links: [
+        { href: "/free-consultation", label: "Book a free consultation" },
         { href: "/contact", label: "Help & support" },
         { href: "/faqs", label: "FAQs" },
         { href: "/privacy", label: "Privacy policy" },
@@ -112,15 +117,14 @@ export default function Footer() {
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link
                     href="/contact"
-                    className="inline-flex h-11 w-full items-center justify-center rounded-full border border-white/18 bg-transparent px-6 text-sm font-medium text-white/90 transition hover:border-white/28 hover:bg-white/5 sm:w-auto"
+               
                   >
-                    Chat with us
+                    <Button variant={"outline"} className="hover:bg-white/20 border-white hover:text-white">Chat with us</Button>
                   </Link>
-                  <Link
-                    href="/#wealth-scan"
-                    className="inline-flex h-11 w-full items-center justify-center rounded-full bg-white px-6 text-center text-sm font-medium text-[#050816] transition hover:bg-white/90 sm:w-auto"
-                  >
-                    Take Free Financial Scan
+                  <Link href="/#wealth-scan">
+                    <Button className="bg-white text-primary hover:bg-gray-200 hover:text-primary/70">
+                      Take Free Financial Scan
+                    </Button>
                   </Link>
                 </div>
               </div>
