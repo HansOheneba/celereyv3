@@ -293,7 +293,7 @@ export default function Header() {
             onClick={() => router.push("/free-consultation")}
             className="bg-primary hover:bg-primary/90 text-white text-sm px-5 whitespace-nowrap"
           >
-            Book your session
+            Book your free session
           </Button>
         </div>
 
@@ -364,7 +364,7 @@ export default function Header() {
                     onClick={() => router.push("/pricing")}
                     className="w-full bg-primary hover:bg-primary/90 text-white"
                   >
-                    Book your session
+                    Book your free session
                   </Button>
                 </SheetClose>
               </div>
