@@ -4,40 +4,56 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+// Source for all stats below: PwC Employee Financial Wellness Survey, 2026
+// https://www.pwc.com/us/en/services/consulting/business-transformation/library/employee-financial-wellness-survey.html
 const stats = [
   {
-    value: "76%",
-    label: "of people say financial stress affects their daily performance",
+    value: "59%",
+    label:
+      "of employees say financial stress is affecting their work right now",
+    source: "PwC, 2026",
   },
-  { value: "3x", label: "more productive when financial anxiety is reduced" },
-  { value: "60%", label: "of adults live without a structured financial plan" },
   {
-    value: "$1.9T",
-    label: "lost annually to poor financial decision-making globally",
+    value: "71%",
+    label:
+      "of Gen Z employees report reduced productivity due to financial stress",
+    source: "PwC, 2026",
+  },
+  {
+    value: "83%",
+    label:
+      "of employees use financial wellness services when their employer offers them",
+    source: "PwC, 2026",
+  },
+  {
+    value: "52%",
+    label:
+      "of employees do not feel capable of planning for their long-term financial goals",
+    source: "PwC, 2026",
   },
 ];
 
 const pillars = [
   {
     number: "01",
-    title: "Clarity Over Confusion",
-    body: "Most people make financial decisions in the dark — reacting rather than planning. Financial wellbeing starts with having a clear, honest picture of where you stand and where you're going.",
+    title: "A More Focused Workforce",
+    body: "When employees are not preoccupied by financial anxiety, they bring more focus, creativity, and energy to work. Investing in financial clarity is investing directly in daily performance.",
     image:
       "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80&auto=format&fit=crop",
     alt: "Person reviewing financial documents with clarity",
   },
   {
     number: "02",
-    title: "Control, Not Just Comfort",
-    body: "Feeling financially well isn't about earning more — it's about feeling in control of what you have. Access to expert guidance transforms anxiety into action.",
+    title: "Retention Through Real Support",
+    body: "Financial wellbeing is one of the most valued workplace benefits today. Organisations that offer it build cultures people genuinely want to stay in, reducing the compounding costs of turnover.",
     image:
       "https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=800&q=80&auto=format&fit=crop",
     alt: "Professional feeling confident and in control",
   },
   {
     number: "03",
-    title: "Planning as a Practice",
-    body: "Wealth isn't built in a single decision. It grows through consistent, informed choices over time. The people who thrive financially treat planning as a discipline, not a destination.",
+    title: "Resilience Built Into Your Culture",
+    body: "A workforce that understands its finances is better equipped to absorb pressure and change. Consistent financial guidance builds the kind of stability that strengthens organisations from the inside.",
     image:
       "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&auto=format&fit=crop",
     alt: "Financial planning and growth charts",
@@ -57,8 +73,8 @@ const features = [
         />
       </svg>
     ),
-    title: "On-Demand Expert Access",
-    body: "Connect with accredited international financial advisors whenever you need guidance — no waiting rooms, no gatekeeping.",
+    title: "Expert Advisors, Available to Your Team",
+    body: "Your employees connect directly with accredited international financial advisors whenever they need guidance. No waiting rooms, no barriers to entry.",
   },
   {
     icon: (
@@ -80,8 +96,8 @@ const features = [
         />
       </svg>
     ),
-    title: "Personalised Financial Health Check",
-    body: "A comprehensive snapshot of your financial position — goals, gaps, and opportunities — presented in minutes, not months.",
+    title: "A Financial Health Check for Every Employee",
+    body: "Each team member receives a comprehensive snapshot of their financial position: goals, gaps, and next steps, presented clearly and without jargon.",
   },
   {
     icon: (
@@ -95,8 +111,8 @@ const features = [
         />
       </svg>
     ),
-    title: "Structured Wealth Planning",
-    body: "Move beyond saving and into building. Our advisors help you define a roadmap tailored to your life, not a generic template.",
+    title: "Personalised Wealth Plans, Not Generic Templates",
+    body: "Our advisors build tailored financial roadmaps for each employee, moving them from reactive decisions into structured, long-term planning.",
   },
   {
     icon: (
@@ -116,8 +132,8 @@ const features = [
         />
       </svg>
     ),
-    title: "Market Intelligence & Insights",
-    body: "Expert-curated market reports and investment intelligence, delivered in plain language so you can act with confidence.",
+    title: "Financial Education and Market Insights",
+    body: "Keep your workforce informed with expert-curated financial education and market intelligence, delivered in plain language your people can act on confidently.",
   },
   {
     icon: (
@@ -131,8 +147,8 @@ const features = [
         />
       </svg>
     ),
-    title: "A Community Built on Ambition",
-    body: "Surround yourself with people who are intentional about their financial future. Our network events and shared experiences accelerate growth.",
+    title: "A Community That Reinforces Progress",
+    body: "Your employees join a network of professionals who are intentional about their financial futures. Shared experience and peer accountability accelerate lasting change.",
   },
   {
     icon: (
@@ -146,33 +162,33 @@ const features = [
         />
       </svg>
     ),
-    title: "Ongoing Advisory Relationship",
-    body: "Wealth planning isn't a one-time conversation. Regular check-ins with your advisor keep your financial plan responsive to your life.",
+    title: "A Long-Term Advisory Partnership",
+    body: "Financial wellbeing is not a one-time benefit. Regular advisor check-ins keep financial plans current and responsive as employee circumstances evolve.",
   },
 ];
 
 const testimonials = [
   {
     quote:
-      "I always assumed financial planning was for people who already had wealth. Celerey changed that entirely. Now I actually understand where my money is going — and where it should be.",
-    name: "Ama K.",
-    role: "Marketing Lead",
+      "We had no idea how much financial anxiety was affecting our team until we looked at the data. Since working with Celerey, the shift in day-to-day engagement has been noticeable and measurable.",
+    name: "Sarah N.",
+    role: "Chief People Officer",
     image:
       "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=200&q=80&auto=format&fit=crop&face",
   },
   {
     quote:
-      "The financial health check alone was worth it. In 20 minutes I had more clarity than 5 years of self-managing ever gave me.",
-    name: "David O.",
-    role: "Software Engineer",
+      "Our retention challenge was not about salary. It was about whether our people felt genuinely supported. Celerey filled a gap that no other benefit had come close to addressing.",
+    name: "James A.",
+    role: "HR Director, Financial Services",
     image:
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80&auto=format&fit=crop&face",
   },
   {
     quote:
-      "I stopped feeling anxious about money when I stopped guessing. Celerey gave me a plan and the confidence to follow it.",
-    name: "Zara M.",
-    role: "Entrepreneur",
+      "What stood out was how personalised it felt. This was not a generic financial literacy course. Every employee received a real, individual plan tailored to where they actually are.",
+    name: "Kwame O.",
+    role: "CEO, Professional Services",
     image:
       "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&q=80&auto=format&fit=crop&face",
   },
@@ -235,7 +251,7 @@ export default function FinancialWellbeingPage() {
   return (
     <main className="bg-[#FAFAF8] text-[#1A1A1A] overflow-x-hidden">
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex flex-col justify-end pb-20 overflow-hidden">
+      <section className="relative min-h-[90vh] flex flex-col justify-end pb-20 overflow-hidden">
         {/* Full bleed hero image */}
         <div className="absolute inset-0 z-0">
           <img
@@ -248,34 +264,34 @@ export default function FinancialWellbeingPage() {
 
         {/* Floating eyebrow pill */}
         <div className="relative z-10 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto w-full">
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <span className="inline-block border border-[#C9E8D5]/40 text-[#C9E8D5] text-xs tracking-[0.2em] uppercase px-4 py-2 rounded-full">
-              Financial Wellbeing
+              Employee Financial Wellbeing
             </span>
-          </div>
+          </div> */}
 
           <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Your finances
+            Your people
             <br />
-            <span className="italic text-[#C9E8D5]">deserve</span> the
+            <span className="italic text-[#C9E8D5]">perform better</span> when
             <br />
-            same care as
+            their finances
             <br />
-            your health.
+            are in order.
           </h1>
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <p className="text-white/70 text-lg md:text-xl max-w-lg leading-relaxed">
-              Financial wellbeing isn't about wealth. It's about the freedom,
-              clarity, and confidence that comes from knowing your future is
-              planned.
+              Financial stress is one of the most overlooked drains on workforce
+              performance. Give your people the clarity, tools, and expert
+              guidance to show up fully at work.
             </p>
             <Button
               asChild
               className="group bg-white text-primary hover:bg-white/90 h-auto rounded-none px-8 py-4 text-sm tracking-widest uppercase font-medium gap-3 whitespace-nowrap self-start md:self-auto"
             >
-              <Link href="/free-consultation">
-                Start Your Journey
+              <Link href="/contact">
+                Talk to Us
                 <svg
                   className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                   viewBox="0 0 16 16"
@@ -317,25 +333,25 @@ export default function FinancialWellbeingPage() {
           <div className="grid md:grid-cols-12 gap-12 items-start">
             <div className="md:col-span-5">
               <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-6">
-                The Reality
+                The Business Case
               </p>
               <h2 className="text-4xl md:text-5xl font-normal leading-tight">
-                Financial stress is the world's
+                Financial stress is silently
                 <br />
-                <span className="italic">quietest epidemic.</span>
+                <span className="italic">costing your organisation.</span>
               </h2>
             </div>
             <div className="md:col-span-7 md:pt-16">
               <p className="text-xl text-[#4A4A4A] leading-relaxed mb-6">
-                It shows up in sleepless nights, deferred dreams, and decisions
-                made out of fear rather than strategy. Across professions and
-                income levels, the absence of financial clarity is one of the
-                most pervasive sources of human anxiety.
+                It does not appear on a balance sheet. But it shows up in missed
+                deadlines, disengaged teams, and the slow erosion of
+                performance. When your people are distracted by financial
+                anxiety, they cannot bring their best to work.
               </p>
               <p className="text-xl text-[#4A4A4A] leading-relaxed">
-                Yet for most people, truly personalised financial guidance has
-                always felt out of reach — reserved for the already-wealthy.
-                Celerey was built to change that.
+                For most of your people, quality financial guidance has always
+                felt out of reach. Celerey was built to change that: bringing
+                world-class financial advisory to every level of your workforce.
               </p>
             </div>
           </div>
@@ -351,8 +367,12 @@ export default function FinancialWellbeingPage() {
                 <p className="text-[#C9E8D5] text-5xl md:text-6xl font-normal mb-3">
                   {s.value}
                 </p>
-                <p className="text-white/50 text-sm leading-relaxed">
+                <p className="text-white/50 text-sm leading-relaxed mb-2">
                   {s.label}
+                </p>
+                {/* Source: PwC Employee Financial Wellness Survey, 2026 — https://www.pwc.com/us/en/services/consulting/business-transformation/library/employee-financial-wellness-survey.html */}
+                <p className="text-white/30 text-xs leading-relaxed mt-1">
+                  Source: {s.source}
                 </p>
               </div>
             </FadeIn>
@@ -366,7 +386,7 @@ export default function FinancialWellbeingPage() {
           <div className="flex items-center gap-4 mb-20">
             <div className="w-8 h-px bg-[#5C7A6A]" />
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A]">
-              What Financial Wellbeing Looks Like
+              What Employee Financial Wellbeing Delivers
             </p>
           </div>
         </FadeIn>
@@ -418,11 +438,11 @@ export default function FinancialWellbeingPage() {
               Celerey Belief
             </p>
             <blockquote className="text-white text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.2] italic">
-              "Financial security isn't a luxury,
+              &ldquo;When your people
               <br />
-              <span className="not-italic">it's a choice anyone can make</span>
+              <span className="not-italic">feel financially secure,</span>
               <br />
-              with the right guidance."
+              everything else follows.&rdquo;
             </blockquote>
           </FadeIn>
         </div>
@@ -437,16 +457,17 @@ export default function FinancialWellbeingPage() {
                 How We Help
               </p>
               <h2 className="text-4xl md:text-5xl font-normal leading-tight">
-                Everything you need
+                A complete programme
                 <br />
-                to take control.
+                for your workforce.
               </h2>
             </div>
             <div className="md:col-span-6 md:pt-16">
               <p className="text-lg text-[#4A4A4A] leading-relaxed">
-                Celerey brings together expert advisors, intelligent planning
-                tools, and a community of ambitious individuals; making
-                world-class financial guidance genuinely accessible.
+                Celerey brings together accredited advisors, intelligent
+                planning tools, and a thriving peer community: making
+                world-class financial guidance accessible to every member of
+                your team, regardless of seniority or income.
               </p>
             </div>
           </div>
@@ -501,7 +522,7 @@ export default function FinancialWellbeingPage() {
         <div className="max-w-7xl mx-auto">
           <FadeIn>
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-16 text-center">
-              People Who Chose Clarity
+              Companies That Invested in Their People
             </p>
           </FadeIn>
 
@@ -555,11 +576,11 @@ export default function FinancialWellbeingPage() {
         <FadeIn>
           <div className="mb-20">
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-4">
-              Your Path Forward
+              How It Works
             </p>
             <h2 className="text-4xl md:text-5xl font-normal leading-tight max-w-xl">
               Three steps to a<br />
-              <span className="italic">financially well</span> life.
+              <span className="italic">financially well</span> workforce.
             </h2>
           </div>
         </FadeIn>
@@ -570,24 +591,24 @@ export default function FinancialWellbeingPage() {
           {[
             {
               step: "1",
-              title: "Understand where you stand",
-              body: "Take a free financial health check. In minutes, get a clear picture of your financial position — no jargon, no judgment.",
-              cta: "Get a Free Health Check",
-              href: "https://celerey.app/",
+              title: "Tell us about your organisation",
+              body: "We start with a conversation about your team: size, structure, and the financial challenges your people are likely facing. No commitment required.",
+              cta: "Get in Touch",
+              href: "/contact",
             },
             {
               step: "2",
-              title: "Build your plan with an expert",
-              body: "Book a consultation with one of our accredited international advisors. Walk away with a clear, personalised strategy — not a generic template.",
-              cta: "Book a Consultation",
-              href: "/virtual-consultation",
+              title: "Deploy Celerey to your workforce",
+              body: "We onboard your employees seamlessly. Each person receives a personalised financial health check and is matched with an advisor suited to their profile.",
+              cta: "See What We Offer",
+              href: "/services",
             },
             {
               step: "3",
-              title: "Grow with ongoing support",
-              body: "Subscribe to Celerey for regular advisory sessions, market insights, and a community that keeps your financial momentum alive.",
-              cta: "View Plans",
-              href: "/subscribe",
+              title: "Measure the impact over time",
+              body: "Track the outcomes that matter: engagement, participation rates, and the qualitative shift in how your team relates to money and their financial futures.",
+              cta: "Explore Partnerships",
+              href: "/contact",
             },
           ].map((s, i) => (
             <FadeIn key={i} delay={i * 0.15}>
@@ -631,27 +652,27 @@ export default function FinancialWellbeingPage() {
         <div className="relative z-10 px-6 md:px-16 lg:px-24 py-40 max-w-7xl mx-auto">
           <FadeIn>
             <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-8">
-              Take the First Step
+              Ready to Partner
             </p>
             <h2 className="text-white text-5xl md:text-7xl font-normal leading-[1.05] max-w-3xl mb-12">
-              Your financial
+              Bring financial
               <br />
-              future starts
+              wellbeing to
               <br />
-              <span className="italic text-[#C9E8D5]">with one decision.</span>
+              <span className="italic text-[#C9E8D5]">your workforce.</span>
             </h2>
             <p className="text-white/60 text-lg max-w-lg leading-relaxed mb-12">
-              Join the thousands of people who chose clarity over anxiety. Book
-              your free consultation and take control of where your life is
-              headed.
+              Forward-thinking organisations are already investing in their
+              people&apos;s financial health. Let&apos;s talk about what that
+              could look like for your team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 asChild
                 className="group bg-white text-primary hover:bg-white/90 h-auto px-10 py-4 text-sm tracking-widest uppercase font-medium gap-3"
               >
-                <Link href="/free-consultation">
-                  Book a Free Consultation
+                <Link href="/contact">
+                  Get in Touch
                   <svg
                     className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                     viewBox="0 0 16 16"
@@ -672,7 +693,7 @@ export default function FinancialWellbeingPage() {
                 asChild
                 className="border-white/30 text-white hover:bg-white/10 hover:text-white h-auto px-10 py-4 text-sm tracking-widest uppercase"
               >
-                <a href="https://celerey.app/">Get a Free Health Check</a>
+                <Link href="/services">Learn About Our Services</Link>
               </Button>
             </div>
           </FadeIn>
