@@ -255,31 +255,7 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      {/* ── PULL QUOTE ── */}
-      <section className="relative py-40 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1800&q=80&auto=format&fit=crop"
-            alt="City skyline at dusk"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-primary/85" />
-        </div>
-        <div className="relative z-10 px-6 md:px-16 lg:px-24 max-w-5xl mx-auto text-center">
-          <FadeIn>
-            <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-10">
-              The Celerey Approach
-            </p>
-            <blockquote className="text-white text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.2] italic">
-              &ldquo;The right tool at the right moment
-              <br />
-              <span className="not-italic">changes every decision</span>
-              <br />
-              that follows.&rdquo;
-            </blockquote>
-          </FadeIn>
-        </div>
-      </section>
+
 
       {/* ── FULL-BLEED CTA ── */}
       <section className="relative overflow-hidden bg-primary">
