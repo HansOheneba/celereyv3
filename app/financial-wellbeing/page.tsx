@@ -517,60 +517,6 @@ export default function FinancialWellbeingPage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="py-32 px-6 md:px-16 lg:px-24 bg-[#F2F5F0]">
-        <div className="max-w-7xl mx-auto">
-          <FadeIn>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-16 text-center">
-              Companies That Invested in Their People
-            </p>
-          </FadeIn>
-
-          <div className="relative max-w-3xl mx-auto min-h-70">
-            {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="absolute inset-0 transition-all duration-700"
-                style={{
-                  opacity: i === activeTestimonial ? 1 : 0,
-                  transform:
-                    i === activeTestimonial
-                      ? "translateY(0)"
-                      : "translateY(20px)",
-                  pointerEvents: i === activeTestimonial ? "auto" : "none",
-                }}
-              >
-                <blockquote className="text-2xl md:text-3xl font-normal leading-relaxed text-[#1A1A1A] mb-10 italic">
-                  "{t.quote}"
-                </blockquote>
-                <div className="flex items-center gap-4">
-                  <img
-                    src={t.image}
-                    alt={t.name}
-                    className="w-12 h-12 rounded-full object-cover grayscale"
-                  />
-                  <div>
-                    <p className="font-medium text-[#1A1A1A]">{t.name}</p>
-                    <p className="text-sm text-[#5C7A6A]">{t.role}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-20">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveTestimonial(i)}
-                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? "w-8 h-2 bg-[#0D1F1A]" : "w-2 h-2 bg-[#0D1F1A]/20"}`}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── HOW IT WORKS ── */}
       <section className="py-32 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
         <FadeIn>
@@ -697,6 +643,59 @@ export default function FinancialWellbeingPage() {
               </Button>
             </div>
           </FadeIn>
+        </div>
+      </section>
+      {/* ── TESTIMONIALS ── */}
+      <section className="py-32 px-6 md:px-16 lg:px-24 bg-[#F2F5F0]">
+        <div className="max-w-7xl mx-auto">
+          <FadeIn>
+            <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-16 text-center">
+              Companies That Invested in Their People
+            </p>
+          </FadeIn>
+
+          <div className="relative max-w-3xl mx-auto min-h-70">
+            {testimonials.map((t, i) => (
+              <div
+                key={i}
+                className="absolute inset-0 transition-all duration-700"
+                style={{
+                  opacity: i === activeTestimonial ? 1 : 0,
+                  transform:
+                    i === activeTestimonial
+                      ? "translateY(0)"
+                      : "translateY(20px)",
+                  pointerEvents: i === activeTestimonial ? "auto" : "none",
+                }}
+              >
+                <blockquote className="text-2xl md:text-3xl font-normal leading-relaxed text-[#1A1A1A] mb-10 italic">
+                  "{t.quote}"
+                </blockquote>
+                <div className="flex items-center gap-4">
+                  <img
+                    src={t.image}
+                    alt={t.name}
+                    className="w-12 h-12 rounded-full object-cover grayscale"
+                  />
+                  <div>
+                    <p className="font-medium text-[#1A1A1A]">{t.name}</p>
+                    <p className="text-sm text-[#5C7A6A]">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-20">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveTestimonial(i)}
+                className={`transition-all duration-300 rounded-full ${i === activeTestimonial ? "w-8 h-2 bg-[#0D1F1A]" : "w-2 h-2 bg-[#0D1F1A]/20"}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
