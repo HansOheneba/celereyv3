@@ -1,128 +1,361 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Calculator, PiggyBank, Wallet } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Reveal } from "@/components/motion/reveal";
+import { Button } from "@/components/ui/button";
 
-const TOOLS = [
+const tools = [
   {
-    id: 1,
+    number: "01",
     name: "Budget Planner",
-    description:
-      "Build a clear picture of your monthly income and expenses. Set spending limits, track categories, and take control of where your money goes.",
-    icon: Wallet,
+    tagline: "See exactly where your money goes.",
+    body: "Most budgets fail because they are built on guesswork. The Budget Planner gives you a structured, honest breakdown of your income and spending so you can make every decision with real numbers, not estimates.",
     href: "/tools/budget-planner",
-    badge: null,
+    image:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80&auto=format&fit=crop",
+    alt: "Person reviewing financial documents at a desk",
   },
   {
-    id: 2,
+    number: "02",
     name: "Savings Calculator",
-    description:
-      "Project how your savings grow over time. Factor in contributions, interest rates, and timelines to map out the path to your financial goals.",
-    icon: PiggyBank,
+    tagline: "Model the future you are building towards.",
+    body: "Clarity about the future changes how you act today. Enter your goals, timeline, and contribution rate to see precisely how your savings compound over time. Then adjust until the picture looks right.",
     href: "/tools/savings-calculator",
-    badge: null,
+    image:
+      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80&auto=format&fit=crop",
+    alt: "Growth charts illustrating compound savings over time",
   },
   {
-    id: 3,
+    number: "03",
     name: "Money Manager",
-    description:
-      "Get a holistic view of your finances. Track income, outgoings, and net worth in one place to make smarter, faster decisions.",
-    icon: Calculator,
+    tagline: "Your full financial picture in one place.",
+    body: "Stop managing money in fragments. The Money Manager brings your income, expenses, and net worth into a single, coherent view so you always know where you stand and what your next move should be.",
     href: "/tools/money-manager",
-    badge: null,
+    image:
+      "https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=800&q=80&auto=format&fit=crop",
+    alt: "Professional reviewing an organised financial overview",
   },
 ];
 
+function useInView(threshold = 0.15) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold },
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, inView };
+}
+
+function FadeIn({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const { ref, inView } = useInView();
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: inView ? 1 : 0,
+        transform: inView ? "translateY(0)" : "translateY(32px)",
+        transition: `opacity 0.8s ease ${delay}s, transform 0.8s ease ${delay}s`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function ToolsPage() {
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-white to-slate-50 px-6 py-24 text-primary sm:py-32">
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center sm:mb-20"
-        >
-          <p className="text-sm uppercase tracking-widest text-[#D4AF37] font-semibold mb-3">
-            Financial Tools
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Tools Built for{" "}
-            <span className="text-[#D4AF37]">Your Financial Journey</span>
-          </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Practical, easy-to-use calculators and planners to help you budget
-            smarter, save faster, and manage your money with confidence.
-          </p>
-        </motion.div>
-
-        {/* Tools Grid */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {TOOLS.map((tool, index) => {
-            const Icon = tool.icon;
-            return (
-              <Reveal
-                key={tool.id}
-                delay={index * 0.08}
-                className="relative rounded-3xl border border-gray-200 bg-white p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
-              >
-                {tool.badge && (
-                  <div className="absolute -top-4 right-6">
-                    <span className="inline-block rounded-full bg-[#D4AF37] px-4 py-1 text-xs font-semibold text-white shadow-sm">
-                      {tool.badge}
-                    </span>
-                  </div>
-                )}
-
-                <div>
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center mb-5">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-
-                  <h3 className="text-xl font-semibold mb-3">{tool.name}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-8">
-                    {tool.description}
-                  </p>
-                </div>
-
-                <Link href={tool.href}>
-                  <Button className="w-full border border-primary bg-transparent text-primary hover:bg-primary hover:text-white transition-all text-sm font-semibold rounded-full">
-                    Open Tool
-                  </Button>
-                </Link>
-              </Reveal>
-            );
-          })}
+    <main className="bg-[#FAFAF8] text-[#1A1A1A] overflow-x-hidden">
+      {/* ── HERO ── */}
+      <section className="relative min-h-[90vh] flex flex-col justify-end pb-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1999&q=80&auto=format&fit=crop"
+            alt="Financial analytics and data on screen"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-primary via-[#0D1F1A]/60 to-transparent" />
         </div>
 
-        {/* Footer CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          viewport={{ once: true }}
-          className="text-center mt-24 max-w-2xl mx-auto"
-        >
-          <h2 className="text-3xl font-semibold mb-4">
-            Want Personalised Guidance?
-          </h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
-            These tools are a great starting point. For a tailored financial
-            strategy built around your goals, explore our{" "}
-            <span className="font-medium text-[#D4AF37]">advisory plans</span>.
-          </p>
-          <Link href="/subscribe">
-            <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 py-3 font-light">
-              View Plans
+        <div className="relative z-10 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto w-full">
+          <div className="mb-6">
+            <span className="inline-block border border-[#C9E8D5]/40 text-[#C9E8D5] text-xs tracking-[0.2em] uppercase px-4 py-2 rounded-full">
+              Celerey Tools
+            </span>
+          </div>
+
+          <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.05] max-w-4xl mb-8">
+            Instruments built
+            <br />
+            for your <span className="italic text-[#C9E8D5]">financial</span>
+            <br />
+            clarity.
+          </h1>
+
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <p className="text-white/70 text-lg md:text-xl max-w-lg leading-relaxed">
+              Not generic calculators. Tools designed around the moments that
+              matter most in your financial life, built to help you understand,
+              plan, and act with confidence.
+            </p>
+            <Button
+              asChild
+              className="group bg-white text-primary hover:bg-white/90 h-auto rounded-none px-8 py-4 text-sm tracking-widest uppercase font-medium gap-3 whitespace-nowrap self-start md:self-auto"
+            >
+              <a href="#tools">
+                Explore the Tools
+                <svg
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    d="M3 8h10M9 4l4 4-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
             </Button>
-          </Link>
-        </motion.div>
-      </div>
-    </section>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 right-8 md:right-16 z-10 flex flex-col items-center gap-2 opacity-50">
+          <span className="text-white text-[10px] tracking-[0.3em] uppercase rotate-90 origin-center mb-4">
+            Scroll
+          </span>
+          <div className="w-px h-12 bg-white/40 relative overflow-hidden">
+            <div
+              className="absolute top-0 w-full bg-white"
+              style={{
+                height: "30%",
+                animation: "scrollLine 2s ease-in-out infinite",
+              }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── EDITORIAL STATEMENT ── */}
+      <section className="py-28 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
+        <FadeIn>
+          <div className="grid md:grid-cols-12 gap-12 items-start">
+            <div className="md:col-span-5">
+              <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-6">
+                Why These Tools Exist
+              </p>
+              <h2 className="text-4xl md:text-5xl font-normal leading-tight">
+                Most financial tools
+                <br />
+                <span className="italic">overwhelm. Ours clarify.</span>
+              </h2>
+            </div>
+            <div className="md:col-span-7 md:pt-16">
+              <p className="text-xl text-[#4A4A4A] leading-relaxed mb-6">
+                We built these tools because the gap between knowing you should
+                plan and actually having a plan is almost always a tool problem.
+                Too complex, too generic, or too disconnected from real life.
+              </p>
+              <p className="text-xl text-[#4A4A4A] leading-relaxed">
+                Each tool in the Celerey suite was designed around a specific
+                moment of financial decision-making: the moment you need clarity
+                most. Simple enough to use in minutes. Precise enough to act on.
+              </p>
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      {/* ── TOOLS (alternating layout) ── */}
+      <section
+        id="tools"
+        className="py-32 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto"
+      >
+        <FadeIn>
+          <div className="flex items-center gap-4 mb-20">
+            <div className="w-8 h-px bg-[#5C7A6A]" />
+            <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A]">
+              The Suite
+            </p>
+          </div>
+        </FadeIn>
+
+        <div className="space-y-36">
+          {tools.map((t, i) => (
+            <FadeIn key={i} delay={0.1}>
+              <div
+                className={`grid md:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
+              >
+                <div>
+                  <span className="text-[120px] font-normal text-[#E8EDE6] leading-none select-none block -mb-8">
+                    {t.number}
+                  </span>
+                  <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-3">
+                    {t.tagline}
+                  </p>
+                  <h3 className="text-4xl md:text-5xl font-normal leading-tight mb-6">
+                    {t.name}
+                  </h3>
+                  <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-md mb-10">
+                    {t.body}
+                  </p>
+                  <Button
+                    asChild
+                    className="group bg-primary text-white hover:bg-primary/90 h-auto rounded-none px-8 py-4 text-sm tracking-widest uppercase font-medium gap-3"
+                  >
+                    <Link href={t.href}>
+                      Open Tool
+                      <svg
+                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M3 8h10M9 4l4 4-4 4"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </Link>
+                  </Button>
+                </div>
+                <div className="relative aspect-4/3 overflow-hidden">
+                  <img
+                    src={t.image}
+                    alt={t.alt}
+                    className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-[#0D1F1A]/10" />
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+
+      {/* ── PULL QUOTE ── */}
+      <section className="relative py-40 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=1800&q=80&auto=format&fit=crop"
+            alt="City skyline at dusk"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/85" />
+        </div>
+        <div className="relative z-10 px-6 md:px-16 lg:px-24 max-w-5xl mx-auto text-center">
+          <FadeIn>
+            <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-10">
+              The Celerey Approach
+            </p>
+            <blockquote className="text-white text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.2] italic">
+              &ldquo;The right tool at the right moment
+              <br />
+              <span className="not-italic">changes every decision</span>
+              <br />
+              that follows.&rdquo;
+            </blockquote>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── FULL-BLEED CTA ── */}
+      <section className="relative overflow-hidden bg-primary">
+        <div className="absolute inset-0 opacity-20">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80&auto=format&fit=crop"
+            alt="City skyline at night"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="absolute -right-32 -top-32 w-125 h-125 rounded-full border border-[#C9E8D5]/10" />
+        <div className="absolute -right-16 -top-16 w-90 h-90 rounded-full border border-[#C9E8D5]/10" />
+
+        <div className="relative z-10 px-6 md:px-16 lg:px-24 py-40 max-w-7xl mx-auto">
+          <FadeIn>
+            <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-8">
+              Go Deeper
+            </p>
+            <h2 className="text-white text-5xl md:text-7xl font-normal leading-[1.05] max-w-3xl mb-12">
+              Tools are
+              <br />
+              a starting point.
+              <br />
+              <span className="italic text-[#C9E8D5]">
+                Advisors finish the job.
+              </span>
+            </h2>
+            <p className="text-white/60 text-lg max-w-lg leading-relaxed mb-12">
+              Use these tools to build clarity about where you stand. Then bring
+              that clarity into a conversation with one of our accredited
+              financial advisors to turn it into a real, personalised plan.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                asChild
+                className="group bg-white text-primary hover:bg-white/90 h-auto px-10 py-4 text-sm tracking-widest uppercase font-medium gap-3"
+              >
+                <Link href="/free-consultation">
+                  Book a Free Consultation
+                  <svg
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                asChild
+                className="border-white/30 text-white hover:bg-white/10 hover:text-white h-auto px-10 py-4 text-sm tracking-widest uppercase"
+              >
+                <Link href="/pricing">View Plans</Link>
+              </Button>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <style jsx global>{`
+        @keyframes scrollLine {
+          0% {
+            transform: translateY(-100%);
+          }
+          100% {
+            transform: translateY(400%);
+          }
+        }
+      `}</style>
+    </main>
   );
 }
