@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { ChevronRight } from "lucide-react";
 import { InteractiveImage, Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
 
 const leftFeatures = [
   {
@@ -116,9 +117,15 @@ export function FeaturesSection() {
                 financial life.
               </p>
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-5">
-                <Button variant={"outline"} className="w-full px-10 sm:w-auto">
-                  Book
-                </Button>
+                <Link href="/pricing">
+                  {" "}
+                  <Button
+                    variant={"outline"}
+                    className="w-full px-10 sm:w-auto"
+                  >
+                    Book
+                  </Button>
+                </Link>
                 <a
                   href="/services"
                   className="inline-flex items-center gap-1 text-sm font-medium text-gray-900 hover:gap-2 transition-all"

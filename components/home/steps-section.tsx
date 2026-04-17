@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { InteractiveImage, Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
 
 export function StepsSection() {
   const steps = [
@@ -83,12 +84,14 @@ export function StepsSection() {
 
         {/* Buttons */}
         <Reveal className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button
-            variant="default"
-            className="w-full bg-primary px-6 text-white hover:bg-primary/90 sm:w-auto"
-          >
-            Book a session
-          </Button>
+          <Link href="/free-consultation">
+            <Button
+              variant="default"
+              className="w-full bg-primary px-6 text-white hover:bg-primary/90 sm:w-auto"
+            >
+              Book free session
+            </Button>
+          </Link>
           <Button variant="outline" className="w-full bg-white px-6 sm:w-auto">
             Learn More
           </Button>

@@ -120,7 +120,7 @@ export default function AlaCarteServices() {
     <section className="w-full bg-[#fbfaf8] py-20">
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-serif text-5xl text-neutral-900 leading-[1.05]">
             Specialist Engagements
           </h2>
@@ -134,7 +134,6 @@ export default function AlaCarteServices() {
             delivered by accredited specialists.
           </p>
 
-          <div className="mt-8 h-px w-24 bg-neutral-900/10" />
         </div>
 
         {/* Services */}

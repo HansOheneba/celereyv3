@@ -7,9 +7,7 @@ import { DecisionsSection } from "@/components/home//decisions-section";
 import { InsightsSection } from "@/components/home//insights-section";
 import { CTASection } from "@/components/home//cta-section";
 import { AdvisorsSection } from "@/components/home/advisors-section";
-import Community from "@/components/home/community";
 import WealthScan from "@/components/home/wealthScan";
-
 
 export default function Home() {
   return (
@@ -24,7 +22,6 @@ export default function Home() {
       <AdvisorsSection />
       <InsightsSection />
       <CTASection />
-      <Community />
     </main>
   );
 }

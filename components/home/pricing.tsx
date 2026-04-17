@@ -5,7 +5,7 @@ import { Check } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { BeginJourneyModal } from "./beginModal";
+import { BeginJourneyModal } from "../homepage/beginModal";
 
 type BillingCadence = "annual" | "one-time";
 type TierKey = "foundation" | "dashboard";
@@ -190,7 +190,7 @@ export default function EntryPointPricing({
       <section id={id} className="py-10 sm:py-24">
         <div className="flex flex-col items-center text-center pb-10">
           <h2 className="mt-10 font-serif font-thin text-2xl text-neutral-900 sm:text-4xl">
-            Subscription Plans
+            Celerey Plans
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-neutral-600">
             Choose a single coaching session for immediate clarity, or choose

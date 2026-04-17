@@ -105,6 +105,23 @@ export default function FreeConsultationPage() {
       <section className="px-6 md:px-16 lg:px-24 pt-20 pb-12">
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Left — Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative w-full h-[320px] sm:h-[400px] lg:h-[480px] overflow-hidden rounded-[32px]"
+          >
+            <Image
+              src="/homepage/girl-sitting.png"
+              alt="Financial consultation session"
+              fill
+              priority
+              className="object-cover"
+            />
+
+            {/* Soft warmth overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+          </motion.div>
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 14 }}
@@ -130,23 +147,6 @@ export default function FreeConsultationPage() {
           </div>
 
           {/* Right — Image */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative w-full h-[320px] sm:h-[400px] lg:h-[480px] overflow-hidden rounded-[32px]"
-          >
-            <Image
-              src="/homepage/girl-sitting.png"
-              alt="Financial consultation session"
-              fill
-              priority
-              className="object-cover"
-            />
-
-            {/* Soft warmth overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-          </motion.div>
         </div>
       </section>
 
@@ -154,6 +154,62 @@ export default function FreeConsultationPage() {
       <section className="px-6 md:px-16 lg:px-24 py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left — form card */}
+
+          {/* Right — content */}
+          <div className="space-y-10">
+            {/* Benefits */}
+            <Reveal delay={0.05}>
+              <div>
+                <h3 className="font-serif font-thin text-2xl text-neutral-900 mb-6">
+                  Your future, simplified
+                </h3>
+
+                <div className="space-y-6">
+                  {benefits.map((b, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="mt-1 w-5 h-5 rounded-full bg-[#fdf0e0] flex items-center justify-center shrink-0">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#b07d3d]" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-neutral-900">
+                          {b.title}
+                        </p>
+                        <p
+                          className="mt-1 text-sm text-neutral-500 leading-6"
+                          dangerouslySetInnerHTML={{ __html: b.body }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Outcomes */}
+            <Reveal delay={0.1}>
+              <div className="rounded-2xl bg-[#fdf8f0] border border-[#e8d9c0] px-6 py-6">
+                <p className="text-sm font-medium text-neutral-900 mb-4">
+                  With this call you will
+                </p>
+
+                <ul className="space-y-3">
+                  {outcomes.map((o, i) => (
+                    <li key={i} className="flex gap-3">
+                      <CheckCircle2 className="w-4 h-4 text-[#b07d3d] mt-1 shrink-0" />
+                      <p className="text-sm text-neutral-700">{o}</p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            {/* Quote */}
+            <Reveal delay={0.15}>
+              <p className="font-serif font-thin text-xl text-neutral-800">
+                Simple. Clear. A good place to start.
+              </p>
+            </Reveal>
+          </div>
           <Reveal>
             <div className="rounded-[28px] border border-black/10 bg-white px-6 sm:px-8 py-8 shadow-[0_18px_55px_rgba(0,0,0,0.05)]">
               {/* Success state */}
@@ -291,62 +347,6 @@ export default function FreeConsultationPage() {
               )}
             </div>
           </Reveal>
-
-          {/* Right — content */}
-          <div className="space-y-10">
-            {/* Benefits */}
-            <Reveal delay={0.05}>
-              <div>
-                <h3 className="font-serif font-thin text-2xl text-neutral-900 mb-6">
-                  Your future, simplified
-                </h3>
-
-                <div className="space-y-6">
-                  {benefits.map((b, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="mt-1 w-5 h-5 rounded-full bg-[#fdf0e0] flex items-center justify-center shrink-0">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#b07d3d]" />
-                      </div>
-                      <div>
-                        <p className="text-sm font-medium text-neutral-900">
-                          {b.title}
-                        </p>
-                        <p
-                          className="mt-1 text-sm text-neutral-500 leading-6"
-                          dangerouslySetInnerHTML={{ __html: b.body }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Outcomes */}
-            <Reveal delay={0.1}>
-              <div className="rounded-2xl bg-[#fdf8f0] border border-[#e8d9c0] px-6 py-6">
-                <p className="text-sm font-medium text-neutral-900 mb-4">
-                  With this call you will
-                </p>
-
-                <ul className="space-y-3">
-                  {outcomes.map((o, i) => (
-                    <li key={i} className="flex gap-3">
-                      <CheckCircle2 className="w-4 h-4 text-[#b07d3d] mt-1 shrink-0" />
-                      <p className="text-sm text-neutral-700">{o}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-
-            {/* Quote */}
-            <Reveal delay={0.15}>
-              <p className="font-serif font-thin text-xl text-neutral-800">
-                Simple. Clear. A good place to start.
-              </p>
-            </Reveal>
-          </div>
         </div>
       </section>
       {/* ── Bottom CTA — nudge to pricing ── */}

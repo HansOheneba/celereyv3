@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { InteractiveImage, Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
 
 export function SessionSection() {
   return (
@@ -37,9 +38,11 @@ export function SessionSection() {
             </div>
           </div>
 
-          <Button className="w-full bg-[#CDE6AF] text-gray-800 hover:bg-[#CDE6AF]/50 sm:w-auto">
-            Book your session
-          </Button>
+          <Link href="/pricing">
+            <Button className="w-full bg-[#CDE6AF] text-gray-800 hover:bg-[#CDE6AF]/50 sm:w-auto">
+              Book your session
+            </Button>
+          </Link>
         </Reveal>
 
         <InteractiveImage className="relative h-80 min-h-80 overflow-hidden rounded-2xl sm:h-96 sm:min-h-96 md:h-full">

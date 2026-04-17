@@ -12,14 +12,15 @@ Assume breaking changes may exist. Always follow current conventions.
 
 Never use deprecated utilities. Always use modern equivalents.
 
-| Deprecated         | Required           |
-|--------------------|--------------------|
-| `bg-gradient-to-r` | `bg-linear-to-r`   |
-| `bg-gradient-to-b` | `bg-linear-to-b`   |
-| `bg-gradient-to-tr`| `bg-linear-to-tr`  |
-| `shadow-sm`        | check for warnings |
+| Deprecated          | Required           |
+| ------------------- | ------------------ |
+| `bg-gradient-to-r`  | `bg-linear-to-r`   |
+| `bg-gradient-to-b`  | `bg-linear-to-b`   |
+| `bg-gradient-to-tr` | `bg-linear-to-tr`  |
+| `shadow-sm`         | check for warnings |
 
 Rules:
+
 - Never use `bg-gradient-*` — always `bg-linear-*`
 - Zero Tailwind lint warnings allowed
 - Zero TypeScript errors allowed
@@ -29,6 +30,7 @@ Class order:
 Layout → Spacing → Size → Typography → Colors → Effects
 
 Example:
+
 ```tsx
 <div className="flex items-center gap-4 p-4 w-full text-sm text-white bg-linear-to-r from-blue-500 to-purple-600 rounded-xl">
 ```
@@ -60,17 +62,17 @@ Example:
 File structure:
 app/
 dashboard/
-page.tsx          ← Server Component by default
-loading.tsx       ← Suspense fallback
-error.tsx         ← Error boundary
+page.tsx ← Server Component by default
+loading.tsx ← Suspense fallback
+error.tsx ← Error boundary
 components/
 StatsCard.tsx
 Chart.tsx
 components/
-ui/                 ← shadcn managed, do not edit
+ui/ ← shadcn managed, do not edit
 [custom components]
 lib/
-utils.ts            ← cn() lives here
+utils.ts ← cn() lives here
 
 ---
 
@@ -133,6 +135,7 @@ type CardProps = {
 - [ ] `@/` imports throughout
 
 <!-- END:nextjs-agent-rules -->
+
 The biggest additions that will save you the most headaches day-to-day are the shadcn rules (the cn() enforcement especially) and the "use client" trigger list — those two alone prevent a large class of common mistakes.import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -159,13 +162,14 @@ Assume breaking changes may exist in any dependency. Always follow current conve
 
 Never use deprecated utilities. Always use modern equivalents.
 
-| Deprecated          | Required            |
-|---------------------|---------------------|
-| `bg-gradient-to-r`  | `bg-linear-to-r`    |
-| `bg-gradient-to-b`  | `bg-linear-to-b`    |
-| `bg-gradient-to-tr` | `bg-linear-to-tr`   |
+| Deprecated          | Required          |
+| ------------------- | ----------------- |
+| `bg-gradient-to-r`  | `bg-linear-to-r`  |
+| `bg-gradient-to-b`  | `bg-linear-to-b`  |
+| `bg-gradient-to-tr` | `bg-linear-to-tr` |
 
 Rules:
+
 - Never use `bg-gradient-*` — always `bg-linear-*`
 - Zero Tailwind lint warnings allowed
 - Zero TypeScript errors allowed
@@ -175,6 +179,7 @@ Class order:
 Layout → Spacing → Size → Typography → Colors → Effects
 
 Example:
+
 ```tsx
 <div className="flex items-center gap-4 p-4 w-full text-sm text-white bg-linear-to-r from-blue-500 to-purple-600 rounded-xl">
 ```
@@ -191,6 +196,7 @@ Fonts are defined once in `app/layout.tsx` using `next/font/local` and exposed a
 - `--font-helvetica` → body/UI font (Helvetica Neue)
 
 Rules:
+
 - Never import fonts from Google Fonts or any external source
 - Never redefine fonts outside of `app/layout.tsx`
 - Access fonts in Tailwind via their CSS variable (configured in `tailwind.config.ts`)
@@ -224,24 +230,25 @@ Rules:
 
 Layout structure (already established — do not change):
 app/
-layout.tsx         ← Root layout: fonts, Header, Footer, Toaster, Scripts
+layout.tsx ← Root layout: fonts, Header, Footer, Toaster, Scripts
 globals.css
 fonts/
 ppcirka/
 helvetica/
 [pages]/
 page.tsx
-components/      ← Page-specific components
+components/ ← Page-specific components
 components/
 layout/
 header.tsx
 footer.tsx
-ui/                ← shadcn managed — do not edit
+ui/ ← shadcn managed — do not edit
 [shared components]
 lib/
-utils.ts           ← cn() lives here
+utils.ts ← cn() lives here
 
 Rules:
+
 - `Header`, `Footer`, and `Toaster` are rendered globally in `app/layout.tsx` — never add them inside individual pages
 - Third-party scripts go in `app/layout.tsx` using `next/script` with `strategy="afterInteractive"` or `"lazyOnload"`
 - `loading.tsx` and `error.tsx` should be added to page routes that fetch data
@@ -309,5 +316,6 @@ type HeroProps = {
 - [ ] `@/` imports throughout — no relative paths
 - [ ] No logic or scripts duplicating what's already in `app/layout.tsx`
 - [ ] Ensure that no special characters like " ' " the apostrophe or "&" are used al special characters should be escaped with their apporopriate code like `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.
+- [ ] Never use em dashes (`—`) anywhere in copy or JSX. Rewrite the sentence to use a colon, comma, or two separate sentences instead.
 
 <!-- END:nextjs-agent-rules -->

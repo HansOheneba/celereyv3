@@ -66,13 +66,13 @@ export function DecisionsSection() {
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <a
-                  href="/services"
+                  href="/what-we-help-with"
                   className="inline-flex items-center gap-1 text-gray-900 font-medium hover:gap-2 transition-all"
                 >
                   <Button className="w-full sm:w-auto">Explore</Button>
                 </a>
                 <a
-                  href="/services"
+                  href="/resources"
                   className="inline-flex items-center gap-1 text-gray-900 font-medium hover:gap-2 transition-all"
                 >
                   <Button variant={"outline"} className="w-full sm:w-auto">

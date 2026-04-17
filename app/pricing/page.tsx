@@ -1,6 +1,6 @@
 "use client";
 
-import EntryPointPricing from "@/components/homepage/pricing";
+import EntryPointPricing from "@/components/home/pricing";
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";

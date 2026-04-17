@@ -2,9 +2,10 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { BeginJourneyModal } from "@/components/homepage/beginModal";
 import {
   ResponsiveContainer,
   BarChart,
@@ -19,7 +20,7 @@ import {
   CheckCircle2,
   AlertTriangle,
   ArrowRight,
-  TrendingUp,
+  Calendar,
 } from "lucide-react";
 
 interface PillarScore {
@@ -51,20 +52,28 @@ interface WealthHealthResults {
 }
 
 // Accent + supporting tones (warm-led)
-const ACCENT = "#b07d3d";
-const INK = "#160b35";
+const PRIMARY = "#160b35";
+const TEAL = "#354A49";
+
+type BadgeStyle = { bg: string; text: string; label: string };
 
 // Moved outside component so it's never part of the hook call order
 const getPillarColor = (score: number): string => {
-  if (score >= 75) return INK; // strong
-  if (score >= 50) return "#8F86B8"; // softer mid tone
-  return "#D46A55"; // warm warning
+  if (score >= 75) return TEAL;
+  if (score >= 50) return "#3B82B0";
+  return "#C05A4A";
+};
+
+const getPillarBadge = (score: number): BadgeStyle => {
+  if (score >= 75) return { bg: "#CDE6AF", text: "#1a3d28", label: "Strong" };
+  if (score >= 50)
+    return { bg: "#D7EDFF", text: "#1a3060", label: "Developing" };
+  return { bg: "#FFF4F4", text: "#8b1a1a", label: "Needs attention" };
 };
 
 export default function WealthHealthPage() {
   const [results, setResults] = useState<WealthHealthResults | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [modalOpen, setModalOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -96,21 +105,20 @@ export default function WealthHealthPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF]">
-        <p className="text-lg text-neutral-700">Loading your results...</p>
+      <div className="min-h-screen flex items-center justify-center bg-[#fafaf8]">
+        <p className="text-lg text-neutral-700">Preparing your results...</p>
       </div>
     );
   }
 
   if (!results) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF]">
-        <div className="text-center">
-          <p className="text-lg text-neutral-700 mb-4">No results found</p>
+      <div className="min-h-screen flex items-center justify-center bg-[#fafaf8]">
+        <div className="text-center px-6">
+          <p className="text-lg text-neutral-700 mb-6">No results found</p>
           <Button
             onClick={() => router.push("/#wealth-scan")}
-            className="text-white"
-            style={{ backgroundColor: INK }}
+            style={{ backgroundColor: PRIMARY, color: "white" }}
           >
             Take the Assessment
           </Button>
@@ -123,516 +131,623 @@ export default function WealthHealthPage() {
     switch (category) {
       case "Strategic Planner":
         return {
-          headline: "You are operating with structure.",
+          headline: "You operate with structure. Most people don&apos;t.",
           summary:
-            "Your answers suggest strong habits and clear direction across most areas. This is a solid base to build from.",
+            "Your answers paint a picture of someone who has done the work. But here is the question worth sitting with: are you building on this, or simply maintaining it?",
           valueLine:
-            "Your biggest edge is consistency. Keeping things simple and repeatable is what makes progress feel calm.",
+            "Stability is valuable. The people who compound wealth over time do something more deliberate with it.",
         };
       case "Structured Achiever":
         return {
-          headline: "You are doing a lot right.",
+          headline: "You are doing well. And you probably sense the gap.",
           summary:
-            "Your answers suggest consistency and control, with a few areas that may need sharper structure to feel effortless.",
+            "Your answers show real consistency, alongside a few areas that are likely costing you more than they appear. Not dramatically. Quietly.",
           valueLine:
-            "Small gaps can create mental noise. A clearer system can make decisions feel lighter.",
+            "The most expensive gaps are the ones that feel manageable.",
         };
       case "Building Confidence":
         return {
-          headline: "You are building momentum.",
+          headline:
+            "You are putting in the effort. The results feel inconsistent.",
           summary:
-            "Your answers suggest progress, but also gaps that can make money feel unpredictable at times.",
+            "Your answers suggest real progress, alongside places where money still feels unpredictable. That feeling is not a character flaw. It is information.",
           valueLine:
-            "The goal is not perfection. It is clarity, so your next move is obvious.",
+            "When clarity is missing, effort gets misdirected. Structure is what turns effort into momentum.",
         };
       case "Foundation Builder":
         return {
-          headline: "You are at the starting line.",
+          headline:
+            "You are being honest with yourself. That already puts you ahead.",
           summary:
-            "Your answers suggest that a few core areas may feel unstable right now, which can make everything else feel harder.",
+            "Your answers point to some core areas that feel unstable right now. That is not a judgment. It is where most people quietly live, without ever stopping to look.",
           valueLine:
-            "When the basics feel shaky, it is hard to think long-term. Structure is what makes growth possible.",
+            "Most people never stop to ask the questions you just answered.",
         };
       default:
         return {
-          headline: "Your results show a clear direction.",
+          headline: "Your results point in a clear direction.",
           summary:
-            "You have a mix of strengths and gaps that can be improved with the right structure.",
+            "You have a mix of strengths and areas that can be strengthened with the right structure.",
           valueLine:
-            "Clarity comes from seeing what matters, then focusing on it in the right order.",
+            "Clarity comes from seeing what matters, then addressing it in the right order.",
         };
     }
   };
 
   const narrative = getCategoryNarrative(results.category.label);
 
-  const getBadgeClass = (score: number) => {
-    if (score >= 75)
-      return "bg-emerald-50 text-emerald-700 border border-emerald-200";
-    if (score >= 50)
-      return "bg-amber-50 text-amber-900 border border-amber-200";
-    return "bg-rose-50 text-rose-700 border border-rose-200";
-  };
-
-  const getBadgeLabel = (score: number) => {
-    if (score >= 75) return "Strong";
-    if (score >= 50) return "Developing";
-    return "Needs support";
-  };
-
   const getMeaning = (pillar: string, score: number) => {
-    const lead = "What this suggests:";
     switch (pillar) {
       case "Income Stability":
         if (score >= 75)
-          return `${lead} your income feels steady, which supports planning and consistency.`;
+          return "Your income feels predictable. The next question is whether you are using that predictability to build, or simply to sustain.";
         if (score >= 50)
-          return `${lead} income is mostly steady, but variations may make long-term planning harder.`;
-        return `${lead} income may be unpredictable, which can make progress feel slower even with effort.`;
+          return "Moderate income variability is common. But it is also one of the most common reasons financial plans quietly fall apart. Do you have a strategy for when income dips?";
+        return "Unpredictable income makes almost every other financial goal harder. Not impossible, but harder. Do you have a plan that accounts for that, or are you relying on things staying steady?";
       case "Spending & Saving":
         if (score >= 75)
-          return `${lead} you are creating space between income and expenses, which supports stability.`;
+          return "You are creating consistent space between income and expenses. The question is whether you are directing that space intentionally, or letting it drift.";
         if (score >= 50)
-          return `${lead} you have some balance, but it may not feel consistent month to month.`;
-        return `${lead} expenses may be taking most of your income, reducing flexibility.`;
+          return "You have some balance, but it may not feel consistent month to month. Inconsistency here tends to compound quietly over time.";
+        return "When expenses consistently meet or exceed income, there is little room for error and even less room for progress. This is usually the area to address first.";
       case "Resilience":
         if (score >= 75)
-          return `${lead} you may be buffered against unexpected events.`;
+          return "You have a buffer. That is rarer than it sounds. The follow-up question is whether that buffer is working as hard as it could be.";
         if (score >= 50)
-          return `${lead} you may have some buffer, but surprises can still disrupt plans.`;
-        return `${lead} unexpected events may hit hard without a strong cushion.`;
+          return "Some buffer is better than none. But if an unexpected expense arrived today, would it feel manageable or destabilising?";
+        return "Without a financial cushion, a single unexpected event can unravel months of effort. This is the area that makes everything else feel fragile.";
       case "Debt & Credit Health":
         if (score >= 75)
-          return `${lead} debt feels controlled and does not limit flexibility much.`;
+          return "Debt feels controlled from your answers. The question is whether you are optimising it, or simply managing it.";
         if (score >= 50)
-          return `${lead} debt is manageable, but may require attention to avoid pressure.`;
-        return `${lead} debt may be weighing down progress and limiting options.`;
+          return "Debt is manageable, but may be quietly limiting options you do not even realise you have.";
+        return "High or unstructured debt tends to shrink the decisions available to you. It is not just a number. It is a ceiling on what feels possible.";
       case "Growth Readiness":
         if (score >= 75)
-          return `${lead} you are positioned to focus on longer-term growth.`;
+          return "Your foundations look solid. The question is whether you have a clear strategy to put them to work, or whether growth is happening passively.";
         if (score >= 50)
-          return `${lead} you are preparing for growth, but the path may not feel fully clear yet.`;
-        return `${lead} growth may not feel possible yet because foundational areas need support first.`;
+          return "You are in the preparation phase. The path forward exists. It may just not feel fully defined yet.";
+        return "Growth planning rarely becomes a priority until the basics feel stable. If it feels out of reach right now, that is a signal, not a verdict.";
       case "Planning & Direction":
         if (score >= 75)
-          return `${lead} you have direction, which makes decisions easier and more consistent.`;
+          return "You have direction. That is a significant advantage. The question is whether your plan has been tested against your actual life, or whether it lives mostly in your head.";
         if (score >= 50)
-          return `${lead} you have some structure, but may still be reacting to situations.`;
-        return `${lead} direction may be unclear, which can make progress feel inconsistent.`;
+          return "You have some structure, but may still find yourself reacting to situations more than you would like. That is a planning gap, not a personal one.";
+        return "Without a clear financial direction, decisions tend to be made in the moment, under pressure. Clarity here tends to change how everything else feels.";
       default:
         return "";
     }
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-20 px-4 bg-[#ffffff]">
-      <div className="mx-auto w-full max-w-6xl space-y-12">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center"
-        >
-          <p className="text-[11px] tracking-[0.22em] text-neutral-600">
-            YOUR RESULTS
-          </p>
+    <div className="min-h-screen bg-[#fafaf8]">
+      {/* ── Cinematic hero ── */}
+      <div className="relative w-full h-[62vh] sm:h-[72vh] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1800&q=80&auto=format&fit=crop"
+          alt="Wealth health report"
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-[#160b35]/80 via-[#160b35]/65 to-[#160b35]/95" />
 
-          <h1 className="mt-4 text-4xl sm:text-5xl font-semibold text-neutral-900">
-            Your Financial Health Review
-          </h1>
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <motion.p
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-[10px] tracking-[0.32em] text-white/45 mb-8"
+          >
+            FINANCIAL HEALTH REPORT
+          </motion.p>
 
-          <p className="mt-4 text-neutral-700 text-base sm:text-lg max-w-2xl mx-auto">
-            Thank you for taking the time. This snapshot reflects your answers
-            and highlights where things look stable and where support may be
-            useful.
-          </p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+            className="flex items-end justify-center gap-2 mb-5"
+          >
+            <span className="font-cirka font-thin text-[100px] sm:text-[130px] text-white leading-none">
+              {results.score}
+            </span>
+            <span className="text-3xl text-white/35 font-thin pb-6">/100</span>
+          </motion.div>
 
-          <p className="mt-3 text-xs text-neutral-600">
-            Educational overview only. No financial advice is being provided.
-          </p>
-        </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-cirka text-2xl sm:text-3xl text-white mb-3"
+          >
+            {results.category.label}
+          </motion.h1>
 
-        {/* Hero summary (warmer + calmer CTAs) */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="rounded-[28px] bg-white border border-black/5 shadow-[0_25px_70px_rgba(0,0,0,0.08)] p-8 sm:p-10"
-        >
-          <div className="grid gap-10 lg:grid-cols-[1fr_360px] lg:items-center">
-            {/* Left */}
-            <div>
-              <p className="text-[11px] tracking-[0.22em] text-neutral-600">
-                RESULT SUMMARY
-              </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="text-white/60 text-sm sm:text-base max-w-lg"
+            dangerouslySetInnerHTML={{ __html: narrative.headline }}
+          />
+        </div>
+      </div>
 
-              <h2 className="mt-3 text-2xl sm:text-3xl font-semibold text-neutral-900">
-                {results.category.label}
-              </h2>
-
-              <div className="mt-5 rounded-2xl border border-black/5 bg-[#FBF7F1] p-5">
-                <p className="text-base text-neutral-900">
-                  <span className="font-semibold">{narrative.headline}</span>{" "}
-                  <span className="text-neutral-700">{narrative.summary}</span>
-                </p>
-
-                <p className="mt-3 text-sm text-neutral-700">
-                  {narrative.valueLine}
-                </p>
-              </div>
-
-              {/* Value-forward, not sales */}
-              <div className="mt-6 space-y-3">
-                <p className="text-sm text-neutral-700">
-                  This report is designed to do three things for you:
-                </p>
-
-                <ul className="space-y-2 text-sm text-neutral-800">
-                  <li className="flex gap-3">
-                    <span
-                      className="mt-[7px] h-2 w-2 shrink-0 rounded-full"
-                      style={{ backgroundColor: ACCENT }}
-                    />
-                    <span>
-                      <span className="font-semibold">Reflect reality:</span>{" "}
-                      how stable or unstable things feel based on your answers.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span
-                      className="mt-[7px] h-2 w-2 shrink-0 rounded-full"
-                      style={{ backgroundColor: ACCENT }}
-                    />
-                    <span>
-                      <span className="font-semibold">Reveal friction:</span>{" "}
-                      the areas most likely to create stress, uncertainty, or
-                      stop-start progress.
-                    </span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span
-                      className="mt-[7px] h-2 w-2 shrink-0 rounded-full"
-                      style={{ backgroundColor: ACCENT }}
-                    />
-                    <span>
-                      <span className="font-semibold">Give direction:</span>{" "}
-                      which pillars are worth paying attention to first, before
-                      anything else.
-                    </span>
-                  </li>
-                </ul>
-
-                <p className="text-xs text-neutral-600">
-                  This is an educational snapshot based on your inputs. It does
-                  not provide financial advice.
-                </p>
-              </div>
-            </div>
-
-            {/* Right: Score panel (no CTA) */}
-            <div className="rounded-2xl border border-black/5 bg-[#FAF6EF] p-6 text-center">
-              <p className="text-sm text-neutral-700">Overall score</p>
-
-              <div className="mt-2 flex items-end justify-center gap-2">
-                <p className="text-6xl font-semibold text-neutral-900">
-                  {results.score}
-                </p>
-                <span className="text-xl text-neutral-500 font-semibold">
-                  /100
-                </span>
-              </div>
-
-              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-neutral-700">
-                <span
-                  className="inline-block h-2.5 w-2.5 rounded-full"
-                  style={{ backgroundColor: ACCENT }}
-                />
-                <span>Built from 6 core areas</span>
-              </div>
-
-              <div className="mt-6 rounded-xl bg-white border border-black/5 p-4 text-left">
-                <p className="text-sm font-semibold text-neutral-900">
-                  How to interpret this number
-                </p>
-                <p className="mt-2 text-sm text-neutral-700 leading-relaxed">
-                  Higher scores usually indicate more stability and clearer
-                  direction. Lower scores usually indicate gaps in structure
-                  that can make progress feel harder, even with effort.
-                </p>
-              </div>
-
-              <p className="mt-4 text-xs text-neutral-600">
-                You are not being judged. This is a starting point.
-              </p>
-
-              <p className="mt-2 text-[11px] text-neutral-500">
-                Saved for this session only.
-              </p>
-            </div>
+      {/* ── Summary strip ── */}
+      <div className="w-full bg-primary px-6 sm:px-12 lg:px-20 py-6">
+        <div className="flex flex-wrap gap-6 items-center justify-between">
+          <div>
+            <p className="text-[10px] tracking-[0.26em] text-white/40 mb-1">
+              ASSESSMENT COMPLETE
+            </p>
+            <p className="text-white text-sm">
+              {results.category.label} &nbsp;&middot;&nbsp; Score:{" "}
+              {results.score}/100
+            </p>
           </div>
-        </motion.div>
 
-        {/* Chart + highlights */}
-        <div className="grid gap-8 lg:grid-cols-[1.35fr_0.65fr]">
-          {/* Chart */}
+          <div className="flex flex-wrap gap-5">
+            {results.topPillars.slice(0, 2).map((p) => (
+              <div key={p} className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#CDE6AF]" />
+                <span className="text-sm text-white/65">{p}</span>
+              </div>
+            ))}
+            {results.bottomPillars.slice(0, 2).map((p) => (
+              <div key={p} className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[#FFF4F4]" />
+                <span className="text-sm text-white/65">{p}</span>
+              </div>
+            ))}
+          </div>
+
+          <Link
+            href="/free-consultation"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-[#354A49] hover:bg-white/90 transition-colors shrink-0"
+          >
+            Book free 15-min call <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+
+      {/* ── 01 Summary ── */}
+      <div className="w-full px-6 sm:px-12 lg:px-20 py-16 sm:py-20">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* Left: narrative */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="rounded-[24px] bg-white border border-black/5 shadow-[0_18px_50px_rgba(0,0,0,0.06)] p-6 sm:p-8"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="flex items-end justify-between gap-4 flex-wrap">
-              <div>
-                <h3 className="text-xl font-semibold text-neutral-900">
-                  Your six-area snapshot
-                </h3>
-                <p className="mt-2 text-sm text-neutral-700">
-                  Higher scores often feel calmer and more predictable. Lower
-                  scores often show up as friction, stress, or inconsistency.
-                </p>
-              </div>
+            <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+              01 &nbsp; SUMMARY
+            </p>
+            <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 leading-tight mb-6">
+              What your answers reveal
+            </h2>
 
-              <div className="text-xs text-neutral-600">
-                Color key <span className="mx-1">•</span>{" "}
-                <span className="inline-flex items-center gap-2">
-                  <span
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ backgroundColor: INK }}
-                  />
-                  Strong
-                </span>
-                <span className="mx-2" />
-                <span className="inline-flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#8F86B8]" />
-                  Developing
-                </span>
-                <span className="mx-2" />
-                <span className="inline-flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#D46A55]" />
-                  Needs support
-                </span>
-              </div>
+            <div className="rounded-2xl bg-[#D7EDFF] p-6 mb-6">
+              <p
+                className="text-neutral-800 text-base leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: narrative.summary }}
+              />
             </div>
 
-            <div className="mt-6">
-              <ResponsiveContainer width="100%" height={320}>
-                <BarChart
-                  data={chartData}
-                  layout="vertical"
-                  margin={{ top: 10, right: 30, left: 20, bottom: 10 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" stroke="#E8E2D8" />
-                  <XAxis
-                    type="number"
-                    domain={[0, 100]}
-                    tick={{ fill: "#6B7280", fontSize: 12 }}
-                  />
-                  <YAxis
-                    dataKey="name"
-                    type="category"
-                    width={160}
-                    tick={{ fill: "#111827", fontWeight: 500, fontSize: 13 }}
-                  />
-                  <Tooltip
-                    formatter={(value) => [`${value as number}%`, "Score"]}
-                    cursor={{ fill: "rgba(176,125,61,0.08)" }}
-                  />
-                  <Bar dataKey="score" radius={[8, 8, 8, 8]}>
-                    {chartData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+            <p className="text-neutral-600 text-sm leading-relaxed italic border-l-2 border-[#354A49] pl-4 mb-8">
+              {narrative.valueLine}
+            </p>
 
-            {/* Insight panel instead of CTA */}
-            <div className="mt-8 rounded-2xl border border-black/5 bg-[#FBF7F1] p-5">
-              <p className="text-sm text-neutral-800 leading-relaxed">
-                Patterns matter more than individual scores. If two or more
-                areas sit in the lower range, they often influence each other.
-                For example, income instability can affect saving consistency,
-                which then affects resilience. Stability usually builds in
-                layers.
+            <div className="space-y-3">
+              <p className="text-sm font-medium text-neutral-800">
+                This report does three things:
               </p>
+              {[
+                {
+                  label: "Reflects reality",
+                  body: "How stable or unstable things feel, based on your actual answers.",
+                },
+                {
+                  label: "Reveals friction",
+                  body: "The areas most likely to create stress, uncertainty, or stop-start progress.",
+                },
+                {
+                  label: "Points direction",
+                  body: "Which pillars are worth addressing first, before anything else.",
+                },
+              ].map((item) => (
+                <div key={item.label} className="flex gap-3">
+                  <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#354A49] shrink-0" />
+                  <p className="text-sm text-neutral-700">
+                    <span className="font-semibold text-neutral-900">
+                      {item.label}:
+                    </span>{" "}
+                    {item.body}
+                  </p>
+                </div>
+              ))}
             </div>
           </motion.div>
 
-          {/* Highlights */}
+          {/* Right: score panel + highlights */}
           <motion.div
             initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="space-y-6"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col gap-5"
           >
-            <div className="rounded-[24px] bg-white border border-black/5 shadow-[0_18px_50px_rgba(0,0,0,0.06)] p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <CheckCircle2 style={{ color: ACCENT }} />
-                <h4 className="font-semibold text-neutral-900">
-                  What looks steady
-                </h4>
-              </div>
-              <ul className="text-sm text-neutral-700 space-y-2">
-                {results.topPillars.map((pillar) => (
-                  <li key={pillar}>• {pillar}</li>
-                ))}
-              </ul>
-              <p className="mt-4 text-xs text-neutral-600">
-                These areas are likely supporting your confidence and
-                decision-making.
+            <div className="rounded-2xl bg-primary p-8 text-center">
+              <p className="text-[10px] tracking-[0.22em] text-white/45 mb-2">
+                OVERALL SCORE
               </p>
+              <div className="flex items-end justify-center gap-2 my-4">
+                <span className="font-cirka text-7xl text-white font-thin">
+                  {results.score}
+                </span>
+                <span className="text-2xl text-white/35 pb-3">/100</span>
+              </div>
+              <p className="text-white/55 text-sm mb-6">
+                Calculated across 6 financial pillars
+              </p>
+
+              <div className="space-y-2.5">
+                {[
+                  {
+                    label: "Strong",
+                    count: results.topPillars.length,
+                    dot: "bg-[#CDE6AF]",
+                  },
+                  {
+                    label: "Developing",
+                    count: Object.values(results.pillarScores).filter(
+                      (p) => p.score >= 50 && p.score < 75,
+                    ).length,
+                    dot: "bg-[#D7EDFF]",
+                  },
+                  {
+                    label: "Need attention",
+                    count: results.bottomPillars.length,
+                    dot: "bg-white/30",
+                  },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="flex items-center justify-between"
+                  >
+                    <span className="flex items-center gap-2 text-sm text-white/65">
+                      <span
+                        className={`h-2 w-2 rounded-full shrink-0 ${stat.dot}`}
+                      />
+                      {stat.label}
+                    </span>
+                    <span className="text-sm font-semibold text-white">
+                      {stat.count} of 6 pillars
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="rounded-[24px] bg-white border border-black/5 shadow-[0_18px_50px_rgba(0,0,0,0.06)] p-6">
+            <div className="rounded-2xl bg-white border border-black/5 p-6">
               <div className="flex items-center gap-2 mb-3">
-                <AlertTriangle className="text-amber-600" />
-                <h4 className="font-semibold text-neutral-900">
-                  What may be creating friction
+                <CheckCircle2 className="h-4 w-4 text-[#354A49]" />
+                <h4 className="text-sm font-semibold text-neutral-900">
+                  Your strongest areas
                 </h4>
               </div>
-              <ul className="text-sm text-neutral-700 space-y-2">
+              <ul className="space-y-2">
+                {results.topPillars.map((p) => (
+                  <li
+                    key={p}
+                    className="flex items-center gap-2 text-sm text-neutral-700"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#CDE6AF] shrink-0" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl bg-white border border-black/5 p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <AlertTriangle className="h-4 w-4 text-amber-600" />
+                <h4 className="text-sm font-semibold text-neutral-900">
+                  Areas creating friction
+                </h4>
+              </div>
+              <ul className="space-y-2">
                 {results.bottomPillars.length > 0 ? (
-                  results.bottomPillars.map((pillar) => (
-                    <li key={pillar}>• {pillar}</li>
+                  results.bottomPillars.map((p) => (
+                    <li
+                      key={p}
+                      className="flex items-center gap-2 text-sm text-neutral-700"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#FFF4F4] border border-rose-200 shrink-0" />
+                      {p}
+                    </li>
                   ))
                 ) : (
-                  <li>
-                    Your scores suggest a relatively stable foundation across
-                    all areas.
+                  <li className="text-sm text-neutral-600">
+                    All areas show a solid foundation.
                   </li>
                 )}
               </ul>
-              <p className="mt-4 text-xs text-neutral-600">
-                These are signals, not labels. Many people experience this phase
-                before building stronger financial structure.
-              </p>
-            </div>
-
-            {/* Calm reflection box instead of CTA */}
-            <div className="rounded-[24px] border border-black/5 bg-white p-6">
-              <p className="text-sm text-neutral-800 leading-relaxed">
-                Financial clarity tends to improve when unstable areas become
-                predictable. The goal is not perfection. It is consistency.
+              <p className="mt-4 text-xs text-neutral-500">
+                These are signals, not labels.
               </p>
             </div>
           </motion.div>
         </div>
-        {/* Pillar cards */}
+      </div>
+
+      {/* ── 02 Chart ── */}
+      <div className="w-full px-6 sm:px-12 lg:px-20 py-14 bg-white">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="rounded-[28px] bg-white border border-black/5 shadow-[0_18px_50px_rgba(0,0,0,0.06)] p-8 sm:p-10"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="flex items-end justify-between gap-6 flex-wrap">
-            <div>
-              <h3 className="text-2xl font-semibold text-neutral-900">
-                What each area suggests
-              </h3>
-              <p className="mt-2 text-sm text-neutral-700 max-w-2xl">
-                These are interpretations of your answers, not personalised
-                financial advice. They highlight where structure, support, or
-                better visibility may help.
-              </p>
-            </div>
-
-            {/* Keep this subtle */}
-            <button
-              type="button"
-              onClick={() => router.push("/pricing")}
-              className="text-sm font-semibold hover:opacity-80 transition"
-              style={{ color: ACCENT }}
-            >
-              See support options{" "}
-              <ArrowRight className="inline-block ml-1 h-4 w-4" />
-            </button>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Object.entries(results.pillarScores).map(([pillar, data], i) => {
-              const score = data.score;
-              const meaning = getMeaning(pillar, score);
-
-              return (
-                <motion.div
-                  key={pillar}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.15 + i * 0.06 }}
-                  className="rounded-2xl border border-black/5 bg-[#FBF7F1] p-6"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h4 className="font-semibold text-neutral-900">
-                        {pillar}
-                      </h4>
-                      <p className="mt-2 text-sm text-neutral-700">
-                        Score:{" "}
-                        <span className="font-semibold text-neutral-900">
-                          {score}%
-                        </span>
-                      </p>
-                    </div>
-
-                    <span
-                      className={`shrink-0 text-xs px-2.5 py-1 rounded-md font-semibold ${getBadgeClass(score)}`}
-                    >
-                      {getBadgeLabel(score)}
-                    </span>
-                  </div>
-
-                  <p className="mt-4 text-sm text-neutral-800 leading-relaxed">
-                    {meaning}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
-
-        {/* Closing (warm, calm, appreciative) */}
-        <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.45 }}
-          className="rounded-[28px] bg-white border border-black/5 shadow-[0_18px_50px_rgba(0,0,0,0.06)] p-8 sm:p-10 text-center"
-        >
-          <TrendingUp className="mx-auto mb-4" style={{ color: ACCENT }} />
-          <h3 className="text-2xl font-semibold text-neutral-900">
-            You have clarity now. That is the hard part.
-          </h3>
-          <p className="mt-3 text-neutral-700 max-w-2xl mx-auto">
-            If parts of your snapshot feel unstable or unclear, it usually means
-            the missing piece is structure and consistent support. If you want
-            to explore what that looks like, we have just the thing for you.
+          <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+            02 &nbsp; BREAKDOWN
+          </p>
+          <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-2">
+            Your six-area snapshot
+          </h2>
+          <p className="text-neutral-600 text-base mb-8 max-w-2xl">
+            Higher scores tend to feel calmer and more predictable. Lower scores
+            often show up as friction, stress, or inconsistency in daily
+            decisions.
           </p>
 
-          <div className="mt-7 flex justify-center gap-3 flex-wrap">
-            <Button
-              onClick={() => router.push("/pricing")}
-              className="px-8 py-3 font-semibold"
-              style={{ backgroundColor: ACCENT, color: "white" }}
-            >
-              View pricing <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-
-            <Button
-              variant="outline"
-              onClick={() => router.push("/#wealth-scan")}
-              className="px-8 py-3"
-            >
-              Retake
-            </Button>
+          <div className="flex flex-wrap gap-5 text-xs text-neutral-600 mb-6">
+            <span className="flex items-center gap-2">
+              <span
+                className="h-3 w-3 rounded"
+                style={{ backgroundColor: "#CDE6AF" }}
+              />
+              Strong (75+)
+            </span>
+            <span className="flex items-center gap-2">
+              <span
+                className="h-3 w-3 rounded"
+                style={{ backgroundColor: "#D7EDFF" }}
+              />
+              Developing (50-74)
+            </span>
+            <span className="flex items-center gap-2">
+              <span
+                className="h-3 w-3 rounded border border-rose-200"
+                style={{ backgroundColor: "#FFF4F4" }}
+              />
+              Needs attention (below 50)
+            </span>
           </div>
 
-          <p className="mt-4 text-xs text-neutral-600">
-            Educational report only. No financial advice is being provided.
-          </p>
+          <ResponsiveContainer width="100%" height={320}>
+            <BarChart
+              data={chartData}
+              layout="vertical"
+              margin={{ top: 10, right: 30, left: 20, bottom: 10 }}
+            >
+              <CartesianGrid strokeDasharray="3 3" stroke="#E8E2D8" />
+              <XAxis
+                type="number"
+                domain={[0, 100]}
+                tick={{ fill: "#6B7280", fontSize: 12 }}
+              />
+              <YAxis
+                dataKey="name"
+                type="category"
+                width={160}
+                tick={{ fill: "#111827", fontWeight: 500, fontSize: 13 }}
+              />
+              <Tooltip
+                formatter={(value) => [`${value as number}%`, "Score"]}
+                cursor={{ fill: "rgba(53,74,73,0.06)" }}
+              />
+              <Bar dataKey="score" radius={[8, 8, 8, 8]}>
+                {chartData.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={entry.color} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+
+          <div className="mt-8 rounded-2xl bg-[#D7EDFF] p-5">
+            <p className="text-sm text-neutral-800 leading-relaxed">
+              Patterns matter more than individual scores. If two or more areas
+              sit in the lower range, they often influence each other. Income
+              instability can affect saving consistency, which then affects
+              resilience. Stability tends to build in layers.
+            </p>
+          </div>
         </motion.div>
       </div>
 
-      <BeginJourneyModal open={modalOpen} onOpenChange={setModalOpen} />
+      {/* ── Cinematic interlude ── */}
+      <div className="relative w-full h-[42vh] sm:h-[50vh] overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=1800&q=80&auto=format&fit=crop"
+          alt="Financial planning"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-linear-to-r from-primary/92 to-[#354A49]/55" />
+        <div className="absolute inset-0 flex items-center px-6 sm:px-12 lg:px-20">
+          <div className="max-w-lg">
+            <p className="text-[10px] tracking-[0.26em] text-white/40 mb-5">
+              03 &nbsp; PERSPECTIVE
+            </p>
+            <p className="font-cirka text-2xl sm:text-3xl text-white leading-snug">
+              The goal is not a perfect score.
+              <br />
+              It is knowing which lever to pull next.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ── 04 Pillar cards ── */}
+      <div className="w-full px-6 sm:px-12 lg:px-20 py-16 sm:py-20 bg-[#fafaf8]">
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-10"
+        >
+          <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+            04 &nbsp; DETAILED FINDINGS
+          </p>
+          <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-3">
+            What each area suggests
+          </h2>
+          <p className="text-neutral-600 text-base max-w-2xl">
+            These are interpretations of your answers. Read each one carefully
+            and ask yourself: does this land?
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.entries(results.pillarScores).map(([pillar, data], i) => {
+            const score = data.score;
+            const badge = getPillarBadge(score);
+            const meaning = getMeaning(pillar, score);
+
+            return (
+              <motion.div
+                key={pillar}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07 }}
+                className="rounded-2xl p-6 border border-black/5"
+                style={{ backgroundColor: badge.bg }}
+              >
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <h4 className="font-semibold text-neutral-900 text-base leading-snug">
+                    {pillar}
+                  </h4>
+                  <span
+                    className="shrink-0 text-xs px-2.5 py-1 rounded-full font-medium bg-white"
+                    style={{ color: badge.text }}
+                  >
+                    {badge.label}
+                  </span>
+                </div>
+
+                <div className="flex items-end gap-1 mb-4">
+                  <span className="font-cirka text-4xl font-thin text-neutral-900">
+                    {score}
+                  </span>
+                  <span className="text-neutral-500 pb-1">/100</span>
+                </div>
+
+                <p className="text-sm text-neutral-700 leading-relaxed">
+                  {meaning}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── 05 Recommendations ── */}
+      {results.recommendations.length > 0 && (
+        <div className="w-full px-6 sm:px-12 lg:px-20 py-14 bg-white">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+              05 &nbsp; RECOMMENDATIONS
+            </p>
+            <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-8">
+              Where to focus next
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {results.recommendations.map((rec, i) => (
+                <div
+                  key={i}
+                  className="flex gap-4 rounded-2xl bg-[#fafaf8] border border-black/5 p-5"
+                >
+                  <span className="font-cirka text-2xl text-[#354A49]/35 shrink-0 leading-none mt-0.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-sm text-neutral-700 leading-relaxed">
+                    {rec}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* ── CTA ── */}
+      <div className="relative w-full overflow-hidden bg-primary px-6 sm:px-12 lg:px-20 py-20 sm:py-24">
+        <div className="absolute inset-0 opacity-10">
+          <Image
+            src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=1800&q=80&auto=format&fit=crop"
+            alt="Advisory session"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-[10px] tracking-[0.26em] text-white/35 mb-5">
+              NEXT STEP
+            </p>
+            <h2 className="font-cirka text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-5">
+              Spend 15 minutes with someone who can read this with you.
+            </h2>
+            <p className="text-white/55 text-base sm:text-lg">
+              No pitch. No pressure. Just a clear conversation about what your
+              results mean and what, if anything, is worth doing about it.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="flex flex-col gap-4"
+          >
+            <Link
+              href="/free-consultation"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-base font-medium text-[#354A49] hover:bg-white/90 transition-colors"
+            >
+              <Calendar className="h-5 w-5" />
+              Book free 15-min call
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => router.push("/#wealth-scan")}
+              className="inline-flex items-center justify-center rounded-full border border-white/20 px-8 py-4 text-base font-medium text-white/65 hover:text-white hover:border-white/40 transition-colors"
+            >
+              Retake the assessment
+            </button>
+
+            <p className="text-xs text-white/30 text-center mt-2">
+              Educational report only. No financial advice is being provided.
+            </p>
+          </motion.div>
+        </div>
+      </div>
     </div>
   );
 }

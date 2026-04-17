@@ -57,14 +57,14 @@ export function ProblemSection() {
           {/* Buttons */}
           <Reveal delay={0.25} amount={0.4}>
             <div className="flex flex-col sm:flex-row items-center md:justify-start justify-center gap-6 pt-6">
-              <a href="/learn">
+              <a href="/resources">
                 <Button variant="outline" className="px-10 w-full sm:w-auto">
                   Learn
                 </Button>
               </a>
 
               <a
-                href="/explore"
+                href="/pricing"
                 className="inline-flex items-center gap-1 text-gray-900 font-medium hover:gap-2 transition-all"
               >
                 Explore
