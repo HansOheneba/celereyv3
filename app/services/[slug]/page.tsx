@@ -34,7 +34,7 @@ const SERVICES: Record<string, ServiceData> = {
     tagline: "Your portfolio should be working as hard as you did to build it.",
     overview:
       "Most people accumulate investments over time rather than by design. A pension here, a brokerage account there, an inheritance that has never quite been addressed. The result is a portfolio that may be working less hard than it should, carrying risks you are not fully aware of, or misaligned with where your life is heading. This engagement is for clients who already hold investments and want a structured, independent assessment of exactly where they stand.",
-    image: "/dash.jpg",
+    image: "/services/investment.jpeg",
     imageAlt: "Financial portfolio review in session",
     covers: [
       {
@@ -77,7 +77,7 @@ const SERVICES: Record<string, ServiceData> = {
     tagline: "Structure your affairs. Keep more of what you earn.",
     overview:
       "Tax is one of the largest expenses most people never actively manage. For individuals with multiple income streams, business interests, or assets across jurisdictions, the gap between what you owe and what you could legally owe is often substantial. This engagement is a dedicated advisory session that reviews your current tax position, identifies the planning opportunities that apply to your circumstances, and gives you a written plan to act on them.",
-    image: "/homepage/girl-sitting.png",
+    image: "/services/tax.png",
     imageAlt: "Tax planning advisory session",
     covers: [
       {
@@ -120,7 +120,7 @@ const SERVICES: Record<string, ServiceData> = {
     tagline: "The wealth you build should outlast the decisions you delay.",
     overview:
       "Generational wealth is not an accident. It is the product of deliberate structures, clear intentions, and governance frameworks that hold across time, circumstance, and family complexity. This engagement is for individuals and families who are beginning to think seriously about how their wealth transfers, and what happens to it in the decades after them. It is a focused advisory session on the structures that protect, govern, and move wealth across generations.",
-    image: "/homepage/family-walking.png",
+    image: "/services/legacy.png",
     imageAlt:
       "Family walking together, representing legacy and generational wealth",
     covers: [
@@ -164,7 +164,7 @@ const SERVICES: Record<string, ServiceData> = {
     tagline: "Buy right. Structure smarter. Move across borders with clarity.",
     overview:
       "Real estate across jurisdictions is one of the most complex financial decisions a person can make. What appears to be a straightforward acquisition often carries structuring implications, financing options, and jurisdiction-specific risks that are invisible until they are not. This engagement is for clients acquiring, financing, or restructuring real estate internationally, who want an independent advisory view before committing.",
-    image: "/homepage/moments1.png",
+    image: "/services/property.png",
     imageAlt: "International property advisory",
     covers: [
       {
@@ -208,7 +208,7 @@ const SERVICES: Record<string, ServiceData> = {
       "The capital decisions that determine whether a business scales or stalls.",
     overview:
       "Founders and business owners make more consequential financial decisions in a single year than most individuals make in a decade. The question of how to finance growth, when to take on debt versus equity, how to position the business to lenders, and how to restructure an ageing balance sheet are decisions that compound. This engagement is a structured advisory session for founders and SME owners at a financing inflection point.",
-    image: "/homepage/hero34.png",
+    image: "/services/business.jpeg",
     imageAlt: "Business financing and capital strategy session",
     covers: [
       {
@@ -613,7 +613,7 @@ export default function ServiceDetailPage() {
         className="px-6 pb-20 md:px-24"
       >
         <div className="overflow-hidden rounded-3xl border border-black/8">
-          <div className="relative aspect-21/8 w-full">
+          <div className="relative aspect-16/7 w-full">
             <Image
               src={service.image}
               alt={service.imageAlt}
