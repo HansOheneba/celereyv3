@@ -2,12 +2,9 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import {
-  ServiceInquiryDialog,
-  type ConciergeService,
-} from "@/components/services/serviceForm";
 
 type ServiceCard = {
   number: string;
@@ -97,25 +94,7 @@ const SERVICES: ServiceCard[] = [
   },
 ];
 
-function cn(...classes: Array<string | false | null | undefined>) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function AlaCarteServices() {
-  const [dialogOpen, setDialogOpen] = React.useState(false);
-  const [selected, setSelected] = React.useState<ConciergeService | null>(null);
-
-  function openInquiry(s: ServiceCard) {
-    const picked: ConciergeService = {
-      id: s.serviceId,
-      title: s.title,
-      subtitle: s.description,
-    };
-
-    setSelected(picked);
-    setDialogOpen(true);
-  }
-
   return (
     <section className="w-full bg-[#fbfaf8] py-20">
       <div className="mx-auto max-w-6xl px-6">
@@ -133,7 +112,6 @@ export default function AlaCarteServices() {
             Focused advisory engagements for specific financial decisions,
             delivered by accredited specialists.
           </p>
-
         </div>
 
         {/* Services */}
@@ -201,9 +179,11 @@ export default function AlaCarteServices() {
                   <Button
                     variant="ghost"
                     className="mt-8 rounded-full border border-neutral-200 hover:bg-neutral-50"
-                    onClick={() => openInquiry(service)}
+                    asChild
                   >
-                    Request Engagement
+                    <Link href={`/services/${service.serviceId}`}>
+                      View &amp; Request
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -211,15 +191,6 @@ export default function AlaCarteServices() {
           ))}
         </div>
       </div>
-
-      <ServiceInquiryDialog
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-        service={selected}
-        onSubmit={(payload) => {
-          console.log("Service inquiry submitted:", payload);
-        }}
-      />
     </section>
   );
 }

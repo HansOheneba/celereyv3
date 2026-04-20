@@ -61,15 +61,17 @@ export function DecisionsSection() {
                 Thinking beyond salary
               </h3>
               <p className=" leading-relaxed mb-6">
-                You're wondering if there's a better way to structure your
-                income and build security.
+                You&apos;re wondering if there&apos;s a better way to structure
+                your income and build security.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <a
-                  href="/what-we-help-with"
+                  href="/services"
                   className="inline-flex items-center gap-1 text-gray-900 font-medium hover:gap-2 transition-all"
                 >
-                  <Button className="w-full sm:w-auto">Explore</Button>
+                  <Button className="w-full sm:w-auto">
+                    View bespoke services
+                  </Button>
                 </a>
                 <a
                   href="/resources"
@@ -97,7 +99,7 @@ export function DecisionsSection() {
                   harder for you.
                 </p>
                 <a
-                  href="/services"
+                  href="/services/wealth-review"
                   className="inline-flex items-center gap-1 text-gray-900 text-sm font-medium hover:gap-2 transition-all"
                 >
                   Explore
@@ -115,7 +117,7 @@ export function DecisionsSection() {
                   before everything changes.
                 </p>
                 <a
-                  href="/services"
+                  href="/services/estate"
                   className="inline-flex items-center gap-1 text-gray-900 text-sm font-medium hover:gap-2 transition-all"
                 >
                   Explore
@@ -148,11 +150,11 @@ export function DecisionsSection() {
                   Planning for property
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">
-                  You're ready to buy but unsure about timing and what you can
-                  actually afford.
+                  You&apos;re ready to buy but unsure about timing and what you
+                  can actually afford.
                 </p>
                 <a
-                  href="/services"
+                  href="/services/property"
                   className="inline-flex items-center gap-1 text-gray-900 text-sm font-medium hover:gap-2 transition-all"
                 >
                   Explore
