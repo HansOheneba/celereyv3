@@ -313,7 +313,7 @@ export default function FreeConsultationPage() {
 
                     <div>
                       <label className="block text-sm text-primary mb-1.5">
-                        What do you want help with?
+                    what can we help you with?
                       </label>
                       <textarea
                         name="goal"

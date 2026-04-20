@@ -63,9 +63,7 @@ export function CTASection() {
         : null;
 
       if (saveResult?.data?.duplicate) {
-        toast.info(
-          "You&apos;re already on the list! We&apos;ll keep you posted.",
-        );
+        toast.info("You’re already on the list. We’ll keep you updated.");
         setDialogOpen(false);
         setStep("done");
         return;
@@ -99,8 +97,8 @@ export function CTASection() {
 
       toast.success(
         name.trim()
-          ? `Welcome to the community, ${name.trim()}!`
-          : "You&apos;re in. Welcome to the Celerey community!",
+          ? `Welcome, ${name.trim()}!`
+          : "You’re in. Welcome to Celerey.",
       );
     } catch {
       toast.error("Something went wrong. Please try again.");
@@ -117,74 +115,83 @@ export function CTASection() {
   }
 
   return (
-    <section className="py-20 px-6 bg-primary text-background">
+    <section className="py-24 px-6 bg-primary text-background">
       <Reveal className="mx-auto max-w-4xl text-center">
+        {/* KEEPING YOUR ORIGINAL COPY */}
         <h2 className="text-3xl font-light leading-tight mb-6 sm:text-4xl md:text-5xl">
           You don&apos;t have to figure it all out alone
         </h2>
+
         <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-background/80 sm:text-lg">
           Start building your financial future with clarity today. Let&apos;s
           turn confusion into confidence.
         </p>
 
-        <div className="flex justify-center mb-12">
+        {/* Secondary CTA (kept subtle, no competition) */}
+        <div className="flex justify-center mb-14">
           <Button
-            variant="outline"
+            variant="ghost"
             asChild
-            className="border-white text-white hover:bg-white/10 hover:text-white/90"
+            className="text-background/70 hover:text-background"
           >
-            <Link href="/resources">Learn More</Link>
+            <Link href="/resources">Explore resources</Link>
           </Button>
         </div>
 
+        {/* NEWSLETTER (soft glass, no harsh white block) */}
         <div className="mx-auto max-w-xl">
-          <p className="text-xs tracking-[0.2em] text-background/60 mb-6 uppercase">
-            Join the community
-          </p>
+          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-8 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
+            <h3 className="text-2xl font-medium mb-2">
+              Get smarter about your money today
+            </h3>
 
-          {step === "email" && (
-            <form
-              autoComplete="on"
-              onSubmit={handleEmailSubmit}
-              className="flex flex-col gap-3 sm:flex-row"
-            >
-              <input
-                type="email"
-                name="email"
-                autoComplete="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="h-10 w-full rounded-md bg-background/10 px-4 text-base text-background placeholder:text-background/50 ring-1 ring-background/20 focus:outline-none focus:ring-2 focus:ring-background/40"
-              />
-              <Button
-                type="submit"
-                variant="secondary"
-              >
-                Join
-              </Button>
-            </form>
-          )}
-
-          {step === "done" && (
-            <p className="text-sm text-background/80">
-              {name.trim()
-                ? `Nice to meet you, ${name.trim()}. You&apos;re in.`
-                : "You&apos;re in. Welcome to Celerey."}
+            <p className="text-sm text-background/70 mb-6">
+              Practical insights to help guide you in your financaial journey.
             </p>
-          )}
 
-          <p className="mt-4 text-xs text-background/50">
-            No spam. Just insights and updates. Unsubscribe anytime.
-          </p>
+            {step === "email" && (
+              <form
+                autoComplete="on"
+                onSubmit={handleEmailSubmit}
+                className="flex flex-col items-center sm:flex-row gap-3"
+              >
+                <Input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  placeholder="Enter your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="h-10 bg-white/10 border-white/10 text-background placeholder:text-background/50 focus-visible:ring-white/30"
+                />
+
+                <Button type="submit" className="">
+                  Join
+                </Button>
+              </form>
+            )}
+
+            {step === "done" && (
+              <p className="text-sm text-background/70">
+                {name.trim()
+                  ? `Welcome, ${name.trim()}. You’re on the list.`
+                  : "You’re on the list. Welcome aboard."}
+              </p>
+            )}
+
+            <p className="mt-4 text-xs text-background/50">
+              No spam. Unsubscribe anytime.
+            </p>
+          </div>
         </div>
       </Reveal>
 
+      {/* NAME DIALOG */}
       <Dialog open={dialogOpen} onOpenChange={handleDialogOpenChange}>
         <DialogContent className="sm:max-w-md w-[92vw] rounded-xl">
           <DialogHeader>
-            <DialogTitle>Your email has been saved!</DialogTitle>
+            <DialogTitle>Almost there</DialogTitle>
             <DialogDescription>What should we call you?</DialogDescription>
           </DialogHeader>
 
@@ -198,7 +205,6 @@ export function CTASection() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 disabled={nameStatus === "loading"}
-                className="h-12 w-full rounded-md bg-white px-4 text-base ring-1 ring-black/10 focus:outline-none focus:ring-2 focus:ring-blue-600/40 disabled:opacity-60"
               />
             </div>
 
@@ -208,16 +214,12 @@ export function CTASection() {
                 variant="ghost"
                 disabled={nameStatus === "loading"}
                 onClick={() => handleDialogOpenChange(false)}
-                className="w-full sm:w-auto"
               >
                 Skip
               </Button>
-              <Button
-                type="submit"
-                disabled={nameStatus === "loading"}
-                className="w-full sm:w-auto"
-              >
-                {nameStatus === "loading" ? "Saving..." : "Done"}
+
+              <Button type="submit" disabled={nameStatus === "loading"}>
+                {nameStatus === "loading" ? "Saving..." : "Finish"}
               </Button>
             </DialogFooter>
           </form>
