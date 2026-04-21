@@ -284,7 +284,13 @@ export default function Header() {
         {/* Right CTAs */}
         <div className="hidden lg:flex items-center gap-3 shrink-0">
           <button
-            onClick={() => router.push("/login")}
+            onClick={() =>
+              window.open(
+                "https://celerey.app/",
+                "_blank",
+                "noopener,noreferrer",
+              )
+            }
             className="text-sm text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
           >
             Login
@@ -353,7 +359,13 @@ export default function Header() {
                 <SheetClose asChild>
                   <Button
                     variant="outline"
-                    onClick={() => router.push("/login")}
+                    onClick={() =>
+                      window.open(
+                        "https://celerey.app/",
+                        "_blank",
+                        "noopener,noreferrer",
+                      )
+                    }
                     className="w-full"
                   >
                     Login

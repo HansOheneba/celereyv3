@@ -399,6 +399,7 @@ export function BeginJourneyModal({
                       href="https://celerey.app/auth/signin"
                       className="font-semibold text-neutral-900 underline underline-offset-4 hover:opacity-80"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Sign in
                     </Link>

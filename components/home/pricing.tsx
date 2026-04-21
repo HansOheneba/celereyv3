@@ -174,7 +174,7 @@ export default function EntryPointPricing({
           "Families and professionals who want structured support, accountability, and a personalised plan to grow and protect their wealth.",
         highlight: "Your financial plan, structured and supported.",
         bullets: dashboardBullets,
-        ctaLabel: "Begin with a Free Trial",
+        ctaLabel: "Get Started",
         paymentUrl: "https://buy.stripe.com/test_7sYdR94f86ApggXgiZ9Ve02",
         emphasis: true,
         footnote: "7-day free trial. Then billed annually. Cancel anytime.",
@@ -309,7 +309,11 @@ export default function EntryPointPricing({
                       <Button
                         onClick={() => {
                           if (isCore) {
-                            router.push("/coming-soon");
+                            window.open(
+                              "https://celerey.app/",
+                              "_blank",
+                              "noopener,noreferrer",
+                            );
                             return;
                           }
 
