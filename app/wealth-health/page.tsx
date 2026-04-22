@@ -58,10 +58,11 @@ const TEAL = "#354A49";
 type BadgeStyle = { bg: string; text: string; label: string };
 
 // Moved outside component so it's never part of the hook call order
+// Brand fade: full #160b35 → mid tint → light tint as scores drop
 const getPillarColor = (score: number): string => {
-  if (score >= 75) return TEAL;
-  if (score >= 50) return "#3B82B0";
-  return "#C05A4A";
+  if (score >= 75) return "#160b35";
+  if (score >= 50) return "#6b5b8f";
+  return "#bfb8d4";
 };
 
 const getPillarBadge = (score: number): BadgeStyle => {
@@ -334,7 +335,7 @@ export default function WealthHealthPage() {
               />
             </div>
 
-            <p className="text-neutral-600 text-sm leading-relaxed italic border-l-2 border-[#354A49] pl-4 mb-8">
+            <p className="text-neutral-800 text-sm leading-relaxed italic font-medium border-l-2 border-[#354A49] pl-4 mb-8">
               {narrative.valueLine}
             </p>
 
@@ -358,7 +359,7 @@ export default function WealthHealthPage() {
               ].map((item) => (
                 <div key={item.label} className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#354A49] shrink-0" />
-                  <p className="text-sm text-neutral-700">
+                  <p className="text-sm text-neutral-800">
                     <span className="font-semibold text-neutral-900">
                       {item.label}:
                     </span>{" "}
@@ -387,7 +388,7 @@ export default function WealthHealthPage() {
                 </span>
                 <span className="text-2xl text-white/35 pb-3">/100</span>
               </div>
-              <p className="text-white/55 text-sm mb-6">
+              <p className="text-white/70 text-sm mb-6">
                 Calculated across 6 financial pillars
               </p>
 
@@ -415,7 +416,7 @@ export default function WealthHealthPage() {
                     key={stat.label}
                     className="flex items-center justify-between"
                   >
-                    <span className="flex items-center gap-2 text-sm text-white/65">
+                    <span className="flex items-center gap-2 text-sm text-white/80">
                       <span
                         className={`h-2 w-2 rounded-full shrink-0 ${stat.dot}`}
                       />
@@ -440,7 +441,7 @@ export default function WealthHealthPage() {
                 {results.topPillars.map((p) => (
                   <li
                     key={p}
-                    className="flex items-center gap-2 text-sm text-neutral-700"
+                    className="flex items-center gap-2 text-sm font-medium text-neutral-800"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-[#CDE6AF] shrink-0" />
                     {p}
@@ -461,7 +462,7 @@ export default function WealthHealthPage() {
                   results.bottomPillars.map((p) => (
                     <li
                       key={p}
-                      className="flex items-center gap-2 text-sm text-neutral-700"
+                      className="flex items-center gap-2 text-sm font-medium text-neutral-800"
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-[#FFF4F4] border border-rose-200 shrink-0" />
                       {p}
@@ -473,7 +474,7 @@ export default function WealthHealthPage() {
                   </li>
                 )}
               </ul>
-              <p className="mt-4 text-xs text-neutral-500">
+              <p className="mt-4 text-xs text-neutral-600">
                 These are signals, not labels.
               </p>
             </div>
@@ -495,31 +496,31 @@ export default function WealthHealthPage() {
           <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-2">
             Your six-area snapshot
           </h2>
-          <p className="text-neutral-600 text-base mb-8 max-w-2xl">
+          <p className="text-neutral-700 text-base mb-8 max-w-2xl">
             Higher scores tend to feel calmer and more predictable. Lower scores
             often show up as friction, stress, or inconsistency in daily
             decisions.
           </p>
 
-          <div className="flex flex-wrap gap-5 text-xs text-neutral-600 mb-6">
+          <div className="flex flex-wrap gap-5 text-xs text-neutral-700 font-medium mb-6">
             <span className="flex items-center gap-2">
               <span
                 className="h-3 w-3 rounded"
-                style={{ backgroundColor: "#CDE6AF" }}
+                style={{ backgroundColor: "#160b35" }}
               />
               Strong (75+)
             </span>
             <span className="flex items-center gap-2">
               <span
                 className="h-3 w-3 rounded"
-                style={{ backgroundColor: "#D7EDFF" }}
+                style={{ backgroundColor: "#6b5b8f" }}
               />
               Developing (50-74)
             </span>
             <span className="flex items-center gap-2">
               <span
-                className="h-3 w-3 rounded border border-rose-200"
-                style={{ backgroundColor: "#FFF4F4" }}
+                className="h-3 w-3 rounded"
+                style={{ backgroundColor: "#bfb8d4" }}
               />
               Needs attention (below 50)
             </span>
@@ -556,7 +557,7 @@ export default function WealthHealthPage() {
           </ResponsiveContainer>
 
           <div className="mt-8 rounded-2xl bg-[#D7EDFF] p-5">
-            <p className="text-sm text-neutral-800 leading-relaxed">
+            <p className="text-sm font-medium text-neutral-800 leading-relaxed">
               Patterns matter more than individual scores. If two or more areas
               sit in the lower range, they often influence each other. Income
               instability can affect saving consistency, which then affects
@@ -604,7 +605,7 @@ export default function WealthHealthPage() {
           <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-3">
             What each area suggests
           </h2>
-          <p className="text-neutral-600 text-base max-w-2xl">
+          <p className="text-neutral-700 text-base max-w-2xl">
             These are interpretations of your answers. Read each one carefully
             and ask yourself: does this land?
           </p>
@@ -645,7 +646,7 @@ export default function WealthHealthPage() {
                   <span className="text-neutral-500 pb-1">/100</span>
                 </div>
 
-                <p className="text-sm text-neutral-700 leading-relaxed">
+                <p className="text-sm text-neutral-800 leading-relaxed">
                   {meaning}
                 </p>
               </motion.div>
@@ -679,7 +680,7 @@ export default function WealthHealthPage() {
                   <span className="font-cirka text-2xl text-[#354A49]/35 shrink-0 leading-none mt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-sm text-neutral-700 leading-relaxed">
+                  <p className="text-sm text-neutral-800 leading-relaxed">
                     {rec}
                   </p>
                 </div>
@@ -713,7 +714,7 @@ export default function WealthHealthPage() {
             <h2 className="font-cirka text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-5">
               Spend 15 minutes with someone who can read this with you.
             </h2>
-            <p className="text-white/55 text-base sm:text-lg">
+            <p className="text-white/75 text-base sm:text-lg">
               No pitch. No pressure. Just a clear conversation about what your
               results mean and what, if anything, is worth doing about it.
             </p>
@@ -742,7 +743,7 @@ export default function WealthHealthPage() {
               Retake the assessment
             </button>
 
-            <p className="text-xs text-white/30 text-center mt-2">
+            <p className="text-xs text-white/50 text-center mt-2">
               Educational report only. No financial advice is being provided.
             </p>
           </motion.div>
