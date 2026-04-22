@@ -138,7 +138,6 @@ export const metadata: Metadata = {
         width: 1200,
         height: "auto",
         alt: "Celerey",
-        
       },
     ],
     type: "website",
