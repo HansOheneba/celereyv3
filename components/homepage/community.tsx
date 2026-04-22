@@ -20,7 +20,9 @@ export default function Community() {
     setIsSubmitting(true);
 
     const subscribePromise = async () => {
-      const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/leads/`;
+      const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+      if (!base) throw new Error("API not configured.");
+      const apiUrl = `${base}/leads/`;
 
       const response = await fetch(apiUrl, {
         method: "POST",

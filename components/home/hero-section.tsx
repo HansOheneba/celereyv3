@@ -22,11 +22,12 @@ export function HeroSection() {
             </Button>
           </div>
         </Reveal>
-        <InteractiveImage className="relative overflow-hidden rounded-2xl bg-gray-900 min-h-[22rem] sm:min-h-[28rem] md:min-h-[70vh]">
+        <InteractiveImage className="relative overflow-hidden rounded-2xl bg-gray-900 min-h-88 sm:min-h-112 md:min-h-[70vh]">
           <Image
             src="/homepage/hero.png"
             alt="Financial planning illustration"
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
             priority
           />

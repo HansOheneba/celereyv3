@@ -192,8 +192,7 @@ export default function Header() {
             width={90}
             height={20}
             priority
-            className="h-auto w-20 md:w-22.5"
-            style={{ height: "auto" }}
+            style={{ width: "80px", height: "auto" }}
           />
         </Link>
 
@@ -325,6 +324,8 @@ export default function Header() {
                   alt="Logo"
                   width={90}
                   height={24}
+                  className="h-auto"
+                  style={{ height: "auto" }}
                 />
                 <SheetClose className="p-2 rounded-lg hover:bg-gray-100 transition-colors">
                   <X className="w-5 h-5 text-gray-600" />

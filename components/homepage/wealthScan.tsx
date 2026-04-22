@@ -352,7 +352,9 @@ export default function WealthScan() {
 
   const saveLeadToDatabase = async (leadEmail: string): Promise<boolean> => {
     try {
-      const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/leads/`;
+      const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+      if (!base) return false;
+      const apiUrl = `${base}/leads/`;
 
       const response = await fetch(apiUrl, {
         method: "POST",

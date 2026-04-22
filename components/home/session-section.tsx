@@ -52,6 +52,7 @@ export function SessionSection() {
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
+            priority
           />
 
           <div className="absolute inset-0 bg-black/10" />

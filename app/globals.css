@@ -122,6 +122,6 @@ h6 {
   transform: rotate(180deg);
 }
 
-html {
+html[data-scroll-behavior="smooth"] {
   scroll-behavior: smooth;
 }
