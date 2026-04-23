@@ -21,7 +21,7 @@ export function SessionSection() {
 
           <div className="mb-12 grid gap-8 sm:grid-cols-2">
             <div>
-              <p className="text-2xl font-semibold mb-2 text-[#CDE6AF]">$100</p>
+              <p className="text-2xl font-semibold mb-2 text-[#CDE6AF]">$99</p>
               <p className="">
                 One private session with an advisor who listens and thinks
                 through your situation.

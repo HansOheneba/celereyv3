@@ -143,7 +143,7 @@ export default function Community() {
             asChild
             className="h-11 rounded-full "
           >
-            <Link href="/#entry-pricing">Begin with $100</Link>
+            <Link href="/#entry-pricing">Begin with $99</Link>
           </Button>
 
           <Button

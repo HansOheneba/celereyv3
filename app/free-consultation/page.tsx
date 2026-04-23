@@ -365,14 +365,14 @@ export default function FreeConsultationPage() {
           <p className="mt-4 text-sm leading-7 text-neutral-600 max-w-md mx-auto">
             Our full membership gives you ongoing access to expert guidance,
             structured plans, and a team that stays invested in your progress.
-            Or explore our $100 focused session for a single deep-dive.
+            Or explore our $99 focused session for a single deep-dive.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
             <Link href="/pricing">
               <Button>Explore Membership</Button>
             </Link>
             <Link href="/pricing">
-              <Button variant="outline">See the $100 session</Button>
+              <Button variant="outline">See the $99 session</Button>
             </Link>
           </div>
         </motion.div>
