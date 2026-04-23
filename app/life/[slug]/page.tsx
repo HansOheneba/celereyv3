@@ -95,8 +95,8 @@ export default async function LifeSituationPage({ params }: PageProps) {
             {/* Highlights */}
             <ul className="mt-8 space-y-4">
               {situation.highlights.map((point) => (
-                <li key={point} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-1 h-5 w-5 text-[#b07d3d]" />
+                <li key={point} className="flex items-center gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-[#b07d3d]" />
                   <span className="text-sm text-neutral-800">{point}</span>
                 </li>
               ))}
