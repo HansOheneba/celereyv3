@@ -567,9 +567,9 @@ export default function ServiceDetailPage() {
   }
 
   return (
-    <main className="bg-[#fbfaf8] pb-32">
+    <main className="bg-[#fbfaf8] pb-20">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="px-6 pt-20 pb-16 md:px-24 sm:pt-28">
+      <section className="px-6 pt-16 pb-10 md:px-24 sm:pt-24">
         <motion.p
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -592,7 +592,7 @@ export default function ServiceDetailPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.18 }}
-          className="mt-6 text-sm tracking-wide text-neutral-500"
+          className="mt-6 text-sm tracking-wide text-neutral-700"
         >
           {service.title}
         </motion.p>
@@ -610,7 +610,7 @@ export default function ServiceDetailPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, delay: 0.18 }}
-        className="px-6 pb-20 md:px-24"
+        className="px-6 pb-12 md:px-24"
       >
         <div className="overflow-hidden rounded-3xl border border-black/8">
           <div className="relative aspect-16/7 w-full">
@@ -636,10 +636,10 @@ export default function ServiceDetailPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-400 mb-5">
+            <p className="text-[11px] tracking-[0.24em] text-neutral-500 mb-5">
               OVERVIEW
             </p>
-            <p className="text-neutral-700 leading-8 text-[1.0625rem] max-w-2xl">
+            <p className="text-neutral-800 leading-7 text-base max-w-2xl">
               {service.overview}
             </p>
           </motion.div>
@@ -652,7 +652,7 @@ export default function ServiceDetailPage() {
             className="flex flex-col gap-5 pt-9"
           >
             <div className="rounded-2xl border border-black/8 bg-white px-5 py-5">
-              <p className="text-[10px] tracking-[0.22em] text-neutral-400">
+              <p className="text-[10px] tracking-[0.22em] text-neutral-500">
                 DELIVERABLE
               </p>
               <p className="mt-2 text-sm font-medium text-neutral-900 leading-5">
@@ -660,7 +660,7 @@ export default function ServiceDetailPage() {
               </p>
             </div>
             <div className="rounded-2xl border border-black/8 bg-white px-5 py-5">
-              <p className="text-[10px] tracking-[0.22em] text-neutral-400">
+              <p className="text-[10px] tracking-[0.22em] text-neutral-500">
                 LED BY
               </p>
               <p className="mt-2 text-sm font-medium text-neutral-900">
@@ -672,8 +672,8 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-20 px-6 md:px-24">
-        <div className="h-px w-full bg-black/6" />
+      <div className="my-12 px-6 md:px-24">
+        <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── What This Covers ─────────────────────────────────────────────── */}
@@ -682,7 +682,7 @@ export default function ServiceDetailPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-[11px] tracking-[0.24em] text-neutral-400 mb-10"
+          className="text-[11px] tracking-[0.24em] text-neutral-500 mb-8"
         >
           WHAT THIS ENGAGEMENT COVERS
         </motion.p>
@@ -703,7 +703,7 @@ export default function ServiceDetailPage() {
               <h3 className="mt-3 font-medium text-neutral-900 text-sm leading-5">
                 {item.label}
               </h3>
-              <p className="mt-2 text-sm text-neutral-500 leading-6">
+              <p className="mt-2 text-sm text-neutral-700 leading-6">
                 {item.detail}
               </p>
             </motion.div>
@@ -712,19 +712,19 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-20 px-6 md:px-24">
-        <div className="h-px w-full bg-black/6" />
+      <div className="my-12 px-6 md:px-24">
+        <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── Why It Matters ───────────────────────────────────────────────── */}
       <section className="px-6 md:px-24">
-        <div className="grid gap-16 lg:grid-cols-[220px_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-400">
+            <p className="text-[11px] tracking-[0.24em] text-neutral-500">
               WHY IT MATTERS
             </p>
           </motion.div>
@@ -737,7 +737,7 @@ export default function ServiceDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.55, delay: i * 0.08 }}
-                className="text-neutral-700 leading-8 text-[1.0625rem]"
+                className="text-neutral-800 leading-7 text-base"
               >
                 {para}
               </motion.p>
@@ -747,19 +747,19 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-20 px-6 md:px-24">
-        <div className="h-px w-full bg-black/6" />
+      <div className="my-12 px-6 md:px-24">
+        <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── Who This Is For ──────────────────────────────────────────────── */}
       <section className="px-6 md:px-24">
-        <div className="grid gap-16 lg:grid-cols-[220px_1fr]">
+        <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-400">
+            <p className="text-[11px] tracking-[0.24em] text-neutral-500">
               WHO THIS IS FOR
             </p>
           </motion.div>
@@ -769,7 +769,7 @@ export default function ServiceDetailPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.55 }}
-            className="text-neutral-700 leading-8 text-[1.0625rem]"
+            className="text-neutral-800 leading-7 text-base"
           >
             {service.forWho}
           </motion.p>
@@ -777,12 +777,12 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-20 px-6 md:px-24">
-        <div className="h-px w-full bg-black/6" />
+      <div className="my-12 px-6 md:px-24">
+        <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── Inquiry Form ─────────────────────────────────────────────────── */}
-      <section className="px-6 md:px-24">
+      <section id="inquiry" className="px-6 md:px-24 scroll-mt-24">
         <div className="grid gap-16 lg:grid-cols-[360px_1fr]">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -790,17 +790,17 @@ export default function ServiceDetailPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-400">
+            <p className="text-[11px] tracking-[0.24em] text-neutral-500">
               REQUEST THIS ENGAGEMENT
             </p>
             <h2 className="mt-5 font-serif text-3xl text-neutral-900 leading-tight">
               Ready to begin?
             </h2>
-            <p className="mt-4 text-sm text-neutral-500 leading-7">
+            <p className="mt-4 text-sm text-neutral-700 leading-7">
               Share a few details and we will follow up to confirm scope and
               answer any questions before anything is formalised.
             </p>
-            <p className="mt-6 text-xs text-neutral-400 leading-6">
+            <p className="mt-6 text-xs text-neutral-500 leading-6">
               {service.advisor} &nbsp;&middot;&nbsp; Deliverable:{" "}
               {service.deliverable}
             </p>
@@ -824,7 +824,7 @@ export default function ServiceDetailPage() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mt-24 px-6 md:px-24 flex items-center gap-6"
+        className="mt-14 px-6 md:px-24 flex items-center gap-6"
       >
         <Link
           href="/services"

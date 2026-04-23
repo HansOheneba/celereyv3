@@ -15,7 +15,7 @@ import { Menu, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { BeginJourneyModal } from "@/components/homepage/beginModal";
 
-type DropdownKey = "insights" | "tools" | "about";
+type DropdownKey = "insights" | "tools" | "about" | "life";
 
 type NavLink = {
   name: string;
@@ -48,9 +48,9 @@ function isActivePath(pathname: string, href: string): boolean {
 const flatLinks: NavLink[] = [
   { name: "Start here", href: "/#wealth-scan" },
   { name: "How it works", href: "/#how-it-works" },
-  { name: "What we help with", href: "/services" },
+  // { name: "What we help with", href: "/services" },
   { name: "Advisors", href: "/advisors" },
-  { name: "Pricing", href: "/pricing" },
+  { name: "Subscribe", href: "/pricing" },
 ];
 
 const dropdownMenus: DropdownMenu[] = [
@@ -77,6 +77,40 @@ const dropdownMenus: DropdownMenu[] = [
         name: "Money Manager",
         href: "/tools/money-manager",
         description: "Holistic view of income, outgoings, and net worth",
+      },
+    ],
+  },
+  {
+    key: "life",
+    label: "Life Situations",
+    items: [
+      {
+        name: "Business Sale",
+        href: "/life/business-sale",
+      },
+      {
+        name: "Significant Life Event",
+        href: "/life/significant-life-event",
+      },
+      {
+        name: "Financial Planning",
+        href: "/life/financial-planning",
+      },
+      {
+        name: "Private Markets",
+        href: "/life/private-markets",
+      },
+      {
+        name: "Cross Border Wealth Management",
+        href: "/life/cross-border-wealth-management",
+      },
+      {
+        name: "Tax And Inheritance",
+        href: "/life/tax-and-inheritance",
+      },
+      {
+        name: "Retirement Planning",
+        href: "/life/retirement-planning",
       },
     ],
   },
@@ -327,7 +361,6 @@ export default function Header() {
                   className="h-auto"
                   style={{ height: "auto" }}
                 />
-             
               </div>
 
               {/* Mobile nav links */}
