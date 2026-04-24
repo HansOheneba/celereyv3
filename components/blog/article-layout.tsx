@@ -52,7 +52,7 @@ export default function ArticleLayout({
   return (
     <main className="bg-[#f8f7f5] min-h-screen">
       {/* NAV */}
-      <div className="px-6 lg:px-24 pt-28 pb-6">
+      <div className="px-6 lg:px-24 pt-10 md:pt-28 pb-6">
         <Link
           href={backHref}
           className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
@@ -80,11 +80,11 @@ export default function ArticleLayout({
                 ))}
               </div>
 
-              <h1 className="font-serif font-light text-4xl leading-[1.2] text-neutral-900 sm:text-5xl">
+              <h1 className="font-serif font-bold text-3xl leading-[1.2] text-neutral-900 sm:text-5xl">
                 {post.title}
               </h1>
 
-              <p className="mt-6 text-lg leading-relaxed text-neutral-700">
+              <p className="mt-6 md:text-lg leading-relaxed text-neutral-700">
                 {post.excerpt}
               </p>
 
