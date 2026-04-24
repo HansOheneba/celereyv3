@@ -64,7 +64,8 @@ export const lifeSituations: LifeSituation[] = [
       "Asset division, transfer, and protection guidance",
       "Forward planning from a new baseline",
     ],
-    image: "/homepage/family-walking.png",
+    image:
+      "https://images.unsplash.com/photo-1622610607501-32ac9c927216?q=80&w=2942&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Family navigating a life transition together",
     ctaLabel: "Talk to us",
     ctaHref: "/contact",
@@ -270,7 +271,8 @@ export const lifeSituations: LifeSituation[] = [
       "Drawdown and income sequencing strategy",
       "Healthcare, longevity, and legacy planning",
     ],
-    image: "/services/legacy.png",
+    image:
+      "https://images.unsplash.com/photo-1508963493744-76fce69379c0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Couple planning their retirement with a financial advisor",
     ctaLabel: "Talk to us",
     ctaHref: "/contact",
