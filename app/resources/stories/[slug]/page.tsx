@@ -39,6 +39,7 @@ export default async function StoryDetailPage({
       post={post}
       backHref="/resources/stories"
       backLabel="Stories"
+      htmlContent={htmlContent} 
     />
   );
 }
