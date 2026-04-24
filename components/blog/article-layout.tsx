@@ -8,6 +8,7 @@ import ShareButtons from "@/components/blog/share-buttons";
 
 type ArticleLayoutProps = {
   post: Insight;
+  htmlContent: string;
   backHref: string;
   backLabel: string;
 };
@@ -36,6 +37,7 @@ function buildTOC(markdown: string): TocItem[] {
 
 export default function ArticleLayout({
   post,
+  htmlContent,
   backHref,
   backLabel,
 }: ArticleLayoutProps) {
@@ -99,7 +101,7 @@ export default function ArticleLayout({
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
               </div>
             </div>
 
