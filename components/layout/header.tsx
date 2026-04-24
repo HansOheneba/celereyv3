@@ -9,11 +9,12 @@ import {
   SheetClose,
   SheetContent,
   SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { BeginJourneyModal } from "@/components/homepage/beginModal";
+// import { BeginJourneyModal } from "@/components/homepage/beginModal";
 
 type DropdownKey = "insights" | "tools" | "about" | "life";
 
@@ -47,8 +48,6 @@ function isActivePath(pathname: string, href: string): boolean {
 
 const flatLinks: NavLink[] = [
   { name: "Start here", href: "/#wealth-scan" },
-  // { name: "How it works", href: "/#how-it-works" },
-  // { name: "What we help with", href: "/services" },
   { name: "Advisors", href: "/advisors" },
   { name: "Subscribe", href: "/pricing" },
 ];
@@ -158,6 +157,61 @@ const dropdownMenus: DropdownMenu[] = [
   },
 ];
 
+// ---- Mobile accordion section - memoized to prevent unnecessary re-renders ----
+const MobileNavSection = React.memo(function MobileNavSection({
+  label,
+  items,
+  onClose,
+}: {
+  label: string;
+  items: { name: string; href: string; description?: string }[];
+  onClose: () => void;
+}) {
+  const [expanded, setExpanded] = React.useState(false);
+
+  return (
+    <div>
+      <button
+        onClick={() => setExpanded((v) => !v)}
+        className="w-full flex items-center justify-between px-3 py-3 rounded-xl text-sm font-medium text-gray-800 hover:bg-gray-50 transition-colors"
+      >
+        {label}
+        <ChevronDown
+          className={cn(
+            "h-4 w-4 text-gray-500 transition-transform duration-200",
+            expanded && "rotate-180",
+          )}
+        />
+      </button>
+
+      {expanded && (
+        <div className="ml-3 mt-1 mb-2 space-y-0.5">
+          {items.map((item) => (
+            <SheetClose key={item.href} asChild>
+              <Link
+                href={item.href}
+                onClick={onClose}
+                className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
+              >
+                <span className="text-sm font-medium text-gray-900">
+                  {item.name}
+                </span>
+                {item.description && (
+                  <span className="text-xs text-gray-400 leading-snug mt-0.5">
+                    {item.description}
+                  </span>
+                )}
+              </Link>
+            </SheetClose>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+});
+
+MobileNavSection.displayName = "MobileNavSection";
+
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
@@ -194,6 +248,18 @@ export default function Header() {
       if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
     };
   }, []);
+
+  // Prevent body scroll when mobile menu is open
+  React.useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [open]);
 
   const openDropdown = (key: DropdownKey) => {
     if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
@@ -349,17 +415,22 @@ export default function Header() {
               side="left"
               className="w-full max-w-sm bg-white p-0 overflow-y-auto"
             >
-              <SheetTitle className="sr-only">Navigation</SheetTitle>
+              <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+              <SheetDescription className="sr-only">
+                Main navigation menu for Celerey website with links to wealth
+                planning tools, life situations, insights, and account access
+              </SheetDescription>
 
               {/* Mobile header */}
               <div className="flex items-center justify-between border-b border-gray-100 px-5 py-4 sm:px-6">
                 <Image
                   src="/logos/logoDark.png"
-                  alt="Logo"
+                  alt="Celerey Logo"
                   width={90}
                   height={24}
                   className="h-auto"
                   style={{ height: "auto" }}
+                  priority
                 />
               </div>
 
@@ -370,6 +441,7 @@ export default function Header() {
                     <Link
                       href={link.href}
                       className="flex items-center px-3 py-3 rounded-xl text-sm font-medium text-gray-800 hover:bg-gray-50 transition-colors"
+                      onClick={() => setOpen(false)}
                     >
                       {link.name}
                     </Link>
@@ -391,13 +463,14 @@ export default function Header() {
                 <SheetClose asChild>
                   <Button
                     variant="outline"
-                    onClick={() =>
+                    onClick={() => {
                       window.open(
                         "https://celerey.app/",
                         "_blank",
                         "noopener,noreferrer",
-                      )
-                    }
+                      );
+                      setOpen(false);
+                    }}
                     className="w-full"
                   >
                     Login
@@ -405,7 +478,10 @@ export default function Header() {
                 </SheetClose>
                 <SheetClose asChild>
                   <Button
-                    onClick={() => router.push("/pricing")}
+                    onClick={() => {
+                      router.push("/pricing");
+                      setOpen(false);
+                    }}
                     className="w-full bg-primary hover:bg-primary/90 text-white"
                   >
                     Book your free session
@@ -417,60 +493,9 @@ export default function Header() {
         </div>
       </div>
 
-      <BeginJourneyModal open={modalOpen} onOpenChange={setModalOpen} />
+      {/* {mounted && (
+        <BeginJourneyModal open={modalOpen} onOpenChange={setModalOpen} />
+      )} */}
     </header>
-  );
-}
-
-// ---- Mobile accordion section ----
-function MobileNavSection({
-  label,
-  items,
-  onClose,
-}: {
-  label: string;
-  items: { name: string; href: string; description?: string }[];
-  onClose: () => void;
-}) {
-  const [expanded, setExpanded] = React.useState(false);
-
-  return (
-    <div>
-      <button
-        onClick={() => setExpanded((v) => !v)}
-        className="w-full flex items-center justify-between px-3 py-3 rounded-xl text-sm font-medium text-gray-800 hover:bg-gray-50 transition-colors"
-      >
-        {label}
-        <ChevronDown
-          className={cn(
-            "h-4 w-4 text-gray-500 transition-transform duration-200",
-            expanded && "rotate-180",
-          )}
-        />
-      </button>
-
-      {expanded && (
-        <div className="ml-3 mt-1 mb-2 space-y-0.5">
-          {items.map((item) => (
-            <SheetClose key={item.href} asChild>
-              <Link
-                href={item.href}
-                onClick={onClose}
-                className="flex flex-col px-3 py-2.5 rounded-xl hover:bg-gray-50 transition-colors"
-              >
-                <span className="text-sm font-medium text-gray-900">
-                  {item.name}
-                </span>
-                {item.description && (
-                  <span className="text-xs text-gray-400 leading-snug mt-0.5">
-                    {item.description}
-                  </span>
-                )}
-              </Link>
-            </SheetClose>
-          ))}
-        </div>
-      )}
-    </div>
   );
 }
