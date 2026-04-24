@@ -83,7 +83,7 @@ export function StepsSection() {
         </div>
 
         {/* Buttons */}
-        <Reveal className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <Reveal className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link href="/free-consultation">
             <Button
               variant="default"
@@ -92,9 +92,11 @@ export function StepsSection() {
               Book free session
             </Button>
           </Link>
-          <Button variant="outline" className="w-full bg-white px-6 sm:w-auto">
-            Learn More
-          </Button>
+        <Link href="/resources/stories">
+            <Button variant="outline" className="w-full sm:w-auto">
+              Read stories
+            </Button>
+          </Link>
         </Reveal>
       </div>
     </section>
