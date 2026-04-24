@@ -379,7 +379,7 @@ export default function Header() {
           </button>
           <Button
             onClick={() => router.push("/free-consultation")}
-            className="bg-gradient-to-r from-zinc-950 to-zinc-700 hover:from-zinc-800 hover:to-zinc-600 text-white text-sm px-5 rounded-full transition-all duration-300"
+         
           >
             Book your free session
           </Button>
