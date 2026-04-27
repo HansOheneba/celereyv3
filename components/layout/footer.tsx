@@ -119,10 +119,10 @@ export default function Footer() {
                     href="/contact"
                
                   >
-                    <Button variant={"outline"} className="hover:bg-white/20 border-white hover:text-white">Chat with us</Button>
+                    <Button variant={"outline"} className="hover:bg-white/20 border-white hover:text-white w-full">Chat with us</Button>
                   </Link>
                   <Link href="/#wealth-scan">
-                    <Button className="bg-white text-primary hover:bg-gray-200 hover:text-primary/70">
+                    <Button className="bg-white text-primary hover:bg-gray-200 hover:text-primary/70 w-full">
                       Take Free Financial Scan
                     </Button>
                   </Link>
