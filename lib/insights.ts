@@ -3131,4 +3131,135 @@ Divorce is not easy. But it is possible to come through it with a financial plan
       "Personal Finance",
     ],
   },
+  // Paste this object into the insights array in /lib/insights.ts
+
+  {
+    id: "25",
+    slug: "behavioural-investing-how-emotions-affect-investment-decisions",
+    title:
+      "Behavioural Investing: How Our Emotions Affect Every Financial Decision We Make",
+    author: "Celerey Advisory",
+    date: "2026-04-25",
+    excerpt:
+      "Most investors believe they make rational decisions. The data says otherwise. Decades of research in behavioural finance have identified the specific psychological patterns that cause even intelligent, well-informed people to consistently underperform the markets they invest in. Understanding these patterns is the first step to overcoming them.",
+    coverImage:
+      "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    content: `
+### The Gap Between What We Earn and What We Keep
+
+Here is a number worth sitting with. In 2024, the S&P 500 returned 25.02%. The average equity investor, according to [DALBAR's 2025 Quantitative Analysis of Investor Behavior report](https://www.dalbar.com/press-release/investors-missed-the-best-of-2024s-market-gains-latest-dalbar-investor-behavior-report-finds/), earned 16.54%. The gap of 848 basis points is not explained by fees, fund selection, or bad luck. It is explained almost entirely by behaviour: by the decisions investors made about when to buy, when to sell, and when to stay in or get out of the market.
+
+This is not a 2024 anomaly. [Barclays Private Bank's analysis](https://privatebank.barclays.com/insights/market-perspectives-september-09-2025/closing-the-behaviour-gap/) found that the behaviour gap, as Morningstar defines it, averaged 122 basis points per year over the decade to December 2024. That gap, compounded across ten years, means investors forfeited approximately 15% of their total potential returns over the period, simply because of the decisions they made in response to market movements.
+
+Over 20 years, [DALBAR's data](https://www.loricapartners.com.au/insights/how-investor-behaviour-undermines-long-term-success) shows the average equity investor returned 9.24% annually versus the S&P 500's 10.35%. On a $1 million portfolio, that 1.11% annual difference compounds to roughly $1 million in foregone wealth over two decades.
+
+The investment industry spends enormous energy on fund selection, asset allocation, and fee minimisation. Behavioural finance asks a different and more fundamental question: if the tools are largely available to everyone, why do so many investors still consistently underperform? The answer lies not in markets but in minds.
+
+---
+
+### What Behavioural Finance Actually Is
+
+Behavioural finance is the study of how psychological factors influence financial decisions. It emerged as a formal discipline in the 1970s and 1980s, largely through the work of psychologists Daniel Kahneman and Amos Tversky, who demonstrated through experiments that human decision-making systematically deviates from what standard economic models assumed. Their work showed that people do not weigh gains and losses symmetrically, that they rely on mental shortcuts that introduce predictable errors, and that their choices are influenced by framing, context, and emotion in ways that rational models simply cannot account for.
+
+Kahneman was awarded the Nobel Prize in Economics in 2002 for this work, now known as [Prospect Theory](https://www.investopedia.com/terms/p/prospecttheory.asp). The core insight is that losses feel approximately twice as painful as equivalent gains feel pleasurable. An investor who loses $10,000 experiences significantly more distress than the satisfaction they would feel from gaining $10,000. This asymmetry is not rational in a classical economic sense. But it is deeply human, and it shapes investment behaviour in ways that are both predictable and costly.
+
+Understanding the specific biases that behavioural finance has identified is not an academic exercise. It is a practical toolkit for becoming a better investor.
+
+---
+
+### Loss Aversion: Why We Hold Losers and Sell Winners
+
+Loss aversion is the most extensively documented bias in investment behaviour, and the most costly. Because losses feel more painful than equivalent gains feel rewarding, investors tend to make two systematic errors driven by the desire to avoid the emotional pain of realising a loss.
+
+The first is holding losing investments far longer than a rational analysis would justify. Selling a losing investment at a loss makes the loss feel real and permanent. As long as the position is held, there is still a chance, however remote, that it recovers. [Research from FINRA cited by William & Mary Business School](https://online.mason.wm.edu/blog/behavioral-biases-that-can-impact-investing-decisions) confirms this: loss-averse investors are demonstrably reluctant to realise losses, resulting in suboptimal portfolio performance.
+
+The second error is selling winning investments too early to lock in the gain before it disappears. The combined result of these two behaviours is what researchers call the disposition effect: a systematic tendency to sell winners too soon and hold losers too long, which produces outcomes that are, on average, worse than a simple buy-and-hold approach.
+
+The corrective is not to eliminate emotion but to build structures that prevent emotion from driving the decision at the wrong moment. Predetermined exit strategies, decided when the investment was made rather than when the market is moving, take the real-time emotional response out of the equation. If you have decided in advance that a position will be reviewed and potentially closed if it falls 20% below purchase price, that decision does not need to be made at the moment of maximum emotional discomfort.
+
+---
+
+### Overconfidence: The Bias That Makes Us Trade Too Much
+
+If loss aversion is the bias that makes us hold too long, overconfidence is the bias that makes us trade too often. The two together are a particularly destructive combination.
+
+Overconfidence in investing manifests as a belief that one's market judgments are more reliable than they actually are. [FINRA research cited by William & Mary Business School](https://online.mason.wm.edu/blog/behavioral-biases-that-can-impact-investing-decisions) found that 64% of investors believe they have a high level of investment knowledge. Studies of actual trading behaviour consistently show a very different picture.
+
+[IBCA's analysis of behavioural finance research](https://www.investmentbankingcouncil.org/blog/how-behavioral-finance-shapes-investor-psychology) cites research from NYU Stern and NBER finding that retail investors allocate an average of only six minutes to researching a stock before purchase. The majority focus on short-term price data. The investment returns that follow reflect this: the average return for retail-led concentrated positions significantly underperforms broader market indices.
+
+The mechanism is straightforward. Overconfident investors trade more frequently than the evidence supports, generating transaction costs, tax events, and the repeated risk of mistimed decisions. Each trade is an opportunity to be wrong. More frequent trading means more opportunities for behavioural errors, not more opportunities for superior returns. The landmark [University of California research by Barber and Odean](https://faculty.haas.berkeley.edu/odean/Papers%20current%20versions/Boys_will_be_Boys.pdf) found that overconfident investors, who traded 45% more than other investors, significantly underperformed on a net basis.
+
+---
+
+### Herd Behaviour: The Power of the Crowd to Destroy Returns
+
+Herd behaviour describes the tendency to make investment decisions based on what others are doing rather than on independent analysis. It is driven by social pressure, fear of missing out, and a deep human instinct to seek safety in numbers.
+
+The cost of herding is well documented. [William & Mary Business School's analysis](https://online.mason.wm.edu/blog/behavioral-biases-that-can-impact-investing-decisions) notes that research shows just 5% of informed investors can influence the decisions of the remaining 95%. When investors pile into assets that have recently performed well, following the crowd rather than evaluating fundamentals, they typically arrive late to the trade and exit even later, after the asset has fallen.
+
+The [DALBAR 2025 report](https://www.planadviser.com/investors-bad-behavior-led-sharp-underperformance-2024/) captures the practical consequence: in 2024, withdrawals from equity funds occurred in every quarter, with the largest outflows happening just before a major market rally. Investors who sold in response to fear missed the subsequent gains that drove the market to its full-year return. This pattern of selling before recoveries and buying before peaks is the behavioural signature of herd-driven investing, and it accounts for a significant portion of the performance gap that DALBAR has tracked consistently since 1985.
+
+The corrective is an investment policy statement: a written document that specifies the portfolio's objectives, asset allocation targets, rebalancing rules, and the conditions under which changes will and will not be made. Decisions made in advance, when markets are calm, tend to be better than decisions made reactively when sentiment is driving everyone in the same direction.
+
+---
+
+### Anchoring: Why We Cannot Let Go of Irrelevant Numbers
+
+Anchoring is a cognitive bias in which investors give disproportionate weight to a specific reference point, typically the price at which they bought an asset, in making subsequent decisions about it.
+
+An investor who bought a stock at $100 and watches it fall to $60 may resist selling because they are anchored to the $100 purchase price. The relevant question is whether the stock is a good investment at $60. The purchase price is irrelevant to that assessment. But the anchor makes it feel relevant, and this produces decisions that are based on sunk cost rather than prospective value.
+
+The same mechanism applies in reverse. An investor who has watched a stock rise from $40 to $100 may be reluctant to buy it at $100 because it feels "expensive" relative to the price they previously knew, even if the current valuation is entirely justified by changes in the business. [IBCA](https://www.investmentbankingcouncil.org/blog/how-behavioral-finance-shapes-investor-psychology) notes that anchoring to past prices is a significant driver of the momentum anomalies observed in financial markets, where investors underreact to new information because they remain cognitively attached to prior reference points.
+
+Overcoming anchoring requires deliberately asking a different question: not "where was this asset, and where would I like it to be?" but "given everything I know right now, does this represent an attractive risk-adjusted investment opportunity at the current price?"
+
+---
+
+### Confirmation Bias: Only Hearing What We Want to Hear
+
+Confirmation bias is the tendency to seek out, interpret, and remember information that confirms existing beliefs while discounting information that challenges them. In investing, it produces a particularly dangerous dynamic: investors who are committed to a position unconsciously filter the information they consume to support that position.
+
+An investor convinced that a particular sector will outperform reads every positive article about it attentively and dismisses negative analysis as biased or uninformed. Over time, their picture of the investment becomes progressively more optimistic relative to the actual evidence. This is compounded by social media and financial content algorithms that show people more of what they have already engaged with, creating an information environment that reinforces rather than challenges existing views.
+
+[Preprints.org's 2025 review of behavioural biases](https://www.preprints.org/manuscript/202502.2000/v1) identifies confirmation bias as one of the factors that sustains overpriced assets beyond their fundamental value, because investors who own them selectively process information in ways that keep them committed. The corrective is deliberate adversarial thinking: actively seeking out the strongest possible case against any position you hold, and genuinely engaging with it rather than dismissing it.
+
+---
+
+### The Cultural Dimension: Behavioural Biases Are Not Uniform
+
+One of the more nuanced findings of recent behavioural finance research is that the expression and intensity of investment biases varies meaningfully across cultures and markets.
+
+[IBCA's review of cross-cultural investment research](https://www.investmentbankingcouncil.org/blog/how-behavioral-finance-shapes-investor-psychology) cites analysis of nearly 388,000 traders across 83 countries, finding that cultural dimensions, including long-term orientation and collectivism versus individualism, affect how strongly the disposition effect manifests. In collectivist societies, risk-taking behaviour related to the cushion hypothesis is more frequently observed. High-context communication cultures show different patterns of subtle financial decision-making.
+
+This matters because it means that behavioural coaching and debiasing strategies need to be calibrated to the cultural context of the investor, not applied as a universal template. An adviser working with a client in Singapore operates in a different behavioural environment from one working with a client in London or Lagos, and the interventions that help most will differ accordingly.
+
+---
+
+### What Actually Helps: Practical Strategies for Better Investment Behaviour
+
+The encouraging finding from decades of behavioural finance research is that awareness of biases, while not sufficient alone, does meaningfully reduce their impact. Several practical strategies have evidence behind them.
+
+**Automating decisions** is the most powerful debiasing tool available. Automatic rebalancing, regular contributions that are transferred without discretion, and predetermined rules about when to review rather than react all reduce the number of emotionally charged decisions an investor makes in real time.
+
+**Writing an investment policy statement** before markets move creates a commitment device. When markets fall and the instinct is to sell, a written statement explaining why the portfolio is structured as it is and what conditions would justify a change provides a check on reactive behaviour.
+
+**Working with a skilled adviser** provides what behavioural finance researchers call a "second opinion system." An adviser who understands your behavioural tendencies and is watching for them in real time can intercept decisions that are being driven by fear or overconfidence before they are executed. [Vanguard's research on adviser value](https://investor.vanguard.com/advice) attributes approximately 1.5% of its estimated annual adviser value directly to behavioural coaching, the single largest contributor to what Vanguard calls "Advisor's Alpha."
+
+**Reducing portfolio check frequency** is a practical and underrated intervention. [Barclays Private Bank](https://privatebank.barclays.com/insights/market-perspectives-september-09-2025/closing-the-behaviour-gap/) references the concept of myopic loss aversion, demonstrated by research building on Kahneman's work: investors who evaluate their portfolios more frequently are more sensitive to short-term losses, which makes them more likely to make reactive decisions that reduce long-term returns. A quarterly or semi-annual review, rather than a daily one, significantly reduces the number of emotionally charged decision points.
+
+---
+
+### How Celerey Approaches Behavioural Coaching
+
+At Celerey, we think behavioural awareness is as important a component of financial advice as portfolio construction or tax planning. We help clients understand their own patterns and tendencies, structure their portfolios in ways that reduce the number of emotionally charged decision points, and provide the kind of steady, evidence-based perspective that is most valuable precisely when markets are making it hardest to think clearly.
+
+The investors who build lasting wealth are rarely those who find the cleverest investments. They are more often the ones who make fewer emotional decisions, stay invested through difficult markets, and work with advisers who help them see past the noise. If you would like to explore how behavioural awareness could improve your approach to investing, we would be glad to have that conversation. Reach out to the Celerey team whenever you are ready.
+`,
+    tags: [
+      "Investing",
+      "Wealth Management",
+      "Portfolio Management",
+      "Financial Planning",
+    ],
+  },
 ];
