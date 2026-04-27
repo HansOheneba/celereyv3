@@ -6,6 +6,14 @@ import Image from "next/image";
 import { insights } from "@/lib/insights";
 import { Search, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 
 import {
   DropdownMenu,
@@ -29,23 +37,64 @@ const latestPosts = [...insights]
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   .slice(0, 4);
 
+const ITEMS_PER_PAGE = 10;
+
 export default function StoriesPage() {
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [showTags, setShowTags] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
-    return insights.filter((post) => {
-      const matchesSearch =
-        !q ||
-        post.title.toLowerCase().includes(q) ||
-        post.excerpt.toLowerCase().includes(q) ||
-        post.author.toLowerCase().includes(q);
-      const matchesTag = !activeTag || post.tags.includes(activeTag);
-      return matchesSearch && matchesTag;
-    });
+
+    return insights
+      .filter((post) => {
+        const matchesSearch =
+          !q ||
+          post.title.toLowerCase().includes(q) ||
+          post.excerpt.toLowerCase().includes(q) ||
+          post.author.toLowerCase().includes(q);
+
+        const matchesTag = !activeTag || post.tags.includes(activeTag);
+
+        return matchesSearch && matchesTag;
+      })
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   }, [query, activeTag]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+  const paginated = filtered.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE,
+  );
+
+  const handlePageChange = (page: number) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const getVisiblePages = (): (number | "...")[] => {
+    if (totalPages <= 5) {
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+    if (currentPage <= 3) {
+      return [1, 2, 3, "...", totalPages];
+    }
+    if (currentPage >= totalPages - 2) {
+      return [1, "...", totalPages - 2, totalPages - 1, totalPages];
+    }
+    return [
+      1,
+      "...",
+      currentPage - 1,
+      currentPage,
+      currentPage + 1,
+      "...",
+      totalPages,
+    ];
+  };
 
   return (
     <main className="bg-[#fbfaf8] min-h-screen">
@@ -73,7 +122,10 @@ export default function StoriesPage() {
                   type="text"
                   placeholder="Search..."
                   value={query}
-                  onChange={(e) => setQuery(e.target.value)}
+                  onChange={(e) => {
+                    setQuery(e.target.value);
+                    setCurrentPage(1);
+                  }}
                   className="h-10 w-full rounded-lg border border-black/10 bg-white pl-9 pr-8 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-black/20"
                 />
                 {query && (
@@ -97,7 +149,7 @@ export default function StoriesPage() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="outline"
-                    className="h-10 px-4 border-black/10 bg-white text-sm text-neutral-700 justify-between min-w-[130px]"
+                    className="h-10 px-4 border-black/10 bg-white text-sm text-neutral-700 justify-between min-w-32.5"
                   >
                     <span>{activeTag ?? "Filter by tag"}</span>
                     <ChevronDown className="h-4 w-4 ml-2" />
@@ -106,13 +158,21 @@ export default function StoriesPage() {
                 <DropdownMenuContent className="w-48" align="end">
                   <DropdownMenuLabel>Filter by tag</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => setActiveTag(null)}>
+                  <DropdownMenuItem
+                    onClick={() => {
+                      setActiveTag(null);
+                      setCurrentPage(1);
+                    }}
+                  >
                     All
                   </DropdownMenuItem>
                   {allTags.map((tag) => (
                     <DropdownMenuItem
                       key={tag}
-                      onClick={() => setActiveTag(tag)}
+                      onClick={() => {
+                        setActiveTag(tag);
+                        setCurrentPage(1);
+                      }}
                     >
                       {tag}
                     </DropdownMenuItem>
@@ -126,7 +186,10 @@ export default function StoriesPage() {
           <div className="mt-6 max-w-2xl mx-auto hidden sm:block">
             <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <button
-                onClick={() => setActiveTag(null)}
+                onClick={() => {
+                  setActiveTag(null);
+                  setCurrentPage(1);
+                }}
                 className={cn(
                   "shrink-0 whitespace-nowrap rounded-full border px-4 py-1.5 text-xs font-medium",
                   activeTag === null
@@ -140,7 +203,10 @@ export default function StoriesPage() {
               {allTags.map((tag) => (
                 <button
                   key={tag}
-                  onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                  onClick={() => {
+                    setActiveTag(activeTag === tag ? null : tag);
+                    setCurrentPage(1);
+                  }}
                   className={cn(
                     "shrink-0 whitespace-nowrap rounded-full border px-4 py-1.5 text-xs font-medium",
                     activeTag === tag
@@ -159,7 +225,7 @@ export default function StoriesPage() {
 
       {/* ── Main content ─────────────────────────────────────────── */}
       <div className="px-4 sm:px-6 lg:px-24 pt-6 pb-20">
-        <div className="grid gap-10 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_320px]">
+        <div className="grid gap-10 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_350px]">
           {/* ── Left ── */}
           <div>
             <div className="flex items-center justify-between mb-4">
@@ -176,6 +242,7 @@ export default function StoriesPage() {
                   onClick={() => {
                     setQuery("");
                     setActiveTag(null);
+                    setCurrentPage(1);
                   }}
                   className="text-xs text-[#b07d3d]"
                 >
@@ -194,49 +261,112 @@ export default function StoriesPage() {
             )}
 
             {/* Cards */}
-            {filtered.length > 0 && (
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {filtered.map((post, i) => (
+            {paginated.length > 0 && (
+              <div className="grid gap-10 sm:grid-cols-2">
+                {paginated.map((post) => (
                   <Link
                     key={post.id}
                     href={`/resources/stories/${post.slug}`}
-                    className="group relative block overflow-hidden rounded-2xl aspect-[4/3]"
+                    className="group block"
                   >
-                    <Image
-                      src={post.coverImage}
-                      alt={post.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      priority={i < 3}
-                    />
+                    {/* Image */}
+                    <div className="relative aspect-4/3 overflow-hidden rounded-2xl">
+                      <Image
+                        src={post.coverImage}
+                        alt={post.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-103"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                      />
+                    </div>
 
-                    {/* STRONGER overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                    {/* Content */}
+                    <div className="mt-4 space-y-3">
+                      {/* Tag */}
+                      <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+                        {post.tags[0]}
+                      </p>
 
-                    {/* Tag */}
-                    <span className="absolute top-3 left-3 rounded-full bg-white/20 backdrop-blur px-3 py-1 text-[10px] text-white uppercase">
-                      {post.tags[0]}
-                    </span>
-
-                    {/* Text */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                      <h3 className="font-serif text-sm sm:text-base text-white leading-snug line-clamp-2">
+                      {/* Title */}
+                      <h3 className="font-serif text-lg sm:text-xl text-neutral-900 leading-snug group-hover:text-[#b07d3d] transition-colors">
                         {post.title}
                       </h3>
 
-                      <p className="mt-2 text-xs sm:text-[13px] text-white/85 leading-relaxed line-clamp-2">
+                      {/* Excerpt */}
+                      <p className="text-sm text-neutral-600 leading-relaxed line-clamp-3">
                         {post.excerpt}
+                      </p>
+
+                      {/* Optional "Read more" */}
+                      <p className="text-sm text-[#b07d3d] opacity-0 group-hover:opacity-100 transition">
+                        Read more
                       </p>
                     </div>
                   </Link>
                 ))}
               </div>
             )}
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="mt-10 flex justify-center w-full">
+                <Pagination className="w-auto mx-0">
+                  <PaginationContent className="gap-1 flex-wrap justify-center">
+                    <PaginationItem>
+                      <PaginationPrevious
+                        href="#"
+                        className="rounded-none h-8 w-8 sm:h-10 sm:w-auto sm:px-4 p-0"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handlePageChange(currentPage - 1);
+                        }}
+                        aria-disabled={currentPage === 1}
+                      />
+                    </PaginationItem>
+                    {getVisiblePages().map((page, index) => (
+                      <PaginationItem key={index}>
+                        {page === "..." ? (
+                          <span className="px-2 text-neutral-400 text-sm">
+                            ...
+                          </span>
+                        ) : (
+                          <PaginationLink
+                            href="#"
+                            isActive={page === currentPage}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handlePageChange(page);
+                            }}
+                            className={cn(
+                              "rounded-none h-8 w-8 sm:h-10 sm:w-10",
+                              page === currentPage &&
+                                "border-primary! border-0 border-b-2 bg-transparent! shadow-none!",
+                            )}
+                          >
+                            {page}
+                          </PaginationLink>
+                        )}
+                      </PaginationItem>
+                    ))}
+                    <PaginationItem>
+                      <PaginationNext
+                        href="#"
+                        className="rounded-none h-8 w-8 sm:h-10 sm:w-auto sm:px-4 p-0"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handlePageChange(currentPage + 1);
+                        }}
+                        aria-disabled={currentPage === totalPages}
+                      />
+                    </PaginationItem>
+                  </PaginationContent>
+                </Pagination>
+              </div>
+            )}
           </div>
 
           {/* ── Sidebar ── */}
-          <aside className="hidden lg:block space-y-10">
+          <aside className="hidden lg:block space-y-10 sticky top-26 self-start">
             {/* Featured */}
             <div>
               <p className="text-[11px] tracking-[0.26em] text-neutral-400 uppercase mb-5 pb-3 border-b border-black/6">

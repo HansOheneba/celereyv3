@@ -21,7 +21,7 @@ export const insights: Insight[] = [
     excerpt:
       "Most people spend decades building their pension without ever asking what happens to it when they die. The answer varies dramatically depending on your age at death, your jurisdiction, and the choices your beneficiaries make. Understanding these rules is one of the highest-value conversations in long-term wealth planning.",
     coverImage:
-      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1707333589739-952e7fab0fc9?q=80&w=639&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Question Most Pension Holders Never Ask
  
@@ -892,7 +892,7 @@ If you are wondering whether your current investment setup is genuinely working 
     excerpt:
       "Earning a six-figure salary has long been considered a symbol of financial success. But the uncomfortable truth is that income and wealth are not the same thing. Plenty of high earners never become millionaires, and plenty of millionaires never earned a six-figure salary. Understanding the difference is one of the most important financial lessons you can learn.",
     coverImage:
-      "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1518860308377-800f02d5498a?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Number That Feels Like Arrival
 
@@ -1185,7 +1185,7 @@ If you are thinking about adding startup exposure to your portfolio, or if you h
     excerpt:
       "A new generation of social media personalities is reshaping how people think about money. Some are genuinely helpful. Many are not. And the difference between the two is not always obvious from a polished video or a confident headline. Here is what you actually need to know before you act on financial advice you found online.",
     coverImage:
-      "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1724862936518-ae7fcfc052c1?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The New Financial Advisers Have Millions of Followers
 
@@ -1339,7 +1339,7 @@ If you have questions that your social media feed is not quite answering to your
     excerpt:
       "Retiring early is one of the most searched financial goals in the world. For some, it is a vague aspiration. For others, it is a concrete plan with a number and a date. But the gap between wanting to retire early and actually doing it is almost always a planning gap, not an income gap. Here is what a wealth manager can do that a calculator cannot.",
     coverImage:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1473679408190-0693dd22fe6a?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Dream Most People Have and the Plan Most People Lack
 
@@ -1515,7 +1515,7 @@ If early retirement is something you are genuinely working toward, or even just 
     excerpt:
       "Retirement planning is more than reaching a pension number. The real determinants of a sustainable retirement are how much you spend across three distinct life phases, how your liquid assets are structured, and how efficiently your income is taxed. Here is what the research says.",
     coverImage:
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1520809227329-2f94844a9635?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Wrong Question Most People Ask
  
@@ -1730,7 +1730,7 @@ Building that kind of structure requires planning conversations that go beyond i
     excerpt:
       "Family investment companies have become one of the most discussed structures in high-net-worth estate planning. They offer real tax advantages but carry significant complexity, ongoing cost, and increasing HMRC scrutiny. Here is a clear-eyed assessment of when a FIC makes sense and when it does not.",
     coverImage:
-      "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1648221350871-e3ae3c8d0f58?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### A Structure Worth Understanding Clearly
  
@@ -2065,7 +2065,7 @@ At Celerey, we work with property-owning families to map their full estate posit
     excerpt:
       "Artificial intelligence is reshaping wealth management from the inside out. From smarter portfolio construction to real-time fraud detection, the technology is already changing what financial advice looks like and who can access it. Here is what is actually happening, and what it means for your money.",
     coverImage:
-      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=2812&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### From Buzzword to Infrastructure
 
@@ -2157,7 +2157,7 @@ If you would like to understand more about how we work, or to have a conversatio
     excerpt:
       "Sustainable investing has moved from niche to mainstream, with trillions of dollars now managed under ESG frameworks globally. But what does it actually mean to invest sustainably? How do you know whether a fund is genuinely green or simply labelled that way? And does it cost you financially? Here is what the evidence shows.",
     coverImage:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1633158829875-e5316a358c6f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### A Shift That Is Now Mainstream
 
@@ -2279,7 +2279,7 @@ If you would like to explore how sustainable investing could fit within your bro
     excerpt:
       "Talking about your finances with a professional can feel intimidating, whether you are meeting someone new or checking in with an adviser you have worked with for years. The right questions make all the difference. Here is a practical guide to the conversations worth having.",
     coverImage:
-      "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1573496782646-e8d943a4bdd1?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Meeting Most People Underprepare For
 
@@ -2524,7 +2524,7 @@ If you and your partner would like to build a clearer shared financial picture, 
     excerpt:
       "With life expectancy rising and inflation reshaping the cost of living, the question of how much is enough for retirement has never been more important, or more personal. The answer varies significantly by country, lifestyle, and how early you start planning. Here is what the latest research shows, and what it means for you.",
     coverImage:
-      "https://images.unsplash.com/photo-1455849318743-b2233052fcff?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1586498024141-1940debde48d?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### A Question Everyone Asks and Few Can Answer Confidently
 
@@ -2778,7 +2778,7 @@ We welcome the due diligence questions in our previous article on what to ask a 
     excerpt:
       "Inflation is one of the most reliable long-term threats to wealth, not because it is dramatic, but because it is quiet and relentless. The purchasing power it erodes does not announce itself. But the investors who understand how inflation works, and which assets consistently outpace it, are far better placed to protect what they have built. Here is what the evidence shows.",
     coverImage:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1663579747280-17fbf128dd58?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Wealth Destroyer Nobody Talks About Enough
 
@@ -2903,7 +2903,7 @@ If you would like to review your portfolio's inflation resilience, or if you hav
     excerpt:
       "Rising house prices and stricter mortgage requirements mean that more families than ever are stepping in to help children get onto the property ladder. But how you structure that help matters enormously. The difference between a well-planned family contribution and an unplanned one can run to tens of thousands in avoidable tax. Here is what you need to know.",
     coverImage:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1723110994499-df46435aa4b3?q=80&w=2958&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Bank of Mum and Dad Is Now a Global Phenomenon
 
@@ -3032,7 +3032,7 @@ If you are thinking about helping a child onto the property ladder and want to m
     excerpt:
       "Divorce is one of the most financially consequential events most people will ever experience. The decisions made during the process, about assets, pensions, tax, and future income, shape the next decades of your financial life. A financial adviser can make the difference between a settlement that truly reflects your interests and one that looks fair on paper but costs you for years.",
     coverImage:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1730121631012-132d5d7b5f44?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### More Than a Legal Process
 
@@ -3143,7 +3143,7 @@ Divorce is not easy. But it is possible to come through it with a financial plan
     excerpt:
       "Most investors believe they make rational decisions. The data says otherwise. Decades of research in behavioural finance have identified the specific psychological patterns that cause even intelligent, well-informed people to consistently underperform the markets they invest in. Understanding these patterns is the first step to overcoming them.",
     coverImage:
-      "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1606189933558-71f9b4747578?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Gap Between What We Earn and What We Keep
 
