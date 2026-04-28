@@ -94,8 +94,8 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#FDFCF8]">
       {/* ── Hero / form section ── */}
-      <section className="px-6 py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl">
+      <section className=" sm:py-32">
+        <div className="mx-auto max-w-360 px-6">
           {/* Page intro */}
           <Reveal className="mb-16 text-center">
             <p className="text-sm tracking-widest uppercase text-[#D4AF37] mb-3">
@@ -140,7 +140,7 @@ export default function ContactPage() {
                     href="https://wa.me/12272296921"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm px-5 py-2.5 rounded-full hover:bg-white/25 transition-all"
+                    className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/25 text-white text-sm px-5 py-2.5 rounded-lg hover:bg-white/25 transition-all"
                   >
                     <WhatsAppIcon />
                     Chat with us on WhatsApp
@@ -155,7 +155,8 @@ export default function ContactPage() {
                 Send us a message
               </h2>
               <p className="text-gray-500 text-sm mb-8 leading-relaxed">
-                Fill in the form and we&apos;ll respond as soon as possible typically within one business day.
+                Fill in the form and we&apos;ll respond as soon as possible
+                typically within one business day.
               </p>
 
               {/* Status banner */}
