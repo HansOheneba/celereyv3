@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const tools = [
@@ -84,75 +86,78 @@ export default function ToolsPage() {
   return (
     <main className="bg-[#FAFAF8] text-[#1A1A1A] overflow-x-hidden">
       {/* ── HERO ── */}
-      <section className="relative min-h-[90vh] flex flex-col justify-end pb-20 overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1999&q=80&auto=format&fit=crop"
-            alt="Financial analytics and data on screen"
-            className="w-full h-full object-cover"
+      <section className="pt-14 max-w-360 px-6 mx-auto sm:pt-20">
+        <div className="text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="text-[11px] tracking-[0.22em] text-[#5C7A6A]"
+          >
+            CELEREY TOOLS
+          </motion.p>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, ease: "easeOut", delay: 0.05 }}
+            className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-neutral-900 sm:text-4xl sm:leading-tight font-thin"
+          >
+            Instruments built for your financial clarity.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+            className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-neutral-600"
+          >
+            Not generic calculators. Tools designed around the moments that
+            matter most in your financial life, built to help you understand,
+            plan, and act with confidence.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0.9 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.12 }}
+            className="mx-auto mt-7 h-px w-24 bg-neutral-900/10 origin-center"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-primary via-[#0D1F1A]/60 to-transparent" />
-        </div>
 
-        <div className="relative z-10 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto w-full">
-          <div className="mb-6">
-            <span className="inline-block border border-[#C9E8D5]/40 text-[#C9E8D5] text-xs tracking-[0.2em] uppercase px-4 py-2 rounded-full">
-              Celerey Tools
-            </span>
-          </div>
-
-          <h1 className="text-white text-5xl md:text-7xl lg:text-8xl font-normal leading-[1.05] max-w-4xl mb-8">
-            Instruments built
-            <br />
-            for your <span className="italic text-[#C9E8D5]">financial</span>
-            <br />
-            clarity.
-          </h1>
-
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <p className="text-white/70 text-lg md:text-xl max-w-lg leading-relaxed">
-              Not generic calculators. Tools designed around the moments that
-              matter most in your financial life, built to help you understand,
-              plan, and act with confidence.
-            </p>
-            <Button
-              asChild
-              className="group bg-white text-primary hover:bg-white/90 h-auto rounded-none px-8 py-4 text-sm tracking-widest uppercase font-medium gap-3 whitespace-nowrap self-start md:self-auto"
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.16 }}
+            className="mx-auto mt-10 overflow-hidden rounded-[28px] border border-black/10 bg-white shadow-[0_18px_55px_rgba(0,0,0,0.08)]"
+          >
+            <motion.div
+              initial={{ scale: 1.02 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.0, ease: "easeOut", delay: 0.2 }}
+              className="relative"
             >
-              <a href="#tools">
-                Explore the Tools
-                <svg
-                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3 8h10M9 4l4 4-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </a>
-            </Button>
-          </div>
-        </div>
+              <div className="relative aspect-video w-full sm:aspect-21/9">
+                <Image
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1999&q=80&auto=format&fit=crop"
+                  alt="Financial analytics and data on screen"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 right-8 md:right-16 z-10 flex flex-col items-center gap-2 opacity-50">
-          <span className="text-white text-[10px] tracking-[0.3em] uppercase rotate-90 origin-center mb-4">
-            Scroll
-          </span>
-          <div className="w-px h-12 bg-white/40 relative overflow-hidden">
-            <div
-              className="absolute top-0 w-full bg-white"
-              style={{
-                height: "30%",
-                animation: "scrollLine 2s ease-in-out infinite",
-              }}
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, ease: "easeOut", delay: 0.28 }}
+            className="mt-8"
+          >
+            {/* <Button asChild>
+              <a href="#tools">Explore the Tools</a>
+            </Button> */}
+          </motion.div>
         </div>
       </section>
 
@@ -219,26 +224,8 @@ export default function ToolsPage() {
                   <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-md mb-10">
                     {t.body}
                   </p>
-                  <Button
-                    asChild
-                    className="group bg-primary text-white hover:bg-primary/90 h-auto rounded-none px-8 py-4 text-sm tracking-widest uppercase font-medium gap-3"
-                  >
-                    <Link href={t.href}>
-                      Open Tool
-                      <svg
-                        className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <path
-                          d="M3 8h10M9 4l4 4-4 4"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </Link>
+                  <Button asChild>
+                    <Link href={t.href}>Open Tool</Link>
                   </Button>
                 </div>
                 <div className="relative aspect-4/3 overflow-hidden">
@@ -254,8 +241,6 @@ export default function ToolsPage() {
           ))}
         </div>
       </section>
-
-
 
       {/* ── FULL-BLEED CTA ── */}
       <section className="relative overflow-hidden bg-primary">
@@ -291,29 +276,14 @@ export default function ToolsPage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 asChild
-                className="group bg-white text-primary hover:bg-white/90 h-auto px-10 py-4 text-sm tracking-widest uppercase font-medium gap-3"
+                className="bg-white text-primary hover:bg-white/90"
               >
-                <Link href="/free-consultation">
-                  Book a Free Consultation
-                  <svg
-                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                  >
-                    <path
-                      d="M3 8h10M9 4l4 4-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Link>
+                <Link href="/free-consultation">Book a Free Consultation</Link>
               </Button>
               <Button
                 variant="outline"
                 asChild
-                className="border-white/30 text-white hover:bg-white/10 hover:text-white h-auto px-10 py-4 text-sm tracking-widest uppercase"
+                className="text-white border-white hover:bg-white/10 hover:text-white"
               >
                 <Link href="/pricing">View Plans</Link>
               </Button>
@@ -321,17 +291,6 @@ export default function ToolsPage() {
           </FadeIn>
         </div>
       </section>
-
-      <style jsx global>{`
-        @keyframes scrollLine {
-          0% {
-            transform: translateY(-100%);
-          }
-          100% {
-            transform: translateY(400%);
-          }
-        }
-      `}</style>
     </main>
   );
 }
