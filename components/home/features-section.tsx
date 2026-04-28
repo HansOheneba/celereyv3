@@ -37,8 +37,8 @@ const leftFeatures = [
 
 export function FeaturesSection() {
   return (
-    <section className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className=" bg-white">
+      <div className="mx-auto w-full max-w-360 px-4 py-24 sm:px-6">
         {/* Header */}
         <Reveal className="mb-16 text-center">
           <h2 className="font-cirka text-3xl md:text-5xl font-light tracking-tight mb-4 text-gray-900 sm:text-4xl">

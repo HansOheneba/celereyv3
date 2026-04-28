@@ -6,8 +6,8 @@ import { Reveal } from "@/components/motion/reveal";
 
 export function ProblemSection() {
   return (
-    <section className="py-20 md:py-32 px-6 md:px-24 bg-[#FFF4F4]">
-      <div className="mx-auto flex flex-col gap-12 md:flex-row md:px-24">
+    <section className="bg-[#FFF4F4]">
+      <div className="mx-auto w-full max-w-360 px-4 py-24 sm:px-6">
         {/* Heading */}
         <Reveal className="text-center md:text-left">
           <h2 className="font-cirka text-3xl md:text-5xl font-light leading-tight mb-6 sm:text-4xl">
