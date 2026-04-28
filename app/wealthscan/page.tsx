@@ -387,187 +387,182 @@ export default function WealthScanPage() {
       };
 
       sessionStorage.setItem("wealthHealthResults", JSON.stringify(data));
-      router.push("/wealth-health");
+      router.push("/wealthscan/results");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <main className="min-h-screen bg-muted flex flex-col items-center justify-center px-6 py-24">
-      <div className="w-full max-w-5xl">
-        <h1 className="text-2xl sm:text-4xl font-semibold text-center mb-2">
-          Your Wealth Health Scan
-        </h1>
-        <p className="mx-auto my-5 max-w-2xl text-center text-sm">
-          Answer a few questions and get a personalised picture of your
-          financial health. No sign up required to start.
-        </p>
-
-        {/* Email capture overlay */}
-        <AnimatePresence>
-          {showEmailForm && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            >
-              <div className="absolute inset-0 bg-black/55 backdrop-blur-sm" />
-              <motion.div
-                initial={{ scale: 0.96, opacity: 0, y: 10 }}
-                animate={{ scale: 1, opacity: 1, y: 0 }}
-                exit={{ scale: 0.98, opacity: 0, y: 10 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
-                className="relative w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_30px_90px_rgba(0,0,0,0.30)]"
-              >
-                <div
-                  style={{ backgroundColor: FOOTER_BLUE }}
-                  className="px-8 py-5"
-                >
-                  <h3 className="text-lg font-semibold text-white">
-                    Save your results
-                  </h3>
-                  <p className="mt-1 text-sm text-white/75">
-                    Enter your email and we will send you your results.
-                  </p>
-                </div>
-                <div className="p-8">
-                  <form onSubmit={handleEmailSubmit} className="space-y-4">
-                    <Input
-                      type="email"
-                      placeholder="Enter your email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="h-12 rounded-md"
-                      required
-                    />
-                    <div className="flex gap-3">
-                      <Button
-                        type="button"
-                        variant="outline"
-                        onClick={() => setShowEmailForm(false)}
-                        className="flex-1"
-                        disabled={isSubmitting}
-                      >
-                        Not now
-                      </Button>
-                      <Button
-                        type="submit"
-                        className="flex-1"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? "Saving..." : "See my results"}
-                      </Button>
-                    </div>
-                    <p className="text-xs text-gray-500 text-center">
-                      No spam. We use your email to send your results and the
-                      occasional helpful note.
-                    </p>
-                  </form>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Landing card */}
-        {!started ? (
+    <main className="min-h-screen bg-white">
+      {/* ===================== */}
+      {/* EMAIL MODAL */}
+      {/* ===================== */}
+      <AnimatePresence>
+        {showEmailForm && (
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: "easeOut" }}
-            className="mx-auto mt-12 w-full max-w-4xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
           >
-            <div className="rounded-md bg-white shadow-md min-h-[50vh] grid md:grid-cols-2 overflow-hidden">
-              <div className="hidden md:block relative">
-                <Image
-                  src="/homepage/wealthscan.png"
-                  alt="Finance planning"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-linear-to-l from-black/20 to-transparent" />
-              </div>
-              <div className="px-8 py-10 sm:px-12 sm:py-12 flex flex-col justify-center max-w-md">
-                <p className="mt-4 text-sm text-slate-700 text-left">
-                  Get a clear picture of your financial health, including how
-                  stable your income is, how well you are saving, and where you
-                  can improve, no sign up required.
+            <div className="absolute inset-0 bg-black/55 backdrop-blur-sm" />
+
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.98, opacity: 0, y: 10 }}
+              className="relative w-full max-w-md rounded-2xl overflow-hidden bg-white shadow-2xl"
+            >
+              <div
+                style={{ backgroundColor: FOOTER_BLUE }}
+                className="px-6 py-5"
+              >
+                <h3 className="text-white text-lg font-semibold">
+                  Save your results
+                </h3>
+                <p className="text-white/70 text-sm mt-1">
+                  Enter your email to view your full report.
                 </p>
-                <div className="mt-5 space-y-1 text-sm text-slate-600">
-                  <p>&#x2022; Identify your strengths</p>
-                  <p>&#x2022; Spot areas to improve</p>
-                  <p>&#x2022; Get simple next steps</p>
-                </div>
-                <div className="mt-8 flex justify-center md:justify-start">
+              </div>
+
+              <form onSubmit={handleEmailSubmit} className="p-6 space-y-4">
+                <Input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email address"
+                  type="email"
+                  className="h-12"
+                />
+
+                <div className="flex gap-3">
                   <Button
-                    onClick={handleStart}
-                    disabled={isStarting}
-                    className="h-12 px-8"
+                    type="button"
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => setShowEmailForm(false)}
                   >
-                    {isStarting ? "Loading..." : "Start Assessment"}
+                    Back
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="flex-1"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? "Saving..." : "View results"}
                   </Button>
                 </div>
-              </div>
-            </div>
+              </form>
+            </motion.div>
           </motion.div>
-        ) : (
-          /* Quiz */
-          <div className="w-full mx-auto max-w-2xl bg-white border border-gray-100 rounded-md shadow-sm p-8">
-            <Progress
-              value={progress}
-              className="w-full mb-8 h-2 bg-gray-200 [&>div]:bg-blue-900"
-            />
+        )}
+      </AnimatePresence>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={step}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.25 }}
-                className="text-center px-2"
-              >
-                <div className="min-h-18 flex items-center justify-center px-2">
-                  <h3 className="md:text-lg text-base font-semibold text-blue-950 text-center">
-                    {current.question}
-                  </h3>
-                </div>
+      {/* ===================== */}
+      {/* LANDING STATE */}
+      {/* ===================== */}
+      {!started ? (
+        <section className="min-h-screen flex items-center">
+          <div className="mx-auto max-w-7xl w-full px-6 grid md:grid-cols-2 gap-12 items-center">
+            {/* IMAGE */}
+            <div className="relative h-[70vh] rounded-3xl overflow-hidden">
+              <Image
+                src="/homepage/wealthscan.png"
+                alt="Finance planning"
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/10" />
+            </div>
 
-                <div className="flex flex-col gap-3 mb-6 w-full">
-                  {current.options.map((opt) => (
-                    <button
-                      key={opt}
-                      onClick={() => handleSelect(opt)}
-                      className={`w-full p-4 border rounded-xl text-sm transition-all duration-150 ${
-                        answers[step] === opt
-                          ? "border-blue-900 bg-primary text-white shadow-sm"
-                          : "border-gray-300 hover:border-blue-800 hover:bg-blue-50"
-                      }`}
-                    >
-                      {opt}
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            </AnimatePresence>
+            {/* CONTENT */}
+            <div>
+              <h1 className="text-4xl md:text-6xl font-light leading-tight mb-6">
+                Understand your financial health in minutes
+              </h1>
 
-            <div className="flex justify-between mt-5 pb-2">
+              <p className="text-muted-foreground mb-8 text-base leading-relaxed">
+                A simple self-assessment that helps you understand where you are
+                today, what is working, and what to improve next.
+              </p>
+
+              <div className="space-y-3 text-sm mb-10">
+                <p>• See your financial strengths</p>
+                <p>• Identify gaps holding you back</p>
+                <p>• Get clear next steps</p>
+              </div>
+
               <Button
+                onClick={handleStart}
+                disabled={isStarting}
+                className="h-12 px-10"
+              >
+                {isStarting ? "Starting..." : "Start assessment"}
+              </Button>
+            </div>
+          </div>
+        </section>
+      ) : (
+        /* ===================== */
+        /* QUIZ STATE */
+        /* ===================== */
+        <section className="min-h-screen flex items-center py-16">
+          <div className="mx-auto w-full max-w-5xl px-6">
+            {/* PROGRESS */}
+            <div className="mb-10">
+              <Progress value={progress} className="h-2" />
+              <p className="text-xs text-muted-foreground mt-2">
+                Question {step + 1} of {questions.length}
+              </p>
+            </div>
+
+            {/* QUESTION */}
+            <motion.div
+              key={step}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-10"
+            >
+              <h2 className="text-2xl md:text-3xl font-semibold text-center max-w-3xl mx-auto">
+                {current.question}
+              </h2>
+            </motion.div>
+
+            {/* OPTIONS */}
+            <div className="grid gap-4 max-w-3xl mx-auto">
+              {current.options.map((opt) => (
+                <button
+                  key={opt}
+                  onClick={() => handleSelect(opt)}
+                  className={`p-5 rounded-xl border text-left transition ${
+                    answers[step] === opt
+                      ? "bg-primary text-white border-blue-900"
+                      : "bg-white hover:border-blue-800"
+                  }`}
+                >
+                  {opt}
+                </button>
+              ))}
+            </div>
+
+            {/* NAV */}
+            <div className="flex justify-between mt-10 max-w-3xl mx-auto">
+              <Button
+                variant="outline"
                 onClick={handlePrev}
                 disabled={step === 0}
-                variant="outline"
               >
-                Previous
+                Back
               </Button>
+
               <Button onClick={handleNext} disabled={!answers[step]}>
                 {step === questions.length - 1 ? "Finish" : "Next"}
               </Button>
             </div>
           </div>
-        )}
-      </div>
+        </section>
+      )}
     </main>
   );
 }
