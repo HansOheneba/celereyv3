@@ -93,8 +93,8 @@ export function AdvisorsSection() {
   }, []);
 
   return (
-    <section className="py-24 px-6 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section className=" bg-gray-50">
+      <div className="max-w-360 py-24 px-6 mx-auto">
         <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-start">
           {/* LEFT: sticky heading block */}
           <Reveal className="pt-2 lg:sticky lg:top-28 lg:pt-10">

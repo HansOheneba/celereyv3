@@ -163,10 +163,10 @@ export function CTASection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="h-10 bg-white/10 border-white/10 text-background placeholder:text-background/50 focus-visible:ring-white/30"
+                  className="h-10 bg-white text-zinc-900 placeholder:text-zinc-400 border border-white/20 shadow-sm focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-0"
                 />
 
-                <Button type="submit" className="">
+                <Button type="submit" className="bg-[#C8E1F5] hover:bg-[#C8E1F5]/90 text-gray-900 w-full sm:w-auto">
                   Join
                 </Button>
               </form>

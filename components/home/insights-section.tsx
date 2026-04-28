@@ -171,7 +171,7 @@ export function InsightsSection() {
 
   return (
     <section className="bg-white">
-      <div className="mx-auto px-6 py-20 md:px-24 md:py-24">
+      <div className="mx-auto max-w-360 px-6 py-20 md:py-24">
         {/* Header */}
         <Reveal className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16">
           <h2 className="mb-4 text-3xl font-light leading-tight text-gray-900 sm:text-4xl md:text-5xl">

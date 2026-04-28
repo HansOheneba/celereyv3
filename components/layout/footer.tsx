@@ -91,7 +91,7 @@ export default function Footer() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_55%_90%,rgba(168,85,247,0.14),transparent_55%)]" />
 
           {/* INNER: reduce empty space by making content occupy the width */}
-          <div className="relative mx-auto w-full max-w-8xl px-6 py-14 sm:px-10 sm:py-16 lg:px-14">
+          <div className="relative mx-auto w-full max-w-360 px-6 py-14 sm:py-16">
             {/* Top row: CTA + quick actions (more like the reference layout) */}
 
             {/* Middle: Brand + Links + FAQ (fills space better) */}

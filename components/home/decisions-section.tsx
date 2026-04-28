@@ -25,8 +25,8 @@ export function DecisionsSection() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-[#FFF7F5]">
-      <div className="max-w-7xl mx-auto">
+    <section className=" bg-[#FFF7F5]">
+      <div className="max-w-360 py-20 px-6 mx-auto">
         <Reveal className="mb-16 text-center">
           <p className="text-sm text-muted-foreground mb-2 font-semibold tracking-wide">
             Moments

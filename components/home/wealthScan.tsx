@@ -23,7 +23,7 @@ export default function WealthScan() {
         </InteractiveImage>
 
         {/* CONTENT (RIGHT) */}
-        <Reveal className="max-w-lg">
+        <Reveal className="">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-6">
             Not sure where to start with your finances?
           </h2>
