@@ -50,9 +50,9 @@ export default function ArticleLayout({
     .slice(0, 3);
 
   return (
-    <main className="bg-[#f8f7f5] min-h-screen">
+    <main className=" min-h-screen max-w-360 mx-auto px-6">
       {/* NAV */}
-      <div className="px-6 lg:px-24 pt-10 md:pt-28 pb-6">
+      <div className="pt-10 md:pt-28 pb-6">
         <Link
           href={backHref}
           className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-800 transition-colors"
@@ -63,10 +63,10 @@ export default function ArticleLayout({
       </div>
 
       {/* LAYOUT */}
-      <div className="px-6 lg:px-24">
+      <div className="">
         <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] gap-16 items-start">
           {/* MAIN CONTENT */}
-          <div className="w-full mx-auto max-w-3xl">
+          <div className="w-full mx-auto max-w-4xl">
             {/* HEADER */}
             <div>
               <div className="flex flex-wrap gap-2 mb-6">
