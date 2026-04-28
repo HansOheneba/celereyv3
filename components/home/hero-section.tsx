@@ -22,7 +22,7 @@ export function HeroSection() {
             </Button>
           </div>
         </Reveal>
-        <InteractiveImage className="relative overflow-hidden rounded-2xl bg-gray-900 aspect-square">
+        <InteractiveImage className="relative overflow-hidden rounded-2xl aspect-square">
           <Image
             src="/homepage/hero.png"
             alt="Financial planning illustration"
