@@ -35,7 +35,7 @@ function isActivePath(pathname: string, href: string): boolean {
 }
 
 const flatLinks: NavLink[] = [
-  { name: "Start here", href: "/#wealth-scan" },
+  { name: "Start here", href: "/wealthscan" },
   { name: "Advisors", href: "/advisors" },
   { name: "Subscribe", href: "/pricing" },
 ];

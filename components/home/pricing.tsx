@@ -351,6 +351,47 @@ export default function EntryPointPricing({
             Foundation is a one-time payment. Core includes a 7-day free trial,
             then billed annually.
           </p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.65, ease: "easeOut" }}
+            className="mx-auto mt-10 max-w-6xl"
+          >
+            <motion.div
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="rounded-3xl border border-black/10 bg-white px-8 py-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)] text-left"
+            >
+              <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
+                BESPOKE ENGAGEMENTS
+              </p>
+
+              <h3 className="mt-4 font-serif text-2xl text-neutral-900">
+                Prefer something more tailored?
+              </h3>
+
+              <p className="mt-4 text-sm leading-7 text-neutral-600">
+                While our membership provides structured, ongoing guidance, some
+                clients prefer focused, custom engagements built around a
+                specific need. These private services are delivered with the
+                same global standards, but without long-term commitment.
+              </p>
+
+              <div className="mt-6 flex flex-wrap items-center gap-4">
+                <a
+                  href="/services"
+                  className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition"
+                >
+                  Explore concierge services
+                </a>
+
+                <p className="text-xs text-neutral-500">
+                  Discrete. Fixed-fee. Clearly scoped.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
