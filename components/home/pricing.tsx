@@ -321,7 +321,7 @@ export default function EntryPointPricing({
                           setModalOpen(true);
                         }}
                         className={cn(
-                          "h-12 w-full rounded-full text-sm font-semibold transition",
+                          " w-full",
                           isCore
                             ? "bg-white text-neutral-900 hover:bg-white/90"
                             : "bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/[0.04]",
@@ -381,9 +381,12 @@ export default function EntryPointPricing({
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <a
                   href="/services"
-                  className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition"
+                  className=""
                 >
-                  Explore concierge services
+                  <Button>
+                    Explore bespoke services
+                  </Button>
+            
                 </a>
 
                 <p className="text-xs text-neutral-500">
