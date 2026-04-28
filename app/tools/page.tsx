@@ -162,7 +162,7 @@ export default function ToolsPage() {
       </section>
 
       {/* ── EDITORIAL STATEMENT ── */}
-      <section className="py-28 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
+      <section className="py-10 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
         <FadeIn>
           <div className="grid md:grid-cols-12 gap-12 items-start">
             <div className="md:col-span-5">
@@ -194,7 +194,7 @@ export default function ToolsPage() {
       {/* ── TOOLS (alternating layout) ── */}
       <section
         id="tools"
-        className="py-32 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto"
+        className="py-10 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto"
       >
         <FadeIn>
           <div className="flex items-center gap-4 mb-20">
@@ -212,9 +212,7 @@ export default function ToolsPage() {
                 className={`grid md:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
               >
                 <div>
-                  <span className="text-[120px] font-normal text-[#E8EDE6] leading-none select-none block -mb-8">
-                    {t.number}
-                  </span>
+                
                   <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-3">
                     {t.tagline}
                   </p>
@@ -228,7 +226,7 @@ export default function ToolsPage() {
                     <Link href={t.href}>Open Tool</Link>
                   </Button>
                 </div>
-                <div className="relative aspect-4/3 overflow-hidden">
+                <div className="relative aspect-4/3 rounded-3xl overflow-hidden">
                   <img
                     src={t.image}
                     alt={t.alt}
@@ -243,50 +241,48 @@ export default function ToolsPage() {
       </section>
 
       {/* ── FULL-BLEED CTA ── */}
-      <section className="relative overflow-hidden bg-primary">
-        <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&q=80&auto=format&fit=crop"
-            alt="City skyline at night"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute -right-32 -top-32 w-125 h-125 rounded-full border border-[#C9E8D5]/10" />
-        <div className="absolute -right-16 -top-16 w-90 h-90 rounded-full border border-[#C9E8D5]/10" />
-
-        <div className="relative z-10 px-6 md:px-16 lg:px-24 py-40 max-w-7xl mx-auto">
+      <section className="bg-primary">
+        <div className="max-w-360 mx-auto px-6  py-12">
           <FadeIn>
-            <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-8">
-              Go Deeper
-            </p>
-            <h2 className="text-white text-5xl md:text-7xl font-normal leading-[1.05] max-w-3xl mb-12">
-              Tools are
-              <br />
-              a starting point.
-              <br />
-              <span className="italic text-[#C9E8D5]">
-                Advisors finish the job.
-              </span>
-            </h2>
-            <p className="text-white/60 text-lg max-w-lg leading-relaxed mb-12">
-              Use these tools to build clarity about where you stand. Then bring
-              that clarity into a conversation with one of our accredited
-              financial advisors to turn it into a real, personalised plan.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button
-                asChild
-                className="bg-white text-primary hover:bg-white/90"
-              >
-                <Link href="/free-consultation">Book a Free Consultation</Link>
-              </Button>
-              <Button
-                variant="outline"
-                asChild
-                className="text-white border-white hover:bg-white/10 hover:text-white"
-              >
-                <Link href="/pricing">View Plans</Link>
-              </Button>
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+              {/* LEFT CONTENT */}
+              <div className="max-w-2xl">
+                <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-4">
+                  Go Deeper
+                </p>
+
+                <h2 className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight mb-4">
+                  Tools are a starting point.{" "}
+                  <span className="italic text-[#C9E8D5]">
+                    Advisors finish the job.
+                  </span>
+                </h2>
+
+                <p className="text-white/60 text-base leading-relaxed">
+                  Use these tools to build clarity, then turn it into a real,
+                  personalised plan with an accredited advisor.
+                </p>
+              </div>
+
+              {/* RIGHT ACTIONS */}
+              <div className="flex flex-col sm:flex-row gap-4 lg:justify-end">
+                <Button
+                  asChild
+                  className="bg-white text-primary hover:bg-white/90"
+                >
+                  <Link href="/free-consultation">
+                    Book a Free Consultation
+                  </Link>
+                </Button>
+
+                <Button
+                  variant="outline"
+                  asChild
+                  className="text-white border-white hover:bg-white/10 hover:text-white"
+                >
+                  <Link href="/pricing">View Plans</Link>
+                </Button>
+              </div>
             </div>
           </FadeIn>
         </div>

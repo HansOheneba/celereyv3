@@ -241,8 +241,8 @@ export default function AdvisorDetailsPage() {
           >
             <p className="text-sm font-semibold text-[#b07d3d]">Overview</p>
 
-            <div className="mt-6 max-w-4xl">
-              <p className="text-[15px] leading-8 text-neutral-700">
+            <div className="mt-6 ">
+              <p className="text-[17px] leading-7 text-neutral-700">
                 {advisor.bio}
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function AdvisorDetailsPage() {
             <p className="text-sm font-semibold text-[#b07d3d]">Experience</p>
 
             <div className="mt-6 max-w-4xl">
-              <p className="text-[15px] leading-8 text-neutral-700">
+              <p className="text-[17px] leading-8 text-neutral-700">
                 {advisor.experience}
               </p>
             </div>

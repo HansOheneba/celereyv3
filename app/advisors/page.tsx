@@ -145,7 +145,7 @@ export default function AdvisorsPage() {
       </div>
 
       {/* Advisors grid */}
-      <div className="mt-16 grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-x-12 md:gap-y-16 md:px-10">
+      <div className="mt-16 grid gap-x-8 gap-y-12 md:grid-cols-2 md:gap-x-12 md:gap-y-16 md:px-10 max-w-360 mx-auto">
         {orderedAdvisors.map((advisor, i) => {
           const tags = (advisor.expertise ?? []).slice(0, 3);
 
@@ -158,11 +158,16 @@ export default function AdvisorsPage() {
               className="group"
             >
               {/* Image */}
-              <InteractiveImage className="relative overflow-hidden rounded-[22px]">
-                <div className="relative h-60 w-full sm:h-100">
-                  <AdvisorCardImage src={advisor.image} alt={advisor.name} />
-                </div>
-              </InteractiveImage>
+              <div className="relative w-full aspect-4/3 overflow-hidden rounded-[22px]">
+                <Image
+                  src={advisor.image || "/placeholder-avatar.png"}
+                  alt={advisor.name}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                  priority={i < 2} // optional: preload first few images
+                />
+              </div>
 
               {/* Text */}
               <div className="mt-6">
@@ -199,7 +204,7 @@ export default function AdvisorsPage() {
       </div>
 
       <p className="mx-auto mt-20 max-w-3xl text-center text-xs text-neutral-500">
-        For private and institutional enquiries, please contact us.
+        For private and institutional enquiries, please <Link href="/contact" className="underline hover:text-neutral-900">get in touch</Link>.
       </p>
     </PageShell>
   );

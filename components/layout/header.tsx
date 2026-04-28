@@ -259,6 +259,16 @@ export default function Header() {
     }, 140);
   };
 
+  const closeDropdownNow = React.useCallback(() => {
+    if (closeTimerRef.current) window.clearTimeout(closeTimerRef.current);
+    setDropdownOpen(null);
+  }, []);
+
+  React.useEffect(() => {
+    document.addEventListener("mouseleave", closeDropdownNow);
+    return () => document.removeEventListener("mouseleave", closeDropdownNow);
+  }, [closeDropdownNow]);
+
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
@@ -277,232 +287,230 @@ export default function Header() {
         isScrolled ? "shadow-sm" : "border-b border-zinc-100",
       )}
     >
-       <div className="mx-auto w-full max-w-360 px-4 sm:px-6">
-    <nav className="py-4 flex items-center justify-between relative">
-        {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0">
-          <Image
-            src="/logos/logoDark.png"
-            alt="Celerey Logo"
-            width={90}
-            height={20}
-            priority
-            className="h-auto w-auto"
-            style={{ width: "80px", height: "auto" }}
-          />
-        </Link>
+      <div className="mx-auto w-full max-w-360 px-4 sm:px-6">
+        <nav className="py-4 flex items-center justify-between relative">
+          {/* Logo */}
+          <Link href="/" className="flex items-center shrink-0">
+            <Image
+              src="/logos/logoDark.png"
+              alt="Celerey Logo"
+              width={90}
+              height={20}
+              priority
+              className="h-auto w-auto"
+              style={{ width: "80px", height: "auto" }}
+            />
+          </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
-          {/* Flat links */}
-          {flatLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm transition-colors",
-                isActivePath(pathname, link.href)
-                  ? "text-zinc-900 font-medium"
-                  : "text-zinc-500 hover:text-zinc-800",
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {/* Flat links */}
+            {flatLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-sm transition-colors",
+                  isActivePath(pathname, link.href)
+                    ? "text-zinc-900 font-medium"
+                    : "text-zinc-500 hover:text-zinc-800",
+                )}
+              >
+                {link.name}
+              </Link>
+            ))}
 
-          {/* Dropdown menus */}
-          {dropdownMenus.map((menu) => {
-            const isOpen = dropdownOpen === menu.key;
+            {/* Dropdown menus */}
+            {dropdownMenus.map((menu) => {
+              const isOpen = dropdownOpen === menu.key;
 
-            return (
-              <div key={menu.key} className="relative group">
-                <button
-                  onMouseEnter={() => openDropdown(menu.key)}
-                  className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-800 transition-colors cursor-pointer bg-transparent border-0 py-2"
-                >
-                  {menu.label}
-                  <ChevronDown
-                    className={cn(
-                      "h-3 w-3 transition-transform duration-200",
-                      isOpen && "rotate-180",
-                    )}
-                  />
-                </button>
-
-                <div
-                  onMouseEnter={() => openDropdown(menu.key)}
-                  onMouseLeave={closeDropdownSoon}
-                  className={cn(
-                    "absolute top-full left-0 mt-1 w-64 bg-white border border-zinc-200 rounded-xl shadow-lg py-2 z-50 transition-all duration-200",
-                    isOpen
-                      ? "opacity-100 visible translate-y-0"
-                      : "opacity-0 invisible -translate-y-2",
-                  )}
-                >
-                  {menu.items.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
+              return (
+                <div key={menu.key} className="relative group">
+                  <button
+                    onMouseEnter={() => openDropdown(menu.key)}
+                    onMouseLeave={closeDropdownSoon}
+                    className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-800 transition-colors cursor-pointer bg-transparent border-0 py-2"
+                  >
+                    {menu.label}
+                    <ChevronDown
                       className={cn(
-                        "block px-4 py-2 text-sm transition-colors",
-                        isActivePath(pathname, item.href)
-                          ? "text-zinc-900 bg-zinc-50 font-medium"
-                          : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900",
+                        "h-3 w-3 transition-transform duration-200",
+                        isOpen && "rotate-180",
                       )}
-                    >
-                      {item.name}
-                      {item.description && (
-                        <span className="block text-xs text-zinc-400 mt-0.5">
-                          {item.description}
-                        </span>
-                      )}
-                    </Link>
-                  ))}
+                    />
+                  </button>
+
+                  <div
+                    onMouseEnter={() => openDropdown(menu.key)}
+                    onMouseLeave={closeDropdownSoon}
+                    className={cn(
+                      "absolute top-full left-0 mt-1 w-64 bg-white border border-zinc-200 rounded-xl shadow-lg py-2 z-50 transition-all duration-200",
+                      isOpen
+                        ? "opacity-100 visible translate-y-0"
+                        : "opacity-0 invisible -translate-y-2",
+                    )}
+                  >
+                    {menu.items.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={cn(
+                          "block px-4 py-2 text-sm transition-colors",
+                          isActivePath(pathname, item.href)
+                            ? "text-zinc-900 bg-zinc-50 font-medium"
+                            : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900",
+                        )}
+                      >
+                        {item.name}
+                        {item.description && (
+                          <span className="block text-xs text-zinc-400 mt-0.5">
+                            {item.description}
+                          </span>
+                        )}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
 
-        {/* Desktop CTA Buttons */}
-        <div className="hidden md:flex items-center gap-3">
+          {/* Desktop CTA Buttons */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={() =>
+                window.open(
+                  "https://celerey.app/",
+                  "_blank",
+                  "noopener,noreferrer",
+                )
+              }
+              className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors px-3 py-2 rounded-lg hover:bg-zinc-50"
+            >
+              Login
+            </button>
+            <Button onClick={() => router.push("/free-consultation")}>
+              Book your free session
+            </Button>
+          </div>
+
+          {/* Mobile Hamburger Button */}
           <button
-            onClick={() =>
-              window.open(
-                "https://celerey.app/",
-                "_blank",
-                "noopener,noreferrer",
-              )
-            }
-            className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors px-3 py-2 rounded-lg hover:bg-zinc-50"
+            onClick={toggleMobileMenu}
+            className="md:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-0 p-1 z-50 relative"
+            aria-label="Toggle menu"
           >
-            Login
+            <span
+              className={cn(
+                "block w-6 h-0.5 bg-zinc-800 transition-all duration-300 ease-in-out",
+                mobileMenuOpen && "translate-y-2 rotate-45",
+              )}
+            />
+            <span
+              className={cn(
+                "block w-6 h-0.5 bg-zinc-800 transition-all duration-300 ease-in-out",
+                mobileMenuOpen && "opacity-0",
+              )}
+            />
+            <span
+              className={cn(
+                "block w-6 h-0.5 bg-zinc-800 transition-all duration-300 ease-in-out",
+                mobileMenuOpen && "-translate-y-2 -rotate-45",
+              )}
+            />
           </button>
-          <Button
-            onClick={() => router.push("/free-consultation")}
-         
+
+          {/* Mobile Menu Overlay */}
+          <div
+            className={cn(
+              "fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 md:hidden",
+              mobileMenuOpen
+                ? "opacity-100 z-40"
+                : "opacity-0 pointer-events-none z-[-1]",
+            )}
+            onClick={closeMobileMenu}
+          />
+
+          {/* Mobile Menu */}
+          <div
+            className={cn(
+              "fixed top-0 left-0 h-full w-full max-w-sm bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto",
+              mobileMenuOpen ? "translate-x-0" : "-translate-x-full",
+            )}
           >
-            Book your free session
-          </Button>
-        </div>
-
-        {/* Mobile Hamburger Button */}
-        <button
-          onClick={toggleMobileMenu}
-          className="md:hidden flex flex-col gap-1.5 cursor-pointer bg-transparent border-0 p-1 z-50 relative"
-          aria-label="Toggle menu"
-        >
-          <span
-            className={cn(
-              "block w-6 h-0.5 bg-zinc-800 transition-all duration-300 ease-in-out",
-              mobileMenuOpen && "translate-y-2 rotate-45",
-            )}
-          />
-          <span
-            className={cn(
-              "block w-6 h-0.5 bg-zinc-800 transition-all duration-300 ease-in-out",
-              mobileMenuOpen && "opacity-0",
-            )}
-          />
-          <span
-            className={cn(
-              "block w-6 h-0.5 bg-zinc-800 transition-all duration-300 ease-in-out",
-              mobileMenuOpen && "-translate-y-2 -rotate-45",
-            )}
-          />
-        </button>
-
-        {/* Mobile Menu Overlay */}
-        <div
-          className={cn(
-            "fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity duration-300 md:hidden",
-            mobileMenuOpen
-              ? "opacity-100 z-40"
-              : "opacity-0 pointer-events-none z-[-1]",
-          )}
-          onClick={closeMobileMenu}
-        />
-
-        {/* Mobile Menu */}
-        <div
-          className={cn(
-            "fixed top-0 left-0 h-full w-full max-w-sm bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out md:hidden overflow-y-auto",
-            mobileMenuOpen ? "translate-x-0" : "-translate-x-full",
-          )}
-        >
-          <div className="flex flex-col h-full">
-            {/* Mobile Menu Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-100">
-              <Image
-                src="/logos/logoDark.png"
-                alt="Celerey Logo"
-                width={80}
-                height={20}
-                className="h-auto w-auto"
-                priority
-              />
-              <button
-                onClick={closeMobileMenu}
-                className="p-2 hover:bg-zinc-50 rounded-lg transition-colors"
-                aria-label="Close menu"
-              >
-                <X className="h-5 w-5 text-zinc-600" />
-              </button>
-            </div>
-
-            {/* Mobile Menu Navigation */}
-            <div className="flex-1 px-4 py-6 space-y-1">
-              {/* Flat links */}
-              {flatLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={closeMobileMenu}
-                  className="flex items-center px-4 py-2.5 rounded-lg text-sm text-zinc-800 hover:bg-zinc-50 transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-              {/* Dropdown sections */}
-              {dropdownMenus.map((menu) => (
-                <MobileDropdownSection
-                  key={menu.key}
-                  label={menu.label}
-                  items={menu.items}
-                  onClose={closeMobileMenu}
+            <div className="flex flex-col h-full">
+              {/* Mobile Menu Header */}
+              <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-100">
+                <Image
+                  src="/logos/logoDark.png"
+                  alt="Celerey Logo"
+                  width={80}
+                  height={20}
+                  className="h-auto w-auto"
+                  priority
                 />
-              ))}
-            </div>
+                <button
+                  onClick={closeMobileMenu}
+                  className="p-2 hover:bg-zinc-50 rounded-lg transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="h-5 w-5 text-zinc-600" />
+                </button>
+              </div>
 
-            {/* Mobile Menu Footer with CTAs */}
-            <div className="border-t border-zinc-100 px-5 py-6 space-y-3">
-              <button
-                onClick={() => {
-                  window.open(
-                    "https://celerey.app/",
-                    "_blank",
-                    "noopener,noreferrer",
-                  );
-                  closeMobileMenu();
-                }}
-                className="w-full px-4 py-2.5 rounded-lg text-sm text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 transition-colors"
-              >
-                Login
-              </button>
-              <Button
-                onClick={() => {
-                  router.push("/free-consultation");
-                  closeMobileMenu();
-                }}
-                className="w-full "
-              >
-                Book your free session
-              </Button>
+              {/* Mobile Menu Navigation */}
+              <div className="flex-1 px-4 py-6 space-y-1">
+                {/* Flat links */}
+                {flatLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={closeMobileMenu}
+                    className="flex items-center px-4 py-2.5 rounded-lg text-sm text-zinc-800 hover:bg-zinc-50 transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+
+                {/* Dropdown sections */}
+                {dropdownMenus.map((menu) => (
+                  <MobileDropdownSection
+                    key={menu.key}
+                    label={menu.label}
+                    items={menu.items}
+                    onClose={closeMobileMenu}
+                  />
+                ))}
+              </div>
+
+              {/* Mobile Menu Footer with CTAs */}
+              <div className="border-t border-zinc-100 px-5 py-6 space-y-3">
+                <button
+                  onClick={() => {
+                    window.open(
+                      "https://celerey.app/",
+                      "_blank",
+                      "noopener,noreferrer",
+                    );
+                    closeMobileMenu();
+                  }}
+                  className="w-full px-4 py-2.5 rounded-lg text-sm text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 transition-colors"
+                >
+                  Login
+                </button>
+                <Button
+                  onClick={() => {
+                    router.push("/free-consultation");
+                    closeMobileMenu();
+                  }}
+                  className="w-full "
+                >
+                  Book your free session
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
       </div>
     </header>
   );
