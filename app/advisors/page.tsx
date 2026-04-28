@@ -34,7 +34,7 @@ function AdvisorCardImage({ src, alt }: { src?: string; alt: string }) {
 function PageShell({ children }: { children: React.ReactNode }) {
   return (
     <section className="min-h-screen bg-[#fbfaf8]">
-      <div className="mx-auto w-full px-6 py-20 sm:py-24 md:px-24">
+      <div className="mx-auto max-360 w-full px-6 py-20 sm:py-24 ">
         {children}
       </div>
     </section>
@@ -89,7 +89,7 @@ export default function AdvisorsPage() {
   return (
     <PageShell>
       {/* Back link */}
-      <div className="mb-10">
+      <div className="mb-10 max-w-360 mx-auto px-6">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-sm text-neutral-600 hover:text-neutral-900"
