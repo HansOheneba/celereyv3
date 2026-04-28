@@ -277,7 +277,8 @@ export default function Header() {
         isScrolled ? "shadow-sm" : "border-b border-zinc-100",
       )}
     >
-      <nav className="px-4 sm:px-6 md:px-8 lg:px-16 xl:px-24 py-4 flex items-center justify-between relative">
+       <div className="mx-auto w-full max-w-360 px-4 sm:px-6">
+    <nav className="py-4 flex items-center justify-between relative">
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
@@ -502,6 +503,7 @@ export default function Header() {
           </div>
         </div>
       </nav>
+      </div>
     </header>
   );
 }

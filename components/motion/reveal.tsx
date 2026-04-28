@@ -80,7 +80,12 @@ export function Reveal({
       initial={noEntrance ? false : { opacity: 0, y: distance }}
       whileInView={noEntrance ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once, amount }}
-      transition={{ duration: 0.55, ease: "easeOut", delay, ...transition }}
+      transition={{
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1], // smoother, more natural curve
+        delay,
+        ...transition,
+      }}
       className={cn(className)}
       {...props}
     >
@@ -94,8 +99,8 @@ export function InteractiveImage({
   className,
   delay = 0,
   amount = 0.2,
-  hoverScale = 1.02,
-  hoverY = -4,
+  hoverScale = 1.01,
+  hoverY = -2,
   transition,
   ...props
 }: InteractiveImageProps) {

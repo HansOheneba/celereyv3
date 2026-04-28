@@ -4,8 +4,8 @@ import { InteractiveImage, Reveal } from "@/components/motion/reveal";
 
 export function HeroSection() {
   return (
-    <section className="flex min-h-[90vh] items-center bg-muted px-6 py-16 sm:py-20 md:px-24">
-      <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-12">
+    <section className="flex min-h-[90vh] items-center bg-muted py-16 sm:py-20">
+      <div className="mx-auto grid w-full max-w-360 px-4 sm:px-6 grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-12">
         <Reveal>
           <h1 className="mb-6 text-4xl font-light leading-tight sm:text-5xl md:text-6xl">
             Planning your future shouldn&apos;t feel unclear
@@ -22,7 +22,7 @@ export function HeroSection() {
             </Button>
           </div>
         </Reveal>
-        <InteractiveImage className="relative overflow-hidden rounded-2xl bg-gray-900 min-h-88 sm:min-h-112 md:min-h-[70vh]">
+        <InteractiveImage className="relative overflow-hidden rounded-2xl bg-gray-900 aspect-square">
           <Image
             src="/homepage/hero.png"
             alt="Financial planning illustration"
