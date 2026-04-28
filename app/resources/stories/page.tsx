@@ -97,9 +97,9 @@ export default function StoriesPage() {
   };
 
   return (
-    <main className="bg-[#fbfaf8] min-h-screen">
+    <main className="max-w-360 mx-auto min-h-screen px-6">
       {/* ── Hero header ─────────────────────────────────────────── */}
-      <section className="md:pt-20 pt-10 pb-6 px-4 sm:px-6 lg:px-24">
+      <section className="md:pt-20 pt-10 pb-6  ">
         <div className="mx-auto max-w-xl text-center">
           <p className="text-[10px] tracking-[0.26em] text-[#b07d3d] uppercase">
             Stories
@@ -224,7 +224,7 @@ export default function StoriesPage() {
       <div className="h-px bg-black/6 mx-4 sm:mx-6 lg:mx-24" />
 
       {/* ── Main content ─────────────────────────────────────────── */}
-      <div className="px-4 sm:px-6 lg:px-24 pt-6 pb-20">
+      <div className=" pt-6 pb-20">
         <div className="grid gap-10 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_350px]">
           {/* ── Left ── */}
           <div>

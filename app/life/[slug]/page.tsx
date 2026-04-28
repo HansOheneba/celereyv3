@@ -46,7 +46,7 @@ export default async function LifeSituationPage({ params }: PageProps) {
     .slice(0, 3);
 
   return (
-    <main className="bg-[#fbfaf8] md:px-24 px-6 min-h-screen">
+    <main className="max-w-360 mx-auto px-6 min-h-screen">
       {/* Back */}
       <section className="  pt-28">
         <Link

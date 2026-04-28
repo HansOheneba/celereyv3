@@ -42,7 +42,7 @@ const podcasts: Podcast[] = [
 export default function PodcastsPage() {
   return (
     <section className="bg-white min-h-screen">
-      <div className=" md:px-24 mx-auto px-6 py-20 md:py-24">
+      <div className=" max-w-360 mx-auto px-6 py-20 md:py-24">
         {/* Back */}
         <Link
           href="/resources"
@@ -59,17 +59,17 @@ export default function PodcastsPage() {
           transition={{ duration: 0.5 }}
           className="mt-10 mb-12 md:mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 tracking-tight">
+          <h1 className="">
             Podcasts
           </h1>
-          <p className="mt-4 text-gray-600 max-w-2xl text-base md:text-lg leading-relaxed">
+          <p className="">
             Expert discussions on markets, behavioural finance, and wealth
             strategies. Watch and learn from experienced practitioners.
           </p>
         </motion.div>
 
         {/* Grid */}
-        <div className="mx-auto px-5">
+        <div className="mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-14">
             {podcasts.map((podcast, index) => (
               <motion.article

@@ -11,9 +11,9 @@ export const metadata = {
 
 export default function LifeSituationsPage() {
   return (
-    <main className="bg-[#fbfaf8] min-h-screen pt-28 pb-24">
+    <main className="px-6 max-w-360 mx-auto pt-28 pb-24">
       {/* Header */}
-      <section className="px-6 md:px-16 lg:px-24 pb-20">
+      <section className=" pb-20">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[11px] tracking-[0.26em] text-[#b07d3d] uppercase">
             Life Situations
@@ -31,7 +31,7 @@ export default function LifeSituationsPage() {
       </section>
 
       {/* Cinematic List */}
-      <section className="px-6 md:px-16 lg:px-24 space-y-16">
+      <section className=" space-y-16">
         {lifeSituations.map((situation, index) => {
           const isReversed = index % 2 !== 0;
 

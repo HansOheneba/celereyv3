@@ -9,7 +9,7 @@ import { ArrowLeft, Download, Calendar, FileType } from "lucide-react";
 export default function ResearchPage() {
   return (
     <section className="bg-white min-h-screen">
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+      <div className="max-w-360 mx-auto px-6 py-20 md:py-24">
         {/* Back */}
         <Link
           href="/resources"
@@ -36,7 +36,7 @@ export default function ResearchPage() {
         </motion.div>
 
         {/* Grid (same vibe as resources cards) */}
-        <div className="mx-auto max-w-5xl">
+        <div className="mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
             {researchPapers.map((paper, index) => (
               <motion.article

@@ -41,7 +41,7 @@ const resourceCategories: ResourceCategory[] = [
 export default function ResourcesPage() {
   return (
     <section className="bg-white py-10">
-      <div className="mx-auto px-6 py-16 md:px-24 md:py-24">
+      <div className="mx-auto px-6 py-16 max-w-360">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}

@@ -567,9 +567,9 @@ export default function ServiceDetailPage() {
   }
 
   return (
-    <main className="bg-[#fbfaf8] pb-20">
+    <main className="max-w-360 mx-auto px-6 pb-20">
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="px-6 pt-16 pb-10 md:px-24 sm:pt-24">
+      <section className=" pt-16 pb-10 sm:pt-24">
         <motion.p
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
@@ -610,7 +610,7 @@ export default function ServiceDetailPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, delay: 0.18 }}
-        className="px-6 pb-12 md:px-24"
+        className=" pb-12"
       >
         <div className="overflow-hidden rounded-3xl border border-black/8">
           <div className="relative aspect-16/7 w-full">
@@ -619,7 +619,7 @@ export default function ServiceDetailPage() {
               alt={service.imageAlt}
               fill
               priority
-              className="object-cover"
+              className="object-cover object-top"
               sizes="100vw"
             />
             <div className="absolute inset-0 bg-black/10" />
@@ -628,7 +628,7 @@ export default function ServiceDetailPage() {
       </motion.section>
 
       {/* ── Overview ─────────────────────────────────────────────────────── */}
-      <section className="px-6 md:px-24">
+      <section className="">
         <div className="grid gap-12 lg:grid-cols-[1fr_280px]">
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -672,12 +672,12 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-12 px-6 md:px-24">
+      <div className="my-12">
         <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── What This Covers ─────────────────────────────────────────────── */}
-      <section className="px-6 md:px-24">
+      <section className="">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -712,12 +712,12 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-12 px-6 md:px-24">
+      <div className="my-12 ">
         <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── Why It Matters ───────────────────────────────────────────────── */}
-      <section className="px-6 md:px-24">
+      <section className="">
         <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
           <motion.div
             initial={{ opacity: 0 }}
@@ -747,12 +747,12 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-12 px-6 md:px-24">
+      <div className="my-12 ">
         <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── Who This Is For ──────────────────────────────────────────────── */}
-      <section className="px-6 md:px-24">
+      <section className="">
         <div className="grid gap-10 lg:grid-cols-[220px_1fr]">
           <motion.div
             initial={{ opacity: 0 }}
@@ -777,12 +777,12 @@ export default function ServiceDetailPage() {
       </section>
 
       {/* ── Divider ──────────────────────────────────────────────────────── */}
-      <div className="my-12 px-6 md:px-24">
+      <div className="my-12 ">
         <div className="h-px w-full bg-black/10" />
       </div>
 
       {/* ── Inquiry Form ─────────────────────────────────────────────────── */}
-      <section id="inquiry" className="px-6 md:px-24 scroll-mt-24">
+      <section id="inquiry" className=" scroll-mt-24">
         <div className="grid gap-16 lg:grid-cols-[360px_1fr]">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -824,7 +824,7 @@ export default function ServiceDetailPage() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mt-14 px-6 md:px-24 flex items-center gap-6"
+        className="mt-14 flex items-center gap-6"
       >
         <Link
           href="/services"
