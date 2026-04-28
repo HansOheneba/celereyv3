@@ -125,7 +125,7 @@ export default function AdvisorDetailsPage() {
           <div className="mx-auto mt-10 max-w-xs">
             <Button
               onClick={() => router.push("/advisors")}
-              className="h-11 w-full rounded-full bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/4"
+            
             >
               Back to Advisors
             </Button>
@@ -172,17 +172,7 @@ export default function AdvisorDetailsPage() {
                   <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/25 via-black/0 to-black/0 opacity-80" />
                 </div>
 
-                <div className="flex items-center justify-between gap-4 p-6">
-                  <p className="text-xs text-neutral-600">
-                    Celerey Advisory Network
-                  </p>
-                  <Link
-                    href="/advisors"
-                    className="text-xs text-neutral-600 underline-offset-4 hover:underline"
-                  >
-                    Back to advisors
-                  </Link>
-                </div>
+               
               </InteractiveImage>
             </div>
 
@@ -223,7 +213,7 @@ export default function AdvisorDetailsPage() {
 
                 <div className="mt-8">
                   <Link href="/advisors">
-                    <Button className="h-11 w-full rounded-full bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/4">
+                    <Button variant="outline" className=" w-full">
                       Back to All Advisors
                     </Button>
                   </Link>
