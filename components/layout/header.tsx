@@ -84,7 +84,7 @@ const dropdownMenus: DropdownMenu[] = [
     key: "life",
     label: "Life Situations",
     sectionLabel: "Solutions for",
-    image: { src: "/homepage/family-walking.png", alt: "Life situations" },
+    image: { src: "/life-sit.jpg", alt: "Life situations" },
     items: [
       {
         name: "Business Sale",
@@ -121,7 +121,7 @@ const dropdownMenus: DropdownMenu[] = [
     label: "Insights",
     sectionLabel: "Explore",
     align: "right",
-    image: { src: "/homepage/girl-sitting.png", alt: "Insights and research" },
+    image: { src: "/res.jpg", alt: "Insights and research" },
     items: [
       {
         name: "Market Insights",
