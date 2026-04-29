@@ -5,6 +5,7 @@ import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
 
+
 export default function PricingPage() {
   return (
     <main className="bg-[#fbfaf8]">
@@ -37,30 +38,31 @@ export default function PricingPage() {
             className="mx-auto mt-7 h-px w-24 bg-neutral-900/10 origin-center"
           />
 
-          {/* Hero image */}
+              <section className="px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+          className="mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-black/10"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut", delay: 0.16 }}
-            className="mx-auto mt-10 overflow-hidden rounded-[28px] border border-black/10 bg-white shadow-[0_18px_55px_rgba(0,0,0,0.08)]"
+            initial={{ scale: 1.02 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.25 }}
+            className="relative"
           >
-            <motion.div
-              initial={{ scale: 1.02 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 1.0, ease: "easeOut", delay: 0.2 }}
-              className="relative"
-            >
-              <div className="relative aspect-[16/9] w-full sm:aspect-[21/9]">
-                <Image
-                  src="/pricingHero.jpg"
-                  alt="Celerey private advisory setting"
-                  fill
-                  priority
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
+            <div className="relative aspect-21/9 w-full">
+              <Image
+                src="/pricingHero.jpg"
+                alt="Private financial advisory setting"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
           </motion.div>
+        </motion.div>
+      </section>
         </div>
       </section>
 
