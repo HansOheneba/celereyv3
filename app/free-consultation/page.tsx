@@ -349,8 +349,7 @@ export default function FreeConsultationPage() {
         {/* ── Bottom CTA — nudge to pricing ── */}
         <Reveal className="mx-auto w-full pb-28">
           <motion.div
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+           
             className="rounded-3xl border border-black/10 bg-white px-8 py-8 text-center shadow-[0_18px_55px_rgba(0,0,0,0.06)]"
           >
             <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
