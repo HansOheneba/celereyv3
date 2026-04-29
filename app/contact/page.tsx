@@ -127,7 +127,7 @@ export default function ContactPage() {
                   <br />
                   changes everything.&rdquo;
                 </h4>
-                <p className="mt-3 text-white/60">
+                <p className="mt-3 text-white/80">
                   Our advisors bring clarity, not complexity.
                 </p>
 
