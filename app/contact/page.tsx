@@ -98,9 +98,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-360 px-6">
           {/* Page intro */}
           <Reveal className="mb-16 text-center">
-            <p className="text-[#D4AF37] mb-3">
-              Get in Touch
-            </p>
+            <p className="text-[#D4AF37] mb-3">Get in Touch</p>
             <h1 className="text-primary">Let&apos;s start a conversation</h1>
             <p className="mt-5 text-gray-500 max-w-lg mx-auto">
               Whether you&apos;re exploring Celerey for the first time or ready
@@ -113,7 +111,7 @@ export default function ContactPage() {
             {/* Left — image panel */}
             <InteractiveImage className="relative overflow-hidden rounded-3xl min-h-100 md:min-h-0">
               <Image
-                src="/contact/wealth.jpg"
+                src="https://images.unsplash.com/photo-1662104935883-e9dd0619eaba?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Celerey Advisory Team"
                 fill
                 className="object-cover"
@@ -280,9 +278,7 @@ export default function ContactPage() {
 
       {/* ── Bottom CTA ── */}
       <Reveal className="mx-auto max-w-3xl text-center px-6 pb-28">
-        <p className="text-[#D4AF37] mb-4">
-          Together
-        </p>
+        <p className="text-[#D4AF37] mb-4">Together</p>
         <h2 className="text-primary mb-4">
           Let&apos;s build your financial future
         </h2>

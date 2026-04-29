@@ -137,10 +137,10 @@ export default async function LifeSituationPage({ params }: PageProps) {
           <Accordion type="single" collapsible className="w-full">
             {situation.faqs.map((faq, index) => (
               <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger className="text-left text-base font-medium py-6">
+                <AccordionTrigger className="text-left font-medium py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-sm text-neutral-500 pb-6">
+                <AccordionContent className="text-[16px] text-neutral-700 pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
