@@ -8,9 +8,7 @@ export function SessionSection() {
     <section className=" bg-[#354A49]">
       <div className="mx-auto max-w-360 py-24 px-6 grid min-h-[60vh] grid-cols-1 items-center gap-10 text-white md:grid-cols-2 md:gap-12">
         <Reveal>
-          <p className="text-[#CDE6AF] mb-4">
-            Starting point
-          </p>
+          <p className="text-[#CDE6AF] mb-4">Starting point</p>
           <h2 className="mb-6">Private 45 minute session</h2>
           <p className="text-white mb-8">
             A focused session to help you make smarter financial decisions with
@@ -26,9 +24,7 @@ export function SessionSection() {
               </p>
             </div>
             <div>
-              <p className="mb-3 text-[#CDE6AF]">
-                What&apos;s included
-              </p>
+              <p className="mb-3 text-[#CDE6AF]">What&apos;s included</p>
               <p className="text-white">
                 Honest perspective, practical next steps, and a clear sense of
                 what matters most.
@@ -36,7 +32,7 @@ export function SessionSection() {
             </div>
           </div>
 
-          <Link href="/pricing">
+          <Link href="/book-session">
             <Button className="w-full bg-[#CDE6AF] text-gray-800 hover:bg-[#CDE6AF]/50 sm:w-auto">
               Book your session
             </Button>
