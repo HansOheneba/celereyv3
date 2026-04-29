@@ -174,7 +174,7 @@ export function InsightsSection() {
       <div className="mx-auto max-w-360 px-6 py-20 md:py-24">
         {/* Header */}
         <Reveal className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16">
-          <h2 className="mb-4 text-3xl font-light leading-tight text-gray-900 sm:text-4xl md:text-5xl">
+          <h2 className="mb-4 text-gray-900">
             Thoughtful guidance for your future
           </h2>
           <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -246,7 +246,7 @@ export function InsightsSection() {
 
                       {/* Text */}
                       <div className="mt-5">
-                        <h3 className="text-lg font-medium text-gray-900 line-clamp-2">
+                        <h3 className="text-gray-900 line-clamp-2">
                           {item.title}
                         </h3>
                         <p className="mt-1.5 text-gray-600 text-sm leading-relaxed line-clamp-3">
@@ -304,7 +304,7 @@ export function InsightsSection() {
                             {dateLine(item.date)}
                           </span>
                         )}
-                        <h3 className="mt-2 text-xl md:text-2xl font-medium text-gray-900 line-clamp-2">
+                        <h3 className="mt-2 text-gray-900 line-clamp-2">
                           {item.title}
                         </h3>
                         <p className="mt-2 text-gray-600 leading-relaxed line-clamp-3 max-w-xl">

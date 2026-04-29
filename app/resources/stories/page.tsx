@@ -105,7 +105,7 @@ export default function StoriesPage() {
             Stories
           </p>
 
-          <h1 className="mt-3 font-serif font-thin text-2xl leading-snug text-neutral-900 sm:text-4xl">
+          <h1 className="mt-3 text-neutral-900">
             Perspectives on wealth and clarity
           </h1>
 
@@ -254,9 +254,7 @@ export default function StoriesPage() {
             {/* Empty */}
             {filtered.length === 0 && (
               <div className="py-16 text-center">
-                <p className="font-serif text-lg text-neutral-400">
-                  No stories found.
-                </p>
+                <p className="text-lg text-neutral-400">No stories found.</p>
               </div>
             )}
 
@@ -288,7 +286,7 @@ export default function StoriesPage() {
                       </p>
 
                       {/* Title */}
-                      <h3 className="font-serif text-lg sm:text-xl text-neutral-900 leading-snug group-hover:text-[#b07d3d] transition-colors">
+                      <h3 className="text-neutral-900 group-hover:text-[#b07d3d] transition-colors">
                         {post.title}
                       </h3>
 
@@ -396,7 +394,7 @@ export default function StoriesPage() {
                           year: "numeric",
                         })}
                       </p> */}
-                      <h4 className="mt-0.5 font-serif text-sm text-neutral-900 leading-snug line-clamp-2 group-hover:text-[#b07d3d] transition-colors">
+                      <h4 className="mt-0.5 text-neutral-900 line-clamp-2 group-hover:text-[#b07d3d] transition-colors">
                         {post.title}
                       </h4>
                     </div>
@@ -434,7 +432,7 @@ export default function StoriesPage() {
                           year: "numeric",
                         })}
                       </p> */}
-                      <h4 className="mt-0.5 font-serif text-sm text-neutral-900 leading-snug line-clamp-2 group-hover:text-[#b07d3d] transition-colors">
+                      <h4 className="mt-0.5 text-neutral-900 line-clamp-2 group-hover:text-[#b07d3d] transition-colors">
                         {post.title}
                       </h4>
                     </div>

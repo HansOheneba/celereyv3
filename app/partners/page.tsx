@@ -17,7 +17,7 @@ export default function PartnersPage() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center sm:mb-20"
         >
-          <h1 className="mb-6 text-4xl font-bold md:text-5xl">
+          <h1 className="mb-6">
             Our Strategic <span className="text-[#D4AF37]">Partners</span>
           </h1>
           <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -41,7 +41,7 @@ export default function PartnersPage() {
             className="grid items-center gap-8 md:grid-cols-2 md:gap-12"
           >
             <div>
-              <h2 className="text-2xl font-semibold mb-3 text-primary">
+              <h2 className="mb-3 text-primary">
                 Wealth & Investment Partners
               </h2>
               <p className="text-gray-600 mb-4">
@@ -90,7 +90,7 @@ export default function PartnersPage() {
               />
             </InteractiveImage>
             <div className="md:order-1">
-              <h2 className="text-2xl font-semibold mb-3 text-primary">
+              <h2 className="mb-3 text-primary">
                 Property & Real Estate Partners
               </h2>
               <p className="text-gray-600 mb-4">
@@ -121,7 +121,7 @@ export default function PartnersPage() {
             className="grid items-center gap-8 md:grid-cols-2 md:gap-12"
           >
             <div>
-              <h2 className="text-2xl font-semibold mb-3 text-primary">
+              <h2 className="mb-3 text-primary">
                 Legal & Regulatory Partners
               </h2>
               <p className="text-gray-600 mb-4">
@@ -169,7 +169,7 @@ export default function PartnersPage() {
               />
             </InteractiveImage>
             <div className="md:order-1">
-              <h2 className="text-2xl font-semibold mb-3 text-primary">
+              <h2 className="mb-3 text-primary">
                 Global Mobility & Lifestyle Partners
               </h2>
               <p className="text-gray-600 mb-4">
@@ -199,7 +199,7 @@ export default function PartnersPage() {
           transition={{ delay: 0.5 }}
           className="mx-auto mt-20 max-w-3xl text-center sm:mt-28"
         >
-          <h2 className="text-3xl font-semibold mb-4">
+          <h2 className="mb-4">
             Partnering for Your Prosperity
           </h2>
           <p className="text-gray-600 mb-8 leading-relaxed">

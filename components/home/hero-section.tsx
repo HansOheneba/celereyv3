@@ -7,7 +7,7 @@ export function HeroSection() {
     <section className="flex min-h-[90vh] items-center bg-muted py-16 sm:py-20">
       <div className="mx-auto grid w-full max-w-360 px-4 sm:px-6 grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-12">
         <Reveal>
-          <h1 className="mb-6 text-4xl font-light leading-tight sm:text-5xl md:text-6xl">
+          <h1 className="mb-6">
             Planning your future shouldn&apos;t feel unclear
           </h1>
           <p className="mb-8 text-base leading-relaxed text-muted-foreground sm:text-lg">

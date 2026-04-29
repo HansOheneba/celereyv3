@@ -115,18 +115,13 @@ export default function AdvisorDetailsPage() {
           <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
             ADVISOR PROFILE
           </p>
-          <h1 className="mt-5 font-serif text-3xl text-neutral-900">
-            Advisor not found.
-          </h1>
+          <h1 className="mt-5 text-neutral-900">Advisor not found.</h1>
           <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-600">
             Please return to the advisory list and select another profile.
           </p>
 
           <div className="mx-auto mt-10 max-w-xs">
-            <Button
-              onClick={() => router.push("/advisors")}
-            
-            >
+            <Button onClick={() => router.push("/advisors")}>
               Back to Advisors
             </Button>
           </div>
@@ -147,9 +142,7 @@ export default function AdvisorDetailsPage() {
               ADVISOR PROFILE
             </p>
 
-            <h1 className="mt-4 font-serif text-4xl leading-[1.1] text-neutral-900 sm:text-5xl">
-              {pageTitle}
-            </h1>
+            <h1 className="mt-4 text-neutral-900">{pageTitle}</h1>
 
             <p className="mt-3 text-sm text-neutral-700">{advisor.title}</p>
 
@@ -171,8 +164,6 @@ export default function AdvisorDetailsPage() {
                   <AdvisorImage src={advisor.image} alt={advisor.name} />
                   <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/25 via-black/0 to-black/0 opacity-80" />
                 </div>
-
-               
               </InteractiveImage>
             </div>
 

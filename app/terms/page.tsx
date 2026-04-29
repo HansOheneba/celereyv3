@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { motion } from "framer-motion";
 
 function scrollToId(id: string) {
   const el = document.getElementById(id);
@@ -30,10 +31,15 @@ export default function Page() {
     <main className="bg-white">
       {/* Header */}
       <div className="border-b border-black/10">
-        <div className="mx-auto w-full max-w-5xl px-5 sm:px-8 py-10 sm:py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mx-auto w-full max-w-5xl px-5 sm:px-8 py-10 sm:py-12"
+        >
           <h1
             id="terms"
-            className="text-3xl sm:text-4xl font-semibold tracking-tight text-neutral-900 scroll-mt-28"
+            className="text-neutral-900 scroll-mt-28"
           >
             Terms of Use
           </h1>
@@ -43,7 +49,7 @@ export default function Page() {
             website and related pages (the “Website”), including{" "}
             <span className="font-medium">celerey.co</span>.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Body */}
@@ -77,11 +83,16 @@ export default function Page() {
           </aside>
 
           {/* Content */}
-          <article className="text-neutral-700">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="text-neutral-700"
+          >
             <div className="space-y-12">
               {/* Celerey wrapper (adds celerey.co + subsidiary context) */}
               <section id="celerey-notice" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Celerey website notice
                 </h2>
 
@@ -111,7 +122,7 @@ export default function Page() {
 
               {/* Disclaimer (verbatim content) */}
               <section id="disclaimer" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Disclaimer
                 </h2>
 
@@ -163,7 +174,7 @@ export default function Page() {
 
               {/* Everything below can stay exactly as previously provided */}
               <section id="copyright" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Copyright notices
                 </h2>
 
@@ -189,7 +200,7 @@ export default function Page() {
               </section>
 
               <section id="trademark" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Trademark notices
                 </h2>
 
@@ -205,7 +216,7 @@ export default function Page() {
               </section>
 
               <section id="content" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Website content and materials
                 </h2>
 
@@ -336,7 +347,7 @@ export default function Page() {
               </a>{" "}
              
             </p>
-          </article>
+          </motion.article>
         </div>
       </div>
     </main>

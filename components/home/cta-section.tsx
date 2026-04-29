@@ -118,9 +118,7 @@ export function CTASection() {
     <section className="py-24 px-6 bg-primary text-background">
       <Reveal className="mx-auto max-w-4xl text-center">
         {/* KEEPING YOUR ORIGINAL COPY */}
-        <h2 className="text-3xl font-light leading-tight mb-6 sm:text-4xl md:text-5xl">
-          You don&apos;t have to figure it all out alone
-        </h2>
+        <h2 className="mb-6">You don&apos;t have to figure it all out alone</h2>
 
         <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-background/80 sm:text-lg">
           Start building your financial future with clarity today. Let&apos;s
@@ -141,9 +139,7 @@ export function CTASection() {
         {/* NEWSLETTER (soft glass, no harsh white block) */}
         <div className="mx-auto max-w-xl">
           <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-8 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
-            <h3 className="text-2xl font-medium mb-2">
-              Get smarter about your money today
-            </h3>
+            <h3 className="mb-2">Get smarter about your money today</h3>
 
             <p className="text-sm text-background/70 mb-6">
               Practical insights to help guide you in your financaial journey.
@@ -166,7 +162,10 @@ export function CTASection() {
                   className="h-10 bg-white text-zinc-900 placeholder:text-zinc-400 border border-white/20 shadow-sm focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-0"
                 />
 
-                <Button type="submit" className="bg-[#C8E1F5] hover:bg-[#C8E1F5]/90 text-gray-900 w-full sm:w-auto">
+                <Button
+                  type="submit"
+                  className="bg-[#C8E1F5] hover:bg-[#C8E1F5]/90 text-gray-900 w-full sm:w-auto"
+                >
                   Join
                 </Button>
               </form>

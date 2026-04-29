@@ -11,10 +11,8 @@ export function SessionSection() {
           <p className="text-sm font-bold text-[#CDE6AF] mb-4 tracking-wide">
             Starting point
           </p>
-          <h2 className="text-3xl font-light leading-tight mb-6 sm:text-4xl md:text-5xl">
-            Private 45 minute session
-          </h2>
-          <p className="text-base mb-8 leading-relaxed sm:text-lg">
+          <h2 className="mb-6">Private 45 minute session</h2>
+          <p className="text-white mb-8">
             A focused session to help you make smarter financial decisions with
             clarity.
           </p>
@@ -22,7 +20,7 @@ export function SessionSection() {
           <div className="mb-12 grid gap-8 sm:grid-cols-2">
             <div>
               <p className="text-2xl font-semibold mb-2 text-[#CDE6AF]">$99</p>
-              <p className="">
+              <p className="text-white">
                 One private session with an advisor who listens and thinks
                 through your situation.
               </p>
@@ -31,7 +29,7 @@ export function SessionSection() {
               <p className="font-semibold mb-3 text-[#CDE6AF]">
                 What&apos;s included
               </p>
-              <p>
+              <p className="text-white">
                 Honest perspective, practical next steps, and a clear sense of
                 what matters most.
               </p>

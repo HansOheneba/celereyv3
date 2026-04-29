@@ -26,7 +26,7 @@ export default function NotFound() {
             Error 404
           </p>
 
-          <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-black">
+          <h1 className="mt-6 text-black">
             This page doesn’t exist.
           </h1>
 

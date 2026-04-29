@@ -49,9 +49,7 @@ export default function ResourcesPage() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 md:mb-16 pb-10"
         >
-          <h1 className="text-4xl font-semibold text-gray-900 md:text-5xl">
-            Resources
-          </h1>
+          <h1 className="text-gray-900">Resources</h1>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             Explore stories, insights, and podcasts designed to support better
             decisions and stronger financial confidence.
@@ -83,9 +81,7 @@ export default function ResourcesPage() {
 
                   {/* Text */}
                   <div className="mt-6">
-                    <h2 className="text-xl md:text-2xl font-medium text-gray-900">
-                      {category.title}
-                    </h2>
+                    <h2 className="text-gray-900">{category.title}</h2>
                     <p className="mt-2 text-gray-600 leading-relaxed max-w-md">
                       {category.description}
                     </p>

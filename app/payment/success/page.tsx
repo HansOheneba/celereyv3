@@ -1,7 +1,13 @@
 // app/payment/success/page.tsx
 "use client";
 
-import React, { useEffect, useMemo, useState, Suspense, useCallback } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+  Suspense,
+  useCallback,
+} from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Loader2, CheckCircle2, XCircle, Mail } from "lucide-react";
@@ -64,7 +70,9 @@ function PaymentSuccessContent() {
     if (!storedUserId) {
       console.log("[payment-success] No user ID found in localStorage");
       setStatus("failed");
-      setMessage("We couldn’t find your session. Please return to the homepage and try again.");
+      setMessage(
+        "We couldn’t find your session. Please return to the homepage and try again.",
+      );
       return;
     }
 
@@ -79,7 +87,11 @@ function PaymentSuccessContent() {
     try {
       const res = await fetch(
         `${API_BASE_URL}/billing/status?user_id=${encodeURIComponent(userId)}`,
-        { method: "GET", headers: { "Content-Type": "application/json" }, credentials: "include" }
+        {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include",
+        },
       );
 
       if (!res.ok) {
@@ -113,7 +125,12 @@ function PaymentSuccessContent() {
 
       if (!res.ok) {
         const text = await res.text().catch(() => "");
-        console.log("[payment-success] HTTP error:", res.status, res.statusText, text);
+        console.log(
+          "[payment-success] HTTP error:",
+          res.status,
+          res.statusText,
+          text,
+        );
         throw new Error(`HTTP ${res.status}`);
       }
 
@@ -131,7 +148,10 @@ function PaymentSuccessContent() {
         // Log details for debugging (but keep UI clean)
         await fetchPaymentDetails();
 
-        sessionStorage.setItem("celerey_payment_verified_at", Date.now().toString());
+        sessionStorage.setItem(
+          "celerey_payment_verified_at",
+          Date.now().toString(),
+        );
 
         setTimeout(() => {
           router.push("/onboarding?step=1");
@@ -186,7 +206,9 @@ function PaymentSuccessContent() {
     if (attempt < MAX_ATTEMPTS) return;
 
     setStatus("failed");
-    setMessage("We couldn’t confirm your payment yet. If you’ve been charged, contact support.");
+    setMessage(
+      "We couldn’t confirm your payment yet. If you’ve been charged, contact support.",
+    );
   }, [attempt, status]);
 
   const handleRetry = () => {
@@ -207,7 +229,10 @@ function PaymentSuccessContent() {
   const handleContinueAnyway = () => {
     // If you keep this button, it should be explicit and rare.
     console.log("[payment-success] user chose continue anyway");
-    sessionStorage.setItem("celerey_payment_verified_at", Date.now().toString());
+    sessionStorage.setItem(
+      "celerey_payment_verified_at",
+      Date.now().toString(),
+    );
     router.push("/onboarding?step=1");
   };
 
@@ -222,11 +247,10 @@ function PaymentSuccessContent() {
 
       <div className="container mx-auto max-w-xl px-4 py-10 sm:py-14">
         <div className="text-center">
-          <h1 className="font-serif text-3xl text-neutral-900 sm:text-4xl">
-            Payment confirmation
-          </h1>
+          <h1 className="text-neutral-900">Payment confirmation</h1>
           <p className="mt-2 text-sm text-neutral-600 sm:text-base">
-            {status === "checking" && "Please wait while we confirm your payment."}
+            {status === "checking" &&
+              "Please wait while we confirm your payment."}
             {status === "success" && "You’re all set."}
             {status === "failed" && "We ran into an issue."}
           </p>

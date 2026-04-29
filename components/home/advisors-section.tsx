@@ -26,7 +26,7 @@ function AdvisorRow({ advisor }: { advisor: Advisor }) {
   return (
     <Reveal className="grid items-start gap-6 border-b border-gray-100 py-10 last:border-0 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-4">
       {/* Image */}
-      <InteractiveImage className="relative w-full max-w-full aspect-[4/3] overflow-hidden rounded-2xl bg-gray-200 shrink-0 sm:max-w-[280px]">
+      <InteractiveImage className="relative w-full max-w-full aspect-4/3 overflow-hidden rounded-2xl bg-gray-200 shrink-0 sm:max-w-70">
         {!imgError && advisor.image ? (
           <Image
             src={advisor.image}
@@ -58,9 +58,7 @@ function AdvisorRow({ advisor }: { advisor: Advisor }) {
       {/* Text */}
       <div className="flex max-w-none flex-col gap-3 pt-1 sm:max-w-xs">
         <div>
-          <h3 className="text-xl font-semibold text-gray-900">
-            {advisor.name}
-          </h3>
+          <h3 className="text-gray-900">{advisor.name}</h3>
           <p className="text-sm font-semibold text-gray-900 mt-0.5">
             {advisor.title}
           </p>
@@ -101,7 +99,7 @@ export function AdvisorsSection() {
             <p className="text-xs font-bold tracking-widest text-gray-900 mb-4">
               Expert Guidance
             </p>
-            <h2 className="font-cirka text-3xl font-light text-gray-900 leading-tight mb-6 sm:text-4xl md:text-5xl">
+            <h2 className="text-gray-900 mb-6">
               Meet the people behind the guidance
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">

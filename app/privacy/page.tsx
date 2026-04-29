@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { motion } from "framer-motion";
 
 function scrollToId(id: string) {
   const el = document.getElementById(id);
@@ -35,11 +36,13 @@ export default function Page() {
     <main className="bg-white">
       {/* Top doc header */}
       <div className="border-b border-black/10">
-        <div className="mx-auto w-full max-w-5xl px-5 sm:px-8 py-10 sm:py-12">
-          <h1
-            id="privacy-policy"
-            className="text-3xl sm:text-4xl font-semibold tracking-tight text-neutral-900 scroll-mt-28"
-          >
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mx-auto w-full max-w-5xl px-5 sm:px-8 py-10 sm:py-12"
+        >
+          <h1 id="privacy-policy" className="text-neutral-900 scroll-mt-28">
             Privacy Policy
           </h1>
 
@@ -62,7 +65,7 @@ export default function Page() {
             ultimately obtain from us, or the jurisdiction in which we are doing
             business with you.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Body */}
@@ -87,26 +90,26 @@ export default function Page() {
                   </button>
                 ))}
               </nav>
-
-          
-             
             </div>
           </aside>
 
           {/* Content */}
-          <article className="text-neutral-700">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="text-neutral-700"
+          >
             {/* Section helper styles */}
             <div className="space-y-12">
               <section id="privacy-principles" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                  Privacy Principles
-                </h2>
+                <h2 className="text-neutral-900">Privacy Principles</h2>
 
-                <p className="mt-5 font-semibold text-neutral-900">
+                <p className="mt-5 text-neutral-900">
                   Your privacy is important to us.
                 </p>
 
-                <h3 className="mt-8 text-lg font-semibold text-neutral-900">
+                <h3 className="mt-8 text-neutral-900">
                   We work hard to protect your information.
                 </h3>
                 <p className="mt-3 text-[15px] leading-7">
@@ -122,7 +125,7 @@ export default function Page() {
                   privacy and confidentiality of information.
                 </p>
 
-                <h3 className="mt-8 text-lg font-semibold text-neutral-900">
+                <h3 className="mt-8 text-neutral-900">
                   We want you to understand the type of information we collect
                   and how we use it.
                 </h3>
@@ -175,9 +178,7 @@ export default function Page() {
               </section>
 
               <section id="legal-basis" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                  Legal basis for processing
-                </h2>
+                <h2 className="text-neutral-900">Legal basis for processing</h2>
                 <p className="mt-5 text-[15px] leading-7">
                   Where we are required to establish a legal basis to process
                   your personal information as described in this Online Privacy
@@ -192,9 +193,7 @@ export default function Page() {
               </section>
 
               <section id="how-we-use" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                  How we use information
-                </h2>
+                <h2 className="text-neutral-900">How we use information</h2>
                 <p className="mt-5 text-[15px] leading-7">
                   We use and otherwise process the information we collect from
                   you to help us deliver our online services; to administer,
@@ -214,7 +213,7 @@ export default function Page() {
               </section>
 
               <section id="data-minimisation" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Data minimisation, accuracy, and retention
                 </h2>
 
@@ -250,7 +249,7 @@ export default function Page() {
               </section>
 
               <section id="mobile" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Mobile and device information
                 </h2>
                 <p className="mt-5 text-[15px] leading-7">
@@ -269,7 +268,7 @@ export default function Page() {
               </section>
 
               <section id="sharing" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Sharing personal information
                 </h2>
 
@@ -315,9 +314,7 @@ export default function Page() {
               </section>
 
               <section id="consent-transfers" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                  Consent and transfers
-                </h2>
+                <h2 className="text-neutral-900">Consent and transfers</h2>
 
                 <p className="mt-5 text-[15px] leading-7">
                   We can share your personal information with any person or
@@ -348,9 +345,7 @@ export default function Page() {
               </section>
 
               <section id="rights" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                  Your rights and choices
-                </h2>
+                <h2 className="text-neutral-900">Your rights and choices</h2>
 
                 <p className="mt-5 text-[15px] leading-7">
                   We respect your rights concerning the processing of personal
@@ -398,7 +393,7 @@ export default function Page() {
               </section>
 
               <section id="advertising" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
+                <h2 className="text-neutral-900">
                   Online activity and advertising
                 </h2>
 
@@ -418,9 +413,7 @@ export default function Page() {
               </section>
 
               <section id="policy-changes" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                  Policy changes
-                </h2>
+                <h2 className="text-neutral-900">Policy changes</h2>
 
                 <p className="mt-5 text-[15px] leading-7">
                   We may change this Online Privacy Policy from time to time.
@@ -433,9 +426,7 @@ export default function Page() {
               </section>
 
               <section id="contact" className="scroll-mt-28">
-                <h2 className="text-2xl font-semibold tracking-tight text-neutral-900">
-                  Contact us
-                </h2>
+                <h2 className="text-neutral-900">Contact us</h2>
 
                 <p className="mt-5 text-[15px] leading-7">
                   If you have any comments, questions or concerns about any of
@@ -482,9 +473,8 @@ export default function Page() {
               <a className="underline underline-offset-4" href="/terms">
                 Terms of Service
               </a>{" "}
-            
             </p>
-          </article>
+          </motion.article>
         </div>
       </div>
     </main>

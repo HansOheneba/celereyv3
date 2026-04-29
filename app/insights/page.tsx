@@ -190,7 +190,7 @@ export default function InsightsPage() {
                       <div className="p-6 flex flex-col flex-1 text-left">
                         {/* Text content grows, buttons stay pinned at bottom */}
                         <div className="flex-1">
-                          <h3 className="text-lg font-semibold text-primary mb-2 line-clamp-2">
+                          <h3 className="text-primary mb-2 line-clamp-2">
                             {item.title}
                           </h3>
                           <p className="text-gray-500 text-sm mb-4 line-clamp-3">
@@ -272,9 +272,7 @@ export default function InsightsPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center p-6 border-b">
-                <h3 className="text-xl font-semibold text-primary">
-                  {selectedPodcast.title}
-                </h3>
+                <h3 className="text-primary">{selectedPodcast.title}</h3>
                 <button
                   onClick={() => setSelectedPodcast(null)}
                   className="p-2 hover:bg-gray-100 rounded-full transition"

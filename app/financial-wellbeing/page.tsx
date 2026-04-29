@@ -268,7 +268,7 @@ export default function FinancialWellbeingPage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.05 }}
-            className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-neutral-900 sm:text-4xl sm:leading-tight font-thin"
+            className="mx-auto mt-5 max-w-3xl text-neutral-900"
           >
             Your people perform better when their finances are in order.
           </motion.h1>
@@ -336,7 +336,7 @@ export default function FinancialWellbeingPage() {
               <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-6">
                 The Business Case
               </p>
-              <h2 className="text-4xl md:text-5xl font-normal leading-tight">
+              <h2 className="">
                 Financial stress is silently
                 <br />
                 <span className="italic">costing your organisation.</span>
@@ -402,9 +402,7 @@ export default function FinancialWellbeingPage() {
                   <span className="text-[120px] font-normal text-[#E8EDE6] leading-none select-none block -mb-8">
                     {p.number}
                   </span>
-                  <h3 className="text-4xl md:text-5xl font-normal leading-tight mb-6">
-                    {p.title}
-                  </h3>
+                  <h3 className="mb-6">{p.title}</h3>
                   <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-md">
                     {p.body}
                   </p>
@@ -457,7 +455,7 @@ export default function FinancialWellbeingPage() {
               <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-4">
                 How We Help
               </p>
-              <h2 className="text-4xl md:text-5xl font-normal leading-tight">
+              <h2 className="">
                 A complete programme
                 <br />
                 for your workforce.
@@ -481,7 +479,7 @@ export default function FinancialWellbeingPage() {
                 <div className="text-primary group-hover:text-white transition-colors mb-6">
                   {f.icon}
                 </div>
-                <h3 className="text-lg font-medium text-[#1A1A1A] group-hover:text-white transition-colors mb-3">
+                <h3 className="text-[#1A1A1A] group-hover:text-white transition-colors mb-3">
                   {f.title}
                 </h3>
                 <p className="text-[#4A4A4A] group-hover:text-white/60 text-sm leading-relaxed transition-colors">
@@ -525,7 +523,7 @@ export default function FinancialWellbeingPage() {
             <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-4">
               How It Works
             </p>
-            <h2 className="text-4xl md:text-5xl font-normal leading-tight max-w-xl">
+            <h2 className="max-w-xl">
               Three steps to a<br />
               <span className="italic">financially well</span> workforce.
             </h2>
@@ -565,9 +563,7 @@ export default function FinancialWellbeingPage() {
                     {s.step}
                   </span>
                 </div>
-                <h3 className="text-2xl font-normal mb-4 leading-tight">
-                  {s.title}
-                </h3>
+                <h3 className="mb-4">{s.title}</h3>
                 <p className="text-[#4A4A4A] leading-relaxed mb-6 text-sm">
                   {s.body}
                 </p>
@@ -601,7 +597,7 @@ export default function FinancialWellbeingPage() {
             <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-8">
               Ready to Partner
             </p>
-            <h2 className="text-white text-5xl md:text-7xl font-normal leading-[1.05] max-w-3xl mb-12">
+            <h2 className="text-white max-w-3xl mb-12">
               Bring financial
               <br />
               wellbeing to

@@ -12,7 +12,7 @@ export function ProblemSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* LEFT: Heading */}
           <Reveal className="text-center md:text-left">
-            <h2 className="font-cirka text-3xl md:text-5xl font-light leading-tight sm:text-4xl">
+            <h2 className="">
               Most people don't need more financial noise. <br />
               They need clarity.
             </h2>
@@ -33,7 +33,7 @@ export function ProblemSection() {
               {/* Simple */}
               <Reveal delay={0.15} amount={0.4}>
                 <div className="text-center md:text-left">
-                  <h3 className="font-cirka text-2xl md:text-3xl font-light mb-3">
+                  <h3 className=" mb-3">
                     Simple
                   </h3>
                   <p className="text-gray-500 leading-relaxed">
@@ -46,7 +46,7 @@ export function ProblemSection() {
               {/* Honest */}
               <Reveal delay={0.2} amount={0.4}>
                 <div className="text-center md:text-left">
-                  <h3 className="font-cirka text-2xl md:text-3xl font-light mb-3">
+                  <h3 className=" mb-3">
                     Honest
                   </h3>
                   <p className="text-gray-500 leading-relaxed">

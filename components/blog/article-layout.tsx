@@ -80,9 +80,7 @@ export default function ArticleLayout({
                 ))}
               </div>
 
-              <h1 className="font-serif font-bold text-3xl leading-[1.2] text-neutral-900 sm:text-5xl">
-                {post.title}
-              </h1>
+              <h1 className="text-neutral-900">{post.title}</h1>
 
               <p className="mt-6 md:text-lg leading-relaxed text-neutral-700">
                 {post.excerpt}
@@ -108,7 +106,7 @@ export default function ArticleLayout({
             {/* MARKDOWN CONTENT */}
             <article
               className="mt-12 prose prose-neutral max-w-none blog-article
-              prose-headings:font-serif prose-headings:text-neutral-900
+              prose-headings:font-heading prose-headings:text-neutral-900
               prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-3
               prose-p:text-neutral-800 prose-p:leading-[1.9] prose-p:text-[1.05rem] prose-p:mb-4
               prose-a:text-[#b07d3d] prose-a:no-underline hover:prose-a:underline
@@ -131,7 +129,7 @@ export default function ArticleLayout({
                     return (
                       <h3
                         id={id}
-                        className="scroll-mt-28 text-xl mt-10 mb-3 font-serif text-neutral-900"
+                        className="scroll-mt-28 mt-10 mb-3 text-neutral-900"
                       >
                         {children}
                       </h3>

@@ -34,10 +34,8 @@ export default function PaymentCancelPage() {
           <div className="mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-red-100">
             <XCircle className="h-12 w-12 text-red-600" />
           </div>
-          
-          <h1 className="font-serif text-3xl text-neutral-900 sm:text-4xl">
-            Payment Cancelled
-          </h1>
+
+          <h1 className="text-neutral-900">Payment Cancelled</h1>
           <p className="mt-2 text-sm text-neutral-600 sm:text-base">
             Your payment was not completed
           </p>
@@ -51,7 +49,8 @@ export default function PaymentCancelPage() {
                 What happened?
               </h2>
               <p className="mt-2 text-sm text-neutral-600">
-                You cancelled the payment process or it was interrupted. No charges were made to your account.
+                You cancelled the payment process or it was interrupted. No
+                charges were made to your account.
               </p>
             </div>
 
@@ -79,7 +78,8 @@ export default function PaymentCancelPage() {
                     Your information is saved
                   </p>
                   <p className="text-xs text-neutral-600">
-                    Your account details are still available if you want to try again
+                    Your account details are still available if you want to try
+                    again
                   </p>
                 </div>
               </div>

@@ -59,9 +59,7 @@ export default function PodcastsPage() {
           transition={{ duration: 0.5 }}
           className="mt-10 mb-12 md:mb-16"
         >
-          <h1 className="">
-            Podcasts
-          </h1>
+          <h1 className="">Podcasts</h1>
           <p className="">
             Expert discussions on markets, behavioural finance, and wealth
             strategies. Watch and learn from experienced practitioners.
@@ -92,7 +90,7 @@ export default function PodcastsPage() {
 
                 {/* Text */}
                 <div className="mt-5">
-                  <h2 className="text-xl font-medium text-gray-900 line-clamp-2">
+                  <h2 className="text-gray-900 line-clamp-2">
                     {podcast.title}
                   </h2>
                   <p className="mt-2 text-gray-600 text-sm leading-relaxed">

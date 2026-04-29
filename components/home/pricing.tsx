@@ -76,7 +76,7 @@ function PriceLine({
       <div className="flex items-baseline gap-2">
         <span
           className={cn(
-            "font-serif text-5xl leading-none",
+            "font-heading text-5xl leading-none",
             isCore ? "text-white" : "text-neutral-900",
           )}
         >
@@ -110,9 +110,7 @@ function FeatureList({
           <span
             className={cn(
               "mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full ring-1",
-              isCore
-                ? "bg-white/10 ring-white/15"
-                : "bg-black/[0.03] ring-black/10",
+              isCore ? "bg-white/10 ring-white/15" : "bg-black/3 ring-black/10",
             )}
           >
             <Check
@@ -189,9 +187,7 @@ export default function EntryPointPricing({
     <>
       <section id={id} className="py-10 sm:py-24">
         <div className="flex flex-col items-center text-center pb-10">
-          <h2 className="mt-10 font-serif font-thin text-2xl text-neutral-900 sm:text-4xl">
-            Celerey Plans
-          </h2>
+          <h2 className="mt-10 text-neutral-900">Celerey Plans</h2>
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-neutral-600">
             Choose a single coaching session for immediate clarity, or choose
             Core for ongoing visibility and structured guidance across the year.
@@ -240,7 +236,7 @@ export default function EntryPointPricing({
                     <div className="text-left">
                       <h3
                         className={cn(
-                          "font-serif text-3xl",
+                          "font-heading text-3xl",
                           isCore ? "text-white" : "text-neutral-900",
                         )}
                       >
@@ -324,7 +320,7 @@ export default function EntryPointPricing({
                           " w-full",
                           isCore
                             ? "bg-white text-neutral-900 hover:bg-white/90"
-                            : "bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/[0.04]",
+                            : "bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/4",
                         )}
                       >
                         {t.ctaLabel}
@@ -367,7 +363,7 @@ export default function EntryPointPricing({
                 BESPOKE ENGAGEMENTS
               </p>
 
-              <h3 className="mt-4 font-serif text-2xl text-neutral-900">
+              <h3 className="mt-4 text-neutral-900">
                 Prefer something more tailored?
               </h3>
 
@@ -379,14 +375,8 @@ export default function EntryPointPricing({
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-4">
-                <a
-                  href="/services"
-                  className=""
-                >
-                  <Button>
-                    Explore bespoke services
-                  </Button>
-            
+                <a href="/services" className="">
+                  <Button>Explore bespoke services</Button>
                 </a>
 
                 <p className="text-xs text-neutral-500">

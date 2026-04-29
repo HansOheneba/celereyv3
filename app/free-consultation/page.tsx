@@ -128,7 +128,7 @@ export default function FreeConsultationPage() {
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className="font-serif font-thin text-4xl sm:text-5xl leading-tight text-neutral-900"
+                className="text-neutral-900"
               >
                 Book a free 15-minute consultation
                 <br />
@@ -161,7 +161,7 @@ export default function FreeConsultationPage() {
               {/* Benefits */}
               <Reveal delay={0.05}>
                 <div>
-                  <h3 className="font-serif font-thin text-2xl text-neutral-900 mb-6">
+                  <h3 className="text-neutral-900 mb-6">
                     Your future, simplified
                   </h3>
 
@@ -206,7 +206,7 @@ export default function FreeConsultationPage() {
 
               {/* Quote */}
               <Reveal delay={0.15}>
-                <p className="font-serif font-thin text-xl text-neutral-800">
+                <p className="text-xl text-neutral-800">
                   Simple. Clear. A good place to start.
                 </p>
               </Reveal>
@@ -217,9 +217,7 @@ export default function FreeConsultationPage() {
                 {state.kind === "success" && (
                   <div className="text-center py-4">
                     <CheckCircle2 className="w-10 h-10 text-green-500 mx-auto mb-4" />
-                    <h2 className="font-serif font-thin text-2xl text-neutral-900 mb-3">
-                      You’re all set
-                    </h2>
+                    <h2 className="text-neutral-900 mb-3">You’re all set</h2>
                     <p className="text-sm leading-7 text-neutral-500">
                       We have sent your booking link. Choose a time that works
                       for you.
@@ -240,7 +238,7 @@ export default function FreeConsultationPage() {
                 {state.kind === "duplicate" && (
                   <div className="text-center py-4">
                     <Clock className="w-10 h-10 text-amber-500 mx-auto mb-4" />
-                    <h2 className="font-serif font-thin text-2xl text-neutral-900 mb-3">
+                    <h2 className="text-neutral-900 mb-3">
                       You have already signed up
                     </h2>
                     <p className="text-sm leading-7 text-neutral-500">
@@ -267,9 +265,7 @@ export default function FreeConsultationPage() {
                       GET STARTED
                     </p>
 
-                    <h2 className="font-serif font-thin text-2xl text-neutral-900 mb-2">
-                      Tell us about you
-                    </h2>
+                    <h2 className="text-neutral-900 mb-2">Tell us about you</h2>
 
                     <p className="text-sm text-neutral-500 mb-6">
                       We will send you a private booking link after this.
@@ -360,9 +356,7 @@ export default function FreeConsultationPage() {
             <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
               WANT MORE?
             </p>
-            <h3 className="mt-4 font-serif font-thin text-2xl text-neutral-900">
-              Ready to go deeper?
-            </h3>
+            <h3 className="mt-4 text-neutral-900">Ready to go deeper?</h3>
             <p className="mt-4 text-sm leading-7 text-neutral-600 max-w-md mx-auto">
               Our full membership gives you ongoing access to expert guidance,
               structured plans, and a team that stays invested in your progress.

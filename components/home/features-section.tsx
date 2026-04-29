@@ -41,9 +41,9 @@ export function FeaturesSection() {
       <div className="mx-auto w-full max-w-360 px-4 py-24 sm:px-6">
         {/* Header */}
         <Reveal className="mb-16 text-center">
-          <h2 className="font-cirka text-3xl md:text-5xl font-light tracking-tight mb-4 text-gray-900 sm:text-4xl">
+          <h1 className=" mb-4">
             What are you trying to do next?
-          </h2>
+          </h1>
           <p className="text-gray-500 text-base">
             Tell us where you are and we&apos;ll point you in the right
             direction.
@@ -109,7 +109,7 @@ export function FeaturesSection() {
             {/* Text + CTAs */}
             <div className="px-1">
               <p className="text-sm text-gray-400 mb-2 tracking-wide">More</p>
-              <h3 className="font-cirka text-3xl md:text-4xl font-light text-gray-900 mb-4 leading-tight">
+              <h3 className="">
                 Get clarity on my next move
               </h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-6">

@@ -26,12 +26,10 @@ export default function ResearchPage() {
           transition={{ duration: 0.5 }}
           className="mt-10 mb-12 md:mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 tracking-tight">
-            Insights
-          </h1>
+          <h1 className="text-gray-900">Insights</h1>
           <p className="mt-4 text-gray-600 max-w-2xl text-base md:text-lg leading-relaxed">
-            In-depth analysis, market outlooks, and strategic frameworks. Download our
-            papers to deepen your understanding.
+            In-depth analysis, market outlooks, and strategic frameworks.
+            Download our papers to deepen your understanding.
           </p>
         </motion.div>
 
@@ -67,9 +65,7 @@ export default function ResearchPage() {
 
                 {/* Text */}
                 <div className="mt-6">
-                  <h2 className="text-xl md:text-2xl font-medium text-gray-900 line-clamp-2">
-                    {paper.title}
-                  </h2>
+                  <h2 className="text-gray-900 line-clamp-2">{paper.title}</h2>
 
                   <p className="mt-2 text-gray-600 leading-relaxed line-clamp-3 max-w-xl">
                     {paper.description}
@@ -119,7 +115,8 @@ export default function ResearchPage() {
           className="mt-14 text-center text-sm text-gray-500"
         >
           <p>
-            All papers are available for download. For institutional inquiries, please{" "}
+            All papers are available for download. For institutional inquiries,
+            please{" "}
             <Link href="/contact" className="text-gray-900 hover:underline">
               contact us
             </Link>

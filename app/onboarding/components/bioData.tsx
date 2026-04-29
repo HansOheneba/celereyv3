@@ -108,7 +108,9 @@ export function PersonalInfoPage() {
     dependents: undefined as number | undefined,
   });
 
-  const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(undefined);
+  const [selectedDate, setSelectedDate] = React.useState<Date | undefined>(
+    undefined,
+  );
   const [datePickerOpen, setDatePickerOpen] = React.useState(false);
 
   // Initialize from store whenever store data changes
@@ -125,7 +127,7 @@ export function PersonalInfoPage() {
       maritalStatus: data.maritalStatus || "",
       dependents: data.dependents,
     });
-    
+
     // Parse date if exists
     if (data.dateOfBirth) {
       setSelectedDate(new Date(data.dateOfBirth));
@@ -140,13 +142,16 @@ export function PersonalInfoPage() {
     setTouched((prev) => ({ ...prev, [field]: true }));
   };
 
-  const handleChange = <K extends keyof typeof formData>(field: K, value: (typeof formData)[K]) => {
+  const handleChange = <K extends keyof typeof formData>(
+    field: K,
+    value: (typeof formData)[K],
+  ) => {
     const updatedFormData = { ...formData, [field]: value };
     setFormData(updatedFormData);
-    
+
     // Immediately sync to store for real-time persistence
     updateData(updatedFormData);
-    
+
     if (errors[field as string]) {
       setErrors((prev) => ({ ...prev, [field as string]: "" }));
     }
@@ -155,17 +160,24 @@ export function PersonalInfoPage() {
   const validate = () => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.firstName?.trim()) newErrors.firstName = "First name is required";
-    if (!formData.lastName?.trim()) newErrors.lastName = "Last name is required";
+    if (!formData.firstName?.trim())
+      newErrors.firstName = "First name is required";
+    if (!formData.lastName?.trim())
+      newErrors.lastName = "Last name is required";
     if (!formData.email?.trim()) newErrors.email = "Email is required";
-    if (formData.email && !/^\S+@\S+\.\S+$/.test(formData.email)) newErrors.email = "Enter a valid email";
+    if (formData.email && !/^\S+@\S+\.\S+$/.test(formData.email))
+      newErrors.email = "Enter a valid email";
     if (!formData.phone?.trim()) newErrors.phone = "Phone number is required";
     if (!formData.timeZone?.trim()) newErrors.timeZone = "Location is required";
-    if (!formData.dateOfBirth) newErrors.dateOfBirth = "Date of birth is required";
-    if (!formData.citizenship?.trim()) newErrors.citizenship = "Citizenship is required";
+    if (!formData.dateOfBirth)
+      newErrors.dateOfBirth = "Date of birth is required";
+    if (!formData.citizenship?.trim())
+      newErrors.citizenship = "Citizenship is required";
     if (!formData.gender) newErrors.gender = "Gender is required";
-    if (!formData.maritalStatus) newErrors.maritalStatus = "Marital status is required";
-    if (formData.dependents === undefined) newErrors.dependents = "Number of dependents is required";
+    if (!formData.maritalStatus)
+      newErrors.maritalStatus = "Marital status is required";
+    if (formData.dependents === undefined)
+      newErrors.dependents = "Number of dependents is required";
     if (!data.agree) newErrors.agree = "You must agree to continue";
 
     return newErrors;
@@ -198,10 +210,10 @@ export function PersonalInfoPage() {
 
     completeStep(1);
     setStep(2);
-    
+
     // Log the entire store data
     console.log("Onboarding Store Data (Step 1 → Step 2):", data);
-    
+
     router.push("/onboarding?step=2");
   };
 
@@ -215,9 +227,7 @@ export function PersonalInfoPage() {
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:py-8">
       <div className="mb-5">
-        <h1 className="font-serif text-2xl text-neutral-900 sm:text-3xl">
-          Personal Information
-        </h1>
+        <h1 className="text-neutral-900">Personal Information</h1>
         <p className="mt-1 text-sm text-neutral-600">
           Basic details to get started.
         </p>
@@ -237,7 +247,10 @@ export function PersonalInfoPage() {
                 onBlur={() => markTouched("firstName")}
                 className="h-10 rounded-xl border-black/10 bg-white"
               />
-              <FieldError show={Boolean(touched.firstName)} message={errors.firstName} />
+              <FieldError
+                show={Boolean(touched.firstName)}
+                message={errors.firstName}
+              />
             </div>
 
             <div className="space-y-1.5">
@@ -251,7 +264,10 @@ export function PersonalInfoPage() {
                 onBlur={() => markTouched("lastName")}
                 className="h-10 rounded-xl border-black/10 bg-white"
               />
-              <FieldError show={Boolean(touched.lastName)} message={errors.lastName} />
+              <FieldError
+                show={Boolean(touched.lastName)}
+                message={errors.lastName}
+              />
             </div>
           </div>
 
@@ -268,7 +284,10 @@ export function PersonalInfoPage() {
                 onBlur={() => markTouched("email")}
                 className="h-10 rounded-xl border-black/10 bg-white"
               />
-              <FieldError show={Boolean(touched.email)} message={errors.email} />
+              <FieldError
+                show={Boolean(touched.email)}
+                message={errors.email}
+              />
             </div>
 
             <div className="space-y-1.5">
@@ -282,7 +301,10 @@ export function PersonalInfoPage() {
                 onBlur={() => markTouched("phone")}
                 className="h-10 rounded-xl border-black/10 bg-white"
               />
-              <FieldError show={Boolean(touched.phone)} message={errors.phone} />
+              <FieldError
+                show={Boolean(touched.phone)}
+                message={errors.phone}
+              />
             </div>
           </div>
 
@@ -303,7 +325,10 @@ export function PersonalInfoPage() {
               />
             </div>
 
-            <FieldError show={Boolean(touched.timeZone)} message={errors.timeZone} />
+            <FieldError
+              show={Boolean(touched.timeZone)}
+              message={errors.timeZone}
+            />
             <p className="text-xs text-neutral-500">
               Used for scheduling sessions.
             </p>
@@ -319,15 +344,22 @@ export function PersonalInfoPage() {
                     variant="outline"
                     className={cn(
                       "h-10 w-full justify-start text-left font-normal rounded-xl border-black/10 bg-white px-3",
-                      !selectedDate && "text-muted-foreground"
+                      !selectedDate && "text-muted-foreground",
                     )}
                     onBlur={() => markTouched("dateOfBirth")}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
-                    {selectedDate ? format(selectedDate, "PPP") : <span>Pick a date</span>}
+                    {selectedDate ? (
+                      format(selectedDate, "PPP")
+                    ) : (
+                      <span>Pick a date</span>
+                    )}
                   </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+                <PopoverContent
+                  className="w-auto overflow-hidden p-0"
+                  align="start"
+                >
                   <Calendar
                     mode="single"
                     selected={selectedDate}
@@ -342,7 +374,10 @@ export function PersonalInfoPage() {
                   />
                 </PopoverContent>
               </Popover>
-              <FieldError show={Boolean(touched.dateOfBirth)} message={errors.dateOfBirth} />
+              <FieldError
+                show={Boolean(touched.dateOfBirth)}
+                message={errors.dateOfBirth}
+              />
             </div>
 
             <div className="space-y-1.5">
@@ -357,12 +392,18 @@ export function PersonalInfoPage() {
                 placeholder="e.g., Ghanaian"
                 className="h-10 w-full rounded-xl border-black/10 bg-white"
               />
-              <FieldError show={Boolean(touched.citizenship)} message={errors.citizenship} />
+              <FieldError
+                show={Boolean(touched.citizenship)}
+                message={errors.citizenship}
+              />
             </div>
 
             <div className="space-y-1.5">
               <Label className="text-sm text-neutral-700">Gender</Label>
-              <Select value={formData.gender || ""} onValueChange={(v) => handleChange("gender", v)}>
+              <Select
+                value={formData.gender || ""}
+                onValueChange={(v) => handleChange("gender", v)}
+              >
                 <SelectTrigger
                   onBlur={() => markTouched("gender")}
                   className="h-10 w-full rounded-xl border-black/10 bg-white"
@@ -377,7 +418,10 @@ export function PersonalInfoPage() {
                   ))}
                 </SelectContent>
               </Select>
-              <FieldError show={Boolean(touched.gender)} message={errors.gender} />
+              <FieldError
+                show={Boolean(touched.gender)}
+                message={errors.gender}
+              />
             </div>
 
             <div className="space-y-1.5">
@@ -400,7 +444,10 @@ export function PersonalInfoPage() {
                   ))}
                 </SelectContent>
               </Select>
-              <FieldError show={Boolean(touched.maritalStatus)} message={errors.maritalStatus} />
+              <FieldError
+                show={Boolean(touched.maritalStatus)}
+                message={errors.maritalStatus}
+              />
             </div>
 
             <div className="space-y-1.5 sm:col-span-2">
@@ -424,8 +471,13 @@ export function PersonalInfoPage() {
                 </SelectContent>
               </Select>
 
-              <FieldError show={Boolean(touched.dependents)} message={errors.dependents} />
-              <p className="text-xs text-neutral-500">Anyone who relies on you financially.</p>
+              <FieldError
+                show={Boolean(touched.dependents)}
+                message={errors.dependents}
+              />
+              <p className="text-xs text-neutral-500">
+                Anyone who relies on you financially.
+              </p>
             </div>
           </div>
         </Card>

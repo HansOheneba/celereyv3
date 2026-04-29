@@ -418,9 +418,7 @@ export default function WealthScanPage() {
                 style={{ backgroundColor: FOOTER_BLUE }}
                 className="px-6 py-5"
               >
-                <h3 className="text-white text-lg font-semibold">
-                  Save your results
-                </h3>
+                <h3 className="text-white">Save your results</h3>
                 <p className="text-white/70 text-sm mt-1">
                   Enter your email to view your full report.
                 </p>
@@ -478,7 +476,7 @@ export default function WealthScanPage() {
 
             {/* CONTENT */}
             <div>
-              <h1 className="text-4xl md:text-6xl font-light leading-tight mb-6">
+              <h1 className="mb-6">
                 Understand your financial health in minutes
               </h1>
 
@@ -493,12 +491,8 @@ export default function WealthScanPage() {
                 <p>• Get clear next steps</p>
               </div>
 
-              <Button
-                onClick={handleStart}
-                disabled={isStarting}
-                className="h-12 px-10"
-              >
-                {isStarting ? "Starting..." : "Start assessment"}
+              <Button onClick={handleStart} disabled={isStarting} className="">
+                {isStarting ? "Starting..." : "Start check"}
               </Button>
             </div>
           </div>
@@ -524,7 +518,7 @@ export default function WealthScanPage() {
               animate={{ opacity: 1, y: 0 }}
               className="mb-10"
             >
-              <h2 className="text-2xl md:text-3xl font-semibold text-center max-w-3xl mx-auto">
+              <h2 className="text-center max-w-3xl mx-auto">
                 {current.question}
               </h2>
             </motion.div>

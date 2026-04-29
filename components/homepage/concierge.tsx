@@ -100,9 +100,7 @@ export default function AlaCarteServices() {
       <div className="mx-auto max-w-6xl px-6">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-5xl text-neutral-900 leading-[1.05]">
-            Specialist Engagements
-          </h2>
+          <h2 className="text-neutral-900">Specialist Engagements</h2>
 
           <p className="mt-4 text-sm tracking-wide text-neutral-500">
             One-Off Advisory
@@ -129,13 +127,11 @@ export default function AlaCarteServices() {
                 {/* Left content */}
                 <div>
                   <div className="flex items-center gap-4">
-                    <span className="font-serif text-2xl text-[#b07d3d]">
+                    <span className="font-heading text-2xl text-[#b07d3d]">
                       {service.number}
                     </span>
 
-                    <h3 className="font-serif text-2xl text-neutral-900">
-                      {service.title}
-                    </h3>
+                    <h3 className="text-neutral-900">{service.title}</h3>
                   </div>
 
                   <p className="mt-4 text-neutral-600 leading-7">

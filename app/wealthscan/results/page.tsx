@@ -253,9 +253,7 @@ export default function WealthScanResultsPage() {
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-light leading-tight mb-4">
-              {results.category.label}
-            </h1>
+            <h1 className="mb-4">{results.category.label}</h1>
 
             <p
               className="text-base text-muted-foreground leading-relaxed mb-8"
@@ -304,9 +302,7 @@ export default function WealthScanResultsPage() {
             <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
               01 &nbsp; SUMMARY
             </p>
-            <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 leading-tight mb-6">
-              What your answers reveal
-            </h2>
+            <h2 className="text-neutral-900 mb-6">What your answers reveal</h2>
 
             <div className="rounded-2xl bg-[#D7EDFF] p-6 mb-6">
               <p
@@ -412,9 +408,7 @@ export default function WealthScanResultsPage() {
             <div className="rounded-2xl bg-white border border-black/5 p-6">
               <div className="flex items-center gap-2 mb-3">
                 <CheckCircle2 className="h-4 w-4 text-[#354A49]" />
-                <h4 className="text-sm font-semibold text-neutral-900">
-                  Your strongest areas
-                </h4>
+                <h4 className="text-neutral-900">Your strongest areas</h4>
               </div>
               <ul className="space-y-2">
                 {results.topPillars.map((p) => (
@@ -432,9 +426,7 @@ export default function WealthScanResultsPage() {
             <div className="rounded-2xl bg-white border border-black/5 p-6">
               <div className="flex items-center gap-2 mb-3">
                 <AlertTriangle className="h-4 w-4 text-amber-600" />
-                <h4 className="text-sm font-semibold text-neutral-900">
-                  Areas creating friction
-                </h4>
+                <h4 className="text-neutral-900">Areas creating friction</h4>
               </div>
               <ul className="space-y-2">
                 {results.bottomPillars.length > 0 ? (
@@ -472,9 +464,7 @@ export default function WealthScanResultsPage() {
           <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
             02 &nbsp; BREAKDOWN
           </p>
-          <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-2">
-            Your six-area snapshot
-          </h2>
+          <h2 className="text-neutral-900 mb-2">Your six-area snapshot</h2>
           <p className="text-neutral-700 text-base mb-8 max-w-2xl">
             Higher scores tend to feel calmer and more predictable. Lower scores
             often show up as friction, stress, or inconsistency in daily
@@ -561,7 +551,7 @@ export default function WealthScanResultsPage() {
               <p className="text-[10px] tracking-[0.26em] text-white/50 mb-6">
                 03 &nbsp; PERSPECTIVE
               </p>
-              <p className="font-cirka text-2xl sm:text-3xl text-white leading-snug">
+              <p className="text-2xl sm:text-3xl text-white">
                 The goal is not a perfect score.
                 <br />
                 It is knowing which lever to pull next.
@@ -584,9 +574,7 @@ export default function WealthScanResultsPage() {
           <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
             04 &nbsp; DETAILED FINDINGS
           </p>
-          <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-3">
-            What each area suggests
-          </h2>
+          <h2 className="text-neutral-900 mb-3">What each area suggests</h2>
           <p className="text-neutral-700 text-base max-w-2xl">
             These are interpretations of your answers. Read each one carefully
             and ask yourself: does this land?
@@ -610,9 +598,7 @@ export default function WealthScanResultsPage() {
                 style={{ backgroundColor: badge.bg }}
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
-                  <h4 className="font-semibold text-neutral-900 text-base leading-snug">
-                    {pillar}
-                  </h4>
+                  <h4 className="text-neutral-900">{pillar}</h4>
                   <span
                     className="shrink-0 text-xs px-2.5 py-1 rounded-full font-medium bg-white"
                     style={{ color: badge.text }}
@@ -659,9 +645,7 @@ export default function WealthScanResultsPage() {
             <p className="text-[10px] tracking-[0.26em] text-white/35 mb-4">
               05 &nbsp; RECOMMENDATIONS
             </p>
-            <h2 className="font-cirka text-3xl sm:text-4xl text-white mb-8">
-              Where to focus next
-            </h2>
+            <h2 className="text-white mb-8">Where to focus next</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {results.recommendations.map((rec, i) => (
@@ -682,7 +666,6 @@ export default function WealthScanResultsPage() {
 
       {/* CTA */}
       <div className="relative w-full overflow-hidden px-6 sm:px-12 lg:px-20 py-20 sm:py-24 rounded-3xl mb-20">
-      
         <div className="absolute inset-0 bg-white" />
 
         <div className="relative mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -692,10 +675,8 @@ export default function WealthScanResultsPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.26em] mb-5">
-              NEXT STEP
-            </p>
-            <h2 className="font-cirka text-3xl sm:text-4xl lg:text-5xl leading-tight mb-5">
+            <p className="text-[10px] tracking-[0.26em] mb-5">NEXT STEP</p>
+            <h2 className="mb-5">
               Spend 15 minutes with someone who can help you interpret your
               results.
             </h2>
@@ -722,7 +703,6 @@ export default function WealthScanResultsPage() {
             <Button
               variant="outline"
               onClick={() => router.push("/wealthscan")}
-            
             >
               Retake the assessment
             </Button>

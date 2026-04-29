@@ -131,7 +131,7 @@ export default function Community() {
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-6 font-serif text-3xl sm:text-5xl md:text-6xl text-neutral-900"
+          className="mt-6 text-neutral-900"
         >
           <span className="block">Build wealth with</span>
           <span className="block italic">confidence and intention</span>
@@ -208,9 +208,7 @@ export default function Community() {
         <DialogContent className="sm:max-w-md w-[92vw] rounded-xl">
           <DialogHeader>
             <DialogTitle>Your email has been saved!</DialogTitle>
-            <DialogDescription>
-              What should we call you?
-            </DialogDescription>
+            <DialogDescription>What should we call you?</DialogDescription>
           </DialogHeader>
 
           <form onSubmit={handleNameSubmit}>

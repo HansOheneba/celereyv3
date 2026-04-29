@@ -24,7 +24,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.05 }}
-            className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-[1.25] text-neutral-900 sm:text-4xl sm:leading-[1.25] font-thin"
+            className="mx-auto mt-5 "
           >
             At Celerey, we believe wealth is not just about money, it is about
             clarity, control, and confidence at every stage of your journey.
@@ -76,7 +76,6 @@ export default function PricingPage() {
       </motion.div>
 
       {/* Bespoke Services Cross-Link */}
-     
 
       <div className="h-12 sm:h-16" />
     </main>

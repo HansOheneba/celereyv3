@@ -105,11 +105,11 @@ h6 {
     @apply bg-background text-foreground;
   }
    h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight;
+    @apply text-4xl md:text-5xl font-light leading-[1.05] tracking-tight;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.08] tracking-tight;
+    @apply text-3xl md:text-4xl  font-light leading-[1.08] tracking-tight;
   }
 
   h3 {

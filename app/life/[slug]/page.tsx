@@ -80,13 +80,9 @@ export default async function LifeSituationPage({ params }: PageProps) {
               Life Situation
             </p>
 
-            <h1 className="mt-6 font-serif font-thin text-4xl sm:text-5xl lg:text-6xl leading-[1.15] text-neutral-900">
-              {situation.title}
-            </h1>
+            <h1 className="mt-6 text-neutral-900">{situation.title}</h1>
 
-            <p className="mt-4 font-serif text-xl text-neutral-500">
-              {situation.tagline}
-            </p>
+            <p className="mt-4 text-xl text-neutral-500">{situation.tagline}</p>
 
             <p className="mt-6 text-base leading-relaxed text-neutral-600">
               {situation.description}
@@ -122,7 +118,7 @@ export default async function LifeSituationPage({ params }: PageProps) {
             <p className="text-[11px] tracking-[0.26em] text-[#b07d3d] uppercase">
               Questions
             </p>
-            <h2 className="mt-4 font-serif text-3xl text-neutral-900">
+            <h2 className="mt-4 text-neutral-900">
               Frequently asked questions
             </h2>
             <p className="mt-4 text-sm text-neutral-500">
@@ -161,7 +157,7 @@ export default async function LifeSituationPage({ params }: PageProps) {
               <p className="text-[11px] tracking-[0.26em] text-[#b07d3d] uppercase">
                 Related Reading
               </p>
-              <h2 className="mt-3 font-serif text-3xl text-neutral-900">
+              <h2 className="mt-3 text-neutral-900">
                 Insights on {situation.title}
               </h2>
             </div>
@@ -202,9 +198,7 @@ export default async function LifeSituationPage({ params }: PageProps) {
                     ))}
                   </div>
 
-                  <h3 className="font-serif text-lg text-neutral-900 leading-snug">
-                    {ins.title}
-                  </h3>
+                  <h3 className="text-neutral-900">{ins.title}</h3>
 
                   <p className="mt-2 text-sm text-neutral-500 line-clamp-2">
                     {ins.excerpt}

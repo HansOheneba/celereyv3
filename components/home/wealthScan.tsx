@@ -24,9 +24,7 @@ export default function WealthScan() {
 
         {/* CONTENT (RIGHT) */}
         <Reveal className="">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight mb-6">
-            Not sure where to start with your finances?
-          </h2>
+          <h2 className="mb-6">Not sure where to start with your finances?</h2>
 
           <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-8">
             A short self check-in that helps you understand where you stand

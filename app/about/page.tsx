@@ -34,7 +34,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.04 }}
-            className="mt-8 font-serif font-thin text-4xl leading-[1.22] text-neutral-900 sm:text-5xl sm:leading-[1.22]"
+            className="mt-8 text-neutral-900"
           >
             Building the infrastructure that allows individuals everywhere to
             make better financial decisions and build enduring wealth.
@@ -101,9 +101,7 @@ export default function AboutPage() {
             transition={{ duration: 0.65, ease: "easeOut" }}
             className="lg:col-span-7"
           >
-            <h2 className="font-serif text-2xl text-neutral-900">
-              A quieter way to manage wealth
-            </h2>
+            <h2 className="text-neutral-900"></h2>
 
             <div className="mt-6 space-y-5">
               <p className="text-sm leading-7 text-neutral-700 sm:text-base">
@@ -184,9 +182,7 @@ export default function AboutPage() {
                   <div className="flex items-start gap-4">
                     <span className="mt-2 h-2 w-2 rounded-full bg-primary/25 ring-2 ring-[#b07d3d]/35" />
                     <div>
-                      <p className="font-serif text-lg text-neutral-900">
-                        {p.title}
-                      </p>
+                      <p className="text-lg text-neutral-900">{p.title}</p>
                       <p className="mt-2 text-sm leading-7 text-neutral-600">
                         {p.desc}
                       </p>
@@ -215,9 +211,7 @@ export default function AboutPage() {
             className="border-t border-black/10 pt-12"
           >
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <h2 className="font-serif text-2xl text-neutral-900">
-                Internationally informed, locally grounded
-              </h2>
+              <h2 className="text-neutral-900"></h2>
 
               <p className="text-xs tracking-[0.22em] text-neutral-500">
                 GOVERNANCE-FIRST ADVISORY
@@ -245,7 +239,7 @@ export default function AboutPage() {
 
         {/* Bottom note */}
         <div className="mx-auto mt-16 max-w-5xl text-center">
-          <p className="font-serif font-thin text-2xl leading-[1.4] text-neutral-900 sm:text-3xl">
+          <p className="text-2xl text-neutral-900 sm:text-3xl">
             Wealth should feel steady.
             <br className="hidden sm:block" />
             Your decisions should feel considered.

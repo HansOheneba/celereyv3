@@ -151,7 +151,7 @@ export default function BookSessionPage() {
         <div className="mb-8 rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <h1 className="mt-4 font-serif text-3xl text-neutral-900 sm:text-4xl">
+              <h1 className="mt-4 text-neutral-900">
                 Schedule your advisory session
               </h1>
 

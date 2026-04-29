@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Instagram, Linkedin } from "lucide-react";
@@ -22,7 +23,7 @@ export default function ComingSoonPage() {
       label: "LinkedIn",
       icon: <Linkedin className="h-4 w-4" />,
     },
-  
+
     {
       href: "https://www.instagram.com/celerey.co/",
       label: "Instagram",
@@ -45,12 +46,13 @@ export default function ComingSoonPage() {
       <div className="mx-auto w-full max-w-7xl px-6 py-16">
         <div className="grid gap-10 lg:grid-cols-[1fr_520px] lg:items-center">
           {/* Left: copy + form */}
-          <section className="max-w-2xl">
-           
-
-            <h1 className="mt-3 text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl">
-              Coming Soon
-            </h1>
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-2xl"
+          >
+            <h1 className="mt-3 text-neutral-900">Coming Soon</h1>
 
             <p className="mt-5 text-base leading-7 text-neutral-700 sm:text-lg">
               We are redesigning the Celerey dashboard to make it clearer,
@@ -65,7 +67,7 @@ export default function ComingSoonPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@company.com"
                   type="email"
-                  className="h-11 sm:w-[340px]"
+                  className="h-11 sm:w-85"
                   aria-label="Email address"
                 />
                 <Button type="submit" className="h-11 px-6">
@@ -102,9 +104,14 @@ export default function ComingSoonPage() {
                 View pricing
               </Link>
             </div>
-          </section>
+          </motion.section>
 
-          <aside className="relative overflow-hidden rounded-[28px] border border-black/5 shadow-[0_28px_90px_rgba(0,0,0,0.14)]">
+          <motion.aside
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, ease: "easeOut", delay: 0.15 }}
+            className="relative overflow-hidden rounded-[28px] border border-black/5 shadow-[0_28px_90px_rgba(0,0,0,0.14)]"
+          >
             {/* Deep navy-purple gradient */}
             <div className="absolute inset-0 bg-[linear-gradient(135deg,#070A1E_0%,#141046_42%,#2A1B6D_74%,#3A2BAA_100%)]" />
 
@@ -114,14 +121,14 @@ export default function ComingSoonPage() {
             <div className="pointer-events-none absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_55%_90%,rgba(168,85,247,0.16),transparent_55%)]" />
 
             {/* Minimal content */}
-            <div className="relative flex min-h-[420px] flex-col items-center justify-center px-10 py-14 text-center text-white sm:min-h-[520px]">
+            <div className="relative flex min-h-105 flex-col items-center justify-center px-10 py-14 text-center text-white sm:min-h-130">
               {/* Thin top “status” line */}
               <p className="text-xs uppercase tracking-[0.28em] text-white/65">
                 Dashboard redesign in progress
               </p>
 
               {/* Headline */}
-              <h2 className="mt-6 text-2xl font-semibold tracking-tight sm:text-3xl">
+              <h2 className="mt-6">
                 We are building a cleaner dashboard experience
               </h2>
 
@@ -159,7 +166,7 @@ export default function ComingSoonPage() {
               {/* Subtle bottom fade */}
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_top,rgba(0,0,0,0.20),transparent)]" />
             </div>
-          </aside>
+          </motion.aside>
         </div>
       </div>
     </main>

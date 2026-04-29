@@ -101,7 +101,7 @@ export default function ToolsPage() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.05 }}
-            className="mx-auto mt-5 max-w-3xl font-serif text-3xl leading-tight text-neutral-900 sm:text-4xl sm:leading-tight font-thin"
+            className="mx-auto mt-5 max-w-3xl text-neutral-900"
           >
             Instruments built for your financial clarity.
           </motion.h1>
@@ -169,7 +169,7 @@ export default function ToolsPage() {
               <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-6">
                 Why These Tools Exist
               </p>
-              <h2 className="text-4xl md:text-5xl font-normal leading-tight">
+              <h2 className="">
                 Most financial tools
                 <br />
                 <span className="italic">overwhelm. Ours clarify.</span>
@@ -212,13 +212,10 @@ export default function ToolsPage() {
                 className={`grid md:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
               >
                 <div>
-                
                   <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-3">
                     {t.tagline}
                   </p>
-                  <h3 className="text-4xl md:text-5xl font-normal leading-tight mb-6">
-                    {t.name}
-                  </h3>
+                  <h3 className="mb-6">{t.name}</h3>
                   <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-md mb-10">
                     {t.body}
                   </p>
@@ -251,7 +248,7 @@ export default function ToolsPage() {
                   Go Deeper
                 </p>
 
-                <h2 className="text-white text-3xl md:text-4xl lg:text-5xl leading-tight mb-4">
+                <h2 className="text-white mb-4">
                   Tools are a starting point.{" "}
                   <span className="italic text-[#C9E8D5]">
                     Advisors finish the job.

@@ -101,9 +101,7 @@ export default function ContactPage() {
             <p className="text-sm tracking-widest uppercase text-[#D4AF37] mb-3">
               Get in Touch
             </p>
-            <h1 className="font-cirka text-4xl md:text-5xl font-light text-primary leading-tight">
-              Let&apos;s start a conversation
-            </h1>
+            <h1 className="text-primary">Let&apos;s start a conversation</h1>
             <p className="mt-5 text-gray-500 max-w-lg mx-auto leading-relaxed">
               Whether you&apos;re exploring Celerey for the first time or ready
               to take the next step, our team is here to help.
@@ -126,7 +124,7 @@ export default function ContactPage() {
 
               {/* Text at bottom */}
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h4 className=" text-2xl md:text-3xl font-light leading-snug">
+                <h4 className="">
                   &ldquo;The right conversation
                   <br />
                   changes everything.&rdquo;
@@ -151,9 +149,7 @@ export default function ContactPage() {
 
             {/* Right — form card */}
             <Reveal className="bg-white rounded-3xl p-8 md:p-10 border border-stone-100 shadow-sm">
-              <h2 className="font-cirka text-2xl md:text-3xl font-light text-primary mb-2">
-                Send us a message
-              </h2>
+              <h2 className="text-primary mb-2">Send us a message</h2>
               <p className="text-gray-500 text-sm mb-8 leading-relaxed">
                 Fill in the form and we&apos;ll respond as soon as possible
                 typically within one business day.
@@ -287,7 +283,7 @@ export default function ContactPage() {
         <p className="text-sm tracking-widest uppercase text-[#D4AF37] mb-4">
           Together
         </p>
-        <h2 className="font-cirka text-3xl md:text-4xl font-light text-primary leading-tight mb-4">
+        <h2 className="text-primary mb-4">
           Let&apos;s build your financial future
         </h2>
         <p className="text-gray-500 leading-relaxed max-w-xl mx-auto">

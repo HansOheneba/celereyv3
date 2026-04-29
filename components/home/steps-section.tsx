@@ -40,9 +40,7 @@ export function StepsSection() {
         {/* Header */}
         <Reveal className="mb-16 text-center">
           <p className=" text-sm tracking-wide mb-3">Our Process</p>
-          <h2 className="font-cirka text-3xl font-light mb-4 text-gray-900 sm:text-4xl md:text-5xl">
-            How Celerey Helps
-          </h2>
+          <h2 className="mb-4 text-gray-900">How Celerey Helps</h2>
           <p className=" text-base max-w-2xl mx-auto">
             We walk you through four clear steps. Each one builds on the last,
             moving you from confusion to confidence.
@@ -68,9 +66,7 @@ export function StepsSection() {
               className="border-0 shadow-none bg-transparent p-0 max-w-md mx-auto"
             >
               <div className="p-0 flex flex-col justify-start">
-                <h1 className="text-primary text-3xl mb-3 font-thin ">
-                  {step.step}
-                </h1>
+                <h1 className="text-primary mb-3">{step.step}</h1>
                 <p className=" text-xl md:text-2xl font-semibold text-gray-900 mb-3">
                   {step.title}
                 </p>
@@ -92,7 +88,7 @@ export function StepsSection() {
               Book free session
             </Button>
           </Link>
-        <Link href="/resources/stories">
+          <Link href="/resources/stories">
             <Button variant="outline" className="w-full sm:w-auto">
               Read stories
             </Button>

@@ -78,14 +78,14 @@ export default function WebinarPage() {
       }
 
       setSubmitMessage(
-        "Successfully registered! Check your email for confirmation."
+        "Successfully registered! Check your email for confirmation.",
       );
       setEmail("");
     } catch (err) {
       setSubmitMessage(
         err instanceof Error
           ? err.message
-          : "Registration failed. Please try again."
+          : "Registration failed. Please try again.",
       );
     } finally {
       setIsSubmitting(false);
@@ -124,9 +124,7 @@ export default function WebinarPage() {
         <p className="uppercase tracking-wide text-sm text-[#6B5DCC] mb-2">
           Celerey Webinar Series
         </p>
-        <h1 className="text-4xl md:text-5xl font-semibold mb-3">
-          {webinarData.title}
-        </h1>
+        <h1 className="mb-3">{webinarData.title}</h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
           {webinarData.subtitle}
         </p>
@@ -154,7 +152,7 @@ export default function WebinarPage() {
                   e.currentTarget.src = "/placeholder-avatar.png";
                 }}
               />
-              <h3 className="text-lg font-semibold">{speaker.name}</h3>
+              <h3 className="">{speaker.name}</h3>
               <p className="text-gray-500">{speaker.title}</p>
             </motion.div>
           ))}
@@ -171,7 +169,7 @@ export default function WebinarPage() {
         {/* Expectations */}
         <div className="grid md:grid-cols-2 gap-8 text-left max-w-5xl mx-auto mb-20">
           <div>
-            <h4 className="text-xl font-semibold mb-3">What to expect:</h4>
+            <h4 className="mb-3">What to expect:</h4>
             <ul className="space-y-2 text-gray-700">
               {webinarData.expectations.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
@@ -183,7 +181,7 @@ export default function WebinarPage() {
           </div>
 
           <div>
-            <h4 className="text-xl font-semibold mb-3">Who should attend:</h4>
+            <h4 className="mb-3">Who should attend:</h4>
             <ul className="space-y-2 text-gray-700">
               {webinarData.attendees.map((item, idx) => (
                 <li key={idx} className="flex items-start gap-2">
@@ -196,9 +194,7 @@ export default function WebinarPage() {
         </div>
 
         <div className="bg-primary text-white py-16 px-6 rounded-3xl text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4">
-            Reserve your spot now
-          </h2>
+          <h2 className="mb-4">Reserve your spot now</h2>
           <p className="text-gray-300 mb-10 max-w-2xl mx-auto">
             Add your email to receive your invitation link and event details.
             <span className="block text-[#D4AF37] font-medium mt-1">

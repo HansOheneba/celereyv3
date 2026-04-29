@@ -225,7 +225,7 @@ export function BeginJourneyModal({
             {step === "form" ? (
               <>
                 <DialogHeader className="text-left">
-                  <DialogTitle className="font-serif text-3xl text-neutral-900 sm:text-4xl">
+                  <DialogTitle className="text-neutral-900">
                     Begin Your Journey
                   </DialogTitle>
                   <p className="mt-2 text-sm text-neutral-600 sm:text-base">
@@ -414,9 +414,7 @@ export function BeginJourneyModal({
                     <MailCheck className="h-7 w-7 text-neutral-900" />
                   </div>
 
-                  <h3 className="mt-6 font-serif text-3xl text-neutral-900 sm:text-4xl">
-                    Redirecting...
-                  </h3>
+                  <h3 className="mt-6 text-neutral-900">Redirecting...</h3>
 
                   <p className="mt-3 text-sm leading-relaxed text-neutral-600 sm:text-base">
                     Taking you to the next step of your journey.

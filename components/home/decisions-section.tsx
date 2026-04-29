@@ -31,9 +31,7 @@ export function DecisionsSection() {
           <p className="text-sm text-muted-foreground mb-2 font-semibold tracking-wide">
             Moments
           </p>
-          <h2 className="text-3xl font-light mb-4 leading-tight sm:text-4xl md:text-5xl">
-            Real decisions we help with
-          </h2>
+          <h2 className="mb-4">Real decisions we help with</h2>
           <p className="text-base text-muted-foreground sm:text-lg">
             These are the conversations that shape lives.
           </p>
@@ -57,9 +55,7 @@ export function DecisionsSection() {
 
             <div className="p-5">
               <p className="text-black text-sm font-semibold mb-2">Shift</p>
-              <h3 className="font-cirka text-3xl font-bold text-gray-900 mb-4">
-                Thinking beyond salary
-              </h3>
+              <h3 className="text-gray-900 mb-4">Thinking beyond salary</h3>
               <p className=" leading-relaxed mb-6">
                 You&apos;re wondering if there&apos;s a better way to structure
                 your income and build security.
@@ -91,7 +87,7 @@ export function DecisionsSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Card 1 */}
               <Reveal className="bg-white rounded-2xl p-6" delay={0.08}>
-                <h3 className="font-cirka font-bold text-xl text-gray-900 mb-3">
+                <h3 className="text-gray-900 mb-3">
                   Building wealth intentionally
                 </h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">
@@ -109,9 +105,7 @@ export function DecisionsSection() {
 
               {/* Card 2 */}
               <Reveal className="bg-white rounded-2xl p-6" delay={0.12}>
-                <h3 className="font-cirka text-xl font-bold text-gray-900 mb-3">
-                  Preparing for family
-                </h3>
+                <h3 className="text-gray-900 mb-3">Preparing for family</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">
                   A child is coming and you want to get your finances right
                   before everything changes.
@@ -146,9 +140,7 @@ export function DecisionsSection() {
                 delay={0.14}
               >
                 <p className="font-semibold">Life</p>
-                <h3 className="font-cirka text-xl font-bold text-gray-900 mb-3">
-                  Planning for property
-                </h3>
+                <h3 className="text-gray-900 mb-3">Planning for property</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">
                   You&apos;re ready to buy but unsure about timing and what you
                   can actually afford.

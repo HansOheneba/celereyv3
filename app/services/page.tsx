@@ -23,7 +23,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
-            className="mt-10 font-serif font-thin text-4xl leading-[1.3] text-neutral-900 sm:text-5xl sm:leading-[1.3]"
+            className="mt-10 text-neutral-900"
           >
             True wealth is not built in moments of urgency,
             <br className="hidden sm:block" />

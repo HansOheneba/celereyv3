@@ -314,9 +314,7 @@ function InlineInquiryForm({ service }: { service: ServiceData }) {
         className="rounded-[22px] border border-black/10 bg-white px-8 py-12 text-center"
       >
         <p className="text-xs tracking-[0.22em] text-[#b07d3d]">RECEIVED</p>
-        <h3 className="mt-4 font-serif text-2xl text-neutral-900">
-          We will be in touch shortly.
-        </h3>
+        <h3 className="mt-4 text-neutral-900">We will be in touch shortly.</h3>
         <p className="mt-4 text-sm leading-7 text-neutral-500 max-w-md mx-auto">
           Your inquiry has been received. A member of our advisory team will
           reach out to confirm scope and next steps, typically within one
@@ -583,7 +581,7 @@ export default function ServiceDetailPage() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.06 }}
-          className="mt-8 font-serif font-thin text-4xl leading-tight text-neutral-900 sm:text-5xl md:text-6xl md:leading-tight max-w-4xl"
+          className="mt-8 text-neutral-900 max-w-4xl"
         >
           {service.tagline}
         </motion.h1>
@@ -697,12 +695,10 @@ export default function ServiceDetailPage() {
               transition={{ duration: 0.5, delay: i * 0.07 }}
               className="rounded-2xl border border-black/8 bg-white p-6"
             >
-              <span className="font-serif text-lg text-[#b07d3d]">
+              <span className="font-heading text-lg text-[#b07d3d]">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 font-medium text-neutral-900 text-sm leading-5">
-                {item.label}
-              </h3>
+              <h3 className="mt-3 text-neutral-900">{item.label}</h3>
               <p className="mt-2 text-sm text-neutral-700 leading-6">
                 {item.detail}
               </p>
@@ -793,9 +789,7 @@ export default function ServiceDetailPage() {
             <p className="text-[11px] tracking-[0.24em] text-neutral-500">
               REQUEST THIS ENGAGEMENT
             </p>
-            <h2 className="mt-5 font-serif text-3xl text-neutral-900 leading-tight">
-              Ready to begin?
-            </h2>
+            <h2 className="mt-5 text-neutral-900">Ready to begin?</h2>
             <p className="mt-4 text-sm text-neutral-700 leading-7">
               Share a few details and we will follow up to confirm scope and
               answer any questions before anything is formalised.
