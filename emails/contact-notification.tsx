@@ -41,7 +41,7 @@ export function ContactNotificationEmail({
         <Body className="bg-slate-100 font-sans">
           <Container className="mx-auto py-12 px-4 max-w-xl">
             <Text className="text-xs font-bold tracking-widest uppercase text-slate-400 text-center m-0 mb-2">
-              Celerey &mdash; CS Alert
+              Support Alert
             </Text>
 
             <Section className="bg-slate-900 rounded-2xl px-8 py-10 text-center mt-2">
