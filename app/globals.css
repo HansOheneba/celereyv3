@@ -117,7 +117,7 @@ h6 {
   }
 
   h4 {
-    @apply text-xl md:text-2xl font-medium leading-[1.2];
+    @apply text-xl font-light leading-[1.2];
   }
 
   p {
