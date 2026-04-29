@@ -21,10 +21,18 @@ type DropdownItem = {
   description?: string;
 };
 
+type DropdownMenuImage = {
+  src: string;
+  alt: string;
+};
+
 type DropdownMenu = {
   key: DropdownKey;
   label: string;
+  sectionLabel?: string;
   items: DropdownItem[];
+  align?: "left" | "right";
+  image?: DropdownMenuImage;
 };
 
 function isActivePath(pathname: string, href: string): boolean {
@@ -44,6 +52,11 @@ const dropdownMenus: DropdownMenu[] = [
   {
     key: "tools",
     label: "Wealth Planning Tools",
+    sectionLabel: "Planning",
+    image: {
+      src: "https://images.unsplash.com/photo-1580411363668-4b59002b6962?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      alt: "Wealth planning dashboard",
+    },
     items: [
       {
         name: "All Tools",
@@ -70,6 +83,8 @@ const dropdownMenus: DropdownMenu[] = [
   {
     key: "life",
     label: "Life Situations",
+    sectionLabel: "Solutions for",
+    image: { src: "/homepage/family-walking.png", alt: "Life situations" },
     items: [
       {
         name: "Business Sale",
@@ -104,6 +119,9 @@ const dropdownMenus: DropdownMenu[] = [
   {
     key: "insights",
     label: "Insights",
+    sectionLabel: "Explore",
+    align: "right",
+    image: { src: "/homepage/girl-sitting.png", alt: "Insights and research" },
     items: [
       {
         name: "Market Insights",
@@ -125,6 +143,9 @@ const dropdownMenus: DropdownMenu[] = [
   {
     key: "about",
     label: "About Us",
+    sectionLabel: "Company",
+    align: "right",
+    image: { src: "/homepage/man-waving.png", alt: "About Celerey" },
     items: [
       {
         name: "Who we are",
@@ -340,35 +361,66 @@ export default function Header() {
                     />
                   </button>
 
+                  {/* Caret indicator — always centered on the trigger button */}
+                  <div
+                    className={cn(
+                      "absolute -bottom-1.25 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-zinc-200 rotate-45 z-51 transition-opacity duration-150",
+                      isOpen ? "opacity-100" : "opacity-0",
+                    )}
+                  />
+
                   <div
                     onMouseEnter={() => openDropdown(menu.key)}
                     onMouseLeave={closeDropdownSoon}
                     className={cn(
-                      "absolute top-full left-0 mt-1 w-64 bg-white border border-zinc-200 rounded-xl shadow-lg py-2 z-50 transition-all duration-200",
+                      "absolute top-full mt-1 bg-white border border-zinc-200 p-5 rounded-xl shadow-xl z-50 transition-all duration-200 flex overflow-hidden",
+                      menu.image ? "w-135" : "w-72",
+                      menu.align === "right" ? "right-0" : "left-0",
                       isOpen
                         ? "opacity-100 visible translate-y-0"
                         : "opacity-0 invisible -translate-y-2",
                     )}
                   >
-                    {menu.items.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className={cn(
-                          "block px-4 py-2 text-sm transition-colors",
-                          isActivePath(pathname, item.href)
-                            ? "text-zinc-900 bg-zinc-50 font-medium"
-                            : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900",
-                        )}
-                      >
-                        {item.name}
-                        {item.description && (
-                          <span className="block text-xs text-zinc-400 mt-0.5">
-                            {item.description}
-                          </span>
-                        )}
-                      </Link>
-                    ))}
+                    {/* Links column */}
+                    <div className="flex-1 p-4">
+                      {menu.sectionLabel && (
+                        <p className="px-2 pb-2 text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">
+                          {menu.sectionLabel}
+                        </p>
+                      )}
+                      {menu.items.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className={cn(
+                            "block px-3 py-2 text-sm rounded-lg transition-colors",
+                            isActivePath(pathname, item.href)
+                              ? "text-zinc-900 bg-zinc-50 font-medium"
+                              : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900",
+                          )}
+                        >
+                          {item.name}
+                          {item.description && (
+                            <span className="block text-xs text-zinc-400 mt-0.5">
+                              {item.description}
+                            </span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Image column */}
+                    {menu.image && (
+                      <div className="w-48 shrink-0 relative">
+                        <Image
+                          src={menu.image.src}
+                          alt={menu.image.alt}
+                          fill
+                          sizes="192px"
+                          className="object-cover rounded-3xl"
+                        />
+                      </div>
+                    )}
                   </div>
                 </div>
               );
