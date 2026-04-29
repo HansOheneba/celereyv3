@@ -46,8 +46,8 @@ function EmptyState({ title, message }: { title: string; message: string }) {
     <PageShell>
       <div className="flex items-center justify-center py-24 text-center">
         <div className="max-w-xl">
-          <p className="text-2xl text-neutral-900">{title}</p>
-          <p className="mt-3 text-sm leading-7 text-neutral-600">{message}</p>
+          <p className="text-neutral-900">{title}</p>
+          <p className="mt-3 text-neutral-600">{message}</p>
         </div>
       </div>
     </PageShell>
@@ -105,7 +105,7 @@ export default function AdvisorsPage() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="text-[11px] tracking-[0.22em] text-[#b07d3d]"
+          className="text-[#b07d3d]"
         >
           OUR ADVISORY COUNCIL
         </motion.p>
@@ -123,7 +123,7 @@ export default function AdvisorsPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15, duration: 0.6 }}
-          className="mt-5 text-sm leading-7 text-neutral-600"
+          className="mt-5 text-neutral-600"
         >
           Celerey makes high-quality financial advisory accessible, delivering
           insights once reserved for private banking through a simpler, more
@@ -136,7 +136,7 @@ export default function AdvisorsPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-6 text-sm leading-7 text-neutral-900"
+          className="mt-6 text-neutral-900"
         >
           <span className="font-medium">
             Global-grade guidance, without the need for an elite network.
@@ -173,9 +173,9 @@ export default function AdvisorsPage() {
               <div className="mt-6">
                 <h2 className="text-neutral-900">{advisor.name}</h2>
 
-                <p className="mt-3 text-sm text-neutral-700">{advisor.title}</p>
+                <p className="mt-3 text-neutral-700">{advisor.title}</p>
 
-                <p className="mt-4 text-sm leading-7 text-neutral-600 line-clamp-3">
+                <p className="mt-4 text-neutral-600 line-clamp-3">
                   {advisor.experience}
                 </p>
 
@@ -201,7 +201,7 @@ export default function AdvisorsPage() {
         })}
       </div>
 
-      <p className="mx-auto mt-20 max-w-3xl text-center text-xs text-neutral-500">
+      <p className="mx-auto mt-20 max-w-3xl text-center text-neutral-500">
         For private and institutional enquiries, please{" "}
         <Link href="/contact" className="underline hover:text-neutral-900">
           get in touch

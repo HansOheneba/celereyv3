@@ -82,7 +82,7 @@ export default function MoneyManagerSummary({
           <h3 className="text-xl font-semibold text-gray-800">
             Start Tracking Your Cash Flow
           </h3>
-          <p className="text-gray-500 leading-relaxed">
+          <p className="text-gray-500">
             Enter your money in and money out to discover how your money moves{" "}
             {frequency.toLowerCase()}. Celerey will visualize your balance and
             offer personalized insights.
@@ -206,7 +206,7 @@ export default function MoneyManagerSummary({
               {netFlowMessage.title}
             </h3>
             <p className="text-gray-600">{netFlowMessage.message}</p>
-            <p className="text-gray-500 text-sm mt-2">
+            <p className="text-gray-500 mt-2">
               Celerey can help you make sense of your numbers —{" "}
               <span className="text-sky-600 hover:underline cursor-pointer">
                 find out how
@@ -255,7 +255,7 @@ function StatCard({
       <div className={`text-2xl font-bold ${colorMap[color].value}`}>
         {value}
       </div>
-      <p className="text-xs text-gray-500 mt-1">{subtitle}</p>
+      <p className="text-gray-500 mt-1">{subtitle}</p>
     </Card>
   );
 }

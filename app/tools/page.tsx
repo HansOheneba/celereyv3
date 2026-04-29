@@ -92,7 +92,7 @@ export default function ToolsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
-            className="text-[11px] tracking-[0.22em] text-[#5C7A6A]"
+            className="text-[#5C7A6A]"
           >
             CELEREY TOOLS
           </motion.p>
@@ -110,7 +110,7 @@ export default function ToolsPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
-            className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-neutral-600"
+            className="mx-auto mt-4 max-w-2xl text-neutral-600"
           >
             Not generic calculators. Tools designed around the moments that
             matter most in your financial life, built to help you understand,
@@ -166,7 +166,7 @@ export default function ToolsPage() {
         <FadeIn>
           <div className="grid md:grid-cols-12 gap-12 items-start">
             <div className="md:col-span-5">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-6">
+              <p className="text-[#5C7A6A] mb-6">
                 Why These Tools Exist
               </p>
               <h2 className="">
@@ -176,12 +176,12 @@ export default function ToolsPage() {
               </h2>
             </div>
             <div className="md:col-span-7 md:pt-16">
-              <p className="text-xl text-[#4A4A4A] leading-relaxed mb-6">
+              <p className="text-[#4A4A4A] mb-6">
                 We built these tools because the gap between knowing you should
                 plan and actually having a plan is almost always a tool problem.
                 Too complex, too generic, or too disconnected from real life.
               </p>
-              <p className="text-xl text-[#4A4A4A] leading-relaxed">
+              <p className="text-[#4A4A4A]">
                 Each tool in the Celerey suite was designed around a specific
                 moment of financial decision-making: the moment you need clarity
                 most. Simple enough to use in minutes. Precise enough to act on.
@@ -199,7 +199,7 @@ export default function ToolsPage() {
         <FadeIn>
           <div className="flex items-center gap-4 mb-20">
             <div className="w-8 h-px bg-[#5C7A6A]" />
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A]">
+            <p className="text-[#5C7A6A]">
               The Suite
             </p>
           </div>
@@ -212,11 +212,11 @@ export default function ToolsPage() {
                 className={`grid md:grid-cols-2 gap-16 items-center ${i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""}`}
               >
                 <div>
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-3">
+                  <p className="text-[#5C7A6A] mb-3">
                     {t.tagline}
                   </p>
                   <h3 className="mb-6">{t.name}</h3>
-                  <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-md mb-10">
+                  <p className="text-[#4A4A4A] max-w-md mb-10">
                     {t.body}
                   </p>
                   <Button asChild>
@@ -244,7 +244,7 @@ export default function ToolsPage() {
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
               {/* LEFT CONTENT */}
               <div className="max-w-2xl">
-                <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-4">
+                <p className="text-[#C9E8D5] mb-4">
                   Go Deeper
                 </p>
 
@@ -255,7 +255,7 @@ export default function ToolsPage() {
                   </span>
                 </h2>
 
-                <p className="text-white/60 text-base leading-relaxed">
+                <p className="text-white/60">
                   Use these tools to build clarity, then turn it into a real,
                   personalised plan with an accredited advisor.
                 </p>

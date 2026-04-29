@@ -8,7 +8,7 @@ export function SessionSection() {
     <section className=" bg-[#354A49]">
       <div className="mx-auto max-w-360 py-24 px-6 grid min-h-[60vh] grid-cols-1 items-center gap-10 text-white md:grid-cols-2 md:gap-12">
         <Reveal>
-          <p className="text-sm font-bold text-[#CDE6AF] mb-4 tracking-wide">
+          <p className="text-[#CDE6AF] mb-4">
             Starting point
           </p>
           <h2 className="mb-6">Private 45 minute session</h2>
@@ -19,14 +19,14 @@ export function SessionSection() {
 
           <div className="mb-12 grid gap-8 sm:grid-cols-2">
             <div>
-              <p className="text-2xl font-semibold mb-2 text-[#CDE6AF]">$99</p>
+              <p className="mb-2 text-[#CDE6AF]">$99</p>
               <p className="text-white">
                 One private session with an advisor who listens and thinks
                 through your situation.
               </p>
             </div>
             <div>
-              <p className="font-semibold mb-3 text-[#CDE6AF]">
+              <p className="mb-3 text-[#CDE6AF]">
                 What&apos;s included
               </p>
               <p className="text-white">

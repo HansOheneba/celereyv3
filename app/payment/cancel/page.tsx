@@ -36,7 +36,7 @@ export default function PaymentCancelPage() {
           </div>
 
           <h1 className="text-neutral-900">Payment Cancelled</h1>
-          <p className="mt-2 text-sm text-neutral-600 sm:text-base">
+          <p className="mt-2 text-neutral-600">
             Your payment was not completed
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function PaymentCancelPage() {
               <h2 className="text-lg font-medium text-neutral-900">
                 What happened?
               </h2>
-              <p className="mt-2 text-sm text-neutral-600">
+              <p className="mt-2 text-neutral-600">
                 You cancelled the payment process or it was interrupted. No
                 charges were made to your account.
               </p>
@@ -60,10 +60,10 @@ export default function PaymentCancelPage() {
                   <CreditCard className="h-3 w-3 text-neutral-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-neutral-900">
+                  <p className="text-neutral-900">
                     No charges were made
                   </p>
-                  <p className="text-xs text-neutral-600">
+                  <p className="text-neutral-600">
                     Your payment method was not charged
                   </p>
                 </div>
@@ -74,10 +74,10 @@ export default function PaymentCancelPage() {
                   <ShieldCheck className="h-3 w-3 text-neutral-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-neutral-900">
+                  <p className="text-neutral-900">
                     Your information is saved
                   </p>
-                  <p className="text-xs text-neutral-600">
+                  <p className="text-neutral-600">
                     Your account details are still available if you want to try
                     again
                   </p>
@@ -114,7 +114,7 @@ export default function PaymentCancelPage() {
 
             {/* Help Text */}
             <div className="pt-4 text-center">
-              <p className="text-xs text-neutral-500">
+              <p className="text-neutral-500">
                 Having trouble with payment?{" "}
                 <button
                   onClick={handleContactSupport}

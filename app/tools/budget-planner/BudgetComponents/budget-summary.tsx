@@ -370,7 +370,7 @@ export default function BudgetSummary({
                 {balanceMessage.title}
               </h3>
               <p className="text-gray-600">{balanceMessage.description}</p>
-              <p className="text-gray-500 text-sm mt-2 leading-relaxed">
+              <p className="text-gray-500 mt-2">
                 {financialStatus.message}
               </p>
             </div>

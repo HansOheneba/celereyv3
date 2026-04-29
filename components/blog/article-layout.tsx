@@ -82,7 +82,7 @@ export default function ArticleLayout({
 
               <h1 className="text-neutral-900">{post.title}</h1>
 
-              <p className="mt-6 md:text-lg leading-relaxed text-neutral-700">
+              <p className="mt-6 text-neutral-700">
                 {post.excerpt}
               </p>
 
@@ -137,7 +137,7 @@ export default function ArticleLayout({
                   },
 
                   p: ({ children }) => (
-                    <p className="text-neutral-800 leading-[1.9] text-[1.05rem] mb-6">
+                    <p className="text-neutral-800 mb-6">
                       {children}
                     </p>
                   ),
@@ -196,7 +196,7 @@ export default function ArticleLayout({
           <aside className="hidden lg:block sticky top-28 space-y-8">
             {toc.length > 0 && (
               <div>
-                <p className="text-[11px] tracking-[0.26em] text-neutral-500 uppercase mb-4">
+                <p className="text-neutral-500 mb-4">
                   In this article
                 </p>
 

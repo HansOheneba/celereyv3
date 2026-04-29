@@ -22,7 +22,7 @@ export function ProblemSection() {
           <div className="flex flex-col gap-10">
             {/* Intro text */}
             <Reveal delay={0.1} amount={0.4} distance={15}>
-              <p className="text-base text-center md:text-left">
+              <p className="text-center md:text-left">
                 The right guidance cuts through complexity and helps you see
                 what actually matters for your situation.
               </p>
@@ -36,7 +36,7 @@ export function ProblemSection() {
                   <h3 className=" mb-3">
                     Simple
                   </h3>
-                  <p className="text-gray-500 leading-relaxed">
+                  <p className="text-gray-500">
                     We explain things in plain language, not jargon or sales
                     speak.
                   </p>
@@ -49,7 +49,7 @@ export function ProblemSection() {
                   <h3 className=" mb-3">
                     Honest
                   </h3>
-                  <p className="text-gray-500 leading-relaxed">
+                  <p className="text-gray-500">
                     We tell you what we think, not what we think you want to
                     hear.
                   </p>

@@ -46,12 +46,12 @@ export default function Page() {
             Privacy Policy
           </h1>
 
-          <p className="mt-3 text-sm text-neutral-600">
+          <p className="mt-3 text-neutral-600">
             <span className="font-medium text-neutral-700">Last updated:</span>{" "}
             {updated}
           </p>
 
-          <p className="mt-6 text-[15px] leading-7 text-neutral-700">
+          <p className="mt-6 text-neutral-700">
             Celerey is a subsidiary of JA Group &amp; Co. and, as such, we
             follow JA Group &amp; Co.&apos;s privacy practices and terms where
             applicable. This Online Privacy Policy explains what and how we
@@ -74,7 +74,7 @@ export default function Page() {
           {/* Minimal TOC (document-like, no cards) */}
           <aside className="hidden lg:block">
             <div className="sticky top-24">
-              <p className="text-xs uppercase tracking-[0.22em] text-neutral-500">
+              <p className="text-neutral-500">
                 Contents
               </p>
 
@@ -112,7 +112,7 @@ export default function Page() {
                 <h3 className="mt-8 text-neutral-900">
                   We work hard to protect your information.
                 </h3>
-                <p className="mt-3 text-[15px] leading-7">
+                <p className="mt-3">
                   We take our responsibility to protect the privacy and
                   confidentiality of your information, including personal
                   information, very seriously. We maintain physical, electronic
@@ -129,7 +129,7 @@ export default function Page() {
                   We want you to understand the type of information we collect
                   and how we use it.
                 </h3>
-                <p className="mt-3 text-[15px] leading-7">
+                <p className="mt-3">
                   The types of personal information we collect from you when you
                   visit or use our online services include your name, email
                   address, mailing address, telephone number(s), account
@@ -149,7 +149,7 @@ export default function Page() {
                   have your prior explicit consent.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   In addition to the personal information described above, we
                   collect certain information about your use of our online
                   services. For example, we capture the IP address of the device
@@ -166,7 +166,7 @@ export default function Page() {
                   law.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   We sometimes collect information about you from additional
                   online and offline sources including social media (to the
                   extent you choose to make your personal information public)
@@ -179,7 +179,7 @@ export default function Page() {
 
               <section id="legal-basis" className="scroll-mt-28">
                 <h2 className="text-neutral-900">Legal basis for processing</h2>
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   Where we are required to establish a legal basis to process
                   your personal information as described in this Online Privacy
                   Policy, we will do so on the basis that we have obtained your
@@ -194,7 +194,7 @@ export default function Page() {
 
               <section id="how-we-use" className="scroll-mt-28">
                 <h2 className="text-neutral-900">How we use information</h2>
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We use and otherwise process the information we collect from
                   you to help us deliver our online services; to administer,
                   evaluate and improve our business (including developing new
@@ -217,7 +217,7 @@ export default function Page() {
                   Data minimisation, accuracy, and retention
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We aim to collect only what we need, keep it up-to-date and
                   remove it when we no longer need it. We take reasonable steps
                   to ensure that the personal information we process is limited
@@ -228,7 +228,7 @@ export default function Page() {
                   accuracy of your personal information.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   For some of our online services, you can review or update
                   certain account information by logging in and accessing a user
                   profile section. If you cannot change the incorrect
@@ -238,7 +238,7 @@ export default function Page() {
                   other relevant client materials.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   We will retain copies in a form that permits identification
                   for as long as we deem necessary in connection with the
                   purposes set out in this Policy, unless applicable law
@@ -252,7 +252,7 @@ export default function Page() {
                 <h2 className="text-neutral-900">
                   Mobile and device information
                 </h2>
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We respect and protect your privacy even when you’re on the
                   go. For your convenience, JA Group &amp; Co. may offer you the
                   ability to access some of our products and services through
@@ -272,7 +272,7 @@ export default function Page() {
                   Sharing personal information
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We share personal information with affiliates and with others
                   when we believe it will enhance the services and products we
                   can provide to you or for legal and routine business reasons.
@@ -286,7 +286,7 @@ export default function Page() {
                   all or any relevant portion of our business or assets.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   We disclose the information we have about you as required or
                   permitted by law. For example, we share information with
                   regulatory authorities and law enforcement officials when we
@@ -294,7 +294,7 @@ export default function Page() {
                   comply with legal requirements.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   We share information with third parties where appropriate to
                   protect against fraud or verify or enforce our terms of use,
                   our other rights, or other applicable policies. From time to
@@ -305,7 +305,7 @@ export default function Page() {
                   purposes we specify.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   JA Group &amp; Co. believes that keeping your information
                   secure and private is important, particularly when using
                   third-party websites and applications that can help you invest
@@ -316,7 +316,7 @@ export default function Page() {
               <section id="consent-transfers" className="scroll-mt-28">
                 <h2 className="text-neutral-900">Consent and transfers</h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We can share your personal information with any person or
                   entity if we have your consent to do so. We transmit, transfer
                   or process information to, or through, other countries in the
@@ -324,7 +324,7 @@ export default function Page() {
                   legal or regulatory obligations.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   As a global company, we strive to provide you with access to
                   the highest quality financial products and services wherever
                   you are. To do this, we sometimes share your personal
@@ -338,7 +338,7 @@ export default function Page() {
                   Privacy Policy.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   Where required, we comply with applicable legal frameworks
                   relating to the transfer of personal information.
                 </p>
@@ -347,7 +347,7 @@ export default function Page() {
               <section id="rights" className="scroll-mt-28">
                 <h2 className="text-neutral-900">Your rights and choices</h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We respect your rights concerning the processing of personal
                   information and provide you with relevant and appropriate
                   choices. Depending on how and where you interact with us, you
@@ -374,12 +374,12 @@ export default function Page() {
                   </li>
                 </ul>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   To exercise one or more of these rights or to ask a question
                   about them, please use the contact details provided below.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   In addition to the rights you have under applicable data
                   protection laws, we may give you choices regarding the sharing
                   of personal information with affiliates and third parties
@@ -397,7 +397,7 @@ export default function Page() {
                   Online activity and advertising
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We respect your decisions about the collection of personal
                   information related to your online activities over time and
                   across different websites for advertising purposes. JA Group
@@ -415,7 +415,7 @@ export default function Page() {
               <section id="policy-changes" className="scroll-mt-28">
                 <h2 className="text-neutral-900">Policy changes</h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   We may change this Online Privacy Policy from time to time.
                   When we do, we will let you know by appropriate means such as
                   by posting the revised text on this page with a new “Last
@@ -428,7 +428,7 @@ export default function Page() {
               <section id="contact" className="scroll-mt-28">
                 <h2 className="text-neutral-900">Contact us</h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   If you have any comments, questions or concerns about any of
                   the information in this Online Privacy Policy, or any other
                   issues relating to the processing of your personal information
@@ -452,7 +452,7 @@ export default function Page() {
                   </a>
                 </address>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   If you would like to contact the JA Group &amp; Co Data
                   Protection Officer, please send an email to{" "}
                   <a
@@ -468,7 +468,7 @@ export default function Page() {
 
             {/* End spacing */}
             <div className="mt-14 h-px w-full bg-black/10" />
-            <p className="mt-6 text-sm text-neutral-600">
+            <p className="mt-6 text-neutral-600">
               Related links:{" "}
               <a className="underline underline-offset-4" href="/terms">
                 Terms of Service

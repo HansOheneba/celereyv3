@@ -102,7 +102,7 @@ export default function WealthScanResultsPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#fafaf8]">
-        <p className="text-lg text-neutral-700">Preparing your results...</p>
+        <p className="text-neutral-700">Preparing your results...</p>
       </div>
     );
   }
@@ -111,7 +111,7 @@ export default function WealthScanResultsPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#fafaf8]">
         <div className="text-center px-6">
-          <p className="text-lg text-neutral-700 mb-6">No results found</p>
+          <p className="text-neutral-700 mb-6">No results found</p>
           <Button
             onClick={() => router.push("/wealthscan")}
             style={{ backgroundColor: PRIMARY, color: "white" }}
@@ -240,7 +240,7 @@ export default function WealthScanResultsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.32em] text-muted-foreground mb-6">
+            <p className="text-muted-foreground mb-6">
               FINANCIAL HEALTH REPORT
             </p>
 
@@ -256,7 +256,7 @@ export default function WealthScanResultsPage() {
             <h1 className="mb-4">{results.category.label}</h1>
 
             <p
-              className="text-base text-muted-foreground leading-relaxed mb-8"
+              className="text-muted-foreground mb-8"
               dangerouslySetInnerHTML={{ __html: narrative.headline }}
             />
 
@@ -299,24 +299,24 @@ export default function WealthScanResultsPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+            <p className="text-neutral-400 mb-4">
               01 &nbsp; SUMMARY
             </p>
             <h2 className="text-neutral-900 mb-6">What your answers reveal</h2>
 
             <div className="rounded-2xl bg-[#D7EDFF] p-6 mb-6">
               <p
-                className="text-neutral-800 text-base leading-relaxed"
+                className="text-neutral-800"
                 dangerouslySetInnerHTML={{ __html: narrative.summary }}
               />
             </div>
 
-            <p className="text-neutral-800 text-sm leading-relaxed italic font-medium border-l-2 border-[#354A49] pl-4 mb-8">
+            <p className="text-neutral-800 border-l-2 border-[#354A49] pl-4 mb-8">
               {narrative.valueLine}
             </p>
 
             <div className="space-y-3">
-              <p className="text-sm font-medium text-neutral-800">
+              <p className="text-neutral-800">
                 This report does three things:
               </p>
               {[
@@ -335,7 +335,7 @@ export default function WealthScanResultsPage() {
               ].map((item) => (
                 <div key={item.label} className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#354A49] shrink-0" />
-                  <p className="text-sm text-neutral-800">
+                  <p className="text-neutral-800">
                     <span className="font-semibold text-neutral-900">
                       {item.label}:
                     </span>{" "}
@@ -354,7 +354,7 @@ export default function WealthScanResultsPage() {
             className="flex flex-col gap-5"
           >
             <div className="rounded-2xl bg-primary p-8 text-center">
-              <p className="text-[10px] tracking-[0.22em] text-white/45 mb-2">
+              <p className="text-white/45 mb-2">
                 OVERALL SCORE
               </p>
               <div className="flex items-end justify-center gap-2 my-4">
@@ -363,7 +363,7 @@ export default function WealthScanResultsPage() {
                 </span>
                 <span className="text-2xl text-white/35 pb-3">/100</span>
               </div>
-              <p className="text-white/70 text-sm mb-6">
+              <p className="text-white/70 mb-6">
                 Calculated across 6 financial pillars
               </p>
 
@@ -445,7 +445,7 @@ export default function WealthScanResultsPage() {
                   </li>
                 )}
               </ul>
-              <p className="mt-4 text-xs text-neutral-600">
+              <p className="mt-4 text-neutral-600">
                 These are signals, not labels.
               </p>
             </div>
@@ -461,11 +461,11 @@ export default function WealthScanResultsPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+          <p className="text-neutral-400 mb-4">
             02 &nbsp; BREAKDOWN
           </p>
           <h2 className="text-neutral-900 mb-2">Your six-area snapshot</h2>
-          <p className="text-neutral-700 text-base mb-8 max-w-2xl">
+          <p className="text-neutral-700 mb-8 max-w-2xl">
             Higher scores tend to feel calmer and more predictable. Lower scores
             often show up as friction, stress, or inconsistency in daily
             decisions.
@@ -526,7 +526,7 @@ export default function WealthScanResultsPage() {
           </ResponsiveContainer>
 
           <div className="mt-8 rounded-2xl bg-[#D7EDFF] p-5">
-            <p className="text-sm font-medium text-neutral-800 leading-relaxed">
+            <p className="text-neutral-800">
               Patterns matter more than individual scores. If two or more areas
               sit in the lower range, they often influence each other. Income
               instability can affect saving consistency, which then affects
@@ -548,10 +548,10 @@ export default function WealthScanResultsPage() {
         <div className="absolute inset-0 flex items-center">
           <div className="mx-auto max-w-7xl w-full px-6 sm:px-12 lg:px-20">
             <div className="max-w-xl">
-              <p className="text-[10px] tracking-[0.26em] text-white/50 mb-6">
+              <p className="text-white/50 mb-6">
                 03 &nbsp; PERSPECTIVE
               </p>
-              <p className="text-2xl sm:text-3xl text-white">
+              <p className="text-white">
                 The goal is not a perfect score.
                 <br />
                 It is knowing which lever to pull next.
@@ -571,11 +571,11 @@ export default function WealthScanResultsPage() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+          <p className="text-neutral-400 mb-4">
             04 &nbsp; DETAILED FINDINGS
           </p>
           <h2 className="text-neutral-900 mb-3">What each area suggests</h2>
-          <p className="text-neutral-700 text-base max-w-2xl">
+          <p className="text-neutral-700 max-w-2xl">
             These are interpretations of your answers. Read each one carefully
             and ask yourself: does this land?
           </p>
@@ -614,7 +614,7 @@ export default function WealthScanResultsPage() {
                   <span className="text-neutral-500 pb-1">/100</span>
                 </div>
 
-                <p className="text-sm text-neutral-800 leading-relaxed">
+                <p className="text-neutral-800">
                   {meaning}
                 </p>
               </motion.div>
@@ -642,7 +642,7 @@ export default function WealthScanResultsPage() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <p className="text-[10px] tracking-[0.26em] text-white/35 mb-4">
+            <p className="text-white/35 mb-4">
               05 &nbsp; RECOMMENDATIONS
             </p>
             <h2 className="text-white mb-8">Where to focus next</h2>
@@ -656,7 +656,7 @@ export default function WealthScanResultsPage() {
                   <span className="font-cirka text-2xl text-white/30 shrink-0 leading-none mt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-sm text-white/80 leading-relaxed">{rec}</p>
+                  <p className="text-white/80">{rec}</p>
                 </div>
               ))}
             </div>
@@ -675,12 +675,12 @@ export default function WealthScanResultsPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.26em] mb-5">NEXT STEP</p>
+            <p className="mb-5">NEXT STEP</p>
             <h2 className="mb-5">
               Spend 15 minutes with someone who can help you interpret your
               results.
             </h2>
-            <p className="text-white/75 text-base sm:text-lg">
+            <p className="text-white/75">
               No pitch. No pressure. Just a clear conversation about what your
               results mean and what, if anything, is worth doing about it.
             </p>
@@ -707,7 +707,7 @@ export default function WealthScanResultsPage() {
               Retake the assessment
             </Button>
 
-            <p className="text-xs text-white/50 text-center mt-2">
+            <p className="text-white/50 text-center mt-2">
               Educational report only. No financial advice is being provided.
             </p>
           </motion.div>

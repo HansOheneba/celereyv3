@@ -22,7 +22,7 @@ export default function NotFound() {
           className="max-w-xl "
         >
           {/* Small label */}
-          <p className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-black/80">
+          <p className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-black/80">
             Error 404
           </p>
 
@@ -30,7 +30,7 @@ export default function NotFound() {
             This page doesn’t exist.
           </h1>
 
-          <p className="mt-4 text-black/70 text-base md:text-lg leading-relaxed">
+          <p className="mt-4 text-black/70">
             The link may be broken, or the page may have been moved. Try going
             back home.
           </p>

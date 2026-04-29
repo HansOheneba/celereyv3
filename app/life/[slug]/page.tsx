@@ -76,15 +76,15 @@ export default async function LifeSituationPage({ params }: PageProps) {
         {/* Content */}
         <div className="flex items-center px-6 md:px-12 lg:px-20 py-16">
           <div className="max-w-xl">
-            <p className="text-[11px] tracking-[0.26em] text-[#b07d3d] uppercase">
+            <p className="text-[#b07d3d]">
               Life Situation
             </p>
 
             <h1 className="mt-6 text-neutral-900">{situation.title}</h1>
 
-            <p className="mt-4 text-xl text-neutral-500">{situation.tagline}</p>
+            <p className="mt-4 text-neutral-500">{situation.tagline}</p>
 
-            <p className="mt-6 text-base leading-relaxed text-neutral-600">
+            <p className="mt-6 text-neutral-600">
               {situation.description}
             </p>
 
@@ -115,13 +115,13 @@ export default async function LifeSituationPage({ params }: PageProps) {
       <section className="py-24">
         <div className="grid lg:grid-cols-[1fr_2fr] gap-16">
           <div>
-            <p className="text-[11px] tracking-[0.26em] text-[#b07d3d] uppercase">
+            <p className="text-[#b07d3d]">
               Questions
             </p>
             <h2 className="mt-4 text-neutral-900">
               Frequently asked questions
             </h2>
-            <p className="mt-4 text-sm text-neutral-500">
+            <p className="mt-4 text-neutral-500">
               Our experts are providing clarity so you can move forward with
               confidence.
             </p>
@@ -154,7 +154,7 @@ export default async function LifeSituationPage({ params }: PageProps) {
         <section className="px-6 pb-24">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[11px] tracking-[0.26em] text-[#b07d3d] uppercase">
+              <p className="text-[#b07d3d]">
                 Related Reading
               </p>
               <h2 className="mt-3 text-neutral-900">
@@ -200,7 +200,7 @@ export default async function LifeSituationPage({ params }: PageProps) {
 
                   <h3 className="text-neutral-900">{ins.title}</h3>
 
-                  <p className="mt-2 text-sm text-neutral-500 line-clamp-2">
+                  <p className="mt-2 text-neutral-500 line-clamp-2">
                     {ins.excerpt}
                   </p>
                 </div>

@@ -18,7 +18,7 @@ function SoftSpinner({ label }: { label: string }) {
         <div className="absolute inset-0 rounded-full border border-black/10" />
         <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-black/40 animate-spin" />
       </div>
-      <p className="text-sm text-neutral-600">{label}</p>
+      <p className="text-neutral-600">{label}</p>
     </div>
   );
 }
@@ -112,11 +112,11 @@ export default function AdvisorDetailsPage() {
       <section className="min-h-screen bg-[#fbfaf8]">
         {/* Wider container */}
         <div className="mx-auto w-full max-w-360 px-6 py-20 text-center sm:py-24">
-          <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
+          <p className="text-[#b07d3d]">
             ADVISOR PROFILE
           </p>
           <h1 className="mt-5 text-neutral-900">Advisor not found.</h1>
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-neutral-600">
+          <p className="mx-auto mt-4 max-w-xl text-neutral-600">
             Please return to the advisory list and select another profile.
           </p>
 
@@ -138,13 +138,13 @@ export default function AdvisorDetailsPage() {
         <div className="mx-auto w-full max-w-336">
           {/* Top */}
           <div className="mb-10">
-            <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
+            <p className="text-[#b07d3d]">
               ADVISOR PROFILE
             </p>
 
             <h1 className="mt-4 text-neutral-900">{pageTitle}</h1>
 
-            <p className="mt-3 text-sm text-neutral-700">{advisor.title}</p>
+            <p className="mt-3 text-neutral-700">{advisor.title}</p>
 
             <div className="mt-7 h-px w-full bg-black/10" />
           </div>
@@ -175,7 +175,7 @@ export default function AdvisorDetailsPage() {
               className="lg:sticky lg:top-24"
             >
               <div className="rounded-3xl border border-black/10 bg-white p-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
-                <p className="text-sm font-semibold text-[#b07d3d]">
+                <p className="text-[#b07d3d]">
                   Areas of expertise
                 </p>
 
@@ -195,7 +195,7 @@ export default function AdvisorDetailsPage() {
                     Book a Session
                   </Button>
 
-                  <p className="mt-3 text-center text-xs text-neutral-500">
+                  <p className="mt-3 text-center text-neutral-500">
                     Availability is being confirmed after request.
                   </p>
                 </div> */}
@@ -220,10 +220,10 @@ export default function AdvisorDetailsPage() {
             transition={{ duration: 0.55, delay: 0.05 }}
             className="mt-14 rounded-3xl border border-black/10 bg-white p-10 shadow-[0_18px_55px_rgba(0,0,0,0.06)]"
           >
-            <p className="text-sm font-semibold text-[#b07d3d]">Overview</p>
+            <p className="text-[#b07d3d]">Overview</p>
 
             <div className="mt-6 ">
-              <p className="text-[17px] leading-7 text-neutral-700">
+              <p className="text-neutral-700">
                 {advisor.bio}
               </p>
             </div>
@@ -231,10 +231,10 @@ export default function AdvisorDetailsPage() {
 
           {/* Full-width Experience */}
           <div className="mt-10 rounded-3xl border border-black/10 bg-white p-10 shadow-[0_18px_55px_rgba(0,0,0,0.06)]">
-            <p className="text-sm font-semibold text-[#b07d3d]">Experience</p>
+            <p className="text-[#b07d3d]">Experience</p>
 
             <div className="mt-6 max-w-4xl">
-              <p className="text-[17px] leading-8 text-neutral-700">
+              <p className="text-neutral-700">
                 {advisor.experience}
               </p>
             </div>

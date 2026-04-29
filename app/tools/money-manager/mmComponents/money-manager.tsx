@@ -234,7 +234,7 @@ export default function MoneyManager() {
           <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-800">
             Money Manager
           </h1>
-          <p className="text-slate-500 mt-2 text-sm">
+          <p className="text-slate-500 mt-2">
             Track your cash flow in and out
           </p>
         </div>

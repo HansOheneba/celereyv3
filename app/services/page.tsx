@@ -14,7 +14,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="text-[11px] tracking-[0.26em] text-[#b07d3d]"
+            className="text-[#b07d3d]"
           >
             PRIVATE ADVISORY
           </motion.p>
@@ -89,7 +89,7 @@ export default function Services() {
           transition={{ duration: 0.25 }}
           className="mt-8 rounded-[22px] border border-black/10 bg-white/70 px-6 py-5 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
         >
-          <p className="text-sm leading-7 text-neutral-700">
+          <p className="text-neutral-700">
             If you are looking for longer-term structure, accountability, and
             ongoing guidance, Celerey Membership may be the better fit.
           </p>
@@ -102,7 +102,7 @@ export default function Services() {
               View membership
             </a>
 
-            <p className="text-xs text-neutral-500">
+            <p className="text-neutral-500">
               Ongoing support, reviews, and year-round visibility.
             </p>
           </div>

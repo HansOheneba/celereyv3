@@ -188,7 +188,7 @@ export default function EntryPointPricing({
       <section id={id} className="py-10 sm:py-24">
         <div className="flex flex-col items-center text-center pb-10">
           <h2 className="mt-10 text-neutral-900">Celerey Plans</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-neutral-600">
+          <p className="mx-auto mt-3 max-w-2xl text-neutral-600">
             Choose a single coaching session for immediate clarity, or choose
             Core for ongoing visibility and structured guidance across the year.
           </p>
@@ -258,7 +258,7 @@ export default function EntryPointPricing({
 
                       {/* Ideal for */}
                       <section className="mt-8">
-                        <p className="text-sm font-semibold text-[#b07d3d]">
+                        <p className="text-[#b07d3d]">
                           Ideal for:
                         </p>
 
@@ -281,7 +281,7 @@ export default function EntryPointPricing({
 
                       {/* Features */}
                       <section className="mt-8">
-                        <p className="text-sm font-semibold text-[#b07d3d]">
+                        <p className="text-[#b07d3d]">
                           Features
                         </p>
 
@@ -343,7 +343,7 @@ export default function EntryPointPricing({
             })}
           </motion.div>
 
-          <p className="mx-auto mt-10 max-w-3xl text-center text-xs text-neutral-500">
+          <p className="mx-auto mt-10 max-w-3xl text-center text-neutral-500">
             Foundation is a one-time payment. Core includes a 7-day free trial,
             then billed annually.
           </p>
@@ -359,7 +359,7 @@ export default function EntryPointPricing({
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="rounded-3xl border border-black/10 bg-white px-8 py-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)] text-left"
             >
-              <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
+              <p className="text-[#b07d3d]">
                 BESPOKE ENGAGEMENTS
               </p>
 
@@ -367,7 +367,7 @@ export default function EntryPointPricing({
                 Prefer something more tailored?
               </h3>
 
-              <p className="mt-4 text-sm leading-7 text-neutral-600">
+              <p className="mt-4 text-neutral-600">
                 While our membership provides structured, ongoing guidance, some
                 clients prefer focused, custom engagements built around a
                 specific need. These private services are delivered with the
@@ -379,7 +379,7 @@ export default function EntryPointPricing({
                   <Button>Explore bespoke services</Button>
                 </a>
 
-                <p className="text-xs text-neutral-500">
+                <p className="text-neutral-500">
                   Discrete. Fixed-fee. Clearly scoped.
                 </p>
               </div>

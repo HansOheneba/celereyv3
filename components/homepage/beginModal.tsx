@@ -228,7 +228,7 @@ export function BeginJourneyModal({
                   <DialogTitle className="text-neutral-900">
                     Begin Your Journey
                   </DialogTitle>
-                  <p className="mt-2 text-sm text-neutral-600 sm:text-base">
+                  <p className="mt-2 text-neutral-600">
                     Enter your details to get started
                   </p>
                 </DialogHeader>
@@ -248,7 +248,7 @@ export function BeginJourneyModal({
                         className="h-12 rounded-xl border-black/10 bg-white"
                       />
                       {touched.firstName && errors.firstName ? (
-                        <p className="text-xs text-red-600">
+                        <p className="text-red-600">
                           {errors.firstName}
                         </p>
                       ) : null}
@@ -266,7 +266,7 @@ export function BeginJourneyModal({
                         className="h-12 rounded-xl border-black/10 bg-white"
                       />
                       {touched.lastName && errors.lastName ? (
-                        <p className="text-xs text-red-600">
+                        <p className="text-red-600">
                           {errors.lastName}
                         </p>
                       ) : null}
@@ -287,7 +287,7 @@ export function BeginJourneyModal({
                       className="h-12 rounded-xl border-black/10 bg-white"
                     />
                     {touched.email && errors.email ? (
-                      <p className="text-xs text-red-600">{errors.email}</p>
+                      <p className="text-red-600">{errors.email}</p>
                     ) : null}
                   </div>
 
@@ -304,7 +304,7 @@ export function BeginJourneyModal({
                       className="h-12 rounded-xl border-black/10 bg-white"
                     />
                     {touched.phone && errors.phone ? (
-                      <p className="text-xs text-red-600">{errors.phone}</p>
+                      <p className="text-red-600">{errors.phone}</p>
                     ) : null}
                   </div>
 
@@ -325,9 +325,9 @@ export function BeginJourneyModal({
                       />
                     </div>
                     {touched.timeZone && errors.timeZone ? (
-                      <p className="text-xs text-red-600">{errors.timeZone}</p>
+                      <p className="text-red-600">{errors.timeZone}</p>
                     ) : null}
-                    <p className="text-xs text-neutral-500">
+                    <p className="text-neutral-500">
                       We&#39;ll use this to schedule sessions at convenient
                       times for you
                     </p>
@@ -366,7 +366,7 @@ export function BeginJourneyModal({
                       </Label>
                     </div>
                     {touched.agree && errors.agree ? (
-                      <p className="text-xs text-red-600">{errors.agree}</p>
+                      <p className="text-red-600">{errors.agree}</p>
                     ) : null}
                   </div>
 
@@ -393,7 +393,7 @@ export function BeginJourneyModal({
                   </Button>
 
                   {/* Footer */}
-                  <p className="text-center text-sm text-neutral-600">
+                  <p className="text-center text-neutral-600">
                     Already have an account?{" "}
                     <Link
                       href="https://celerey.app/auth/signin"
@@ -416,7 +416,7 @@ export function BeginJourneyModal({
 
                   <h3 className="mt-6 text-neutral-900">Redirecting...</h3>
 
-                  <p className="mt-3 text-sm leading-relaxed text-neutral-600 sm:text-base">
+                  <p className="mt-3 text-neutral-600">
                     Taking you to the next step of your journey.
                   </p>
                 </div>

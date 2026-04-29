@@ -193,7 +193,7 @@ export default function InsightsPage() {
                           <h3 className="text-primary mb-2 line-clamp-2">
                             {item.title}
                           </h3>
-                          <p className="text-gray-500 text-sm mb-4 line-clamp-3">
+                          <p className="text-gray-500 mb-4 line-clamp-3">
                             {isInsight(item) ? item.excerpt : item.description}
                           </p>
 

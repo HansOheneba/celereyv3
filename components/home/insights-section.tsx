@@ -177,7 +177,7 @@ export function InsightsSection() {
           <h2 className="mb-4 text-gray-900">
             Thoughtful guidance for your future
           </h2>
-          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="max-w-2xl text-muted-foreground">
             Ideas worth considering as you shape what comes next.
           </p>
 
@@ -249,7 +249,7 @@ export function InsightsSection() {
                         <h3 className="text-gray-900 line-clamp-2">
                           {item.title}
                         </h3>
-                        <p className="mt-1.5 text-gray-600 text-sm leading-relaxed line-clamp-3">
+                        <p className="mt-1.5 text-gray-600 line-clamp-3">
                           {item.description}
                         </p>
                       </div>
@@ -307,7 +307,7 @@ export function InsightsSection() {
                         <h3 className="mt-2 text-gray-900 line-clamp-2">
                           {item.title}
                         </h3>
-                        <p className="mt-2 text-gray-600 leading-relaxed line-clamp-3 max-w-xl">
+                        <p className="mt-2 text-gray-600 line-clamp-3 max-w-xl">
                           {item.description}
                         </p>
 

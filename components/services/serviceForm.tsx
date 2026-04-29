@@ -275,18 +275,18 @@ export function ServiceInquiryDialog({
 
         {service && (
           <div className="rounded-2xl border border-black/10 bg-neutral-50 px-4 py-3">
-            <p className="text-xs tracking-[0.22em] text-neutral-500">
+            <p className="text-neutral-500">
               SELECTED SERVICE
             </p>
-            <p className="mt-1 text-sm font-semibold text-neutral-900">
+            <p className="mt-1 text-neutral-900">
               {service.title}
             </p>
             {service.subtitle && (
-              <p className="mt-1 text-xs leading-5 text-neutral-600">
+              <p className="mt-1 text-neutral-600">
                 {service.subtitle}
               </p>
             )}
-            <p className="mt-2 text-xs text-[#b07d3d]">{tipLine}</p>
+            <p className="mt-2 text-[#b07d3d]">{tipLine}</p>
           </div>
         )}
 
@@ -413,7 +413,7 @@ export function ServiceInquiryDialog({
                 </Button>
               </div>
 
-              <p className="text-xs text-neutral-500">{postSubmitTip}</p>
+              <p className="text-neutral-500">{postSubmitTip}</p>
             </>
           ) : (
             <>
@@ -466,12 +466,12 @@ export function ServiceInquiryDialog({
                 </Button>
               </div>
 
-              <p className="text-xs text-neutral-500">{postSubmitTip}</p>
+              <p className="text-neutral-500">{postSubmitTip}</p>
             </>
           )}
 
           {!service ? (
-            <p className="text-xs text-neutral-500">
+            <p className="text-neutral-500">
               Select a service first, then your details can be submitted.
             </p>
           ) : null}

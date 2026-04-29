@@ -259,7 +259,7 @@ export default function FinancialWellbeingPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
-            className="text-[11px] tracking-[0.22em] text-[#5C7A6A]"
+            className="text-[#5C7A6A]"
           >
             EMPLOYEE FINANCIAL WELLBEING
           </motion.p>
@@ -277,7 +277,7 @@ export default function FinancialWellbeingPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
-            className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-neutral-600"
+            className="mx-auto mt-4 max-w-2xl text-neutral-600"
           >
             Financial stress is one of the most overlooked drains on workforce
             performance. Give your people the clarity, tools, and expert
@@ -333,7 +333,7 @@ export default function FinancialWellbeingPage() {
         <FadeIn>
           <div className="grid md:grid-cols-12 gap-12 items-start">
             <div className="md:col-span-5">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-6">
+              <p className="text-[#5C7A6A] mb-6">
                 The Business Case
               </p>
               <h2 className="">
@@ -343,13 +343,13 @@ export default function FinancialWellbeingPage() {
               </h2>
             </div>
             <div className="md:col-span-7 md:pt-16">
-              <p className="text-xl text-[#4A4A4A] leading-relaxed mb-6">
+              <p className="text-[#4A4A4A] mb-6">
                 It does not appear on a balance sheet. But it shows up in missed
                 deadlines, disengaged teams, and the slow erosion of
                 performance. When your people are distracted by financial
                 anxiety, they cannot bring their best to work.
               </p>
-              <p className="text-xl text-[#4A4A4A] leading-relaxed">
+              <p className="text-[#4A4A4A]">
                 For most of your people, quality financial guidance has always
                 felt out of reach. Celerey was built to change that: bringing
                 world-class financial advisory to every level of your workforce.
@@ -365,14 +365,14 @@ export default function FinancialWellbeingPage() {
           {stats.map((s, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="border-t border-[#C9E8D5]/20 pt-6">
-                <p className="text-[#C9E8D5] text-5xl md:text-6xl font-normal mb-3">
+                <p className="text-[#C9E8D5] mb-3">
                   {s.value}
                 </p>
-                <p className="text-white/50 text-sm leading-relaxed mb-2">
+                <p className="text-white/50 mb-2">
                   {s.label}
                 </p>
                 {/* Source: PwC Employee Financial Wellness Survey, 2026 — https://www.pwc.com/us/en/services/consulting/business-transformation/library/employee-financial-wellness-survey.html */}
-                <p className="text-white/30 text-xs leading-relaxed mt-1">
+                <p className="text-white/30 mt-1">
                   Source: {s.source}
                 </p>
               </div>
@@ -386,7 +386,7 @@ export default function FinancialWellbeingPage() {
         <FadeIn>
           <div className="flex items-center gap-4 mb-20">
             <div className="w-8 h-px bg-[#5C7A6A]" />
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A]">
+            <p className="text-[#5C7A6A]">
               What Employee Financial Wellbeing Delivers
             </p>
           </div>
@@ -403,7 +403,7 @@ export default function FinancialWellbeingPage() {
                     {p.number}
                   </span>
                   <h3 className="mb-6">{p.title}</h3>
-                  <p className="text-lg text-[#4A4A4A] leading-relaxed max-w-md">
+                  <p className="text-[#4A4A4A] max-w-md">
                     {p.body}
                   </p>
                 </div>
@@ -433,7 +433,7 @@ export default function FinancialWellbeingPage() {
         </div>
         <div className="relative z-10 px-6 md:px-16 lg:px-24 max-w-5xl mx-auto text-center">
           <FadeIn>
-            <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-10">
+            <p className="text-[#C9E8D5] mb-10">
               Celerey Belief
             </p>
             <blockquote className="text-white text-3xl md:text-5xl lg:text-6xl font-normal leading-[1.2] italic">
@@ -452,7 +452,7 @@ export default function FinancialWellbeingPage() {
         <FadeIn>
           <div className="grid md:grid-cols-12 gap-8 mb-20">
             <div className="md:col-span-6">
-              <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-4">
+              <p className="text-[#5C7A6A] mb-4">
                 How We Help
               </p>
               <h2 className="">
@@ -462,7 +462,7 @@ export default function FinancialWellbeingPage() {
               </h2>
             </div>
             <div className="md:col-span-6 md:pt-16">
-              <p className="text-lg text-[#4A4A4A] leading-relaxed">
+              <p className="text-[#4A4A4A]">
                 Celerey brings together accredited advisors, intelligent
                 planning tools, and a thriving peer community: making
                 world-class financial guidance accessible to every member of
@@ -482,7 +482,7 @@ export default function FinancialWellbeingPage() {
                 <h3 className="text-[#1A1A1A] group-hover:text-white transition-colors mb-3">
                   {f.title}
                 </h3>
-                <p className="text-[#4A4A4A] group-hover:text-white/60 text-sm leading-relaxed transition-colors">
+                <p className="text-[#4A4A4A] group-hover:text-white/60 transition-colors">
                   {f.body}
                 </p>
               </div>
@@ -520,7 +520,7 @@ export default function FinancialWellbeingPage() {
       <section className="py-32 px-6 md:px-16 lg:px-24 max-w-7xl mx-auto">
         <FadeIn>
           <div className="mb-20">
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-4">
+            <p className="text-[#5C7A6A] mb-4">
               How It Works
             </p>
             <h2 className="max-w-xl">
@@ -564,7 +564,7 @@ export default function FinancialWellbeingPage() {
                   </span>
                 </div>
                 <h3 className="mb-4">{s.title}</h3>
-                <p className="text-[#4A4A4A] leading-relaxed mb-6 text-sm">
+                <p className="text-[#4A4A4A] mb-6">
                   {s.body}
                 </p>
                 <a
@@ -594,7 +594,7 @@ export default function FinancialWellbeingPage() {
 
         <div className="relative z-10 px-6 md:px-16 lg:px-24 py-40 max-w-7xl mx-auto">
           <FadeIn>
-            <p className="text-[#C9E8D5] text-[10px] tracking-[0.35em] uppercase mb-8">
+            <p className="text-[#C9E8D5] mb-8">
               Ready to Partner
             </p>
             <h2 className="text-white max-w-3xl mb-12">
@@ -604,7 +604,7 @@ export default function FinancialWellbeingPage() {
               <br />
               <span className="italic text-[#C9E8D5]">your workforce.</span>
             </h2>
-            <p className="text-white/60 text-lg max-w-lg leading-relaxed mb-12">
+            <p className="text-white/60 max-w-lg mb-12">
               Forward-thinking organisations are already investing in their
               people&apos;s financial health. Let&apos;s talk about what that
               could look like for your team.
@@ -646,7 +646,7 @@ export default function FinancialWellbeingPage() {
       <section className="py-32 px-6 md:px-16 lg:px-24 bg-[#F2F5F0]">
         <div className="max-w-7xl mx-auto">
           <FadeIn>
-            <p className="text-[10px] tracking-[0.3em] uppercase text-[#5C7A6A] mb-16 text-center">
+            <p className="text-[#5C7A6A] mb-16 text-center">
               Companies That Invested in Their People
             </p>
           </FadeIn>
@@ -675,8 +675,8 @@ export default function FinancialWellbeingPage() {
                     className="w-12 h-12 rounded-full object-cover grayscale"
                   />
                   <div>
-                    <p className="font-medium text-[#1A1A1A]">{t.name}</p>
-                    <p className="text-sm text-[#5C7A6A]">{t.role}</p>
+                    <p className="text-[#1A1A1A]">{t.name}</p>
+                    <p className="text-[#5C7A6A]">{t.role}</p>
                   </div>
                 </div>
               </div>

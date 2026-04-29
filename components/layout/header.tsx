@@ -384,7 +384,7 @@ export default function Header() {
                     {/* Links column */}
                     <div className="flex-1 p-4">
                       {menu.sectionLabel && (
-                        <p className="px-2 pb-2 text-[10px] font-semibold tracking-widest text-zinc-400 uppercase">
+                        <p className="px-2 pb-2 text-zinc-400">
                           {menu.sectionLabel}
                         </p>
                       )}

@@ -54,7 +54,7 @@ export default function ComingSoonPage() {
           >
             <h1 className="mt-3 text-neutral-900">Coming Soon</h1>
 
-            <p className="mt-5 text-base leading-7 text-neutral-700 sm:text-lg">
+            <p className="mt-5 text-neutral-700">
               We are redesigning the Celerey dashboard to make it clearer,
               faster, and more useful. If you want a heads-up when it is ready,
               drop your email below.
@@ -75,12 +75,12 @@ export default function ComingSoonPage() {
                 </Button>
               </div>
 
-              <p className="mt-3 text-sm text-neutral-500">
+              <p className="mt-3 text-neutral-500">
                 We only use this to send the launch update.
               </p>
 
               {submitted ? (
-                <p className="mt-4 text-sm font-medium text-emerald-700">
+                <p className="mt-4 text-emerald-700">
                   Thanks. You are on the list.
                 </p>
               ) : null}
@@ -123,7 +123,7 @@ export default function ComingSoonPage() {
             {/* Minimal content */}
             <div className="relative flex min-h-105 flex-col items-center justify-center px-10 py-14 text-center text-white sm:min-h-130">
               {/* Thin top “status” line */}
-              <p className="text-xs uppercase tracking-[0.28em] text-white/65">
+              <p className="text-white/65">
                 Dashboard redesign in progress
               </p>
 
@@ -133,7 +133,7 @@ export default function ComingSoonPage() {
               </h2>
 
               {/* Supporting copy */}
-              <p className="mt-4 max-w-md text-sm leading-6 text-white/75 sm:text-base sm:leading-7">
+              <p className="mt-4 max-w-md text-white/75">
                 A calmer layout, smoother navigation, and better context,
                 designed to help you make confident decisions.
               </p>
@@ -142,7 +142,7 @@ export default function ComingSoonPage() {
               <div className="mt-10 h-px w-24 bg-white/20" />
 
               {/* Socials */}
-              <p className="mt-10 text-sm font-medium text-white/85">
+              <p className="mt-10 text-white/85">
                 Connect with us
               </p>
               <div className="mt-4 flex items-center justify-center gap-3">

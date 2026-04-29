@@ -122,7 +122,7 @@ export default function Community() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-[11px] tracking-[0.22em] text-neutral-600/80"
+          className="text-neutral-600/80"
         >
           JOIN THE COMMUNITY
         </motion.p>
@@ -141,7 +141,7 @@ export default function Community() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mx-auto mt-6 max-w-2xl text-base text-neutral-700 sm:text-lg"
+          className="mx-auto mt-6 max-w-2xl text-neutral-700"
         >
           You&apos;ve worked hard for what you have. Now ensure it works for
           you.
@@ -197,7 +197,7 @@ export default function Community() {
             </motion.div>
           )}
 
-          <p className="mt-4 text-xs text-neutral-500">
+          <p className="mt-4 text-neutral-500">
             No spam. Just insights and updates. Unsubscribe anytime.
           </p>
         </div>

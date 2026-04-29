@@ -107,7 +107,7 @@ export default function WealthHealthPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#fafaf8]">
-        <p className="text-lg text-neutral-700">Preparing your results...</p>
+        <p className="text-neutral-700">Preparing your results...</p>
       </div>
     );
   }
@@ -116,7 +116,7 @@ export default function WealthHealthPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#fafaf8]">
         <div className="text-center px-6">
-          <p className="text-lg text-neutral-700 mb-6">No results found</p>
+          <p className="text-neutral-700 mb-6">No results found</p>
           <Button
             onClick={() => router.push("/#wealth-scan")}
             style={{ backgroundColor: PRIMARY, color: "white" }}
@@ -238,7 +238,7 @@ export default function WealthHealthPage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-[10px] tracking-[0.32em] text-white/45 mb-8"
+            className="text-white/45 mb-8"
           >
             FINANCIAL HEALTH REPORT
           </motion.p>
@@ -268,7 +268,7 @@ export default function WealthHealthPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="text-white/60 text-sm sm:text-base max-w-lg"
+            className="text-white/60 max-w-lg"
             dangerouslySetInnerHTML={{ __html: narrative.headline }}
           />
         </div>
@@ -278,10 +278,10 @@ export default function WealthHealthPage() {
       <div className="w-full bg-primary px-6 sm:px-12 lg:px-20 py-6">
         <div className="flex flex-wrap gap-6 items-center justify-between">
           <div>
-            <p className="text-[10px] tracking-[0.26em] text-white/40 mb-1">
+            <p className="text-white/40 mb-1">
               ASSESSMENT COMPLETE
             </p>
-            <p className="text-white text-sm">
+            <p className="text-white">
               {results.category.label} &nbsp;&middot;&nbsp; Score:{" "}
               {results.score}/100
             </p>
@@ -321,7 +321,7 @@ export default function WealthHealthPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+            <p className="text-neutral-400 mb-4">
               01 &nbsp; SUMMARY
             </p>
             <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 leading-tight mb-6">
@@ -330,17 +330,17 @@ export default function WealthHealthPage() {
 
             <div className="rounded-2xl bg-[#D7EDFF] p-6 mb-6">
               <p
-                className="text-neutral-800 text-base leading-relaxed"
+                className="text-neutral-800"
                 dangerouslySetInnerHTML={{ __html: narrative.summary }}
               />
             </div>
 
-            <p className="text-neutral-800 text-sm leading-relaxed italic font-medium border-l-2 border-[#354A49] pl-4 mb-8">
+            <p className="text-neutral-800 border-l-2 border-[#354A49] pl-4 mb-8">
               {narrative.valueLine}
             </p>
 
             <div className="space-y-3">
-              <p className="text-sm font-medium text-neutral-800">
+              <p className="text-neutral-800">
                 This report does three things:
               </p>
               {[
@@ -359,7 +359,7 @@ export default function WealthHealthPage() {
               ].map((item) => (
                 <div key={item.label} className="flex gap-3">
                   <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#354A49] shrink-0" />
-                  <p className="text-sm text-neutral-800">
+                  <p className="text-neutral-800">
                     <span className="font-semibold text-neutral-900">
                       {item.label}:
                     </span>{" "}
@@ -379,7 +379,7 @@ export default function WealthHealthPage() {
             className="flex flex-col gap-5"
           >
             <div className="rounded-2xl bg-primary p-8 text-center">
-              <p className="text-[10px] tracking-[0.22em] text-white/45 mb-2">
+              <p className="text-white/45 mb-2">
                 OVERALL SCORE
               </p>
               <div className="flex items-end justify-center gap-2 my-4">
@@ -388,7 +388,7 @@ export default function WealthHealthPage() {
                 </span>
                 <span className="text-2xl text-white/35 pb-3">/100</span>
               </div>
-              <p className="text-white/70 text-sm mb-6">
+              <p className="text-white/70 mb-6">
                 Calculated across 6 financial pillars
               </p>
 
@@ -474,7 +474,7 @@ export default function WealthHealthPage() {
                   </li>
                 )}
               </ul>
-              <p className="mt-4 text-xs text-neutral-600">
+              <p className="mt-4 text-neutral-600">
                 These are signals, not labels.
               </p>
             </div>
@@ -490,13 +490,13 @@ export default function WealthHealthPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+          <p className="text-neutral-400 mb-4">
             02 &nbsp; BREAKDOWN
           </p>
           <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-2">
             Your six-area snapshot
           </h2>
-          <p className="text-neutral-700 text-base mb-8 max-w-2xl">
+          <p className="text-neutral-700 mb-8 max-w-2xl">
             Higher scores tend to feel calmer and more predictable. Lower scores
             often show up as friction, stress, or inconsistency in daily
             decisions.
@@ -557,7 +557,7 @@ export default function WealthHealthPage() {
           </ResponsiveContainer>
 
           <div className="mt-8 rounded-2xl bg-[#D7EDFF] p-5">
-            <p className="text-sm font-medium text-neutral-800 leading-relaxed">
+            <p className="text-neutral-800">
               Patterns matter more than individual scores. If two or more areas
               sit in the lower range, they often influence each other. Income
               instability can affect saving consistency, which then affects
@@ -578,10 +578,10 @@ export default function WealthHealthPage() {
         <div className="absolute inset-0 bg-linear-to-r from-primary/92 to-[#354A49]/55" />
         <div className="absolute inset-0 flex items-center px-6 sm:px-12 lg:px-20">
           <div className="max-w-lg">
-            <p className="text-[10px] tracking-[0.26em] text-white/40 mb-5">
+            <p className="text-white/40 mb-5">
               03 &nbsp; PERSPECTIVE
             </p>
-            <p className="font-cirka text-2xl sm:text-3xl text-white leading-snug">
+            <p className="text-white">
               The goal is not a perfect score.
               <br />
               It is knowing which lever to pull next.
@@ -599,13 +599,13 @@ export default function WealthHealthPage() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+          <p className="text-neutral-400 mb-4">
             04 &nbsp; DETAILED FINDINGS
           </p>
           <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-3">
             What each area suggests
           </h2>
-          <p className="text-neutral-700 text-base max-w-2xl">
+          <p className="text-neutral-700 max-w-2xl">
             These are interpretations of your answers. Read each one carefully
             and ask yourself: does this land?
           </p>
@@ -646,7 +646,7 @@ export default function WealthHealthPage() {
                   <span className="text-neutral-500 pb-1">/100</span>
                 </div>
 
-                <p className="text-sm text-neutral-800 leading-relaxed">
+                <p className="text-neutral-800">
                   {meaning}
                 </p>
               </motion.div>
@@ -664,7 +664,7 @@ export default function WealthHealthPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.26em] text-neutral-400 mb-4">
+            <p className="text-neutral-400 mb-4">
               05 &nbsp; RECOMMENDATIONS
             </p>
             <h2 className="font-cirka text-3xl sm:text-4xl text-neutral-900 mb-8">
@@ -680,7 +680,7 @@ export default function WealthHealthPage() {
                   <span className="font-cirka text-2xl text-[#354A49]/35 shrink-0 leading-none mt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-sm text-neutral-800 leading-relaxed">
+                  <p className="text-neutral-800">
                     {rec}
                   </p>
                 </div>
@@ -708,13 +708,13 @@ export default function WealthHealthPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[10px] tracking-[0.26em] text-white/35 mb-5">
+            <p className="text-white/35 mb-5">
               NEXT STEP
             </p>
             <h2 className="font-cirka text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-5">
               Spend 15 minutes with someone who can read this with you.
             </h2>
-            <p className="text-white/75 text-base sm:text-lg">
+            <p className="text-white/75">
               No pitch. No pressure. Just a clear conversation about what your
               results mean and what, if anything, is worth doing about it.
             </p>
@@ -743,7 +743,7 @@ export default function WealthHealthPage() {
               Retake the assessment
             </button>
 
-            <p className="text-xs text-white/50 text-center mt-2">
+            <p className="text-white/50 text-center mt-2">
               Educational report only. No financial advice is being provided.
             </p>
           </motion.div>

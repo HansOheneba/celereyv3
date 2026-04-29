@@ -248,7 +248,7 @@ function PaymentSuccessContent() {
       <div className="container mx-auto max-w-xl px-4 py-10 sm:py-14">
         <div className="text-center">
           <h1 className="text-neutral-900">Payment confirmation</h1>
-          <p className="mt-2 text-sm text-neutral-600 sm:text-base">
+          <p className="mt-2 text-neutral-600">
             {status === "checking" &&
               "Please wait while we confirm your payment."}
             {status === "success" && "You’re all set."}
@@ -283,10 +283,10 @@ function PaymentSuccessContent() {
               {status === "failed" && "Confirmation failed"}
             </h2>
 
-            <p className="mt-2 text-sm text-neutral-600">{message}</p>
+            <p className="mt-2 text-neutral-600">{message}</p>
 
             {ProgressNote && (
-              <p className="mt-2 text-xs text-neutral-500">{ProgressNote}</p>
+              <p className="mt-2 text-neutral-500">{ProgressNote}</p>
             )}
           </div>
 

@@ -102,11 +102,11 @@ export default function AlaCarteServices() {
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-neutral-900">Specialist Engagements</h2>
 
-          <p className="mt-4 text-sm tracking-wide text-neutral-500">
+          <p className="mt-4 text-neutral-500">
             One-Off Advisory
           </p>
 
-          <p className="mt-6 text-neutral-600 leading-7">
+          <p className="mt-6 text-neutral-600">
             Focused advisory engagements for specific financial decisions,
             delivered by accredited specialists.
           </p>
@@ -134,7 +134,7 @@ export default function AlaCarteServices() {
                     <h3 className="text-neutral-900">{service.title}</h3>
                   </div>
 
-                  <p className="mt-4 text-neutral-600 leading-7">
+                  <p className="mt-4 text-neutral-600">
                     {service.description}
                   </p>
 
@@ -150,11 +150,11 @@ export default function AlaCarteServices() {
 
                   {/* Deliverable */}
                   <div className="mt-6 border-t border-black/10 pt-5">
-                    <p className="text-xs uppercase tracking-wide text-neutral-500">
+                    <p className="text-neutral-500">
                       Deliverable
                     </p>
 
-                    <p className="mt-1 text-neutral-900 font-medium">
+                    <p className="mt-1 text-neutral-900">
                       {service.deliverable}
                     </p>
                   </div>
@@ -163,11 +163,11 @@ export default function AlaCarteServices() {
                 {/* Right panel */}
                 <div className="flex flex-col justify-between border-t pt-6 lg:border-t-0 lg:border-l lg:pl-8">
                   <div>
-                    <p className="text-xs uppercase tracking-wide text-neutral-500">
+                    <p className="text-neutral-500">
                       Advisor
                     </p>
 
-                    <p className="mt-1 font-medium text-neutral-900">
+                    <p className="mt-1 text-neutral-900">
                       {service.advisor}
                     </p>
                   </div>

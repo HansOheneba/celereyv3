@@ -27,7 +27,7 @@ export default function ResearchPage() {
           className="mt-10 mb-12 md:mb-16"
         >
           <h1 className="text-gray-900">Insights</h1>
-          <p className="mt-4 text-gray-600 max-w-2xl text-base md:text-lg leading-relaxed">
+          <p className="mt-4 text-gray-600 max-w-2xl">
             In-depth analysis, market outlooks, and strategic frameworks.
             Download our papers to deepen your understanding.
           </p>
@@ -67,7 +67,7 @@ export default function ResearchPage() {
                 <div className="mt-6">
                   <h2 className="text-gray-900 line-clamp-2">{paper.title}</h2>
 
-                  <p className="mt-2 text-gray-600 leading-relaxed line-clamp-3 max-w-xl">
+                  <p className="mt-2 text-gray-600 line-clamp-3 max-w-xl">
                     {paper.description}
                   </p>
 

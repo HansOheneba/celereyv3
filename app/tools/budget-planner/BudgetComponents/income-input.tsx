@@ -27,7 +27,7 @@ export default function IncomeInput({ income, setIncome }: IncomeInputProps) {
           className="text-2xl font-bold border-slate-300 focus:border-blue-500"
         />
       </div>
-      <p className="text-xs text-slate-500 mt-2">
+      <p className="text-slate-500 mt-2">
         Set your total monthly income to calculate budget allocations
       </p>
     </Card>

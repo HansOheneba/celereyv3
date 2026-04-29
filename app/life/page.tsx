@@ -17,13 +17,13 @@ export default function LifeSituationsPage() {
       <Reveal>
         <section className=" pb-20">
           <div className="max-w-4xl mx-auto text-center">
-            <p className="text-[11px] tracking-[0.26em] text-[#b07d3d] uppercase">
+            <p className="text-[#b07d3d]">
               Life Situations
             </p>
             <h1 className="mt-6 text-neutral-900">
               The right advice, for the right moment
             </h1>
-            <p className="mt-6 text-base leading-relaxed text-neutral-500">
+            <p className="mt-6 text-neutral-500">
               Major financial events do not announce themselves with a manual.
               Whether you are exiting a business, navigating an inheritance, or
               planning for retirement, Celerey provides the independent advisory
@@ -64,7 +64,7 @@ export default function LifeSituationsPage() {
                   <div className="max-w-xl">
                     <h2 className="text-neutral-900">{situation.title}</h2>
 
-                    <p className="mt-4 text-base leading-relaxed text-neutral-500">
+                    <p className="mt-4 text-neutral-500">
                       {situation.tagline}
                     </p>
 

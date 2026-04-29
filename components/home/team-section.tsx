@@ -22,11 +22,11 @@ export function TeamSection() {
   return (
     <section className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <p className="text-sm text-muted-foreground mb-4 uppercase tracking-wide">
+        <p className="text-muted-foreground mb-4">
           Expert Guidance
         </p>
         <h2 className="mb-8">Meet the people behind the guidance</h2>
-        <p className="text-muted-foreground text-lg mb-12 max-w-2xl">
+        <p className="text-muted-foreground mb-12 max-w-2xl">
           Each brings years of experience and a genuine commitment to
           understanding your situation.
         </p>
@@ -45,7 +45,7 @@ export function TeamSection() {
               <div className="order-1 md:order-2">
                 <h3 className="mb-2">{advisor.name}</h3>
                 <p className="text-muted-foreground mb-4">{advisor.role}</p>
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-muted-foreground mb-6">
                   {advisor.bio}
                 </p>
                 <Button variant="link" className="p-0 h-auto mb-6">

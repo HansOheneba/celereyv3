@@ -419,7 +419,7 @@ export default function WealthScanPage() {
                 className="px-6 py-5"
               >
                 <h3 className="text-white">Save your results</h3>
-                <p className="text-white/70 text-sm mt-1">
+                <p className="text-white/70 mt-1">
                   Enter your email to view your full report.
                 </p>
               </div>
@@ -480,7 +480,7 @@ export default function WealthScanPage() {
                 Understand your financial health in minutes
               </h1>
 
-              <p className="text-muted-foreground mb-8 text-base leading-relaxed">
+              <p className="text-muted-foreground mb-8">
                 A simple self-assessment that helps you understand where you are
                 today, what is working, and what to improve next.
               </p>
@@ -506,7 +506,7 @@ export default function WealthScanPage() {
             {/* PROGRESS */}
             <div className="mb-10">
               <Progress value={progress} className="h-2" />
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-muted-foreground mt-2">
                 Question {step + 1} of {questions.length}
               </p>
             </div>

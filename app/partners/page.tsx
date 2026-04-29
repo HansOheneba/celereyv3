@@ -20,7 +20,7 @@ export default function PartnersPage() {
           <h1 className="mb-6">
             Our Strategic <span className="text-[#D4AF37]">Partners</span>
           </h1>
-          <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-gray-600 max-w-3xl mx-auto">
             At Celerey, we understand that wealth is a multidimensional journey
             — it’s not just about investments, but the ecosystem that surrounds
             them. That’s why we collaborate with carefully selected partners
@@ -202,7 +202,7 @@ export default function PartnersPage() {
           <h2 className="mb-4">
             Partnering for Your Prosperity
           </h2>
-          <p className="text-gray-600 mb-8 leading-relaxed">
+          <p className="text-gray-600 mb-8">
             Celerey brings these alliances together under one trusted experience
             — giving you access to world-class expertise without the complexity.
             As you progress through your financial journey, we ensure every

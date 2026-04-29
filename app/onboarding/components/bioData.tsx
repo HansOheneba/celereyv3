@@ -62,7 +62,7 @@ const DEPENDENTS_OPTIONS = [
 
 function FieldError({ show, message }: { show: boolean; message?: string }) {
   if (!show || !message) return null;
-  return <p className="text-[11px] leading-4 text-red-600">{message}</p>;
+  return <p className="text-red-600">{message}</p>;
 }
 
 function Card({
@@ -79,7 +79,7 @@ function Card({
       <div className="mb-3">
         <h2 className="text-sm font-semibold text-neutral-900">{title}</h2>
         {description ? (
-          <p className="mt-1 text-xs text-neutral-500">{description}</p>
+          <p className="mt-1 text-neutral-500">{description}</p>
         ) : null}
       </div>
       <div className="space-y-4">{children}</div>
@@ -228,7 +228,7 @@ export function PersonalInfoPage() {
     <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:py-8">
       <div className="mb-5">
         <h1 className="text-neutral-900">Personal Information</h1>
-        <p className="mt-1 text-sm text-neutral-600">
+        <p className="mt-1 text-neutral-600">
           Basic details to get started.
         </p>
       </div>
@@ -329,7 +329,7 @@ export function PersonalInfoPage() {
               show={Boolean(touched.timeZone)}
               message={errors.timeZone}
             />
-            <p className="text-xs text-neutral-500">
+            <p className="text-neutral-500">
               Used for scheduling sessions.
             </p>
           </div>
@@ -475,7 +475,7 @@ export function PersonalInfoPage() {
                 show={Boolean(touched.dependents)}
                 message={errors.dependents}
               />
-              <p className="text-xs text-neutral-500">
+              <p className="text-neutral-500">
                 Anyone who relies on you financially.
               </p>
             </div>

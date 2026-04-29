@@ -8,7 +8,7 @@ export default function BudgetHeader() {
           </div>
           <div>
             <h1 className="text-3xl font-bold text-slate-900">Budget Planner</h1>
-            <p className="text-slate-600 text-sm">Plan your finances and track your spending</p>
+            <p className="text-slate-600">Plan your finances and track your spending</p>
           </div>
         </div>
       </div>

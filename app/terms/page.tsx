@@ -44,7 +44,7 @@ export default function Page() {
             Terms of Use
           </h1>
 
-          <p className="mt-6 text-[15px] leading-7 text-neutral-700">
+          <p className="mt-6 text-neutral-700">
             These Terms and Conditions govern access to and use of the Celerey
             website and related pages (the “Website”), including{" "}
             <span className="font-medium">celerey.co</span>.
@@ -58,7 +58,7 @@ export default function Page() {
           {/* Minimal TOC */}
           <aside className="hidden lg:block">
             <div className="sticky top-24">
-              <p className="text-xs uppercase tracking-[0.22em] text-neutral-500">
+              <p className="text-neutral-500">
                 Contents
               </p>
               <nav className="mt-4 space-y-2">
@@ -76,7 +76,7 @@ export default function Page() {
 
               <div className="mt-6 h-px w-full bg-black/10" />
 
-              <p className="mt-5 text-xs leading-relaxed text-neutral-600">
+              <p className="mt-5 text-neutral-600">
                 If you do not agree, please do not access the Website.
               </p>
             </div>
@@ -96,7 +96,7 @@ export default function Page() {
                   Celerey website notice
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   Celerey is a subsidiary of JA Group &amp; Co. For purposes of
                   these Terms and Conditions, references to “this Website” mean{" "}
                   <span className="font-medium">celerey.co</span> and any other
@@ -107,7 +107,7 @@ export default function Page() {
                   subsidiary, where applicable.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   If you have questions about these Terms as they relate to
                   Celerey, please contact{" "}
                   <a
@@ -126,12 +126,12 @@ export default function Page() {
                   Disclaimer
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7 font-semibold uppercase">
+                <p className="mt-5">
                   AS USED HEREIN, THE TERMS “YOU” AND “USER” SHALL MEAN ANY
                   VISITOR TO THE WEBSITE.
                 </p>
 
-                <p className="mt-5 text-[15px] leading-7 font-semibold uppercase">
+                <p className="mt-5">
                   PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY. BY ACCESSING
                   THIS WEBSITE YOU AGREE TO BE BOUND BY THE TERMS AND CONDITIONS
                   BELOW. THESE TERMS AND CONDITIONS ARE SUBJECT TO CHANGE
@@ -141,14 +141,14 @@ export default function Page() {
                   TERMS AND CONDITIONS, PLEASE DO NOT ACCESS THIS WEBSITE.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   You are strictly prohibited from unauthorized use of our
                   systems or this website, including but not limited to
                   unauthorized entry into our systems, misuse of passwords, or
                   misuse of any information posted to this Website.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   You acknowledge that we may disclose and transfer any
                   information that you provide through this Website to (i) any
                   company within the JKA Holdings and its subsidiaries and
@@ -163,7 +163,7 @@ export default function Page() {
                   to such transfers.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   Use of this Website may be monitored, tracked and recorded.
                   Anyone using this Website expressly consents to such
                   monitoring, tracking and recording. You are responsible for
@@ -178,7 +178,7 @@ export default function Page() {
                   Copyright notices
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   The works of authorship contained in this Website, including
                   but not limited to all design, text, sound recordings, and
                   images, are owned, except as otherwise expressly stated, by JA
@@ -204,7 +204,7 @@ export default function Page() {
                   Trademark notices
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   “Celerey,” the Celerey name and logo, “JA Group,” “JA Group
                   &amp; Co,” “Collins &amp; Copper,” and the JA Group logo are
                   trademarks of JA Group &amp; Co. or its subsidiaries or
@@ -220,7 +220,7 @@ export default function Page() {
                   Website content and materials
                 </h2>
 
-                <p className="mt-5 text-[15px] leading-7">
+                <p className="mt-5">
                   The information on this Website is for information purposes
                   only. It is believed to be reliable, but we do not warrant its
                   completeness, timeliness or accuracy. User accesses, uses, and
@@ -233,7 +233,7 @@ export default function Page() {
                   advice in any jurisdiction.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   Securities (including mutual funds and variable life
                   insurance), annuities and insurance products are not bank
                   deposits and are not insured by the Financial Services
@@ -255,7 +255,7 @@ export default function Page() {
                   &amp; Co. determination and acceptance.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   Some of our other websites or pages within this Website
                   contain supplemental terms and conditions and additional
                   disclosures and disclaimers, which are in addition to these
@@ -265,7 +265,7 @@ export default function Page() {
                   sections or pages.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   Materials and information posted on the Website may be printed
                   for your use, provided, however, that third party exchange
                   data, if any, may not be downloaded, printed or redistributed
@@ -278,7 +278,7 @@ export default function Page() {
                   of access.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   All JA Group &amp; Co. research is subject to a disclaimer
                   included in such research. Any material excerpted or
                   summarized from a research report is subject to the terms of
@@ -292,7 +292,7 @@ export default function Page() {
                   adverse effect on the value of investments.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   The value of the securities or financial instruments mentioned
                   herein (including the income derived therefrom) may be
                   adversely affected by changes in market prices and exchange
@@ -303,7 +303,7 @@ export default function Page() {
                   necessarily a guide to future performance.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7">
+                <p className="mt-6">
                   You agree that (i) you will not engage in any activities
                   related to this Website that are contrary to applicable law,
                   regulation or the terms of any agreements you have with us,
@@ -318,7 +318,7 @@ export default function Page() {
                   expressed written permission.
                 </p>
 
-                <p className="mt-6 text-[15px] leading-7 font-semibold uppercase">
+                <p className="mt-6">
                   WE OR OUR SUPPLIERS MAY DISCONTINUE OR MAKE CHANGES IN THE
                   INFORMATION, PRODUCTS OR SERVICES DESCRIBED HEREIN AT ANY TIME
                   WITHOUT PRIOR NOTICE TO YOU AND WITHOUT ANY LIABILITY TO YOU
@@ -340,7 +340,7 @@ export default function Page() {
             </div>
 
             <div className="mt-14 h-px w-full bg-black/10" />
-            <p className="mt-6 text-sm text-neutral-600">
+            <p className="mt-6 text-neutral-600">
               Related links:{" "}
               <a className="underline underline-offset-4" href="/privacy">
                 Privacy Policy

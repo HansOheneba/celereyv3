@@ -121,11 +121,11 @@ export default function WebinarPage() {
   return (
     <section className="bg-gradient-to-b from-white to-slate-50 text-primary py-32">
       <div className="max-w-6xl mx-auto px-6 text-center pt-20">
-        <p className="uppercase tracking-wide text-sm text-[#6B5DCC] mb-2">
+        <p className="text-[#6B5DCC] mb-2">
           Celerey Webinar Series
         </p>
         <h1 className="mb-3">{webinarData.title}</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+        <p className="text-gray-600 max-w-2xl mx-auto mb-6">
           {webinarData.subtitle}
         </p>
         <p className="text-gray-600 max-w-3xl mx-auto mb-10">
@@ -160,10 +160,10 @@ export default function WebinarPage() {
 
         {/* Date Section */}
         <div className="bg-primary text-white py-5 px-6 rounded-2xl max-w-xl mx-auto mb-14">
-          <p className="uppercase tracking-widest text-sm opacity-80 mb-1">
+          <p className="opacity-80 mb-1">
             Date & Time
           </p>
-          <p className="text-xl font-medium">{webinarData.formatted_date}</p>
+          <p className="">{webinarData.formatted_date}</p>
         </div>
 
         {/* Expectations */}
@@ -236,7 +236,7 @@ export default function WebinarPage() {
             </div>
           )}
 
-          <p className="text-gray-400 text-xs mt-4">
+          <p className="text-gray-400 mt-4">
             You&apos;ll receive a confirmation email with your access link.
           </p>
         </div>

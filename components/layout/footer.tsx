@@ -108,7 +108,7 @@ export default function Footer() {
                     className="w-24 h-auto"
                   />
                 </Link>
-                <p className="mt-4 text-sm leading-7 text-white/70 sm:text-base">
+                <p className="mt-4 text-white/70">
                   Democratizing financial guidance through simple tools and
                   expert advice. Start with a quick scan, explore tools, or talk
                   to our team when you need clarity.
@@ -133,7 +133,7 @@ export default function Footer() {
               <div className="grid gap-10 sm:grid-cols-2">
                 {sections.map((sec) => (
                   <div key={sec.title}>
-                    <p className="text-[11px] tracking-[0.26em] text-white/70">
+                    <p className="text-white/70">
                       {sec.title.toUpperCase()}
                     </p>
 
@@ -153,7 +153,7 @@ export default function Footer() {
                 ))}
 
                 <div>
-                  <p className="text-[11px] tracking-[0.26em] text-white/70">
+                  <p className="text-white/70">
                     CONTACT
                   </p>
 
@@ -215,7 +215,7 @@ export default function Footer() {
 
               {/* FAQ accordions (desktop) */}
               <div className="hidden lg:block">
-                <p className="text-[11px] tracking-[0.26em] text-white/70">
+                <p className="text-white/70">
                   QUICK FAQs
                 </p>
 
@@ -236,7 +236,7 @@ export default function Footer() {
 
             {/* Mobile FAQ (keeps footer rich without feeling empty) */}
             <div className="mt-12 lg:hidden">
-              <p className="text-[11px] tracking-[0.26em] text-white/70">
+              <p className="text-white/70">
                 QUICK FAQs
               </p>
 

@@ -44,7 +44,7 @@ export function FeaturesSection() {
           <h1 className=" mb-4">
             What are you trying to do next?
           </h1>
-          <p className="text-gray-500 text-base">
+          <p className="text-gray-500">
             Tell us where you are and we&apos;ll point you in the right
             direction.
           </p>
@@ -74,7 +74,7 @@ export function FeaturesSection() {
                         <CardTitle className="font-semibold mb-2 leading-snug text-gray-900">
                           {feature.title}
                         </CardTitle>
-                        <p className="text-gray-500 text-sm leading-relaxed">
+                        <p className="text-gray-500">
                           {feature.description}
                         </p>
                       </div>
@@ -108,11 +108,11 @@ export function FeaturesSection() {
 
             {/* Text + CTAs */}
             <div className="px-1">
-              <p className="text-sm text-gray-400 mb-2 tracking-wide">More</p>
+              <p className="text-gray-400 mb-2">More</p>
               <h3 className="">
                 Get clarity on my next move
               </h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">
+              <p className="text-gray-500 mb-6">
                 Sometimes you need a sounding board for what comes next in your
                 financial life.
               </p>

@@ -196,7 +196,7 @@ export function FinancialMOTPage() {
     <div className="max-w-2xl mx-auto py-8 px-4">
       <div className="mb-8">
         <h1 className="text-neutral-900">Financial Health Assessment</h1>
-        <p className="mt-2 text-sm text-neutral-600 sm:text-base">
+        <p className="mt-2 text-neutral-600">
           Let's understand your current financial situation
         </p>
       </div>
@@ -269,7 +269,7 @@ export function FinancialMOTPage() {
                 />
               </div>
               {errors.monthlyIncome && (
-                <p className="text-xs text-red-600">{errors.monthlyIncome}</p>
+                <p className="text-red-600">{errors.monthlyIncome}</p>
               )}
             </div>
 
@@ -295,7 +295,7 @@ export function FinancialMOTPage() {
                 />
               </div>
               {errors.monthlyExpenses && (
-                <p className="text-xs text-red-600">{errors.monthlyExpenses}</p>
+                <p className="text-red-600">{errors.monthlyExpenses}</p>
               )}
             </div>
           </div>
@@ -305,7 +305,7 @@ export function FinancialMOTPage() {
         <div className="space-y-6 bg-white p-6 rounded-2xl border border-black/10">
           <div className="flex items-center gap-3">
             <h2 className="text-xl font-semibold text-neutral-900">Assets</h2>
-            <p className="text-sm text-neutral-500 ml-auto">
+            <p className="text-neutral-500 ml-auto">
               Optional - You can skip if unsure
             </p>
           </div>
@@ -430,7 +430,7 @@ export function FinancialMOTPage() {
             <h2 className="text-xl font-semibold text-neutral-900">
               Liabilities
             </h2>
-            <p className="text-sm text-neutral-500 ml-auto">
+            <p className="text-neutral-500 ml-auto">
               Optional - You can skip if unsure
             </p>
           </div>
@@ -528,7 +528,7 @@ export function FinancialMOTPage() {
             <h2 className="text-xl font-semibold text-neutral-900">
               Asset Locations
             </h2>
-            <p className="text-sm text-neutral-500 ml-auto">
+            <p className="text-neutral-500 ml-auto">
               Optional - Where are your assets held?
             </p>
           </div>
@@ -607,7 +607,7 @@ export function FinancialMOTPage() {
             </div>
 
             {/* Helper text */}
-            <p className="text-xs text-neutral-500">
+            <p className="text-neutral-500">
               Press Enter or comma to add a country. Click the × button to
               remove.
               <br />

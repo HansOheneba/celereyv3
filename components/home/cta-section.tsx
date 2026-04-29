@@ -120,7 +120,7 @@ export function CTASection() {
         {/* KEEPING YOUR ORIGINAL COPY */}
         <h2 className="mb-6">You don&apos;t have to figure it all out alone</h2>
 
-        <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-background/80 sm:text-lg">
+        <p className="mx-auto mb-10 max-w-2xl text-background/80">
           Start building your financial future with clarity today. Let&apos;s
           turn confusion into confidence.
         </p>
@@ -141,7 +141,7 @@ export function CTASection() {
           <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-8 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
             <h3 className="mb-2">Get smarter about your money today</h3>
 
-            <p className="text-sm text-background/70 mb-6">
+            <p className="text-background/70 mb-6">
               Practical insights to help guide you in your financaial journey.
             </p>
 
@@ -172,14 +172,14 @@ export function CTASection() {
             )}
 
             {step === "done" && (
-              <p className="text-sm text-background/70">
+              <p className="text-background/70">
                 {name.trim()
                   ? `Welcome, ${name.trim()}. You’re on the list.`
                   : "You’re on the list. Welcome aboard."}
               </p>
             )}
 
-            <p className="mt-4 text-xs text-background/50">
+            <p className="mt-4 text-background/50">
               No spam. Unsubscribe anytime.
             </p>
           </div>

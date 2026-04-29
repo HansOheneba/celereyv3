@@ -31,7 +31,7 @@ export default function ShareButtons({ title }: ShareButtonsProps) {
 
   return (
     <div>
-      <p className="text-[11px] tracking-[0.26em] text-neutral-400 uppercase mb-4">
+      <p className="text-neutral-400 mb-4">
         Share
       </p>
       <div className="flex flex-col gap-2">

@@ -16,7 +16,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
-            className="text-[11px] tracking-[0.22em] text-[#b07d3d]"
+            className="text-[#b07d3d]"
           >
             CELEREY MEMBERSHIP
           </motion.p>

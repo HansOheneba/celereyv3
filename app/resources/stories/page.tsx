@@ -101,7 +101,7 @@ export default function StoriesPage() {
       {/* ── Hero header ─────────────────────────────────────────── */}
       <section className="md:pt-20 pt-10 pb-6  ">
         <div className="mx-auto max-w-xl text-center">
-          <p className="text-[10px] tracking-[0.26em] text-[#b07d3d] uppercase">
+          <p className="text-[#b07d3d]">
             Stories
           </p>
 
@@ -109,7 +109,7 @@ export default function StoriesPage() {
             Perspectives on wealth and clarity
           </h1>
 
-          <p className="mt-2 text-xs sm:text-sm leading-relaxed text-neutral-500 max-w-md mx-auto">
+          <p className="mt-2 text-neutral-500 max-w-md mx-auto">
             In-depth writing on financial decisions and life transitions.
           </p>
 
@@ -229,7 +229,7 @@ export default function StoriesPage() {
           {/* ── Left ── */}
           <div>
             <div className="flex items-center justify-between mb-4">
-              <p className="text-[10px] tracking-[0.26em] text-neutral-400 uppercase">
+              <p className="text-neutral-400">
                 {activeTag
                   ? `Tagged: ${activeTag}`
                   : query
@@ -254,7 +254,7 @@ export default function StoriesPage() {
             {/* Empty */}
             {filtered.length === 0 && (
               <div className="py-16 text-center">
-                <p className="text-lg text-neutral-400">No stories found.</p>
+                <p className="text-neutral-400">No stories found.</p>
               </div>
             )}
 
@@ -281,7 +281,7 @@ export default function StoriesPage() {
                     {/* Content */}
                     <div className="mt-4 space-y-3">
                       {/* Tag */}
-                      <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+                      <p className="text-neutral-400">
                         {post.tags[0]}
                       </p>
 
@@ -291,12 +291,12 @@ export default function StoriesPage() {
                       </h3>
 
                       {/* Excerpt */}
-                      <p className="text-sm text-neutral-600 leading-relaxed line-clamp-3">
+                      <p className="text-neutral-600 line-clamp-3">
                         {post.excerpt}
                       </p>
 
                       {/* Optional "Read more" */}
-                      <p className="text-sm text-[#b07d3d] opacity-0 group-hover:opacity-100 transition">
+                      <p className="text-[#b07d3d] opacity-0 group-hover:opacity-100 transition">
                         Read more
                       </p>
                     </div>
@@ -367,7 +367,7 @@ export default function StoriesPage() {
           <aside className="hidden lg:block space-y-10 sticky top-26 self-start">
             {/* Featured */}
             <div>
-              <p className="text-[11px] tracking-[0.26em] text-neutral-400 uppercase mb-5 pb-3 border-b border-black/6">
+              <p className="text-neutral-400 mb-5 pb-3 border-b border-black/6">
                 Featured
               </p>
               <div className="space-y-5">
@@ -387,7 +387,7 @@ export default function StoriesPage() {
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      {/* <p className="text-[10px] text-neutral-400">
+                      {/* <p className="text-neutral-400">
                         {new Date(post.date).toLocaleDateString(undefined, {
                           month: "long",
                           day: "numeric",
@@ -405,7 +405,7 @@ export default function StoriesPage() {
 
             {/* Latest */}
             <div>
-              <p className="text-[11px] tracking-[0.26em] text-neutral-400 uppercase mb-5 pb-3 border-b border-black/6">
+              <p className="text-neutral-400 mb-5 pb-3 border-b border-black/6">
                 Latest
               </p>
               <div className="space-y-5">
@@ -425,7 +425,7 @@ export default function StoriesPage() {
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      {/* <p className="text-[10px] text-neutral-400">
+                      {/* <p className="text-neutral-400">
                         {new Date(post.date).toLocaleDateString(undefined, {
                           month: "long",
                           day: "numeric",

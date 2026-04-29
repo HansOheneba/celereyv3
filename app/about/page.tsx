@@ -25,7 +25,7 @@ export default function AboutPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="text-[11px] tracking-[0.22em] text-[#b07d3d]"
+            className="text-[#b07d3d]"
           >
             ABOUT CELEREY
           </motion.p>
@@ -46,7 +46,7 @@ export default function AboutPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.14 }}
-            className="mx-auto mt-8 max-w-3xl text-sm leading-7 text-neutral-600 sm:text-base"
+            className="mx-auto mt-8 max-w-3xl text-neutral-600"
           >
             Celerey is a private advisory experience designed for people who
             want their financial life to feel calm, intentional, and properly
@@ -77,13 +77,13 @@ export default function AboutPage() {
             </div>
 
             <div className="grid gap-4 px-7 py-7 sm:grid-cols-[1.3fr_0.7fr] sm:items-end sm:px-10">
-              <p className="text-sm leading-7 text-neutral-700">
+              <p className="text-neutral-700">
                 We are building a calmer standard of financial decision-making:
                 less noise, more governance, and a clearer line from intent to
                 execution.
               </p>
 
-              <p className="text-xs leading-6 text-neutral-500 sm:text-right">
+              <p className="text-neutral-500 sm:text-right">
                 Discretion • Structure • Clarity
                 <span className="mx-2 text-neutral-300">•</span>
                 <span className="text-[#b07d3d]">Stewardship</span>
@@ -104,21 +104,21 @@ export default function AboutPage() {
             <h2 className="text-neutral-900"></h2>
 
             <div className="mt-6 space-y-5">
-              <p className="text-sm leading-7 text-neutral-700 sm:text-base">
+              <p className="text-neutral-700">
                 Most financial decisions are not difficult because the options
                 are unclear. They are difficult because life is busy, priorities
                 compete, and good structure rarely exists at the moment it is
                 needed.
               </p>
 
-              <p className="text-sm leading-7 text-neutral-700 sm:text-base">
+              <p className="text-neutral-700">
                 Celerey exists to bring order. We help you define what matters,
                 capture the right information, and make decisions with a level
                 of discipline that protects both lifestyle and long-term
                 outcomes.
               </p>
 
-              <p className="text-sm leading-7 text-neutral-700 sm:text-base">
+              <p className="text-neutral-700">
                 We combine internationally informed advisory standards with a
                 modern system for visibility and follow-through. The result is a
                 service that feels private, composed, and genuinely useful.
@@ -137,7 +137,7 @@ export default function AboutPage() {
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#b07d3d]" />
-                  <p className="text-sm leading-7 text-neutral-700">{item}</p>
+                  <p className="text-neutral-700">{item}</p>
                 </div>
               ))}
             </div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
             transition={{ duration: 0.65, ease: "easeOut", delay: 0.03 }}
             className="lg:col-span-4"
           >
-            <p className="text-[11px] tracking-[0.22em] text-[#b07d3d]">
+            <p className="text-[#b07d3d]">
               OUR PRINCIPLES
             </p>
 
@@ -182,8 +182,8 @@ export default function AboutPage() {
                   <div className="flex items-start gap-4">
                     <span className="mt-2 h-2 w-2 rounded-full bg-primary/25 ring-2 ring-[#b07d3d]/35" />
                     <div>
-                      <p className="text-lg text-neutral-900">{p.title}</p>
-                      <p className="mt-2 text-sm leading-7 text-neutral-600">
+                      <p className="text-neutral-900">{p.title}</p>
+                      <p className="mt-2 text-neutral-600">
                         {p.desc}
                       </p>
                     </div>
@@ -194,7 +194,7 @@ export default function AboutPage() {
 
             <div className="mt-10 h-px w-full bg-black/10" />
 
-            <p className="mt-8 text-sm leading-7 text-neutral-600">
+            <p className="mt-8 text-neutral-600">
               We keep the experience calm and high-signal, so decisions feel
               considered and execution stays consistent.
             </p>
@@ -213,13 +213,13 @@ export default function AboutPage() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <h2 className="text-neutral-900"></h2>
 
-              <p className="text-xs tracking-[0.22em] text-neutral-500">
+              <p className="text-neutral-500">
                 GOVERNANCE-FIRST ADVISORY
               </p>
             </div>
 
             <div className="mt-7 grid gap-10 lg:grid-cols-12">
-              <p className="text-sm leading-7 text-neutral-700 sm:text-base lg:col-span-7">
+              <p className="text-neutral-700 lg:col-span-7">
                 Our advisory team brings experience across wealth management,
                 banking, investment strategy, tax planning, property,
                 leadership, and governance. Celerey is built to support
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 standard of guidance.
               </p>
 
-              <p className="text-sm leading-7 text-neutral-700 sm:text-base lg:col-span-5">
+              <p className="text-neutral-700 lg:col-span-5">
                 Whether you choose membership for long-term structure, or engage
                 us privately for a specific decision, the work is always the
                 same: to protect the downside, clarify the path, and ensure you
@@ -239,7 +239,7 @@ export default function AboutPage() {
 
         {/* Bottom note */}
         <div className="mx-auto mt-16 max-w-5xl text-center">
-          <p className="text-2xl text-neutral-900 sm:text-3xl">
+          <p className="text-neutral-900">
             Wealth should feel steady.
             <br className="hidden sm:block" />
             Your decisions should feel considered.

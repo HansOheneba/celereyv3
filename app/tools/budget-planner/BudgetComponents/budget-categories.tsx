@@ -108,7 +108,7 @@ export default function BudgetCategories({
           </span>
         </div>
         {totalPercentage !== 100 && (
-          <p className="text-xs text-slate-600 mt-2">
+          <p className="text-slate-600 mt-2">
             {totalPercentage > 100
               ? `Over budget by ${totalPercentage - 100}%`
               : `Unallocated: ${100 - totalPercentage}%`}

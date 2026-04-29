@@ -121,7 +121,7 @@ h6 {
   }
 
   p {
-    @apply text-base md:text-lg leading-relaxed text-muted-foreground;
+    @apply text-[17px] md:text-lg leading-relaxed text-muted-foreground;
   }
 }
 [data-state="open"] .accordion-chevron {

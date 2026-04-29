@@ -93,7 +93,7 @@ export default function PodcastsPage() {
                   <h2 className="text-gray-900 line-clamp-2">
                     {podcast.title}
                   </h2>
-                  <p className="mt-2 text-gray-600 text-sm leading-relaxed">
+                  <p className="mt-2 text-gray-600">
                     {podcast.description}
                   </p>
                 </div>

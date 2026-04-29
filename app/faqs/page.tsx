@@ -187,7 +187,7 @@ export default function FAQsPage() {
           className="text-center"
         >
           <h1 className="text-neutral-900">FAQs</h1>
-          <p className="mt-3 text-sm text-neutral-600 sm:text-base">
+          <p className="mt-3 text-neutral-600">
             Quick answers to common questions about Celerey, payments, advisory
             sessions, and tools.
           </p>
@@ -234,7 +234,7 @@ export default function FAQsPage() {
               >
                 <div className="mb-5">
                   <h2 className="text-neutral-900">{cat}</h2>
-                  <p className="mt-1 text-sm text-neutral-600">
+                  <p className="mt-1 text-neutral-600">
                     {cat === "Getting Started" &&
                       "Basics of what Celerey is and how to begin."}
                     {cat === "Payments" &&
@@ -279,7 +279,7 @@ export default function FAQsPage() {
           className="mt-10 rounded-3xl border border-black/10 bg-primary p-8 text-center text-white"
         >
           <h3 className="text-white">Still have questions?</h3>
-          <p className="mt-2 text-sm text-white/80">
+          <p className="mt-2 text-white/80">
             Reach out and we’ll help you get clarity fast.
           </p>
           <div className="mt-5 flex flex-col items-center justify-center gap-3 sm:flex-row">

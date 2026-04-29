@@ -26,7 +26,7 @@ export default function WealthScan() {
         <Reveal className="">
           <h2 className="mb-6">Not sure where to start with your finances?</h2>
 
-          <p className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-8">
+          <p className="text-muted-foreground mb-8">
             A short self check-in that helps you understand where you stand
             today and what to focus on next. No pressure, just clarity on what
             matters.
@@ -34,7 +34,7 @@ export default function WealthScan() {
 
           <div className="grid gap-6 sm:grid-cols-2 mb-10 text-sm">
             <div>
-              <p className="font-medium text-foreground mb-1">
+              <p className="text-foreground mb-1">
                 See what’s working
               </p>
               <p className="text-muted-foreground">
@@ -43,7 +43,7 @@ export default function WealthScan() {
             </div>
 
             <div>
-              <p className="font-medium text-foreground mb-1">
+              <p className="text-foreground mb-1">
                 Know what to improve
               </p>
               <p className="text-muted-foreground">
@@ -52,7 +52,7 @@ export default function WealthScan() {
             </div>
 
             <div>
-              <p className="font-medium text-foreground mb-1">
+              <p className="text-foreground mb-1">
                 Get clear next steps
               </p>
               <p className="text-muted-foreground">
@@ -61,7 +61,7 @@ export default function WealthScan() {
             </div>
 
             <div>
-              <p className="font-medium text-foreground mb-1">
+              <p className="text-foreground mb-1">
                 No sign up needed
               </p>
               <p className="text-muted-foreground">
@@ -75,7 +75,7 @@ export default function WealthScan() {
               <Link href="/wealthscan">Start your assessment</Link>
             </Button>
 
-            <p className="text-xs text-muted-foreground">
+            <p className="text-muted-foreground">
               Takes less than 2 minutes
             </p>
           </div>

@@ -274,11 +274,11 @@ export default function SavingsCalculator() {
           <Card className="bg-primary text-white border-none p-6">
             {saveType === "as-much-as-possible" ? (
               <>
-                <p className="text-blue-100 text-sm">You can save</p>
-                <p className="text-3xl sm:text-4xl font-bold">
+                <p className="text-blue-100">You can save</p>
+                <p className="">
                   ${Math.round(finalData.total).toLocaleString("en-US")}
                 </p>
-                <p className="text-blue-100 text-sm">
+                <p className="text-blue-100">
                   saving $
                   {Math.round(effectiveMonthlyAmount).toLocaleString("en-US")}{" "}
                   monthly for {totalMonths} months
@@ -286,12 +286,12 @@ export default function SavingsCalculator() {
               </>
             ) : (
               <>
-                <p className="text-blue-100 text-sm">You need to save</p>
-                <p className="text-3xl sm:text-4xl font-bold">
+                <p className="text-blue-100">You need to save</p>
+                <p className="">
                   ${Math.round(effectiveMonthlyAmount).toLocaleString("en-US")}{" "}
                   per month
                 </p>
-                <p className="text-blue-100 text-sm">
+                <p className="text-blue-100">
                   to reach ${Math.round(targetAmount).toLocaleString("en-US")}{" "}
                   in {totalMonths} months
                 </p>
@@ -306,13 +306,13 @@ export default function SavingsCalculator() {
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-gray-500">Starting balance</p>
-                <p className="font-semibold">
+                <p className="">
                   ${Math.round(startingBalance).toLocaleString("en-US")}
                 </p>
               </div>
               <div>
                 <p className="text-gray-500">Regular savings</p>
-                <p className="font-semibold">
+                <p className="">
                   $
                   {Math.round(
                     effectiveMonthlyAmount * totalMonths,
@@ -321,13 +321,13 @@ export default function SavingsCalculator() {
               </div>
               <div>
                 <p className="text-gray-500">Interest</p>
-                <p className="font-semibold">
+                <p className="">
                   ${Math.round(totalInterest).toLocaleString("en-US")}
                 </p>
               </div>
               <div>
                 <p className="text-gray-500">Total</p>
-                <p className="font-semibold">
+                <p className="">
                   ${Math.round(finalData.total).toLocaleString("en-US")}
                 </p>
               </div>

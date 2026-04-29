@@ -313,9 +313,9 @@ function InlineInquiryForm({ service }: { service: ServiceData }) {
         animate={{ opacity: 1, y: 0 }}
         className="rounded-[22px] border border-black/10 bg-white px-8 py-12 text-center"
       >
-        <p className="text-xs tracking-[0.22em] text-[#b07d3d]">RECEIVED</p>
+        <p className="text-[#b07d3d]">RECEIVED</p>
         <h3 className="mt-4 text-neutral-900">We will be in touch shortly.</h3>
-        <p className="mt-4 text-sm leading-7 text-neutral-500 max-w-md mx-auto">
+        <p className="mt-4 text-neutral-500 max-w-md mx-auto">
           Your inquiry has been received. A member of our advisory team will
           reach out to confirm scope and next steps, typically within one
           business day.
@@ -328,7 +328,7 @@ function InlineInquiryForm({ service }: { service: ServiceData }) {
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Step indicator */}
       <div className="flex items-center justify-between">
-        <p className="text-xs text-neutral-500">
+        <p className="text-neutral-500">
           Step {step} of 2<span className="mx-2 text-neutral-300">•</span>
           <span className="text-neutral-700">
             {step === 1 ? "Your details" : "What you need"}
@@ -526,7 +526,7 @@ function InlineInquiryForm({ service }: { service: ServiceData }) {
           </div>
 
           <div className="flex items-center justify-between pt-2">
-            <p className="text-xs text-neutral-400 max-w-sm leading-5">
+            <p className="text-neutral-400 max-w-sm">
               We will confirm scope by email before any engagement begins.
             </p>
             <button
@@ -572,7 +572,7 @@ export default function ServiceDetailPage() {
           initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45 }}
-          className="text-[11px] tracking-[0.28em] text-[#b07d3d]"
+          className="text-[#b07d3d]"
         >
           PRIVATE ADVISORY &nbsp;·&nbsp; {service.number}
         </motion.p>
@@ -590,7 +590,7 @@ export default function ServiceDetailPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.18 }}
-          className="mt-6 text-sm tracking-wide text-neutral-700"
+          className="mt-6 text-neutral-700"
         >
           {service.title}
         </motion.p>
@@ -634,10 +634,10 @@ export default function ServiceDetailPage() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-500 mb-5">
+            <p className="text-neutral-500 mb-5">
               OVERVIEW
             </p>
-            <p className="text-neutral-800 leading-7 text-base max-w-2xl">
+            <p className="text-neutral-800 max-w-2xl">
               {service.overview}
             </p>
           </motion.div>
@@ -650,18 +650,18 @@ export default function ServiceDetailPage() {
             className="flex flex-col gap-5 pt-9"
           >
             <div className="rounded-2xl border border-black/8 bg-white px-5 py-5">
-              <p className="text-[10px] tracking-[0.22em] text-neutral-500">
+              <p className="text-neutral-500">
                 DELIVERABLE
               </p>
-              <p className="mt-2 text-sm font-medium text-neutral-900 leading-5">
+              <p className="mt-2 text-neutral-900">
                 {service.deliverable}
               </p>
             </div>
             <div className="rounded-2xl border border-black/8 bg-white px-5 py-5">
-              <p className="text-[10px] tracking-[0.22em] text-neutral-500">
+              <p className="text-neutral-500">
                 LED BY
               </p>
-              <p className="mt-2 text-sm font-medium text-neutral-900">
+              <p className="mt-2 text-neutral-900">
                 {service.advisor}
               </p>
             </div>
@@ -680,7 +680,7 @@ export default function ServiceDetailPage() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-[11px] tracking-[0.24em] text-neutral-500 mb-8"
+          className="text-neutral-500 mb-8"
         >
           WHAT THIS ENGAGEMENT COVERS
         </motion.p>
@@ -699,7 +699,7 @@ export default function ServiceDetailPage() {
                 {String(i + 1).padStart(2, "0")}
               </span>
               <h3 className="mt-3 text-neutral-900">{item.label}</h3>
-              <p className="mt-2 text-sm text-neutral-700 leading-6">
+              <p className="mt-2 text-neutral-700">
                 {item.detail}
               </p>
             </motion.div>
@@ -720,7 +720,7 @@ export default function ServiceDetailPage() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-500">
+            <p className="text-neutral-500">
               WHY IT MATTERS
             </p>
           </motion.div>
@@ -733,7 +733,7 @@ export default function ServiceDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.55, delay: i * 0.08 }}
-                className="text-neutral-800 leading-7 text-base"
+                className="text-neutral-800"
               >
                 {para}
               </motion.p>
@@ -755,7 +755,7 @@ export default function ServiceDetailPage() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-500">
+            <p className="text-neutral-500">
               WHO THIS IS FOR
             </p>
           </motion.div>
@@ -765,7 +765,7 @@ export default function ServiceDetailPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.55 }}
-            className="text-neutral-800 leading-7 text-base"
+            className="text-neutral-800"
           >
             {service.forWho}
           </motion.p>
@@ -786,15 +786,15 @@ export default function ServiceDetailPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-[11px] tracking-[0.24em] text-neutral-500">
+            <p className="text-neutral-500">
               REQUEST THIS ENGAGEMENT
             </p>
             <h2 className="mt-5 text-neutral-900">Ready to begin?</h2>
-            <p className="mt-4 text-sm text-neutral-700 leading-7">
+            <p className="mt-4 text-neutral-700">
               Share a few details and we will follow up to confirm scope and
               answer any questions before anything is formalised.
             </p>
-            <p className="mt-6 text-xs text-neutral-500 leading-6">
+            <p className="mt-6 text-neutral-500">
               {service.advisor} &nbsp;&middot;&nbsp; Deliverable:{" "}
               {service.deliverable}
             </p>

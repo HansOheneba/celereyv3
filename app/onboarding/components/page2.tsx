@@ -143,7 +143,7 @@ export function FinancialMOTPage2() {
     <div className="max-w-2xl mx-auto py-8 px-4">
       <div className="mb-8">
         <h1 className="text-neutral-900">Financial Goals & Preferences</h1>
-        <p className="mt-2 text-sm text-neutral-600 sm:text-base">
+        <p className="mt-2 text-neutral-600">
           Help us personalize your financial advisory experience
         </p>
       </div>
@@ -181,7 +181,7 @@ export function FinancialMOTPage2() {
                         {level.label}
                       </h3>
                     </div>
-                    <p className="text-sm text-neutral-700 mb-3">
+                    <p className="text-neutral-700 mb-3">
                       {level.description}
                     </p>
                     <ul className="space-y-1">
@@ -208,7 +208,7 @@ export function FinancialMOTPage2() {
             ))}
           </div>
 
-          <p className="text-sm text-neutral-500 mt-3">
+          <p className="text-neutral-500 mt-3">
             This helps us tailor our advice to your current understanding
           </p>
         </div>
@@ -286,7 +286,7 @@ export function FinancialMOTPage2() {
                         {risk.label}
                       </h3>
                     </div>
-                    <p className="text-sm text-neutral-600">
+                    <p className="text-neutral-600">
                       {risk.description}
                     </p>
                   </div>
@@ -306,7 +306,7 @@ export function FinancialMOTPage2() {
             <h4 className="font-medium text-blue-800 mb-1">
               Understanding Risk Tolerance
             </h4>
-            <p className="text-sm text-blue-700">
+            <p className="text-blue-700">
               Your risk tolerance helps us recommend suitable investment
               strategies. Higher risk typically means higher potential returns,
               but also greater volatility.
@@ -324,7 +324,7 @@ export function FinancialMOTPage2() {
             {/* Investment Timeframe */}
             <div className="space-y-2">
               <Label className="text-neutral-700">Investment Timeframe</Label>
-              <p className="text-sm text-neutral-500">
+              <p className="text-neutral-500">
                 How long can you leave your money invested before you need it?
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -337,7 +337,7 @@ export function FinancialMOTPage2() {
                   onClick={() => updateData({ investmentTimeframe: "short" })}
                 >
                   <h4 className="font-medium text-neutral-900">Short-term</h4>
-                  <p className="text-sm text-neutral-600">1-3 years</p>
+                  <p className="text-neutral-600">1-3 years</p>
                 </div>
                 <div
                   className={`rounded-lg border p-4 text-center cursor-pointer transition-colors ${
@@ -348,7 +348,7 @@ export function FinancialMOTPage2() {
                   onClick={() => updateData({ investmentTimeframe: "medium" })}
                 >
                   <h4 className="font-medium text-neutral-900">Medium-term</h4>
-                  <p className="text-sm text-neutral-600">3-7 years</p>
+                  <p className="text-neutral-600">3-7 years</p>
                 </div>
                 <div
                   className={`rounded-lg border p-4 text-center cursor-pointer transition-colors ${
@@ -359,7 +359,7 @@ export function FinancialMOTPage2() {
                   onClick={() => updateData({ investmentTimeframe: "long" })}
                 >
                   <h4 className="font-medium text-neutral-900">Long-term</h4>
-                  <p className="text-sm text-neutral-600">7+ years</p>
+                  <p className="text-neutral-600">7+ years</p>
                 </div>
               </div>
             </div>
@@ -367,7 +367,7 @@ export function FinancialMOTPage2() {
             {/* Emergency Fund */}
             <div className="space-y-2">
               <Label className="text-neutral-700">Emergency Fund Status</Label>
-              <p className="text-sm text-neutral-500">
+              <p className="text-neutral-500">
                 Do you have an emergency fund (3-6 months of expenses)?
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -380,7 +380,7 @@ export function FinancialMOTPage2() {
                   onClick={() => updateData({ emergencyFund: "yes" })}
                 >
                   <h4 className="font-medium text-neutral-900">Yes</h4>
-                  <p className="text-sm text-neutral-600">3-6 months covered</p>
+                  <p className="text-neutral-600">3-6 months covered</p>
                 </div>
                 <div
                   className={`rounded-lg border p-4 text-center cursor-pointer transition-colors ${
@@ -391,7 +391,7 @@ export function FinancialMOTPage2() {
                   onClick={() => updateData({ emergencyFund: "partial" })}
                 >
                   <h4 className="font-medium text-neutral-900">Partial</h4>
-                  <p className="text-sm text-neutral-600">Building it up</p>
+                  <p className="text-neutral-600">Building it up</p>
                 </div>
                 <div
                   className={`rounded-lg border p-4 text-center cursor-pointer transition-colors ${
@@ -402,7 +402,7 @@ export function FinancialMOTPage2() {
                   onClick={() => updateData({ emergencyFund: "no" })}
                 >
                   <h4 className="font-medium text-neutral-900">Not yet</h4>
-                  <p className="text-sm text-neutral-600">Need to start</p>
+                  <p className="text-neutral-600">Need to start</p>
                 </div>
               </div>
             </div>

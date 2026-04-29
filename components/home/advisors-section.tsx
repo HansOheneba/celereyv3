@@ -59,11 +59,11 @@ function AdvisorRow({ advisor }: { advisor: Advisor }) {
       <div className="flex max-w-none flex-col gap-3 pt-1 sm:max-w-xs">
         <div>
           <h3 className="text-gray-900">{advisor.name}</h3>
-          <p className="text-sm font-semibold text-gray-900 mt-0.5">
+          <p className="text-gray-900 mt-0.5">
             {advisor.title}
           </p>
         </div>
-        <p className="text-gray-500 text-sm leading-relaxed">
+        <p className="text-gray-500">
           {truncate(advisor.experience, BIO_LIMIT)}
         </p>
         <Link
@@ -96,13 +96,13 @@ export function AdvisorsSection() {
         <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-start">
           {/* LEFT: sticky heading block */}
           <Reveal className="pt-2 lg:sticky lg:top-28 lg:pt-10">
-            <p className="text-xs font-bold tracking-widest text-gray-900 mb-4">
+            <p className="text-gray-900 mb-4">
               Expert Guidance
             </p>
             <h2 className="text-gray-900 mb-6">
               Meet the people behind the guidance
             </h2>
-            <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">
+            <p className="text-gray-500 mb-8 max-w-sm">
               Each brings years of experience and a genuine commitment to
               understanding your situation.
             </p>

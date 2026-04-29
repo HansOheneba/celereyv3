@@ -10,7 +10,7 @@ export function HeroSection() {
           <h1 className="mb-6">
             Planning your future shouldn&apos;t feel unclear
           </h1>
-          <p className="mb-8 text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mb-8 text-muted-foreground">
             Whether you are planning for property, family, investing or
             retirement, Celerey helps you make clear financial decisions with
             expert guidance and clear next steps

@@ -98,11 +98,11 @@ export default function ContactPage() {
         <div className="mx-auto max-w-360 px-6">
           {/* Page intro */}
           <Reveal className="mb-16 text-center">
-            <p className="text-sm tracking-widest uppercase text-[#D4AF37] mb-3">
+            <p className="text-[#D4AF37] mb-3">
               Get in Touch
             </p>
             <h1 className="text-primary">Let&apos;s start a conversation</h1>
-            <p className="mt-5 text-gray-500 max-w-lg mx-auto leading-relaxed">
+            <p className="mt-5 text-gray-500 max-w-lg mx-auto">
               Whether you&apos;re exploring Celerey for the first time or ready
               to take the next step, our team is here to help.
             </p>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                   <br />
                   changes everything.&rdquo;
                 </h4>
-                <p className="mt-3 text-white/60 text-sm leading-relaxed">
+                <p className="mt-3 text-white/60">
                   Our advisors bring clarity, not complexity.
                 </p>
 
@@ -150,7 +150,7 @@ export default function ContactPage() {
             {/* Right — form card */}
             <Reveal className="bg-white rounded-3xl p-8 md:p-10 border border-stone-100 shadow-sm">
               <h2 className="text-primary mb-2">Send us a message</h2>
-              <p className="text-gray-500 text-sm mb-8 leading-relaxed">
+              <p className="text-gray-500 mb-8">
                 Fill in the form and we&apos;ll respond as soon as possible
                 typically within one business day.
               </p>
@@ -280,13 +280,13 @@ export default function ContactPage() {
 
       {/* ── Bottom CTA ── */}
       <Reveal className="mx-auto max-w-3xl text-center px-6 pb-28">
-        <p className="text-sm tracking-widest uppercase text-[#D4AF37] mb-4">
+        <p className="text-[#D4AF37] mb-4">
           Together
         </p>
         <h2 className="text-primary mb-4">
           Let&apos;s build your financial future
         </h2>
-        <p className="text-gray-500 leading-relaxed max-w-xl mx-auto">
+        <p className="text-gray-500 max-w-xl mx-auto">
           Celerey is a partnership. Reach out today to connect with our wealth
           advisors and start building a plan that&apos;s as unique as your
           goals.

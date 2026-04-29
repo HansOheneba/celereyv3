@@ -155,7 +155,7 @@ export default function BookSessionPage() {
                 Schedule your advisory session
               </h1>
 
-              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-neutral-600 sm:text-base">
+              <p className="mt-3 max-w-2xl text-neutral-600">
                 Hi {data.firstName}, choose a time that works best for you.
                 Sessions are{" "}
                 <span className="font-medium text-neutral-900">60 minutes</span>{" "}
@@ -180,7 +180,7 @@ export default function BookSessionPage() {
               <h2 className="text-base font-medium text-neutral-900">
                 Your details
               </h2>
-              <p className="mt-1 text-sm text-neutral-600">
+              <p className="mt-1 text-neutral-600">
                 We’ll use this information for your booking and session
                 confirmation.
               </p>
@@ -202,7 +202,7 @@ export default function BookSessionPage() {
                   <h2 className="text-xl font-medium text-neutral-900">
                     Select a time
                   </h2>
-                  <p className="mt-1 text-sm text-neutral-600">
+                  <p className="mt-1 text-neutral-600">
                     You’ll receive a confirmation email with the video call link
                     after booking.
                   </p>
@@ -220,7 +220,7 @@ export default function BookSessionPage() {
                     <p className="text-neutral-700">
                       Loading scheduling calendar…
                     </p>
-                    <p className="mt-1 text-sm text-neutral-600">
+                    <p className="mt-1 text-neutral-600">
                       This should only take a moment.
                     </p>
                   </div>
@@ -238,7 +238,7 @@ export default function BookSessionPage() {
 
                 {!isLoading && !scriptLoaded ? (
                   <div className="mt-4 rounded-2xl border border-yellow-200 bg-yellow-50 px-4 py-3">
-                    <p className="text-sm text-yellow-800">
+                    <p className="text-yellow-800">
                       The calendar didn’t load.{" "}
                       <button
                         onClick={() => window.location.reload()}
@@ -253,7 +253,7 @@ export default function BookSessionPage() {
 
                 {bookingStarted && (
                   <div className="mt-6 rounded-2xl border border-black/10 bg-[#f4f3f2] p-4">
-                    <p className="text-sm text-neutral-700">
+                    <p className="text-neutral-700">
                       If you’ve booked your session, check your email for
                       confirmation and next steps.
                     </p>
@@ -315,8 +315,8 @@ export default function BookSessionPage() {
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-start justify-between gap-4">
-      <p className="text-sm text-neutral-600">{label}</p>
-      <p className="text-sm font-medium text-neutral-900 text-right break-all">
+      <p className="text-neutral-600">{label}</p>
+      <p className="text-neutral-900 text-right break-all">
         {value}
       </p>
     </div>
