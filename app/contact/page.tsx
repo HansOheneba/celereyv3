@@ -94,11 +94,11 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#FDFCF8]">
       {/* ── Hero / form section ── */}
-      <section className=" sm:py-32">
+      <section className=" sm:py-20">
         <div className="mx-auto max-w-360 px-6">
           {/* Page intro */}
           <Reveal className="mb-16 text-center">
-            <p className="text-[#D4AF37] mb-3">Get in Touch</p>
+
             <h1 className="text-primary">Let&apos;s start a conversation</h1>
             <p className="mt-5 text-gray-500 max-w-lg mx-auto">
               Whether you&apos;re exploring Celerey for the first time or ready
