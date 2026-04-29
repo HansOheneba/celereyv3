@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { insights } from "@/lib/insights";
-import { Search, X, ChevronDown } from "lucide-react";
+import { Search, X, ChevronDown, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Pagination,
@@ -27,11 +27,12 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-const allTags = Array.from(new Set(insights.flatMap((p) => p.tags))).sort();
+// ── Change this ID to promote a different story ──────────────────
+const FEATURED_STORY_ID = "11";
 
-const featuredPosts = insights.filter((p) =>
-  ["1", "2", "3", "4"].includes(p.id),
-);
+const featuredStory = insights.find((p) => p.id === FEATURED_STORY_ID)!;
+
+const allTags = Array.from(new Set(insights.flatMap((p) => p.tags))).sort();
 
 const latestPosts = [...insights]
   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -42,7 +43,6 @@ const ITEMS_PER_PAGE = 10;
 export default function StoriesPage() {
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [showTags, setShowTags] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
   const filtered = useMemo(() => {
@@ -50,6 +50,8 @@ export default function StoriesPage() {
 
     return insights
       .filter((post) => {
+        if (post.id === FEATURED_STORY_ID) return false;
+
         const matchesSearch =
           !q ||
           post.title.toLowerCase().includes(q) ||
@@ -98,12 +100,10 @@ export default function StoriesPage() {
 
   return (
     <main className="max-w-360 mx-auto min-h-screen px-6">
-      {/* ── Hero header ─────────────────────────────────────────── */}
-      <section className="md:pt-20 pt-10 pb-6  ">
-        <div className="mx-auto max-w-xl text-center">
-          <p className="text-[#b07d3d]">
-            Stories
-          </p>
+      {/* ── Page title ──────────────────────────────────────────── */}
+      <section className="md:pt-20 pt-10 pb-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-[#b07d3d]">Stories</p>
 
           <h1 className="mt-3 text-neutral-900">
             Perspectives on wealth and clarity
@@ -112,124 +112,61 @@ export default function StoriesPage() {
           <p className="mt-2 text-neutral-500 max-w-md mx-auto">
             In-depth writing on financial decisions and life transitions.
           </p>
-
-          <div className="flex items-center justify-center mt-5 gap-2">
-            {/* Search */}
-            <div className="flex gap-2 max-w-md mx-auto sm:mx-0">
-              <div className="relative flex-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  value={query}
-                  onChange={(e) => {
-                    setQuery(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                  className="h-10 w-full rounded-lg border border-black/10 bg-white pl-9 pr-8 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-black/20"
-                />
-                {query && (
-                  <button
-                    onClick={() => setQuery("")}
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-400"
-                  >
-                    <X className="h-3.5 w-3.5" />
-                  </button>
-                )}
-              </div>
-
-              <button className="hidden sm:block h-10 px-4 rounded-lg bg-[#160b35] text-white text-sm">
-                Search
-              </button>
-            </div>
-
-            {/* Mobile Tag Dropdown - Using shadcn DropdownMenu */}
-            <div className="sm:hidden">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="outline"
-                    className="h-10 px-4 border-black/10 bg-white text-sm text-neutral-700 justify-between min-w-32.5"
-                  >
-                    <span>{activeTag ?? "Filter by tag"}</span>
-                    <ChevronDown className="h-4 w-4 ml-2" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-48" align="end">
-                  <DropdownMenuLabel>Filter by tag</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem
-                    onClick={() => {
-                      setActiveTag(null);
-                      setCurrentPage(1);
-                    }}
-                  >
-                    All
-                  </DropdownMenuItem>
-                  {allTags.map((tag) => (
-                    <DropdownMenuItem
-                      key={tag}
-                      onClick={() => {
-                        setActiveTag(tag);
-                        setCurrentPage(1);
-                      }}
-                    >
-                      {tag}
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </div>
-          </div>
-
-          {/* Desktop Tags */}
-          <div className="mt-6 max-w-2xl mx-auto hidden sm:block">
-            <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <button
-                onClick={() => {
-                  setActiveTag(null);
-                  setCurrentPage(1);
-                }}
-                className={cn(
-                  "shrink-0 whitespace-nowrap rounded-full border px-4 py-1.5 text-xs font-medium",
-                  activeTag === null
-                    ? "border-neutral-900 bg-neutral-900 text-white"
-                    : "border-black/10 bg-white text-neutral-600",
-                )}
-              >
-                All
-              </button>
-
-              {allTags.map((tag) => (
-                <button
-                  key={tag}
-                  onClick={() => {
-                    setActiveTag(activeTag === tag ? null : tag);
-                    setCurrentPage(1);
-                  }}
-                  className={cn(
-                    "shrink-0 whitespace-nowrap rounded-full border px-4 py-1.5 text-xs font-medium",
-                    activeTag === tag
-                      ? "border-neutral-900 bg-neutral-900 text-white"
-                      : "border-black/10 bg-white text-neutral-600",
-                  )}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
-      <div className="h-px bg-black/6 mx-4 sm:mx-6 lg:mx-24" />
 
-      {/* ── Main content ─────────────────────────────────────────── */}
-      <div className=" pt-6 pb-20">
+      {/* ── Featured story ──────────────────────────────────────── */}
+      <section className="pb-14">
+        <p className="text-neutral-400 mb-6">Featured story</p>
+        <Link
+          href={`/resources/stories/${featuredStory.slug}`}
+          className="group grid gap-8 lg:grid-cols-[1.05fr_0.95fr] items-center"
+        >
+          {/* Image */}
+          <div className="relative aspect-video overflow-hidden rounded-3xl">
+            <Image
+              src={featuredStory.coverImage}
+              alt={featuredStory.title}
+              fill
+              priority
+              className="object-cover transition-transform duration-700 group-hover:scale-102"
+              sizes="(max-width: 1024px) 100vw, 55vw"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent" />
+          </div>
+
+          {/* Text */}
+          <div className="flex flex-col gap-5">
+            <span className=" w-fit text-primary/50">
+              {featuredStory.tags[0]}
+            </span>
+
+            <h2 className="text-neutral-900 group-hover:text-primary transition-colors">
+              {featuredStory.title}
+            </h2>
+
+            <p className="text-neutral-600 line-clamp-4 max-w-lg">
+              {featuredStory.excerpt}
+            </p>
+
+            <div className="flex items-center gap-2 text-[#b07d3d]">
+              <span>Read story</span>
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            </div>
+          </div>
+        </Link>
+      </section>
+
+      <div className="h-px bg-black/6" />
+
+      {/* ── Recent stories ──────────────────────────────────────── */}
+      <div className="pt-8 pb-20">
         <div className="grid gap-10 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_350px]">
           {/* ── Left ── */}
           <div>
-            <div className="flex items-center justify-between mb-4">
-              <p className="text-neutral-400">
+            {/* Section header: label + search + tag dropdown */}
+            <div className="flex items-center gap-2 justify-between flex-wrap mb-6">
+              <p className="text-neutral-500">
                 {activeTag
                   ? `Tagged: ${activeTag}`
                   : query
@@ -237,18 +174,79 @@ export default function StoriesPage() {
                     : "Recent stories"}
               </p>
 
-              {(query || activeTag) && (
-                <button
-                  onClick={() => {
-                    setQuery("");
-                    setActiveTag(null);
-                    setCurrentPage(1);
-                  }}
-                  className="text-xs text-[#b07d3d]"
-                >
-                  Clear
-                </button>
-              )}
+              <div className="flex items-center gap-2">
+                {/* Search */}
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    value={query}
+                    onChange={(e) => {
+                      setQuery(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="h-9 w-44 rounded-lg border border-black/10 bg-white pl-9 pr-8 text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-1 focus:ring-black/20"
+                  />
+                  {query && (
+                    <button
+                      onClick={() => setQuery("")}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-neutral-400"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
+                  )}
+                </div>
+
+                {/* Tag dropdown - all screen sizes */}
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="h-9 px-3 border-black/10 bg-white text-sm text-neutral-700 gap-1.5"
+                    >
+                      <span>{activeTag ?? "All topics"}</span>
+                      <ChevronDown className="h-4 w-4 shrink-0" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-48" align="end">
+                    <DropdownMenuLabel>Filter by topic</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem
+                      onClick={() => {
+                        setActiveTag(null);
+                        setCurrentPage(1);
+                      }}
+                    >
+                      All
+                    </DropdownMenuItem>
+                    {allTags.map((tag) => (
+                      <DropdownMenuItem
+                        key={tag}
+                        onClick={() => {
+                          setActiveTag(tag);
+                          setCurrentPage(1);
+                        }}
+                      >
+                        {tag}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
+                {(query || activeTag) && (
+                  <button
+                    onClick={() => {
+                      setQuery("");
+                      setActiveTag(null);
+                      setCurrentPage(1);
+                    }}
+                    className="text-xs text-[#b07d3d]"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
             </div>
 
             {/* Empty */}
@@ -281,9 +279,7 @@ export default function StoriesPage() {
                     {/* Content */}
                     <div className="mt-4 space-y-3">
                       {/* Tag */}
-                      <p className="text-neutral-400">
-                        {post.tags[0]}
-                      </p>
+                      <p className="text-neutral-400">{post.tags[0]}</p>
 
                       {/* Title */}
                       <h3 className="text-neutral-900 group-hover:text-[#b07d3d] transition-colors">
@@ -365,44 +361,6 @@ export default function StoriesPage() {
 
           {/* ── Sidebar ── */}
           <aside className="hidden lg:block space-y-10 sticky top-26 self-start">
-            {/* Featured */}
-            <div>
-              <p className="text-neutral-400 mb-5 pb-3 border-b border-black/6">
-                Featured
-              </p>
-              <div className="space-y-5">
-                {featuredPosts.map((post) => (
-                  <Link
-                    key={post.id}
-                    href={`/resources/stories/${post.slug}`}
-                    className="group flex gap-3 items-start"
-                  >
-                    <div className="relative w-16 h-12 shrink-0 rounded-lg overflow-hidden">
-                      <Image
-                        src={post.coverImage}
-                        alt={post.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="64px"
-                      />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      {/* <p className="text-neutral-400">
-                        {new Date(post.date).toLocaleDateString(undefined, {
-                          month: "long",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
-                      </p> */}
-                      <h4 className="mt-0.5 text-neutral-900 line-clamp-2 group-hover:text-[#b07d3d] transition-colors">
-                        {post.title}
-                      </h4>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             {/* Latest */}
             <div>
               <p className="text-neutral-400 mb-5 pb-3 border-b border-black/6">

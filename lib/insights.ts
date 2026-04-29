@@ -1508,14 +1508,13 @@ If early retirement is something you are genuinely working toward, or even just 
   {
     id: "11",
     slug: "when-can-i-retire-spending-buffers-tax-structure",
-    title:
-      "When Can I Retire? What Spending, Cash Buffers and Tax Structure Actually Determine",
+    title: "When Can I Retire?",
     author: "Celerey Advisory",
     date: "2026-03-03",
     excerpt:
       "Retirement planning is more than reaching a pension number. The real determinants of a sustainable retirement are how much you spend across three distinct life phases, how your liquid assets are structured, and how efficiently your income is taxed. Here is what the research says.",
     coverImage:
-      "https://images.unsplash.com/photo-1520809227329-2f94844a9635?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1485804658773-a738c733c40c?q=80&w=1397&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: `
 ### The Wrong Question Most People Ask
  
