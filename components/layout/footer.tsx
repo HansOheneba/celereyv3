@@ -115,11 +115,13 @@ export default function Footer() {
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Link
-                    href="/contact"
-               
-                  >
-                    <Button variant={"outline"} className="hover:bg-white/20 border-white hover:text-white w-full">Chat with us</Button>
+                  <Link href="/contact">
+                    <Button
+                      variant={"outline"}
+                      className="hover:bg-white/20 border-white hover:text-white w-full"
+                    >
+                      Chat with us
+                    </Button>
                   </Link>
                   <Link href="/#wealth-scan">
                     <Button className="bg-white text-primary hover:bg-gray-200 hover:text-primary/70 w-full">
@@ -133,9 +135,7 @@ export default function Footer() {
               <div className="grid gap-10 sm:grid-cols-2">
                 {sections.map((sec) => (
                   <div key={sec.title}>
-                    <p className="text-white/70">
-                      {sec.title.toUpperCase()}
-                    </p>
+                    <p className="text-white/70">{sec.title.toUpperCase()}</p>
 
                     <ul className="mt-4 space-y-2 text-sm text-white/70">
                       {sec.links.map((l) => (
@@ -153,26 +153,24 @@ export default function Footer() {
                 ))}
 
                 <div>
-                  <p className="text-white/70">
-                    CONTACT
-                  </p>
+                  <p className="text-white/70">CONTACT</p>
 
                   <div className="mt-4 space-y-2 text-sm text-white/75">
                     <p className="text-white/85">Celerey</p>
                     <p>
                       <Link
                         href="/contact"
-                        className="underline underline-offset-4 hover:text-white"
+                        className="underline underline-offset-4 text-white/60 hover:text-white"
                       >
                         Contact page
                       </Link>
                     </p>
                     <p>
                       <a
-                        href="mailto:hello@celerey.co"
-                        className="underline underline-offset-4 hover:text-white"
+                        href="mailto:info@celerey.co"
+                        className="underline underline-offset-4 text-white/60 hover:text-white"
                       >
-                        hello@celerey.co
+                        info@celerey.co
                       </a>
                     </p>
                   </div>
@@ -215,9 +213,7 @@ export default function Footer() {
 
               {/* FAQ accordions (desktop) */}
               <div className="hidden lg:block">
-                <p className="text-white/70">
-                  QUICK FAQs
-                </p>
+                <p className="text-white/70">QUICK FAQs</p>
 
                 <Accordion type="single" collapsible className="mt-4">
                   {faqs.map((f, idx) => (
@@ -236,9 +232,7 @@ export default function Footer() {
 
             {/* Mobile FAQ (keeps footer rich without feeling empty) */}
             <div className="mt-12 lg:hidden">
-              <p className="text-white/70">
-                QUICK FAQs
-              </p>
+              <p className="text-white/70">QUICK FAQs</p>
 
               <Accordion type="single" collapsible className="mt-4">
                 {faqs.map((f, idx) => (
@@ -256,7 +250,9 @@ export default function Footer() {
 
             {/* Bottom bar */}
             <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
-              <p className="text-white">© {currentYear} Celerey. All rights reserved.</p>
+              <p className="text-white">
+                © {currentYear} Celerey. All rights reserved.
+              </p>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link href="/terms" className="transition hover:text-white">
