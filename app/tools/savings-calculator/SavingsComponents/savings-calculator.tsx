@@ -389,7 +389,7 @@ export default function SavingsCalculator() {
                   </Link>{" "}
                   to reach your goals faster — speak to one today for{" "}
                   <Link
-                    href="/pricing"
+                    href="/free-consultation"
                     className="text-primary font-medium underline underline-offset-2"
                   >
                     free
