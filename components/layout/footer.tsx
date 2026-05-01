@@ -255,8 +255,8 @@ export default function Footer() {
             </div>
 
             {/* Bottom bar */}
-            <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/60 sm:flex-row sm:items-center">
-              <p>© {currentYear} Celerey. All rights reserved.</p>
+            <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
+              <p className="text-white">© {currentYear} Celerey. All rights reserved.</p>
 
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <Link href="/terms" className="transition hover:text-white">
