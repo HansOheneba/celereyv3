@@ -14,7 +14,7 @@ export default function Home() {
     <main className="bg-background">
       <HeroSection />
       <FeaturesSection />
-      <ProblemSection />
+      {/* <ProblemSection /> */}
       <WealthScan />
       <StepsSection />
       <SessionSection />

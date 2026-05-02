@@ -7,10 +7,10 @@ export function HeroSection() {
     <section className="flex min-h-[90vh] items-center bg-muted py-16 sm:py-20">
       <div className="mx-auto grid w-full max-w-360 px-4 sm:px-6 grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-12">
         <Reveal>
-          <h1 className="mb-6">
+          <h1 className="mb-6 max-w-lg">
             Planning your future shouldn&apos;t feel unclear
           </h1>
-          <p className="mb-8 text-muted-foreground">
+          <p className="mb-8 text-muted-foreground max-w-lg">
             Whether you are planning for property, family, investing or
             retirement, Celerey helps you make clear financial decisions with
             expert guidance and clear next steps

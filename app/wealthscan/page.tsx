@@ -171,7 +171,8 @@ export default function WealthScanPage() {
     setTimeout(() => {
       setIsStarting(false);
       setStarted(true);
-    }, 1000);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 300);
   };
 
   const handleSelect = (opt: string) => {
@@ -460,43 +461,157 @@ export default function WealthScanPage() {
       {/* LANDING STATE */}
       {/* ===================== */}
       {!started ? (
-        <section className="min-h-screen flex items-center">
-          <div className="mx-auto max-w-7xl w-full px-6 grid md:grid-cols-2 gap-12 items-center">
-            {/* IMAGE */}
-            <div className="relative h-[70vh] rounded-3xl overflow-hidden">
-              <Image
-                src="/homepage/wealthscan.png"
-                alt="Finance planning"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-black/10" />
-            </div>
+        <div>
+          {/* HERO */}
+          <section className="pt-14 max-w-360 px-6 mx-auto sm:pt-20">
+            <div className="text-center">
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: "easeOut" }}
+                className="text-[#5C7A6A]"
+              >
+                CELEREY WEALTH SCAN
+              </motion.p>
 
-            {/* CONTENT */}
-            <div>
-              <h1 className="mb-6">
+              <motion.h1
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, ease: "easeOut", delay: 0.05 }}
+                className="mx-auto mt-5 max-w-3xl"
+              >
                 Understand your financial health in minutes
-              </h1>
+              </motion.h1>
 
-              <p className="text-muted-foreground mb-8">
-                A simple self-assessment that helps you understand where you are
-                today, what is working, and what to improve next.
-              </p>
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55, ease: "easeOut", delay: 0.1 }}
+                className="mx-auto mt-4 max-w-2xl text-muted-foreground"
+              >
+                A structured self-assessment across six financial pillars that
+                shows you where you stand today, what is working, and exactly
+                what to focus on next.
+              </motion.p>
 
-              <div className="space-y-3 text-sm mb-10">
-                <p>• See your financial strengths</p>
-                <p>• Identify gaps holding you back</p>
-                <p>• Get clear next steps</p>
+              <motion.div
+                initial={{ opacity: 0, scaleX: 0.9 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ duration: 0.55, ease: "easeOut", delay: 0.12 }}
+                className="mx-auto mt-7 h-px w-24 bg-neutral-900/10 origin-center"
+              />
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
+                className="mx-auto mt-7 max-w-5xl overflow-hidden rounded-[28px] border border-black/10"
+              >
+                <motion.div
+                  initial={{ scale: 1.02 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.25 }}
+                  className="relative"
+                >
+                  <div className="relative aspect-21/9 w-full">
+                    <Image
+                      src="/homepage/wealthscan.png"
+                      alt="Wealth scan financial assessment"
+                      fill
+                      priority
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/10" />
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* WHAT IT COVERS */}
+          <section className="max-w-360 px-6 mx-auto mt-20 pb-8">
+            <div className="grid md:grid-cols-2 gap-16 items-start">
+              <div>
+                <p className="text-[#5C7A6A] mb-4">WHAT IT COVERS</p>
+                <h2 className="max-w-sm">Six pillars. One clear picture.</h2>
+                <p className="mt-4 text-muted-foreground max-w-md">
+                  The Wealth Scan evaluates your finances across six areas that
+                  together determine your true financial health. Each question
+                  is weighted to reflect how much each area impacts your overall
+                  position.
+                </p>
+
+                <div className="mt-8 space-y-3 text-sm text-muted-foreground">
+                  {[
+                    "Income Stability",
+                    "Spending & Saving",
+                    "Resilience",
+                    "Debt & Credit Health",
+                    "Growth Readiness",
+                    "Planning & Direction",
+                  ].map((pillar) => (
+                    <div key={pillar} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#5C7A6A] shrink-0" />
+                      <span>{pillar}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              <Button onClick={handleStart} disabled={isStarting} className="">
-                {isStarting ? "Starting..." : "Start check"}
+              <div className="grid sm:grid-cols-2 gap-6">
+                {[
+                  {
+                    title: "See what is working",
+                    body: "Understand the strengths already in your finances so you can build on them.",
+                  },
+                  {
+                    title: "Know what to improve",
+                    body: "Spot the gaps and blind spots that may be holding your progress back.",
+                  },
+                  {
+                    title: "Get clear next steps",
+                    body: "Walk away with specific, prioritised actions tailored to your results.",
+                  },
+                  {
+                    title: "No sign up needed",
+                    body: "Quick, honest, and accessible anytime. Your results are yours to keep.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.title}
+                    className="rounded-2xl border border-black/8 bg-neutral-50 p-6"
+                  >
+                    <p className="font-medium text-neutral-900 mb-2">
+                      {item.title}
+                    </p>
+                    <p className="text-sm text-muted-foreground">{item.body}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* CTA */}
+          <section className="max-w-360 px-6 mx-auto mt-16 pb-24">
+            <div className="rounded-[28px] bg-primary px-8 py-14 text-center">
+              <h2 className="text-white max-w-xl mx-auto">
+                Ready to see where you stand?
+              </h2>
+              <p className="text-neutral-400 mt-4 max-w-md mx-auto">
+                Takes less than 2 minutes. No account required. Your honest
+                answers lead to your most useful results.
+              </p>
+              <Button
+                onClick={handleStart}
+                disabled={isStarting}
+                variant="outline"
+                className="mt-8 bg-white text-neutral-900 hover:bg-neutral-100 border-white h-12 px-10"
+              >
+                {isStarting ? "Starting..." : "Check your wealth health"}
               </Button>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       ) : (
         /* ===================== */
         /* QUIZ STATE */
