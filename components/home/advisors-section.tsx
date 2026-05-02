@@ -99,9 +99,9 @@ export function AdvisorsSection() {
             <p className="text-gray-900 mb-4">
               Expert Guidance
             </p>
-            <h2 className="text-gray-900 mb-6">
+            <h1 className="text-gray-900 mb-6">
               Meet the people behind the guidance
-            </h2>
+            </h1>
             <p className="text-gray-500 mb-8 max-w-sm">
               Each brings years of experience and a genuine commitment to
               understanding your situation.

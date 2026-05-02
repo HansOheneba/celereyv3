@@ -25,13 +25,11 @@ export function DecisionsSection() {
   ];
 
   return (
-    <section className=" bg-[#FFF7F5]">
+    <section className=" bg-[#FFF3EF]">
       <div className="max-w-360 py-20 px-6 mx-auto">
         <Reveal className="mb-16 text-center">
-          <p className="text-muted-foreground mb-2">
-            Moments
-          </p>
-          <h2 className="mb-4">Real decisions we help with</h2>
+          <p className="text-muted-foreground mb-2">Moments</p>
+          <h1 className="mb-4">Real decisions we help with</h1>
           <p className="text-muted-foreground">
             These are the conversations that shape lives.
           </p>
@@ -42,16 +40,16 @@ export function DecisionsSection() {
             className="space-y-8 flex flex-col bg-white rounded-2xl"
             delay={0.04}
           >
-            <InteractiveImage className="relative flex-1 overflow-hidden rounded-2xl min-h-70 sm:min-h-75">
+            <div className="relative flex-1 overflow-hidden  rounded-2xl min-h-70 sm:min-h-75">
               <Image
                 src="/homepage/moments1.png"
                 alt="Financial planning discussion"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-black/10" />
-            </InteractiveImage>
+            </div>
 
             <div className="p-5">
               <p className="text-black mb-2">Shift</p>
@@ -123,7 +121,7 @@ export function DecisionsSection() {
             {/* Bottom row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white h-full rounded-2xl ">
               {/* Image */}
-              <InteractiveImage className="relative overflow-hidden rounded-2xl min-h-70 sm:min-h-75">
+              <div className="relative overflow-hidden rounded-2xl min-h-70 sm:min-h-75">
                 <Image
                   src="/homepage/moments2.png"
                   alt="Financial planning discussion"
@@ -132,7 +130,7 @@ export function DecisionsSection() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/10" />
-              </InteractiveImage>
+              </div>
 
               {/* Card 3 */}
               <Reveal

@@ -9,13 +9,13 @@ export function SessionSection() {
       <div className="mx-auto max-w-360 py-24 px-6 grid min-h-[60vh] grid-cols-1 items-center gap-10 text-white md:grid-cols-2 md:gap-12">
         <Reveal>
           <p className="text-[#CDE6AF] mb-4">Starting point</p>
-          <h2 className="mb-6">Private 45 minute session</h2>
-          <p className="text-white mb-8">
+          <h1 className="mb-6">Private 45 minute session</h1>
+          <p className="text-white mb-8 max-w-lg">
             A focused session to help you make smarter financial decisions with
             clarity.
           </p>
 
-          <div className="mb-12 grid gap-8 sm:grid-cols-2">
+          <div className="mb-12 grid gap-8 sm:grid-cols-1 max-w-lg">
             <div>
               <p className="mb-2 text-[#CDE6AF]">$99</p>
               <p className="text-white">
@@ -39,7 +39,7 @@ export function SessionSection() {
           </Link>
         </Reveal>
 
-        <InteractiveImage className="relative h-80 min-h-80 overflow-hidden rounded-2xl sm:h-96 sm:min-h-96 md:h-full">
+        <InteractiveImage className="relative h-80 min-h-80 overflow-hidden aspect-square rounded-2xl sm:h-96 sm:min-h-96 md:h-full">
           <Image
             src="/homepage/man-waving.png"
             alt="Financial planning workspace"
