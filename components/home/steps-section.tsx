@@ -40,7 +40,7 @@ export function StepsSection() {
         {/* Header */}
         <Reveal className="mb-16 text-center">
           <p className="mb-3">Our Process</p>
-          <h2 className="mb-4 text-gray-900">How Celerey Helps</h2>
+          <h1 className="mb-4 text-gray-900">How Celerey Helps</h1>
           <p className="max-w-2xl mx-auto">
             We walk you through four clear steps. Each one builds on the last,
             moving you from confusion to confidence.
@@ -58,21 +58,20 @@ export function StepsSection() {
           <div className="absolute inset-0 bg-black/10" />
         </InteractiveImage>
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-y-12 mb-12 max-w-4xl mx-auto">
+          {/* Vertical divider */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-black/10 -translate-x-1/2" />
+
           {steps.map((step, idx) => (
             <Reveal
               key={idx}
               delay={idx * 0.06}
-              className="border-0 shadow-none bg-transparent p-0 max-w-md mx-auto"
+              className="border-0 shadow-none bg-transparent p-0 max-w-md mx-auto w-full px-10"
             >
               <div className="p-0 flex flex-col justify-start">
                 <h1 className="text-primary mb-3">{step.step}</h1>
-                <p className="text-gray-900 mb-3">
-                  {step.title}
-                </p>
-                <p className="text-gray-500">
-                  {step.description}
-                </p>
+                <p className="text-gray-900 mb-3">{step.title}</p>
+                <p className="text-gray-500">{step.description}</p>
               </div>
             </Reveal>
           ))}
