@@ -74,22 +74,12 @@ function PriceLine({
   return (
     <div className="mt-3">
       <div className="flex items-baseline gap-2">
-        <span
-          className={cn(
-            "font-heading text-5xl leading-none",
-            isCore ? "text-white" : "text-neutral-900",
-          )}
-        >
+        <span className={cn(isCore ? "text-white" : "text-neutral-900")}>
           ${price}
         </span>
       </div>
 
-      <p
-        className={cn(
-          "mt-2 text-sm",
-          isCore ? "text-white/70" : "text-neutral-600",
-        )}
-      >
+      <p className={cn("mt-2", isCore ? "text-white/70" : "text-neutral-600")}>
         {cadenceText}
       </p>
     </div>
@@ -121,12 +111,7 @@ function FeatureList({
             />
           </span>
 
-          <p
-            className={cn(
-              "text-sm leading-7",
-              isCore ? "text-white/85" : "text-neutral-700",
-            )}
-          >
+          <p className={cn(isCore ? "text-white/85" : "text-neutral-700")}>
             {b}
           </p>
         </li>
@@ -146,21 +131,6 @@ export default function EntryPointPricing({
 
   const defaultTiers: Tier[] = useMemo(
     () => [
-      {
-        key: "foundation",
-        label: "Essentials",
-        name: "Financial Coaching Session",
-        price: "99.99",
-        currency,
-        cadence: "one-time",
-        description:
-          "Young professionals and first-time planners who want accountability, financial discipline, and small but consistent steps toward stability.",
-        highlight: "Stay on track with light, flexible access.",
-        bullets: foundationBullets,
-        ctaLabel: "Book a Coaching Session",
-        paymentUrl: "https://buy.stripe.com/test_fZu9AT3b42k9fcT2s99Ve01",
-        footnote: "One session. Dashboard access is not included.",
-      },
       {
         key: "dashboard",
         label: "Core",
@@ -187,10 +157,10 @@ export default function EntryPointPricing({
     <>
       <section id={id} className="py-10 sm:py-24">
         <div className="flex flex-col items-center text-center pb-10">
-          <h2 className="mt-10 text-neutral-900">Celerey Plans</h2>
+          <h2 className="mt-10 text-neutral-900">Celerey Membership</h2>
           <p className="mx-auto mt-3 max-w-2xl text-neutral-600">
-            Choose a single coaching session for immediate clarity, or choose
-            Core for ongoing visibility and structured guidance across the year.
+            One plan. Structured advisory, ongoing accountability, and a
+            personalised strategy built around your goals.
           </p>
         </div>
 
@@ -200,7 +170,7 @@ export default function EntryPointPricing({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.55 }}
-            className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2"
+            className="mx-auto max-w-6xl grid-cols-1"
           >
             {allTiers.map((t) => {
               const isCore = t.key === "dashboard";
@@ -210,7 +180,6 @@ export default function EntryPointPricing({
                   key={t.key}
                   className={cn(
                     "relative overflow-hidden rounded-[26px] border p-10 sm:p-12",
-                    // IMPORTANT: make card a column so footer can stick to bottom
                     "flex flex-col",
                     isCore
                       ? "bg-primary border-white/15"
@@ -230,13 +199,12 @@ export default function EntryPointPricing({
                     )}
                   />
 
-                  {/* Body */}
-                  <div className="relative flex flex-1 flex-col">
-                    {/* Top content */}
-                    <div className="text-left">
+                  {/* Body — 2-col on md+ */}
+                  <div className="relative grid md:grid-cols-2 md:gap-12">
+                    {/* Left: identity + price + description */}
+                    <div className="flex flex-col">
                       <h3
                         className={cn(
-                          "font-heading text-3xl",
                           isCore ? "text-white" : "text-neutral-900",
                         )}
                       >
@@ -256,97 +224,74 @@ export default function EntryPointPricing({
                         )}
                       />
 
-                      {/* Ideal for */}
                       <section className="mt-8">
-                        <p className="text-[#b07d3d]">
-                          Ideal for:
-                        </p>
-
+                        <p className="text-[#b07d3d]">Ideal for:</p>
                         <p
                           className={cn(
-                            "mt-3 text-sm leading-7",
+                            "mt-3",
                             isCore ? "text-white/80" : "text-neutral-700",
                           )}
                         >
                           {t.description}
                         </p>
-
-                        <div
-                          className={cn(
-                            "mt-8 h-px w-full",
-                            isCore ? "bg-white/15" : "bg-black/10",
-                          )}
-                        />
                       </section>
 
-                      {/* Features */}
-                      <section className="mt-8">
-                        <p className="text-[#b07d3d]">
-                          Features
-                        </p>
-
-                        {t.highlight ? (
-                          <p
-                            className={cn(
-                              "mt-3 text-sm italic leading-7",
-                              isCore ? "text-white/75" : "text-neutral-700",
-                            )}
-                          >
-                            {t.highlight}
-                          </p>
-                        ) : null}
-
-                        <FeatureList bullets={t.bullets} isCore={isCore} />
-                      </section>
-                    </div>
-
-                    {/* Footer pinned to bottom */}
-                    <div className="mt-auto pt-10">
-                      <Button
-                        onClick={() => {
-                          if (isCore) {
-                            window.open(
-                              "https://celerey.app/",
-                              "_blank",
-                              "noopener,noreferrer",
-                            );
-                            return;
-                          }
-
-                          setSelectedPaymentUrl(t.paymentUrl);
-                          setModalOpen(true);
-                        }}
-                        className={cn(
-                          " w-full",
-                          isCore
-                            ? "bg-white text-neutral-900 hover:bg-white/90"
-                            : "bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/4",
-                        )}
-                      >
-                        {t.ctaLabel}
-                      </Button>
-
-                      {t.footnote ? (
-                        <p
+                      <div className="mt-auto pt-10">
+                        <Button
+                          onClick={() => {
+                            if (isCore) {
+                              window.open(
+                                "https://celerey.app/",
+                                "_blank",
+                                "noopener,noreferrer",
+                              );
+                              return;
+                            }
+                            setSelectedPaymentUrl(t.paymentUrl);
+                            setModalOpen(true);
+                          }}
                           className={cn(
-                            "mt-4 text-center text-xs",
-                            isCore ? "text-white/55" : "text-neutral-500",
+                            "w-full",
+                            isCore
+                              ? "bg-white text-neutral-900 hover:bg-white/90"
+                              : "bg-transparent text-neutral-900 ring-1 ring-black/20 hover:bg-black/4",
                           )}
                         >
-                          {t.footnote}
+                          {t.ctaLabel}
+                        </Button>
+                        {t.footnote ? (
+                          <p
+                            className={cn(
+                              "mt-4 text-center",
+                              isCore ? "text-white/55" : "text-neutral-500",
+                            )}
+                          >
+                            {t.footnote}
+                          </p>
+                        ) : null}
+                      </div>
+                    </div>
+
+                    {/* Right: features */}
+                    <div className="mt-10 md:mt-0">
+                      <p className="text-[#b07d3d]">Features</p>
+                      {t.highlight ? (
+                        <p
+                          className={cn(
+                            "mt-3",
+                            isCore ? "text-white/75" : "text-neutral-700",
+                          )}
+                        >
+                          {t.highlight}
                         </p>
                       ) : null}
+                      <FeatureList bullets={t.bullets} isCore={isCore} />
                     </div>
                   </div>
                 </article>
               );
             })}
           </motion.div>
-
-          <p className="mx-auto mt-10 max-w-3xl text-center text-neutral-500">
-            Foundation is a one-time payment. Core includes a 7-day free trial,
-            then billed annually.
-          </p>
 
           <motion.div
             initial={{ opacity: 0, y: 14 }}
@@ -357,28 +302,25 @@ export default function EntryPointPricing({
           >
             <motion.div
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="rounded-3xl border border-black/10 bg-white px-8 py-8 shadow-[0_18px_55px_rgba(0,0,0,0.06)] text-left"
+              className="rounded-3xl border border-black/10 bg-white px-10 py-10 sm:px-12 sm:py-12 shadow-[0_18px_55px_rgba(0,0,0,0.06)] text-left"
             >
-              <p className="text-[#b07d3d]">
-                BESPOKE ENGAGEMENTS
-              </p>
+              <p className="text-[#b07d3d]">BESPOKE ENGAGEMENTS</p>
 
               <h3 className="mt-4 text-neutral-900">
                 Prefer something more tailored?
               </h3>
 
-              <p className="mt-4 text-neutral-600">
+              <p className="mt-3 text-neutral-700">
                 While our membership provides structured, ongoing guidance, some
                 clients prefer focused, custom engagements built around a
                 specific need. These private services are delivered with the
                 same global standards, but without long-term commitment.
               </p>
 
-              <div className="mt-6 flex flex-wrap items-center gap-4">
-                <a href="/services" className="">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <a href="/services">
                   <Button>Explore bespoke services</Button>
                 </a>
-
                 <p className="text-neutral-500">
                   Discrete. Fixed-fee. Clearly scoped.
                 </p>

@@ -13,11 +13,9 @@ import { cn } from "@/lib/utils";
 const PAYMENT_URL = "https://buy.stripe.com/test_fZu9AT3b42k9fcT2s99Ve01";
 
 const included = [
-  "1:1 financial coaching call (up to 45 minutes)",
-  "Fast clarity on what to focus on right now (income, spending, debt, savings)",
-  "A simple, realistic action plan you can follow",
-  "Personalised recommendations aligned to your goals and lifestyle",
-  "Written recap with your key decisions and next steps after the session",
+  "45-minute 1:1 private advisory call",
+  "Personalised action plan aligned to your goals",
+  "Written recap with key decisions and next steps",
 ];
 
 const outcomes = [
@@ -84,12 +82,10 @@ export default function BookSessionPage() {
                 alt="A focused 45-minute financial advisory session"
                 fill
                 priority
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/25 via-transparent to-transparent" />
-
-          
             </motion.div>
 
             {/* Right — text */}
@@ -163,37 +159,8 @@ export default function BookSessionPage() {
           </div>
         </section>
 
-        {/* ── What&apos;s included ── */}
-        <section className="py-16 border-t border-black/8">
-          <Reveal>
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              <div>
-                <p className="text-[#b07d3d]">WHAT&apos;S INCLUDED</p>
-                <h2 className="mt-4 text-neutral-900">
-                  Everything you get in your session
-                </h2>
-                <p className="mt-4 text-neutral-600 max-w-md">
-                  Each session is private, tailored, and designed to leave you
-                  with more clarity than you arrived with.
-                </p>
-              </div>
-
-              <ul className="space-y-4">
-                {included.map((item) => (
-                  <li key={item} className="flex items-start gap-4">
-                    <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#fdf0e0] ring-1 ring-[#e8d9c0]">
-                      <Check className="h-3.5 w-3.5 text-[#b07d3d]" />
-                    </span>
-                    <p className="text-neutral-700">{item}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </section>
-
         {/* ── Pricing card + FAQ ── */}
-        <section className="py-16 border-t border-black/8">
+        <section className="py-24 border-t border-black/8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Pricing card */}
             <Reveal>
@@ -204,21 +171,13 @@ export default function BookSessionPage() {
                 <p className="text-[#b07d3d]">FINANCIAL COACHING SESSION</p>
 
                 <div className="mt-4 flex items-baseline gap-2">
-                  <span className="font-heading text-5xl text-neutral-900">
-                    $99
-                  </span>
+                  <span className="text-neutral-900">$99</span>
                 </div>
                 <p className="mt-1 text-neutral-500">
                   One-time. No subscription.
                 </p>
 
                 <div className="mt-6 h-px bg-black/10" />
-
-                <p className="mt-6 text-neutral-700">
-                  Ideal for young professionals and first-time planners who want
-                  accountability, financial discipline, and small but consistent
-                  steps toward stability.
-                </p>
 
                 <ul className="mt-6 space-y-3">
                   {included.map((item) => (
@@ -240,7 +199,7 @@ export default function BookSessionPage() {
                     <ArrowRight className="w-4 h-4" />
                   </Button>
                   <p className="mt-3 text-center text-neutral-500">
-                    A booking link will be sent after you complete the form.
+                    You&apos;ll pay and choose your time slot in the next step.
                   </p>
                 </div>
               </div>
@@ -306,6 +265,9 @@ export default function BookSessionPage() {
         open={modalOpen}
         onOpenChange={setModalOpen}
         paymentUrl={PAYMENT_URL}
+        title="Book Your Session"
+        subtitle="Enter your details and proceed to payment"
+        ctaLabel="Proceed to payment →"
       />
     </main>
   );

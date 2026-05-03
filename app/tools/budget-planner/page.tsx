@@ -9,14 +9,14 @@ export default function BudgetPlannerPage() {
     <main className="min-h-screen bg-[#FAFAF8]">
       {/* HERO */}
       <section className="mx-auto w-full max-w-360 px-6 pt-16 pb-0 sm:pt-20">
+        <Link
+          href="/tools"
+          className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-700 transition-colors mb-8"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          All Tools
+        </Link>
         <Reveal className="mx-auto max-w-5xl text-center">
-          <Link
-            href="/tools"
-            className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-700 transition-colors mb-6"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            All Tools
-          </Link>
           <p className="text-sm tracking-widest text-[#b07d3d]">
             CELEREY TOOLS &mdash; 01
           </p>
@@ -32,7 +32,7 @@ export default function BudgetPlannerPage() {
 
         <Reveal className="mt-12" delay={0.1}>
           <div className="relative overflow-hidden rounded-[28px]">
-            <div className="relative h-72 w-full sm:h-96 lg:h-[26rem]">
+            <div className="relative h-72 w-full sm:h-96 lg:h-104">
               <Image
                 src="https://images.unsplash.com/photo-1601134534909-22452bda4cde?q=80&w=3017&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Planning your budget with clarity"

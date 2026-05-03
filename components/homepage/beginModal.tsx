@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { X, MailCheck, MapPin } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { MapPin, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -16,7 +15,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useOnboardingStore } from "@/app/onboarding/hooks/useOnboardingStore";
 
 type BeginJourneyValues = {
   firstName: string;
@@ -30,33 +28,22 @@ type BeginJourneyValues = {
 type BeginJourneyModalProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  apiUrl?: string;
   paymentUrl?: string;
+  title?: string;
+  subtitle?: string;
+  ctaLabel?: string;
 };
-
-// API Response Types
-interface BeginJourneyResponse {
-  ok: boolean;
-  userId: string;
-  leadId?: number;
-  message?: string;
-  error?: string;
-  details?: Record<string, string>;
-}
 
 export function BeginJourneyModal({
   open,
   onOpenChange,
-  apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/start`,
   paymentUrl,
+  title = "Begin Your Journey",
+  subtitle = "Enter your details to get started",
+  ctaLabel = "Continue",
 }: BeginJourneyModalProps) {
-  const router = useRouter();
-  const { updateData } = useOnboardingStore();
-
-  const [step, setStep] = React.useState<"form" | "success">("form");
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitError, setSubmitError] = React.useState<string | null>(null);
-  const [userId, setUserId] = React.useState<string | null>(null);
 
   const [values, setValues] = React.useState<BeginJourneyValues>({
     firstName: "",
@@ -71,7 +58,6 @@ export function BeginJourneyModal({
   const [locationInput, setLocationInput] = React.useState("");
 
   const resetAll = React.useCallback(() => {
-    setStep("form");
     setIsSubmitting(false);
     setSubmitError(null);
     setTouched({});
@@ -84,7 +70,6 @@ export function BeginJourneyModal({
       agree: false,
     });
     setLocationInput("");
-    setUserId(null);
   }, []);
 
   // When modal closes, reset to form for next open
@@ -131,7 +116,6 @@ export function BeginJourneyModal({
     ev.preventDefault();
     setSubmitError(null);
 
-    // Mark all fields as touched
     Object.keys(values).forEach((key) => {
       markTouched(key as keyof BeginJourneyValues);
     });
@@ -141,60 +125,28 @@ export function BeginJourneyModal({
     try {
       setIsSubmitting(true);
 
-      // Save data to the onboarding store
-      updateData({
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
-        phone: values.phone,
-        timeZone: values.timeZone,
-        agree: values.agree,
-        currentStep: 1,
+      // Log to sheet + send emails (fire-and-forget — never block the redirect)
+      fetch("/api/book-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          phone: values.phone,
+          location: values.timeZone,
+          paymentUrl: paymentUrl ?? "",
+        }),
+      }).catch(() => {
+        // Silently ignore — the redirect is what matters
       });
 
-      // Try to register user via API (non-blocking — if API is unavailable, still redirect)
-      let newUserId: string | null = null;
-      try {
-        if (apiUrl && !apiUrl.startsWith("undefined")) {
-          const response = await fetch(apiUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(values),
-            credentials: "include",
-          });
-
-          const result: BeginJourneyResponse = await response.json();
-
-          if (result.ok && result.userId) {
-            newUserId = result.userId;
-            setUserId(newUserId);
-            updateData({ userId: newUserId });
-
-            if (typeof window !== "undefined") {
-              localStorage.setItem("celerey_user_id", newUserId);
-            }
-          }
-        }
-      } catch {
-        // API unavailable — continue to Stripe anyway
-        console.warn("API call to /start failed — proceeding to payment link");
-      }
-
-      // Redirect to Stripe payment link (pre-filled with user email)
+      // Close and send user straight to Stripe
       onOpenChange(false);
       if (paymentUrl) {
         const url = new URL(paymentUrl);
         url.searchParams.set("prefilled_email", values.email);
-        url.searchParams.set(
-          "success_url",
-          process.env.NEXT_PUBLIC_STRIPE_SUCCESS_URL ||
-            "https://celereyv2.vercel.app/onboarding",
-        );
-        window.location.href = url.toString();
-      } else {
-        router.push(
-          process.env.NEXT_PUBLIC_STRIPE_SUCCESS_URL || "/onboarding",
-        );
+        window.open(url.toString(), "_blank", "noopener,noreferrer");
       }
     } catch (err) {
       const message =
@@ -202,16 +154,15 @@ export function BeginJourneyModal({
           ? err.message
           : "Something went wrong. Please try again.";
       setSubmitError(message);
-    } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[720px] gap-0 overflow-hidden rounded-2xl p-0">
+      <DialogContent className="max-w-180 gap-0 overflow-hidden rounded-2xl p-0">
         <div className="relative bg-white">
-          {/* close */}
+          {/* Close */}
           <DialogClose asChild>
             <button
               className="absolute right-4 top-4 rounded-full p-2 text-neutral-500 hover:bg-black/5 hover:text-neutral-700"
@@ -222,206 +173,159 @@ export function BeginJourneyModal({
           </DialogClose>
 
           <div className="px-8 py-8 sm:px-10">
-            {step === "form" ? (
-              <>
-                <DialogHeader className="text-left">
-                  <DialogTitle className="text-neutral-900">
-                    Begin Your Journey
-                  </DialogTitle>
-                  <p className="mt-2 text-neutral-600">
-                    Enter your details to get started
-                  </p>
-                </DialogHeader>
+            <>
+              <DialogHeader className="text-left">
+                <DialogTitle className="text-neutral-900">{title}</DialogTitle>
+                <p className="mt-2 text-neutral-600">{subtitle}</p>
+              </DialogHeader>
 
-                <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-                  {/* First + Last */}
-                  <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName" className="text-neutral-700">
-                        First Name
-                      </Label>
-                      <Input
-                        id="firstName"
-                        value={values.firstName}
-                        onChange={(e) => setField("firstName", e.target.value)}
-                        onBlur={() => markTouched("firstName")}
-                        className="h-12 rounded-xl border-black/10 bg-white"
-                      />
-                      {touched.firstName && errors.firstName ? (
-                        <p className="text-red-600">
-                          {errors.firstName}
-                        </p>
-                      ) : null}
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName" className="text-neutral-700">
-                        Last Name
-                      </Label>
-                      <Input
-                        id="lastName"
-                        value={values.lastName}
-                        onChange={(e) => setField("lastName", e.target.value)}
-                        onBlur={() => markTouched("lastName")}
-                        className="h-12 rounded-xl border-black/10 bg-white"
-                      />
-                      {touched.lastName && errors.lastName ? (
-                        <p className="text-red-600">
-                          {errors.lastName}
-                        </p>
-                      ) : null}
-                    </div>
-                  </div>
-
-                  {/* Email */}
+              <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+                {/* First + Last */}
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-neutral-700">
-                      Email Address
+                    <Label htmlFor="firstName" className="text-neutral-700">
+                      First Name
                     </Label>
                     <Input
-                      id="email"
-                      type="email"
-                      value={values.email}
-                      onChange={(e) => setField("email", e.target.value)}
-                      onBlur={() => markTouched("email")}
+                      id="firstName"
+                      value={values.firstName}
+                      onChange={(e) => setField("firstName", e.target.value)}
+                      onBlur={() => markTouched("firstName")}
                       className="h-12 rounded-xl border-black/10 bg-white"
                     />
-                    {touched.email && errors.email ? (
-                      <p className="text-red-600">{errors.email}</p>
+                    {touched.firstName && errors.firstName ? (
+                      <p className="text-red-600">{errors.firstName}</p>
                     ) : null}
                   </div>
 
-                  {/* Phone */}
                   <div className="space-y-2">
-                    <Label htmlFor="phone" className="text-neutral-700">
-                      Phone Number
+                    <Label htmlFor="lastName" className="text-neutral-700">
+                      Last Name
                     </Label>
                     <Input
-                      id="phone"
-                      value={values.phone}
-                      onChange={(e) => setField("phone", e.target.value)}
-                      onBlur={() => markTouched("phone")}
+                      id="lastName"
+                      value={values.lastName}
+                      onChange={(e) => setField("lastName", e.target.value)}
+                      onBlur={() => markTouched("lastName")}
                       className="h-12 rounded-xl border-black/10 bg-white"
                     />
-                    {touched.phone && errors.phone ? (
-                      <p className="text-red-600">{errors.phone}</p>
+                    {touched.lastName && errors.lastName ? (
+                      <p className="text-red-600">{errors.lastName}</p>
                     ) : null}
                   </div>
+                </div>
 
-                  {/* Location - Simplified */}
-                  <div className="space-y-2">
-                    <Label htmlFor="location" className="text-neutral-700">
-                      Location
-                    </Label>
-                    <div className="relative">
-                      <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
-                      <Input
-                        id="location"
-                        value={locationInput}
-                        onChange={handleLocationChange}
-                        onBlur={() => markTouched("timeZone")}
-                        placeholder="Enter your city, state, or country"
-                        className="h-12 rounded-xl border-black/10 bg-white pl-10"
-                      />
-                    </div>
-                    {touched.timeZone && errors.timeZone ? (
-                      <p className="text-red-600">{errors.timeZone}</p>
-                    ) : null}
-                    <p className="text-neutral-500">
-                      We&#39;ll use this to schedule sessions at convenient
-                      times for you
-                    </p>
-                  </div>
-
-                  {/* Agree */}
-                  <div className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      <Checkbox
-                        id="agree"
-                        checked={values.agree}
-                        onCheckedChange={(v) => setField("agree", Boolean(v))}
-                        onBlur={() => markTouched("agree")}
-                        className="mt-1"
-                      />
-                      <Label
-                        htmlFor="agree"
-                        className="text-sm text-neutral-700"
-                      >
-                        I agree to the{" "}
-                        <Link
-                          href="/terms"
-                          className="underline underline-offset-4 hover:text-neutral-900"
-                          target="_blank"
-                        >
-                          Terms of Service
-                        </Link>{" "}
-                        and{" "}
-                        <Link
-                          href="/privacy"
-                          className="underline underline-offset-4 hover:text-neutral-900"
-                          target="_blank"
-                        >
-                          Privacy Policy
-                        </Link>
-                      </Label>
-                    </div>
-                    {touched.agree && errors.agree ? (
-                      <p className="text-red-600">{errors.agree}</p>
-                    ) : null}
-                  </div>
-
-                  {/* Server/API error */}
-                  {submitError ? (
-                    <div
-                      className={`rounded-xl border px-4 py-3 text-sm ${
-                        submitError.startsWith("ALREADY_PAID:")
-                          ? "border-blue-200 bg-blue-50 text-blue-700"
-                          : "border-red-200 bg-red-50 text-red-700"
-                      }`}
-                    >
-                      {submitError.replace("ALREADY_PAID:", "")}
-                    </div>
+                {/* Email */}
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="text-neutral-700">
+                    Email Address
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={values.email}
+                    onChange={(e) => setField("email", e.target.value)}
+                    onBlur={() => markTouched("email")}
+                    className="h-12 rounded-xl border-black/10 bg-white"
+                  />
+                  {touched.email && errors.email ? (
+                    <p className="text-red-600">{errors.email}</p>
                   ) : null}
+                </div>
 
-                  {/* Submit */}
-                  <Button
-                    type="submit"
-                    disabled={!canSubmit}
-                    className="h-12 w-full rounded-full bg-primary text-white hover:bg-primary/90 disabled:opacity-60"
-                  >
-                    {isSubmitting ? "Creating your account..." : "Continue"}
-                  </Button>
+                {/* Phone */}
+                <div className="space-y-2">
+                  <Label htmlFor="phone" className="text-neutral-700">
+                    Phone Number
+                  </Label>
+                  <Input
+                    id="phone"
+                    value={values.phone}
+                    onChange={(e) => setField("phone", e.target.value)}
+                    onBlur={() => markTouched("phone")}
+                    className="h-12 rounded-xl border-black/10 bg-white"
+                  />
+                  {touched.phone && errors.phone ? (
+                    <p className="text-red-600">{errors.phone}</p>
+                  ) : null}
+                </div>
 
-                  {/* Footer */}
-                  <p className="text-center text-neutral-600">
-                    Already have an account?{" "}
-                    <Link
-                      href="https://celerey.app/auth/signin"
-                      className="font-semibold text-neutral-900 underline underline-offset-4 hover:opacity-80"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Sign in
-                    </Link>
-                  </p>
-                </form>
-              </>
-            ) : (
-              <>
-                {/* Success step */}
-                <div className="mx-auto max-w-xl text-center">
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/70 ring-1 ring-black/10">
-                    <MailCheck className="h-7 w-7 text-neutral-900" />
+                {/* Location - Simplified */}
+                <div className="space-y-2">
+                  <Label htmlFor="location" className="text-neutral-700">
+                    Location
+                  </Label>
+                  <div className="relative">
+                    <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-neutral-400" />
+                    <Input
+                      id="location"
+                      value={locationInput}
+                      onChange={handleLocationChange}
+                      onBlur={() => markTouched("timeZone")}
+                      placeholder="Enter your city, state, or country"
+                      className="h-12 rounded-xl border-black/10 bg-white pl-10"
+                    />
                   </div>
-
-                  <h3 className="mt-6 text-neutral-900">Redirecting...</h3>
-
-                  <p className="mt-3 text-neutral-600">
-                    Taking you to the next step of your journey.
+                  {touched.timeZone && errors.timeZone ? (
+                    <p className="text-red-600">{errors.timeZone}</p>
+                  ) : null}
+                  <p className="text-neutral-500">
+                    We&#39;ll use this to schedule sessions at convenient times
+                    for you
                   </p>
                 </div>
-              </>
-            )}
+
+                {/* Agree */}
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="agree"
+                      checked={values.agree}
+                      onCheckedChange={(v) => setField("agree", Boolean(v))}
+                      onBlur={() => markTouched("agree")}
+                      className="mt-1"
+                    />
+                    <Label htmlFor="agree" className="text-sm text-neutral-700">
+                      I agree to the{" "}
+                      <Link
+                        href="/terms"
+                        className="underline underline-offset-4 hover:text-neutral-900"
+                        target="_blank"
+                      >
+                        Terms of Service
+                      </Link>{" "}
+                      and{" "}
+                      <Link
+                        href="/privacy"
+                        className="underline underline-offset-4 hover:text-neutral-900"
+                        target="_blank"
+                      >
+                        Privacy Policy
+                      </Link>
+                    </Label>
+                  </div>
+                  {touched.agree && errors.agree ? (
+                    <p className="text-red-600">{errors.agree}</p>
+                  ) : null}
+                </div>
+
+                {/* Error */}
+                {submitError ? (
+                  <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-700">
+                    {submitError}
+                  </div>
+                ) : null}
+
+                {/* Submit */}
+                <Button
+                  type="submit"
+                  disabled={!canSubmit}
+                  className="w-full text-white disabled:opacity-60"
+                >
+                  {isSubmitting ? "Processing..." : ctaLabel}
+                </Button>
+              </form>
+            </>
           </div>
         </div>
       </DialogContent>

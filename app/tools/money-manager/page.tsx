@@ -9,14 +9,14 @@ export default function MoneyManagerPage() {
     <main className="min-h-screen bg-[#FAFAF8]">
       {/* HERO */}
       <section className="mx-auto w-full max-w-360 px-6 pt-16 pb-0 sm:pt-20">
+        <Link
+          href="/tools"
+          className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-700 transition-colors mb-8"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          All Tools
+        </Link>
         <Reveal className="mx-auto max-w-5xl text-center">
-          <Link
-            href="/tools"
-            className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-700 transition-colors mb-6"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            All Tools
-          </Link>
           <p className="text-sm tracking-widest text-[#b07d3d]">
             CELEREY TOOLS &mdash; 03
           </p>

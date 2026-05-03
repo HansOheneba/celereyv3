@@ -12,21 +12,21 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-interface ConsultationBookingEmailProps {
+interface SessionBookingEmailProps {
   name: string;
-  bookingLink: string;
+  paymentUrl: string;
 }
 
-export function ConsultationBookingEmail({
+export function SessionBookingEmail({
   name,
-  bookingLink,
-}: ConsultationBookingEmailProps) {
+  paymentUrl,
+}: SessionBookingEmailProps) {
   const firstName = name.split(" ")[0];
 
   return (
     <Html lang="en">
       <Head />
-      <Preview>Your booking link is ready, {firstName} &mdash; Celerey</Preview>
+      <Preview>Complete your booking, {firstName} &mdash; Celerey</Preview>
 
       <Body style={body}>
         <Container style={container}>
@@ -42,39 +42,42 @@ export function ConsultationBookingEmail({
 
           {/* Card */}
           <Section style={card}>
-            <Text style={eyebrow}>FREE CONSULTATION</Text>
-            <Text style={headline}>
-              Your booking link is ready, {firstName}.
+            <Text style={eyebrow}>45-MINUTE SESSION</Text>
+            <Text style={headline}>Almost there, {firstName}.</Text>
+
+            <Text style={bodyText}>
+              Thank you for filling in your details. Your 45-minute private
+              advisory session is one step away.
             </Text>
 
             <Text style={bodyText}>
-              Thank you for signing up. Your 15-minute session with one of our
-              advisors is completely free.
-            </Text>
-
-            <Text style={bodyText}>
-              Use this time to get clarity on where you are financially, explore
-              what&apos;s possible, and leave with clear next steps. No
-              preparation needed on your end.
+              Complete your payment below to confirm your booking. Once paid,
+              you will receive a private scheduling link to choose a time that
+              works for you.
             </Text>
 
             <Section style={buttonRow}>
-              <Link href={bookingLink} style={ctaButton}>
-                Choose a time &rarr;
+              <Link href={paymentUrl} style={ctaButton}>
+                Complete payment &rarr;
               </Link>
             </Section>
 
             <Section style={reminderBox}>
               <Text style={reminderText}>
-                A good conversation is often all it takes to get started.
+                $99 &middot; One-time &middot; No subscription required
               </Text>
             </Section>
 
             <Hr style={divider} />
 
             <Text style={bodyText}>
-              The link above stays valid, so take your time. If you have any
-              questions before your session, we&apos;re here.
+              If the button above does not work, copy and paste this link into
+              your browser:
+            </Text>
+            <Text style={linkText}>
+              <Link href={paymentUrl} style={inlineLink}>
+                {paymentUrl}
+              </Link>
             </Text>
 
             <Text style={signOff}>
@@ -87,8 +90,7 @@ export function ConsultationBookingEmail({
           {/* Footer */}
           <Section style={footer}>
             <Text style={footerText}>
-              You&apos;re receiving this because you requested a free
-              consultation at{" "}
+              You&apos;re receiving this because you requested a session at{" "}
               <Link href="https://celerey.co" style={footerLink}>
                 celerey.co
               </Link>
@@ -106,116 +108,128 @@ export function ConsultationBookingEmail({
   );
 }
 
-ConsultationBookingEmail.PreviewProps = {
+SessionBookingEmail.PreviewProps = {
   name: "Alex Johnson",
-  bookingLink: "https://calendly.com/celerey/free-consultation",
-} satisfies ConsultationBookingEmailProps;
+  paymentUrl: "https://buy.stripe.com/test_fZu9AT3b42k9fcT2s99Ve01",
+} satisfies SessionBookingEmailProps;
 
-export default ConsultationBookingEmail;
+export default SessionBookingEmail;
 
 // ── Styles ───────────────────────────────────────────────────────────────────
 
 const body: React.CSSProperties = {
   backgroundColor: "#f4f2ee",
   fontFamily: "Helvetica Neue, Helvetica, Arial, sans-serif",
+  margin: 0,
+  padding: 0,
 };
 
 const container: React.CSSProperties = {
-  maxWidth: "560px",
+  maxWidth: "600px",
   margin: "0 auto",
-  padding: "32px 16px",
+  padding: "40px 16px",
 };
 
 const logoSection: React.CSSProperties = {
   textAlign: "center",
-  paddingBottom: "24px",
+  marginBottom: "24px",
 };
 
 const card: React.CSSProperties = {
   backgroundColor: "#ffffff",
-  borderRadius: "16px",
-  padding: "36px 40px",
-  marginTop: "10px",
+  borderRadius: "20px",
+  padding: "40px 40px 32px",
+  boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
 };
 
 const eyebrow: React.CSSProperties = {
-  fontSize: "10px",
-  letterSpacing: "0.2em",
-  color: "#b07d3d",
-  fontWeight: "600",
+  fontSize: "11px",
+  fontWeight: "700",
+  letterSpacing: "0.12em",
   textTransform: "uppercase",
-  margin: "0 0 14px",
+  color: "#b07d3d",
+  margin: "0 0 12px",
 };
 
 const headline: React.CSSProperties = {
   fontSize: "26px",
-  fontWeight: "400",
+  fontWeight: "700",
   color: "#160b35",
+  margin: "0 0 20px",
   lineHeight: "1.3",
-  fontFamily: "Georgia, Times New Roman, serif",
-  margin: "0 0 18px",
 };
 
 const bodyText: React.CSSProperties = {
-  fontSize: "14.5px",
-  color: "#5a6478",
-  lineHeight: "1.85",
-  margin: "0 0 18px",
+  fontSize: "15px",
+  color: "#4b5563",
+  lineHeight: "1.7",
+  margin: "0 0 16px",
 };
 
 const buttonRow: React.CSSProperties = {
-  margin: "24px 0",
+  textAlign: "center",
+  margin: "28px 0 20px",
 };
 
 const ctaButton: React.CSSProperties = {
-  display: "inline-block",
   backgroundColor: "#160b35",
   color: "#ffffff",
-  fontSize: "14px",
-  fontWeight: "500",
+  fontSize: "15px",
+  fontWeight: "600",
   textDecoration: "none",
-  borderRadius: "8px",
-  padding: "14px 28px",
+  borderRadius: "999px",
+  padding: "14px 32px",
+  display: "inline-block",
 };
 
 const reminderBox: React.CSSProperties = {
-  backgroundColor: "#fdf8f0",
-  borderLeft: "3px solid #b07d3d",
-  borderRadius: "8px",
-  padding: "16px 20px",
-  margin: "8px 0 24px",
+  backgroundColor: "#fdf0e0",
+  borderRadius: "12px",
+  padding: "12px 20px",
+  textAlign: "center",
+  margin: "0 0 24px",
 };
 
 const reminderText: React.CSSProperties = {
-  fontSize: "13.5px",
-  color: "#7a5c2e",
-  lineHeight: "1.7",
-  fontStyle: "italic",
-  margin: "0",
+  fontSize: "13px",
+  color: "#b07d3d",
+  fontWeight: "600",
+  margin: 0,
 };
 
 const divider: React.CSSProperties = {
-  borderColor: "#e8e4dc",
+  borderColor: "#e5e7eb",
   margin: "24px 0",
 };
 
-const signOff: React.CSSProperties = {
-  fontSize: "14px",
+const linkText: React.CSSProperties = {
+  fontSize: "13px",
+  color: "#6b7280",
+  margin: "0 0 24px",
+  wordBreak: "break-all",
+};
+
+const inlineLink: React.CSSProperties = {
   color: "#160b35",
-  lineHeight: "1.8",
-  margin: "0",
+};
+
+const signOff: React.CSSProperties = {
+  fontSize: "15px",
+  color: "#374151",
+  lineHeight: "1.7",
+  margin: "24px 0 0",
 };
 
 const footer: React.CSSProperties = {
-  marginTop: "20px",
   textAlign: "center",
+  marginTop: "24px",
 };
 
 const footerText: React.CSSProperties = {
   fontSize: "12px",
   color: "#9ca3af",
-  lineHeight: "1.7",
-  margin: "0",
+  lineHeight: "1.6",
+  margin: 0,
 };
 
 const footerLink: React.CSSProperties = {

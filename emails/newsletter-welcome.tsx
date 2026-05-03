@@ -31,7 +31,7 @@ export function NewsletterWelcomeEmail({
           {/* Logo */}
           <Section style={logoSection}>
             <Img
-              src="https://i.ibb.co/PGVKSsV1/image.png"
+              src="https://i.ibb.co/d0v22fZp/logo-Dark.png"
               alt="Celerey"
               height={100}
               style={{ margin: "0 auto", display: "block" }}
