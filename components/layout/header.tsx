@@ -28,6 +28,7 @@ type DropdownMenu = {
   items: DropdownItem[];
   align?: "left" | "right";
   image?: DropdownMenuImage;
+  columns?: 1 | 2;
 };
 
 function isActivePath(pathname: string, href: string): boolean {
@@ -42,6 +43,7 @@ const dropdownMenus: DropdownMenu[] = [
     key: "start",
     label: "Start here",
     sectionLabel: "Get started",
+    columns: 2,
     image: { src: "/homepage/wealthscan.png", alt: "Get started with Celerey" },
     items: [
       {
@@ -130,6 +132,7 @@ const dropdownMenus: DropdownMenu[] = [
     key: "about",
     label: "About Us",
     sectionLabel: "Company",
+    columns: 2,
     align: "right",
     image: { src: "/homepage/man-waving.png", alt: "About Celerey" },
     items: [
@@ -319,13 +322,17 @@ export default function Header() {
             {/* Dropdown menus */}
             {dropdownMenus.map((menu) => {
               const isOpen = dropdownOpen === menu.key;
-
               return (
-                <div key={menu.key} className="relative group">
+                <div key={menu.key}>
                   <button
                     onMouseEnter={() => openDropdown(menu.key)}
                     onMouseLeave={closeDropdownSoon}
-                    className="flex items-center gap-1.5 text-sm text-zinc-500 hover:text-zinc-800 transition-colors cursor-pointer bg-transparent border-0 py-2"
+                    className={cn(
+                      "flex items-center gap-1.5 text-sm transition-colors cursor-pointer bg-transparent border-0 py-2",
+                      isOpen
+                        ? "text-zinc-900"
+                        : "text-zinc-500 hover:text-zinc-800",
+                    )}
                   >
                     {menu.label}
                     <ChevronDown
@@ -335,84 +342,6 @@ export default function Header() {
                       )}
                     />
                   </button>
-
-                  {/* Caret indicator — always centered on the trigger button */}
-                  <div
-                    className={cn(
-                      "absolute -bottom-1.25 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-l border-t border-zinc-200 rotate-45 z-51 transition-opacity duration-150",
-                      isOpen ? "opacity-100" : "opacity-0",
-                    )}
-                  />
-
-                  <div
-                    onMouseEnter={() => openDropdown(menu.key)}
-                    onMouseLeave={closeDropdownSoon}
-                    className={cn(
-                      "absolute top-full mt-2 bg-white border border-zinc-100 rounded-2xl shadow-[0_8px_50px_rgba(0,0,0,0.10)] z-50 overflow-hidden transition-all duration-200",
-                      menu.image ? "w-140" : "w-64",
-                      menu.align === "right" ? "right-0" : "left-0",
-                      isOpen
-                        ? "opacity-100 visible translate-y-0"
-                        : "opacity-0 invisible -translate-y-2",
-                    )}
-                  >
-                    <div className="flex">
-                      {/* Square image */}
-                      {menu.image && (
-                        <>
-                          <div className="shrink-0 w-48 m-4 rounded-xl overflow-hidden self-stretch relative">
-                            <Image
-                              src={menu.image.src}
-                              alt={menu.image.alt}
-                              fill
-                              sizes="192px"
-                              className="object-cover"
-                            />
-                          </div>
-                          <div className="w-px bg-zinc-100 my-4 shrink-0" />
-                        </>
-                      )}
-
-                      {/* Links */}
-                      <div className="flex-1 px-6 py-6">
-                        {menu.sectionLabel && (
-                          <p className="text-[10px] font-semibold tracking-[0.14em] text-zinc-400 uppercase mb-5">
-                            {menu.sectionLabel}
-                          </p>
-                        )}
-                        <div
-                          className={cn(
-                            "grid gap-0.5",
-                            menu.items.length > 4
-                              ? "grid-cols-2"
-                              : "grid-cols-1",
-                          )}
-                        >
-                          {menu.items.map((item) => (
-                            <Link
-                              key={item.href}
-                              href={item.href}
-                              className={cn(
-                                "block rounded-xl px-3 py-3 transition-colors group",
-                                isActivePath(pathname, item.href)
-                                  ? "text-zinc-900 bg-zinc-50"
-                                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50",
-                              )}
-                            >
-                              <span className="text-sm font-medium block">
-                                {item.name}
-                              </span>
-                              {item.description && (
-                                <span className="text-xs text-zinc-400 mt-0.5 leading-snug block">
-                                  {item.description}
-                                </span>
-                              )}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               );
             })}
@@ -432,7 +361,10 @@ export default function Header() {
             >
               Login
             </button>
-            <Button className="px-3" onClick={() => router.push("/free-consultation")}>
+            <Button
+              className="px-3"
+              onClick={() => router.push("/free-consultation")}
+            >
               Book your free session
             </Button>
           </div>
@@ -543,6 +475,81 @@ export default function Header() {
           </div>
         </nav>
       </div>
+
+      {/* Full-width mega menus */}
+      {dropdownMenus.map((menu) => {
+        const isOpen = dropdownOpen === menu.key;
+        return (
+          <div
+            key={menu.key}
+            onMouseEnter={() => openDropdown(menu.key)}
+            onMouseLeave={closeDropdownSoon}
+            className={cn(
+              "absolute left-0 right-0 top-full bg-white border-t border-zinc-100 z-50",
+              "shadow-[0_24px_60px_rgba(0,0,0,0.07)] transition-all duration-200 ease-in-out",
+              isOpen
+                ? "opacity-100 visible translate-y-0"
+                : "opacity-0 invisible -translate-y-2 pointer-events-none",
+            )}
+          >
+            <div className="mx-auto max-w-4xl px-10 py-10 flex items-start gap-16">
+              {/* Links */}
+              <div className="flex-1">
+                {menu.sectionLabel && (
+                  <p className="text-[10px] font-semibold tracking-[0.16em] text-zinc-400 uppercase mb-8">
+                    {menu.sectionLabel}
+                  </p>
+                )}
+                <div
+                  className={cn(
+                    "grid gap-y-0",
+                    menu.columns === 2 || menu.items.length > 5
+                      ? "grid-cols-2 gap-x-12"
+                      : "grid-cols-1",
+                  )}
+                >
+                  {menu.items.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        "block py-4 border-b border-zinc-100 last:border-0 transition-colors group",
+                        isActivePath(pathname, item.href)
+                          ? "text-zinc-900"
+                          : "text-zinc-700 hover:text-zinc-900",
+                      )}
+                    >
+                      <span className="text-[15px] font-medium block">
+                        {item.name}
+                      </span>
+                      {item.description && (
+                        <span className="text-xs text-zinc-500 mt-0.5 leading-relaxed block">
+                          {item.description}
+                        </span>
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Square image */}
+              {menu.image && (
+                <div className="w-56 shrink-0">
+                  <div className="aspect-square relative rounded-2xl overflow-hidden">
+                    <Image
+                      src={menu.image.src}
+                      alt={menu.image.alt}
+                      fill
+                      sizes="288px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </header>
   );
 }
