@@ -170,7 +170,7 @@ export function InsightsSection() {
   const isPodcastTab = activeTab === "podcasts";
 
   return (
-    <section className="bg-white">
+    <section className="">
       <div className="mx-auto max-w-360 px-6 py-20 md:py-24">
         {/* Header */}
         <Reveal className="mb-12 flex flex-col items-center gap-4 text-center md:mb-16">

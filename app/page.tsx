@@ -6,6 +6,7 @@ import { FeaturesSection } from "@/components/home//features-section";
 import { DecisionsSection } from "@/components/home//decisions-section";
 import { InsightsSection } from "@/components/home//insights-section";
 import { CTASection } from "@/components/home//cta-section";
+import { FaqSection } from "@/components/home/faq-section";
 import { AdvisorsSection } from "@/components/home/advisors-section";
 import WealthScan from "@/components/home/wealthScan";
 
@@ -20,6 +21,7 @@ export default function Home() {
       <SessionSection />
       <DecisionsSection />
       <AdvisorsSection />
+      <FaqSection />
       <CTASection />
       <InsightsSection />
     </main>

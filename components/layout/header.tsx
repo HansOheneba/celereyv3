@@ -8,12 +8,7 @@ import { Menu, ChevronDown, X } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-type DropdownKey = "insights" | "tools" | "about" | "life";
-
-type NavLink = {
-  name: string;
-  href: string;
-};
+type DropdownKey = "insights" | "start" | "about" | "life";
 
 type DropdownItem = {
   name: string;
@@ -42,41 +37,32 @@ function isActivePath(pathname: string, href: string): boolean {
   return pathname === pathOnly || pathname.startsWith(`${pathOnly}/`);
 }
 
-const flatLinks: NavLink[] = [
-  { name: "Start here", href: "/wealthscan" },
-  { name: "Advisors", href: "/advisors" },
-  { name: "Subscribe", href: "/pricing" },
-];
-
 const dropdownMenus: DropdownMenu[] = [
   {
-    key: "tools",
-    label: "Wealth Planning Tools",
-    sectionLabel: "Planning",
-    image: {
-      src: "https://images.unsplash.com/photo-1580411363668-4b59002b6962?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      alt: "Wealth planning dashboard",
-    },
+    key: "start",
+    label: "Start here",
+    sectionLabel: "Get started",
+    image: { src: "/homepage/wealthscan.png", alt: "Get started with Celerey" },
     items: [
       {
-        name: "All Tools",
+        name: "Financial Health Assessment",
+        href: "/wealthscan",
+        description: "See where you stand in under 5 minutes",
+      },
+      {
+        name: "Wealth Planning Tools",
         href: "/tools",
-        description: "See all available tools in one place",
+        description: "Budget planner, savings calculator, money manager",
       },
       {
-        name: "Budget Planner",
-        href: "/tools/budget-planner",
-        description: "Track spending and set category limits",
+        name: "Subscribe",
+        href: "/pricing",
+        description: "Ongoing guidance and tools access",
       },
       {
-        name: "Savings Calculator",
-        href: "/tools/savings-calculator",
-        description: "Project how your savings grow over time",
-      },
-      {
-        name: "Money Manager",
-        href: "/tools/money-manager",
-        description: "Holistic view of income, outgoings, and net worth",
+        name: "Book a Session",
+        href: "/book-session",
+        description: "One-to-one time with an advisor",
       },
     ],
   },
@@ -151,6 +137,11 @@ const dropdownMenus: DropdownMenu[] = [
         name: "Who we are",
         href: "/about",
         description: "Principles, standards, and how we work",
+      },
+      {
+        name: "Our advisors",
+        href: "/advisors",
+        description: "Meet the team behind your guidance",
       },
       {
         name: "FAQs",
@@ -325,22 +316,6 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {/* Flat links */}
-            {flatLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-sm transition-colors",
-                  isActivePath(pathname, link.href)
-                    ? "text-zinc-900 font-medium"
-                    : "text-zinc-500 hover:text-zinc-800",
-                )}
-              >
-                {link.name}
-              </Link>
-            ))}
-
             {/* Dropdown menus */}
             {dropdownMenus.map((menu) => {
               const isOpen = dropdownOpen === menu.key;
@@ -373,54 +348,70 @@ export default function Header() {
                     onMouseEnter={() => openDropdown(menu.key)}
                     onMouseLeave={closeDropdownSoon}
                     className={cn(
-                      "absolute top-full mt-1 bg-white border border-zinc-200 p-5 rounded-xl shadow-xl z-50 transition-all duration-200 flex overflow-hidden",
-                      menu.image ? "w-135" : "w-72",
+                      "absolute top-full mt-2 bg-white border border-zinc-100 rounded-2xl shadow-[0_8px_50px_rgba(0,0,0,0.10)] z-50 overflow-hidden transition-all duration-200",
+                      menu.image ? "w-140" : "w-64",
                       menu.align === "right" ? "right-0" : "left-0",
                       isOpen
                         ? "opacity-100 visible translate-y-0"
                         : "opacity-0 invisible -translate-y-2",
                     )}
                   >
-                    {/* Links column */}
-                    <div className="flex-1 p-4">
-                      {menu.sectionLabel && (
-                        <p className="px-2 pb-2 text-zinc-400">
-                          {menu.sectionLabel}
-                        </p>
+                    <div className="flex">
+                      {/* Square image */}
+                      {menu.image && (
+                        <>
+                          <div className="shrink-0 w-48 m-4 rounded-xl overflow-hidden self-stretch relative">
+                            <Image
+                              src={menu.image.src}
+                              alt={menu.image.alt}
+                              fill
+                              sizes="192px"
+                              className="object-cover"
+                            />
+                          </div>
+                          <div className="w-px bg-zinc-100 my-4 shrink-0" />
+                        </>
                       )}
-                      {menu.items.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
+
+                      {/* Links */}
+                      <div className="flex-1 px-6 py-6">
+                        {menu.sectionLabel && (
+                          <p className="text-[10px] font-semibold tracking-[0.14em] text-zinc-400 uppercase mb-5">
+                            {menu.sectionLabel}
+                          </p>
+                        )}
+                        <div
                           className={cn(
-                            "block px-3 py-2 text-sm rounded-lg transition-colors",
-                            isActivePath(pathname, item.href)
-                              ? "text-zinc-900 bg-zinc-50 font-medium"
-                              : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900",
+                            "grid gap-0.5",
+                            menu.items.length > 4
+                              ? "grid-cols-2"
+                              : "grid-cols-1",
                           )}
                         >
-                          {item.name}
-                          {item.description && (
-                            <span className="block text-xs text-zinc-400 mt-0.5">
-                              {item.description}
-                            </span>
-                          )}
-                        </Link>
-                      ))}
-                    </div>
-
-                    {/* Image column */}
-                    {menu.image && (
-                      <div className="w-48 shrink-0 relative">
-                        <Image
-                          src={menu.image.src}
-                          alt={menu.image.alt}
-                          fill
-                          sizes="192px"
-                          className="object-cover rounded-3xl"
-                        />
+                          {menu.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              href={item.href}
+                              className={cn(
+                                "block rounded-xl px-3 py-3 transition-colors group",
+                                isActivePath(pathname, item.href)
+                                  ? "text-zinc-900 bg-zinc-50"
+                                  : "text-zinc-500 hover:text-zinc-900 hover:bg-zinc-50",
+                              )}
+                            >
+                              <span className="text-sm font-medium block">
+                                {item.name}
+                              </span>
+                              {item.description && (
+                                <span className="text-xs text-zinc-400 mt-0.5 leading-snug block">
+                                  {item.description}
+                                </span>
+                              )}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               );
@@ -441,7 +432,7 @@ export default function Header() {
             >
               Login
             </button>
-            <Button onClick={() => router.push("/free-consultation")}>
+            <Button className="px-3" onClick={() => router.push("/free-consultation")}>
               Book your free session
             </Button>
           </div>
@@ -512,18 +503,6 @@ export default function Header() {
 
               {/* Mobile Menu Navigation */}
               <div className="flex-1 px-4 py-6 space-y-1">
-                {/* Flat links */}
-                {flatLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMobileMenu}
-                    className="flex items-center px-4 py-2.5 rounded-lg text-sm text-zinc-800 hover:bg-zinc-50 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-
                 {/* Dropdown sections */}
                 {dropdownMenus.map((menu) => (
                   <MobileDropdownSection

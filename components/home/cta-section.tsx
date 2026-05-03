@@ -138,10 +138,12 @@ export function CTASection() {
 
         {/* NEWSLETTER (soft glass, no harsh white block) */}
         <div className="mx-auto max-w-xl">
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-8 shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
-            <h3 className="mb-2">Get smarter about your money today</h3>
+          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-[0_10px_40px_rgba(0,0,0,0.12)]">
+            <h3 className="mb-2 text-black">
+              Get smarter about your money today
+            </h3>
 
-            <p className="text-background/70 mb-6">
+            <p className="text-black mb-6">
               Practical insights to help guide you in your financaial journey.
             </p>
 
@@ -159,7 +161,7 @@ export function CTASection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="h-10 bg-white text-zinc-900 placeholder:text-zinc-400 border border-white/20 shadow-sm focus-visible:ring-2 focus-visible:ring-white/40 focus-visible:ring-offset-0"
+                  className="h-10 bg-white text-zinc-900 placeholder:text-zinc-400 border border-zinc-200 shadow-sm focus-visible:ring-2 focus-visible:ring-primary/40 focus-visible:ring-offset-0"
                 />
 
                 <Button
@@ -172,16 +174,14 @@ export function CTASection() {
             )}
 
             {step === "done" && (
-              <p className="text-background/70">
+              <p className="text-zinc-500">
                 {name.trim()
-                  ? `Welcome, ${name.trim()}. You’re on the list.`
-                  : "You’re on the list. Welcome aboard."}
+                  ? `Welcome, ${name.trim()}. You're on the list.`
+                  : "You're on the list. Welcome aboard."}
               </p>
             )}
 
-            <p className="mt-4 text-background/50">
-              No spam. Unsubscribe anytime.
-            </p>
+            <p className="mt-4 text-zinc-400">No spam. Unsubscribe anytime.</p>
           </div>
         </div>
       </Reveal>

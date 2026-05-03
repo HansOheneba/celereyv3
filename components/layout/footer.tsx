@@ -3,12 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Instagram, Linkedin } from "lucide-react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "@/components/ui/accordion";
 import { Button } from "../ui/button";
 
 type FooterLink = { href: string; label: string };
@@ -16,11 +10,6 @@ type FooterLink = { href: string; label: string };
 type FooterSection = {
   title: string;
   links: FooterLink[];
-};
-
-type FaqItem = {
-  q: string;
-  a: string;
 };
 
 export default function Footer() {
@@ -62,42 +51,20 @@ export default function Footer() {
     },
   ];
 
-  const faqs: FaqItem[] = [
-    {
-      q: "What is Celerey?",
-      a: "Celerey is building a simpler way to access structured financial guidance, combining practical tools with support designed to improve decision-making.",
-    },
-    {
-      q: "Is Celerey advice personalised?",
-      a: "Celerey can provide guidance and structured frameworks. When personalised support is requested, we route you to the right workflow and advisor-led options.",
-    },
-    {
-      q: "How do bookings work?",
-      a: "You request a session, we confirm availability, and you receive the next steps by email. Session formats depend on the type of support you select.",
-    },
-    {
-      q: "Where is Celerey available?",
-      a: "Celerey is expanding. Availability can vary by service and jurisdiction. If something is not available yet, we will still offer tools and updates.",
-    },
-  ];
-
   return (
     <footer className="w-full bg-transparent pt-5">
       <div className="mx-auto w-full px-4">
-        <div className="relative overflow-hidden rounded-2xl bg-primary text-white shadow-[0_30px_110px_rgba(0,0,0,0.22)]">
+        <div className="relative overflow-hidden rounded-2xl max-w-360 mx-auto bg-primary text-white shadow-[0_30px_110px_rgba(0,0,0,0.22)]">
           {/* Subtle wash */}
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.10),transparent_58%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_30%,rgba(99,102,241,0.18),transparent_55%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_55%_90%,rgba(168,85,247,0.14),transparent_55%)]" />
 
           {/* INNER: reduce empty space by making content occupy the width */}
-          <div className="relative mx-auto w-full max-w-360 px-6 py-14 sm:py-16">
-            {/* Top row: CTA + quick actions (more like the reference layout) */}
-
-            {/* Middle: Brand + Links + FAQ (fills space better) */}
-            <div className="mt-12 grid gap-12 lg:grid-cols-[1.05fr_1fr_1.05fr] lg:items-start">
+          <div className="relative mx-auto w-full max-w-360 px-10 py-20 sm:py-24">
+            <div className="grid gap-16 lg:grid-cols-[1fr_2.2fr] lg:items-start">
               {/* Brand */}
-              <div className="max-w-sm">
+              <div className="max-w-xs">
                 <Link href="/" className="inline-flex items-center gap-3">
                   <Image
                     src="/logos/logoWhite.png"
@@ -131,13 +98,15 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Links */}
-              <div className="grid gap-10 sm:grid-cols-2">
+              {/* Links — 4 columns on desktop */}
+              <div className="grid grid-cols-2 gap-10 sm:grid-cols-4">
                 {sections.map((sec) => (
                   <div key={sec.title}>
-                    <p className="text-white/70">{sec.title.toUpperCase()}</p>
+                    <p className="text-xs font-semibold tracking-widest text-white/50 uppercase">
+                      {sec.title}
+                    </p>
 
-                    <ul className="mt-4 space-y-2 text-sm text-white/70">
+                    <ul className="mt-5 space-y-3 text-sm text-white/70">
                       {sec.links.map((l) => (
                         <li key={l.href}>
                           <Link
@@ -153,16 +122,17 @@ export default function Footer() {
                 ))}
 
                 <div>
-                  <p className="text-white/70">CONTACT</p>
+                  <p className="text-xs font-semibold tracking-widest text-white/50 uppercase">
+                    Contact
+                  </p>
 
-                  <div className="mt-4 space-y-2 text-sm text-white/75">
-                    <p className="text-white/85">Celerey</p>
+                  <div className="mt-5 space-y-3 text-sm text-white/70">
                     <p>
                       <Link
                         href="/contact"
                         className="underline underline-offset-4 text-white/60 hover:text-white"
                       >
-                        Contact page
+                        Contact Celerey
                       </Link>
                     </p>
                     <p>
@@ -175,7 +145,7 @@ export default function Footer() {
                     </p>
                   </div>
 
-                  <div className="mt-5 flex flex-wrap items-center gap-3">
+                  <div className="mt-6 flex flex-wrap items-center gap-3">
                     <Link
                       href="https://www.linkedin.com/company/celerey"
                       target="_blank"
@@ -210,42 +180,6 @@ export default function Footer() {
                   </div>
                 </div>
               </div>
-
-              {/* FAQ accordions (desktop) */}
-              <div className="hidden lg:block">
-                <p className="text-white/70">QUICK FAQs</p>
-
-                <Accordion type="single" collapsible className="mt-4">
-                  {faqs.map((f, idx) => (
-                    <AccordionItem key={f.q} value={`faq-${idx}`}>
-                      <AccordionTrigger className="text-left text-white/90 hover:text-white">
-                        {f.q}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-sm leading-7 text-white/70">
-                        {f.a}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            </div>
-
-            {/* Mobile FAQ (keeps footer rich without feeling empty) */}
-            <div className="mt-12 lg:hidden">
-              <p className="text-white/70">QUICK FAQs</p>
-
-              <Accordion type="single" collapsible className="mt-4">
-                {faqs.map((f, idx) => (
-                  <AccordionItem key={f.q} value={`faq-m-${idx}`}>
-                    <AccordionTrigger className="text-left text-white/90 hover:text-white">
-                      {f.q}
-                    </AccordionTrigger>
-                    <AccordionContent className="text-sm leading-7 text-white/70">
-                      {f.a}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
             </div>
 
             {/* Bottom bar */}
