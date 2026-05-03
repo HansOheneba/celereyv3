@@ -437,8 +437,6 @@ export default function BudgetPlanner() {
     <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 min-h-screen text-gray-800">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
-        <h1 className="text-gray-800">Budget Planner</h1>
-
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
           {/* Storage Toggle */}
           <div className="flex items-center gap-2">
