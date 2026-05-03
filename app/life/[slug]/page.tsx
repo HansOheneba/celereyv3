@@ -46,9 +46,9 @@ export default async function LifeSituationPage({ params }: PageProps) {
     .slice(0, 3);
 
   return (
-    <main className="max-w-360 mx-auto px-6 min-h-screen">
+    <main className="min-h-screen">
       {/* Back */}
-      <section className="  pt-28">
+      <section className="max-w-360 mx-auto px-6 pt-28">
         <Link
           href="/life"
           className="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-700 transition-colors"
@@ -59,7 +59,7 @@ export default async function LifeSituationPage({ params }: PageProps) {
       </section>
 
       {/* HERO - FULL BLEED */}
-      <section className="mt-10 grid lg:grid-cols-2 items-stretch">
+      <section className="max-w-360 pb-16 mx-auto px-6 mt-10 grid lg:grid-cols-2 items-stretch">
         {/* Image */}
         <div className="relative h-[420px] sm:h-[520px] lg:h-[720px] w-full rounded-lg overflow-hidden ">
           <Image
@@ -76,17 +76,13 @@ export default async function LifeSituationPage({ params }: PageProps) {
         {/* Content */}
         <div className="flex items-center px-6 md:px-12 lg:px-20 py-16">
           <div className="max-w-xl">
-            <p className="text-[#b07d3d]">
-              Life Situation
-            </p>
+            <p className="text-[#b07d3d]">Life Situation</p>
 
             <h1 className="mt-6 text-neutral-900">{situation.title}</h1>
 
             <p className="mt-4 text-neutral-500">{situation.tagline}</p>
 
-            <p className="mt-6 text-neutral-600">
-              {situation.description}
-            </p>
+            <p className="mt-6 text-neutral-600">{situation.description}</p>
 
             {/* Highlights */}
             <ul className="mt-8 space-y-4">
@@ -112,51 +108,49 @@ export default async function LifeSituationPage({ params }: PageProps) {
       </section>
 
       {/* FAQ - WIDE */}
-      <section className="py-24">
-        <div className="grid lg:grid-cols-[1fr_2fr] gap-16">
-          <div>
-            <p className="text-[#b07d3d]">
-              Questions
-            </p>
-            <h2 className="mt-4 text-neutral-900">
-              Frequently asked questions
-            </h2>
-            <p className="mt-4 text-neutral-500">
-              Our experts are providing clarity so you can move forward with
-              confidence.
-            </p>
+      <section className="py-10" style={{ backgroundColor: "#f2eee5" }}>
+        <div className="max-w-360 mx-auto px-6">
+          <div className="grid lg:grid-cols-[1fr_2fr] gap-16">
+            <div>
+              <p className="text-[#ef5b22]">Questions</p>
+              <h2 className="mt-4 text-neutral-900">
+                Frequently asked questions
+              </h2>
+              <p className="mt-4 text-neutral-500">
+                Our experts are providing clarity so you can move forward with
+                confidence.
+              </p>
 
-            <Link
-              href="/contact"
-              className="inline-block mt-6 text-sm font-medium text-[#b07d3d] hover:underline"
-            >
-              Ask us a question
-            </Link>
+              <Link
+                href="/contact"
+                className="inline-block mt-6 text-sm font-medium text-[#ef5b22] hover:underline"
+              >
+                Ask us a question
+              </Link>
+            </div>
+
+            <Accordion type="single" collapsible className="w-full">
+              {situation.faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`}>
+                  <AccordionTrigger className="text-left font-medium py-6">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[16px] text-neutral-700 pb-6">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
-
-          <Accordion type="single" collapsible className="w-full">
-            {situation.faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`}>
-                <AccordionTrigger className="text-left font-medium py-6">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-[16px] text-neutral-700 pb-6">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
         </div>
       </section>
 
       {/* RELATED INSIGHTS */}
       {relatedInsights.length > 0 && (
-        <section className="px-6 pb-24">
+        <section className="max-w-360 mx-auto px-6 pb-24 pt-16">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <p className="text-[#b07d3d]">
-                Related Reading
-              </p>
+              <p className="text-[#b07d3d]">Related Reading</p>
               <h2 className="mt-3 text-neutral-900">
                 Insights on {situation.title}
               </h2>

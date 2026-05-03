@@ -329,7 +329,7 @@ export default function BudgetPlanner() {
     useLocalStorage<Category[]>("budget-planner-data", CATEGORIES);
 
   const [expandedCategory, setExpandedCategory] = useState<string | null>(
-    "income"
+    "income",
   );
   const [frequency, setFrequency] = useState<
     "Weekly" | "Quarterly" | "Monthly" | "Annually"
@@ -339,7 +339,7 @@ export default function BudgetPlanner() {
     categoryId: string,
     itemId: string,
     amount: number,
-    itemFrequency: "Weekly" | "Quarterly" | "Monthly" | "Annually"
+    itemFrequency: "Weekly" | "Quarterly" | "Monthly" | "Annually",
   ) => {
     setCategories(
       categories.map((cat) =>
@@ -349,18 +349,18 @@ export default function BudgetPlanner() {
               items: cat.items.map((item) =>
                 item.id === itemId
                   ? { ...item, amount, frequency: itemFrequency }
-                  : item
+                  : item,
               ),
             }
-          : cat
-      )
+          : cat,
+      ),
     );
   };
 
   const convertToFrequency = (
     amount: number,
     fromFreq: "Weekly" | "Quarterly" | "Monthly" | "Annually",
-    toFreq: "Weekly" | "Quarterly" | "Monthly" | "Annually"
+    toFreq: "Weekly" | "Quarterly" | "Monthly" | "Annually",
   ): number => {
     let annualAmount = amount;
 
@@ -398,7 +398,7 @@ export default function BudgetPlanner() {
       const converted = convertToFrequency(
         item.amount,
         item.frequency,
-        frequency
+        frequency,
       );
       return sum + converted;
     }, 0);
@@ -419,14 +419,14 @@ export default function BudgetPlanner() {
 
   const handleFrequencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFrequency(
-      e.target.value as "Weekly" | "Quarterly" | "Monthly" | "Annually"
+      e.target.value as "Weekly" | "Quarterly" | "Monthly" | "Annually",
     );
   };
 
   const handleClearData = () => {
     if (
       confirm(
-        "Are you sure you want to clear all budget data? This cannot be undone."
+        "Are you sure you want to clear all budget data? This cannot be undone.",
       )
     ) {
       setCategories(CATEGORIES);
@@ -437,9 +437,7 @@ export default function BudgetPlanner() {
     <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 min-h-screen text-gray-800">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
-        <h1 className="text-gray-800">
-          Budget Planner
-        </h1>
+        <h1 className="text-gray-800">Budget Planner</h1>
 
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
           {/* Storage Toggle */}
@@ -514,7 +512,7 @@ export default function BudgetPlanner() {
             isExpanded={expandedCategory === category.id}
             onToggle={() =>
               setExpandedCategory(
-                expandedCategory === category.id ? null : category.id
+                expandedCategory === category.id ? null : category.id,
               )
             }
             onUpdateItem={updateItem}

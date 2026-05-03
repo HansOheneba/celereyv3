@@ -122,9 +122,7 @@ export default function SavingsCalculator() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Left Column - Inputs */}
         <div className="space-y-6">
-          <h1 className="text-primary">
-            Savings goals calculator
-          </h1>
+          <h1 className="text-primary">Savings goals calculator</h1>
 
           {/* Save Type */}
           <div className="space-y-2">

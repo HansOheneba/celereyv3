@@ -93,11 +93,11 @@ export default function MoneyManager() {
   const [categories, setCategories, isStorageEnabled, toggleStorage] =
     useLocalStorage<MoneyCategoryType[]>(
       "money-manager-data",
-      DEFAULT_CATEGORIES
+      DEFAULT_CATEGORIES,
     );
 
   const [expandedCategory, setExpandedCategory] = useState<string | null>(
-    "money-in"
+    "money-in",
   );
   const [frequency, setFrequency] = useState<
     "Weekly" | "Fortnightly" | "Monthly" | "Annually"
@@ -107,7 +107,7 @@ export default function MoneyManager() {
     categoryId: string,
     itemId: string,
     amount: number,
-    itemFrequency: "Weekly" | "Fortnightly" | "Monthly" | "Annually"
+    itemFrequency: "Weekly" | "Fortnightly" | "Monthly" | "Annually",
   ) => {
     setCategories(
       categories.map((cat) =>
@@ -117,18 +117,18 @@ export default function MoneyManager() {
               items: cat.items.map((item) =>
                 item.id === itemId
                   ? { ...item, amount, frequency: itemFrequency }
-                  : item
+                  : item,
               ),
             }
-          : cat
-      )
+          : cat,
+      ),
     );
   };
 
   const convertToFrequency = (
     amount: number,
     fromFreq: "Weekly" | "Fortnightly" | "Monthly" | "Annually",
-    toFreq: "Weekly" | "Fortnightly" | "Monthly" | "Annually"
+    toFreq: "Weekly" | "Fortnightly" | "Monthly" | "Annually",
   ): number => {
     let annualAmount = amount;
     switch (fromFreq) {
@@ -164,7 +164,7 @@ export default function MoneyManager() {
       const converted = convertToFrequency(
         item.amount,
         item.frequency,
-        frequency
+        frequency,
       );
       return sum + converted;
     }, 0);
@@ -185,7 +185,7 @@ export default function MoneyManager() {
 
   const handleFrequencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFrequency(
-      e.target.value as "Weekly" | "Fortnightly" | "Monthly" | "Annually"
+      e.target.value as "Weekly" | "Fortnightly" | "Monthly" | "Annually",
     );
   };
 
@@ -211,8 +211,8 @@ export default function MoneyManager() {
                 },
               ],
             }
-          : cat
-      )
+          : cat,
+      ),
     );
   };
 
@@ -221,8 +221,8 @@ export default function MoneyManager() {
       categories.map((cat) =>
         cat.id === categoryId
           ? { ...cat, items: cat.items.filter((item) => item.id !== itemId) }
-          : cat
-      )
+          : cat,
+      ),
     );
   };
 
@@ -231,12 +231,8 @@ export default function MoneyManager() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
         <div>
-          <h1 className="text-slate-800">
-            Money Manager
-          </h1>
-          <p className="text-slate-500 mt-2">
-            Track your cash flow in and out
-          </p>
+          <h1 className="text-slate-800">Money Manager</h1>
+          <p className="text-slate-500 mt-2">Track your cash flow in and out</p>
         </div>
 
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -312,7 +308,7 @@ export default function MoneyManager() {
             isExpanded={expandedCategory === category.id}
             onToggle={() =>
               setExpandedCategory(
-                expandedCategory === category.id ? null : category.id
+                expandedCategory === category.id ? null : category.id,
               )
             }
             onUpdateItem={updateItem}
