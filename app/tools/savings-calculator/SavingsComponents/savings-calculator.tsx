@@ -122,7 +122,7 @@ export default function SavingsCalculator() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Left Column - Inputs */}
         <div className="space-y-6">
-          <h1 className="text-3xl font-bold text-primary text-center sm:text-left">
+          <h1 className="text-primary">
             Savings goals calculator
           </h1>
 
@@ -274,11 +274,11 @@ export default function SavingsCalculator() {
           <Card className="bg-primary text-white border-none p-6">
             {saveType === "as-much-as-possible" ? (
               <>
-                <p className="text-blue-100">You can save</p>
-                <p className="">
+                <p className="text-white/70 text-sm">You can save</p>
+                <p className="text-white text-4xl font-semibold my-2">
                   ${Math.round(finalData.total).toLocaleString("en-US")}
                 </p>
-                <p className="text-blue-100">
+                <p className="text-white/70 text-sm">
                   saving $
                   {Math.round(effectiveMonthlyAmount).toLocaleString("en-US")}{" "}
                   monthly for {totalMonths} months
@@ -286,12 +286,12 @@ export default function SavingsCalculator() {
               </>
             ) : (
               <>
-                <p className="text-blue-100">You need to save</p>
-                <p className="">
+                <p className="text-white/70 text-sm">You need to save</p>
+                <p className="text-white text-4xl font-semibold my-2">
                   ${Math.round(effectiveMonthlyAmount).toLocaleString("en-US")}{" "}
                   per month
                 </p>
-                <p className="text-blue-100">
+                <p className="text-white/70 text-sm">
                   to reach ${Math.round(targetAmount).toLocaleString("en-US")}{" "}
                   in {totalMonths} months
                 </p>

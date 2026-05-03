@@ -231,7 +231,7 @@ export default function MoneyManager() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 gap-4">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-800">
+          <h1 className="text-slate-800">
             Money Manager
           </h1>
           <p className="text-slate-500 mt-2">

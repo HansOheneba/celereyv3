@@ -495,11 +495,6 @@ export default function Header() {
             <div className="mx-auto max-w-4xl px-10 py-10 flex items-start gap-16">
               {/* Links */}
               <div className="flex-1">
-                {menu.sectionLabel && (
-                  <p className="text-[10px] font-semibold tracking-[0.16em] text-zinc-400 uppercase mb-8">
-                    {menu.sectionLabel}
-                  </p>
-                )}
                 <div
                   className={cn(
                     "grid gap-y-0",
